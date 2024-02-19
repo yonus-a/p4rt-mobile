@@ -1,4 +1,5 @@
 import { View, ImageBackground, Image } from "react-native";
+import SmsRetriever from "react-native-sms-retriever";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
 import Button from "../../components/button";
@@ -8,32 +9,28 @@ import { useEffect } from "react";
 import styles from "./styles";
 import axios from "axios";
 
-export default function Signin({ navigation }: any) {
-  // check for token
+export default function VerifyOTP({ route, navigation }: any) {
+  const { control, handleSubmit, setValue } = useForm();
+  const { code } = route.params;
 
   useEffect(() => {
     (async () => {
-      const token = await SecureStore.getItemAsync("_token");
-      if (token) {
-        const { data } = await axios.post(
-          "http://10.0.2.2:3000/api/signin/vefifyToken",
-          { token }
-        );
-        
-        console.log(data);
-        if (data.success) {
-          navigation.navigate("dashboard");
-        }
-      }
+      SmsRetriever.addSmsListener((sms) => {});
     })();
   }, []);
 
-  const { control, handleSubmit } = useForm();
-
-  const onSubmit = async (data) => {
+  const onSubmit = async ({ otp }) => {
     try {
-      await axios.post("http://10.0.2.2:3000/api/signin/generateOTP", data);
-      navigation.navigate("verifyOTP", data);
+      const { data } = await axios.post(
+        "http://10.0.2.2:3000/api/signin/verifyOTP",
+        {
+          code,
+          otp,
+        }
+      );
+
+      await SecureStore.setItemAsync("_token", data.token);
+      navigation.navigate("dashboard");
     } catch (e) {
       await errorAlert();
     }
@@ -56,9 +53,9 @@ export default function Signin({ navigation }: any) {
           />
           <Input
             style={styles.input}
-            placeholder="کد ملی"
+            placeholder="کد ورود"
             control={control}
-            name="code"
+            name="otp"
           />
           <Button title="ورود" onPress={handleSubmit(onSubmit)} />
         </View>

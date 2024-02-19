@@ -3,22 +3,30 @@ import { TextInput } from "react-native";
 import styles from "./styles";
 
 interface Props {
+  placeholder?: string;
   name: string;
   control: any;
+  style?: any;
 }
 
-export default function Input({ name, control }: Props) {
+export default function Input({
+  placeholder = "",
+  style = {},
+  control,
+  name,
+}: Props) {
   const { field } = useController({
-    control,
     defaultValue: "",
+    control,
     name,
   });
 
   return (
     <TextInput
-      style={styles.input}
-      value={field.value}
       onChangeText={field.onChange}
+      placeholder={placeholder}
+      style={[styles.input, style]}
+      value={field.value}
     />
   );
 }
