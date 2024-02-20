@@ -1,5 +1,5 @@
+import { CLR_PRIMARY, CLR_WHITE } from "../../../styles";
 import { StyleSheet } from "react-native";
-import { CLR_PRIMARY, CLR_WHITE } from "../../styles";
 
 export default StyleSheet.create({
   btn: {

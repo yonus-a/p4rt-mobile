@@ -1,11 +1,10 @@
 import { View, ImageBackground, Image } from "react-native";
-import SmsRetriever from "react-native-sms-retriever";
+import Button from "../../components/utils/button";
+import Alert from "../../components/overal/alert";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
-import Button from "../../components/button";
-import Input from "../../components/input";
+import Input from "../../components/utils/input";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
 import styles from "./styles";
 import axios from "axios";
 
@@ -13,21 +12,12 @@ export default function VerifyOTP({ route, navigation }: any) {
   const { control, handleSubmit, setValue } = useForm();
   const { code } = route.params;
 
-  useEffect(() => {
-    (async () => {
-      SmsRetriever.addSmsListener((sms) => {});
-    })();
-  }, []);
-
   const onSubmit = async ({ otp }) => {
     try {
-      const { data } = await axios.post(
-        "http://10.0.2.2:3000/api/signin/verifyOTP",
-        {
-          code,
-          otp,
-        }
-      );
+      const { data } = await axios.post("/signin/verifyOTP", {
+        code,
+        otp,
+      });
 
       await SecureStore.setItemAsync("_token", data.token);
       navigation.navigate("dashboard");
@@ -60,6 +50,7 @@ export default function VerifyOTP({ route, navigation }: any) {
           <Button title="ورود" onPress={handleSubmit(onSubmit)} />
         </View>
       </ImageBackground>
+      <Alert />
     </View>
   );
 }

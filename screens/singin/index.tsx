@@ -1,8 +1,9 @@
 import { View, ImageBackground, Image } from "react-native";
+import Button from "../../components/utils/button";
+import Alert from "../../components/overal/alert";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
-import Button from "../../components/button";
-import Input from "../../components/input";
+import Input from "../../components/utils/input";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import styles from "./styles";
@@ -15,11 +16,8 @@ export default function Signin({ navigation }: any) {
     (async () => {
       const token = await SecureStore.getItemAsync("_token");
       if (token) {
-        const { data } = await axios.post(
-          "http://10.0.2.2:3000/api/signin/vefifyToken",
-          { token }
-        );
-        
+        const { data } = await axios.post("/signin/vefifyToken", { token });
+
         console.log(data);
         if (data.success) {
           navigation.navigate("dashboard");
@@ -32,7 +30,7 @@ export default function Signin({ navigation }: any) {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("http://10.0.2.2:3000/api/signin/generateOTP", data);
+      await axios.post("/signin/generateOTP", data);
       navigation.navigate("verifyOTP", data);
     } catch (e) {
       await errorAlert();
@@ -63,6 +61,7 @@ export default function Signin({ navigation }: any) {
           <Button title="ورود" onPress={handleSubmit(onSubmit)} />
         </View>
       </ImageBackground>
+      <Alert />
     </View>
   );
 }
