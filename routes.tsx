@@ -1,14 +1,15 @@
-import CustomDrawerContent from "./components/overal/drawer-nav";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import CustomDrawerContent from "./components/overal/menu";
+import Divination from "./screens/divination";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
 import Signin from "./screens/singin";
 
-const Stack = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function Routes() {
   return (
-    <Stack.Navigator
+    <Drawer.Navigator
       screenOptions={{
         headerShown: false,
         drawerPosition: "right",
@@ -16,21 +17,22 @@ export default function Routes() {
       drawerContent={CustomDrawerContent}
       initialRouteName="Signin"
     >
-      <Stack.Screen
+      <Drawer.Screen
         name="Signin"
         component={Signin}
         options={{ title: "ورود" }}
       />
-      <Stack.Screen
+      <Drawer.Screen
         name="verifyOTP"
         component={VerifyOTP}
         options={{ drawerItemStyle: { height: 0 } }}
       />
-      <Stack.Screen
+      <Drawer.Screen
         name="dashboard"
         component={Dashborad}
         options={{ title: "داشبورد" }}
       />
-    </Stack.Navigator>
+      <Drawer.Screen name="divination" component={Divination} />
+    </Drawer.Navigator>
   );
 }

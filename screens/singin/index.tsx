@@ -18,7 +18,6 @@ export default function Signin({ navigation }: any) {
       if (token) {
         const { data } = await axios.post("/signin/vefifyToken", { token });
 
-        console.log(data);
         if (data.success) {
           navigation.navigate("dashboard");
         }

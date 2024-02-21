@@ -1,5 +1,5 @@
 import { View, Image, Pressable } from "react-native";
-import Profile from "../profile";
+import Profile from "../../profile";
 import styles from "./styles";
 
 export default function Header({ navigation }: any) {
@@ -10,7 +10,7 @@ export default function Header({ navigation }: any) {
         style={styles.bg}
       />
       <View style={styles.container}>
-        <Profile />
+        <Profile navigation={navigation} />
         <Pressable onPress={() => navigation.openDrawer()}>
           <Image
             source={require("../../../assets/icons/menu.png")}

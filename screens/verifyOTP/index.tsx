@@ -9,7 +9,7 @@ import styles from "./styles";
 import axios from "axios";
 
 export default function VerifyOTP({ route, navigation }: any) {
-  const { control, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit } = useForm();
   const { code } = route.params;
 
   const onSubmit = async ({ otp }) => {
@@ -20,6 +20,7 @@ export default function VerifyOTP({ route, navigation }: any) {
       });
 
       await SecureStore.setItemAsync("_token", data.token);
+      await SecureStore.setItemAsync("userId", code);
       navigation.navigate("dashboard");
     } catch (e) {
       await errorAlert();

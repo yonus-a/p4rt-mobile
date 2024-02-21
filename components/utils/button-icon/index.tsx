@@ -1,4 +1,4 @@
-import { Image, Pressable } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import styles from "./style";
 
 interface Props {
@@ -19,7 +19,7 @@ export default function ButtonIcon({
   alt,
 }: Props) {
   return (
-    <Pressable onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
       <Image
         style={[styles.image, style]}
         source={source}
@@ -27,6 +27,6 @@ export default function ButtonIcon({
         width={width}
         alt={alt}
       />
-    </Pressable>
+    </TouchableOpacity>
   );
 }

@@ -10,4 +10,14 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  h1: {
+    fontSize: 24,
+    marginVertical: 10,
+    fontFamily: "IRANSans",
+  },
+  h2: {
+    fontSize: 20,
+    marginVertical: 10,
+    fontFamily: "IRANSans",
+  },
 });

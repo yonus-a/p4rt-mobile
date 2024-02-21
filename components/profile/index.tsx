@@ -1,10 +1,11 @@
 import { View, Pressable, Image, Animated } from "react-native";
-import ButtonIcon from "../../utils/button-icon";
+import ButtonIcon from "../utils/button-icon";
 import { useState, useRef } from "react";
-import Logout from "../../drawer/logout";
+import AddAbsentee from "./add-absentee";
 import styles from "./styles";
+import Logout from "./logout";
 
-export default function Profile({ naivation }: any) {
+export default function Profile({ navigation }: any) {
   const [expanded, setExpanded] = useState(false);
   const width = useRef(new Animated.Value(55)).current;
 
@@ -40,7 +41,7 @@ export default function Profile({ naivation }: any) {
     <Animated.View style={[styles.profile, { width: width }]}>
       <Pressable onPress={handleExpand}>
         <Image
-          source={require("../../../assets/icons/avatar.png")}
+          source={require("../../assets/icons/avatar.png")}
           style={styles.image}
           height={100}
           width={100}
@@ -48,28 +49,22 @@ export default function Profile({ naivation }: any) {
         />
       </Pressable>
       <View style={styles.drawer}>
-        <Logout />
+        <Logout navigation={navigation} />
         <ButtonIcon
-          source={require("../../../assets/icons/divination.png")}
+          source={require("../../assets/icons/divination.png")}
           onPress={() => {}}
           height={50}
           width={50}
           alt=""
         />
         <ButtonIcon
-          source={require("../../../assets/icons/notif.png")}
+          source={require("../../assets/icons/notif.png")}
           onPress={() => {}}
           height={50}
           width={50}
           alt=""
         />
-        <ButtonIcon
-          source={require("../../../assets/icons/done.png")}
-          onPress={() => {}}
-          height={50}
-          width={50}
-          alt=""
-        />
+        <AddAbsentee />
       </View>
     </Animated.View>
   );
