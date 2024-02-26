@@ -5,7 +5,7 @@ export default StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     width: "100%",
-    height: 60,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    elevation: 10,
   },
 });

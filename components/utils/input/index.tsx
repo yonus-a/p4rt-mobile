@@ -4,12 +4,14 @@ import styles from "./styles";
 
 interface Props {
   placeholder?: string;
+  multiline?: boolean;
   name: string;
   control: any;
   style?: any;
 }
 
 export default function Input({
+  multiline = false,
   placeholder = "",
   style = {},
   control,
@@ -27,6 +29,9 @@ export default function Input({
       placeholder={placeholder}
       style={[styles.input, style]}
       value={field.value}
+      multiline={multiline}
+      numberOfLines={4}
+      editable
     />
   );
 }
