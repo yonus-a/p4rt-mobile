@@ -1,7 +1,7 @@
-import { View, Image } from "react-native";
-import Slider from "../slider";
+import { Image, View } from "react-native";
+import PostTab from "./post-tap";
+import Slider from "./slider";
 import styles from "./styles";
-import PostTab from "../post-tap";
 
 export default function UserDashboard() {
   return (

@@ -1,4 +1,5 @@
 import { View, Image, useWindowDimensions } from "react-native";
+import loopOptions from "../../../utils/slider/loopOptions";
 import Carousel from "react-native-reanimated-carousel";
 import { useEffect, useState } from "react";
 import styles from "./styles";
@@ -22,13 +23,9 @@ export default function Slider() {
   return (
     <View>
       <Carousel
-        loop
-        width={width}
-        height={width / 2}
-        style={styles.carousel}
-        autoPlay={true}
         data={data}
-        scrollAnimationDuration={1000}
+        style={styles.carousel}
+        {...loopOptions(width)}
         renderItem={({ item }) => (
           <View>
             <Image

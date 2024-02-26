@@ -1,4 +1,5 @@
-import UserDashboard from "../../components/dashboard/user";
+import AdminDashboard from "../../components/admin-dashboard";
+import UserDashboard from "../../components/user-dashboard";
 import Header from "../../components/overal/header/indexx";
 import Container from "../../components/overal/container";
 import { View } from "react-native";
@@ -9,7 +10,8 @@ export default function Dashborad({ navigation }: any) {
     <View style={styles.dashborad}>
       <Header navigation={navigation} />
       <Container>
-        <UserDashboard />
+        {/* <UserDashboard /> */}
+        <AdminDashboard />
       </Container>
     </View>
   );
