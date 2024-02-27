@@ -3,14 +3,17 @@ import { TextInput } from "react-native";
 import styles from "./styles";
 
 interface Props {
+  numberOfLines?: number;
   placeholder?: string;
   multiline?: boolean;
+  editable?: boolean;
   name: string;
   control: any;
   style?: any;
 }
 
 export default function Input({
+  numberOfLines = 2,
   multiline = false,
   placeholder = "",
   style = {},
@@ -23,15 +26,21 @@ export default function Input({
     name,
   });
 
+  const editorStyle = multiline
+    ? {
+        paddingVertical: 20,
+        textAlignVertical: "top",
+      }
+    : {};
+
   return (
     <TextInput
+      style={[styles.input, style, editorStyle]}
       onChangeText={field.onChange}
+      numberOfLines={numberOfLines}
       placeholder={placeholder}
-      style={[styles.input, style]}
-      value={field.value}
       multiline={multiline}
-      numberOfLines={4}
-      editable
+      value={field.value}
     />
   );
 }

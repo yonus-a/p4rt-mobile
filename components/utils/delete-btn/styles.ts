@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  adminDashboard: {
-    marginTop: -130,
-    flex: 1,
+  image: {
+    width: 30,
+    height: 30,
   },
 });

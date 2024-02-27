@@ -9,7 +9,7 @@ export default function UserDashboard() {
       <Slider />
       <Image
         style={styles.najva}
-        source={require("../../../assets/images/overal/najva.png")}
+        source={require("../../assets/images/overal/najva.png")}
       />
       <PostTab />
     </View>

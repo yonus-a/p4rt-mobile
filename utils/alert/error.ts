@@ -1,5 +1,5 @@
 import { DropdownAlertType } from "react-native-dropdownalert";
-import { alert } from "../../App";
+import { alert } from "../../components/overal/alert";
 
 export default async function errorAlert() {
   await alert({

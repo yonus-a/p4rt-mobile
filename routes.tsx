@@ -1,6 +1,8 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawerContent from "./components/overal/menu";
-import AddCritics from "./screens/add-critics";
+import ShowCritics from "./screens/critics/show-critics";
+import AddCritics from "./screens/critics/add-critics";
+import Notification from "./screens/notification";
 import Divination from "./screens/divination";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
@@ -37,6 +39,16 @@ export default function Routes() {
         name="critics"
         component={AddCritics}
         options={{ title: "ارسال انتقاد" }}
+      />
+      <Drawer.Screen
+        name="showCritics"
+        component={ShowCritics}
+        options={{ title: "انتقاداد" }}
+      />
+      <Drawer.Screen
+        name="notification"
+        component={Notification}
+        options={{ title: "اعلانات" }}
       />
       <Drawer.Screen name="divination" component={Divination} />
     </Drawer.Navigator>

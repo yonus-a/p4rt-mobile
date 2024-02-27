@@ -24,12 +24,12 @@ export default function ReportTabs() {
 
   return (
     <TabView
+      style={{ height: 700, marginTop: 30 }}
       navigationState={{ index, routes }}
-      initialLayout={{ width: layout.width }}
+      initialLayout={layout}
       renderScene={renderScene}
       onIndexChange={setIndex}
       renderTabBar={Tabbar}
-      overScrollMode="never"
     />
   );
 }
