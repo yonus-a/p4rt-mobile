@@ -3,7 +3,8 @@ import { useController } from "react-hook-form";
 import styles from "./styles";
 
 interface Props {
-  defaultValue: any;
+  placeholder?: string;
+  defaultValue?: any;
   control: any;
   name: string;
   items: any;
@@ -11,6 +12,7 @@ interface Props {
 
 export default function Select({
   defaultValue = "",
+  placeholder = "",
   items = [],
   control,
   name,
@@ -26,6 +28,7 @@ export default function Select({
       selectedValue={field.value}
       onValueChange={field.onChange}
       style={styles.select}
+      placeholder={placeholder}
     >
       {items.map(({ label, value }: any) => (
         <Picker.Item key={value} label={label} value={value} />

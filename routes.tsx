@@ -4,6 +4,7 @@ import ShowCritics from "./screens/critics/show-critics";
 import AddCritics from "./screens/critics/add-critics";
 import Notification from "./screens/notification";
 import Divination from "./screens/divination";
+import AddTicket from "./screens/add-ticket";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
 import Signin from "./screens/singin";
@@ -49,6 +50,11 @@ export default function Routes() {
         name="notification"
         component={Notification}
         options={{ title: "اعلانات" }}
+      />
+      <Drawer.Screen
+        name="addTicket"
+        component={AddTicket}
+        options={{ title: "درخواست های من" }}
       />
       <Drawer.Screen name="divination" component={Divination} />
     </Drawer.Navigator>
