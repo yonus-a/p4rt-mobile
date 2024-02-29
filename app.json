@@ -31,6 +31,12 @@
         {
           "fonts": ["./assets/fonts/IRANSans.ttf"]
         }
+      ],
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
       ]
     ]
   }

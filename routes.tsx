@@ -1,13 +1,15 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawerContent from "./components/overal/menu";
+import ShowTickets from "./screens/tickets/show-tickets";
 import ShowCritics from "./screens/critics/show-critics";
 import AddCritics from "./screens/critics/add-critics";
+import AddTicket from "./screens/tickets/add-ticket";
 import Notification from "./screens/notification";
 import Divination from "./screens/divination";
-import AddTicket from "./screens/add-ticket";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
 import Signin from "./screens/singin";
+import Ticket from "./screens/tickets/ticket";
 
 const Drawer = createDrawerNavigator();
 
@@ -52,9 +54,19 @@ export default function Routes() {
         options={{ title: "اعلانات" }}
       />
       <Drawer.Screen
+        name="showTickets"
+        component={ShowTickets}
+        options={{ title: "درخواست های من" }}
+      />
+      <Drawer.Screen
         name="addTicket"
         component={AddTicket}
-        options={{ title: "درخواست های من" }}
+        options={{ title: "اضافه کردن درخواست" }}
+      />
+      <Drawer.Screen
+        name="ticket"
+        component={Ticket}
+        options={{ title: "در خاست" }}
       />
       <Drawer.Screen name="divination" component={Divination} />
     </Drawer.Navigator>
