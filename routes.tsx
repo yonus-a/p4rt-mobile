@@ -6,10 +6,11 @@ import AddCritics from "./screens/critics/add-critics";
 import AddTicket from "./screens/tickets/add-ticket";
 import Notification from "./screens/notification";
 import Divination from "./screens/divination";
+import Ticket from "./screens/tickets/ticket";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
 import Signin from "./screens/singin";
-import Ticket from "./screens/tickets/ticket";
+import Foods from "./screens/foods";
 
 const Drawer = createDrawerNavigator();
 
@@ -42,6 +43,11 @@ export default function Routes() {
         name="critics"
         component={AddCritics}
         options={{ title: "ارسال انتقاد" }}
+      />
+      <Drawer.Screen
+        name="foods"
+        component={Foods}
+        options={{ title: "سفارش غذا" }}
       />
       <Drawer.Screen
         name="showCritics"

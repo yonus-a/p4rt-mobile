@@ -2,9 +2,9 @@ import verticalTable from "../../../styles/verticalTable";
 import { View, Text, Pressable } from "react-native";
 import Pagination from "../../utils/pagination";
 import { useEffect, useState } from "react";
+import ShowStatus from "../show-status";
 import fetchData from "./fetchData";
 import styles from "./styles";
-import ShowStatus from "../show-status";
 
 export default function RenderTickets({ navigation }) {
   const [curPage, setCurPage] = useState(0);

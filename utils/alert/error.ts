@@ -1,10 +1,10 @@
 import { DropdownAlertType } from "react-native-dropdownalert";
 import { alert } from "../../components/overal/alert";
 
-export default async function errorAlert() {
+export default async function errorAlert(msg = "") {
   await alert({
     type: DropdownAlertType.Error,
-    message: "مشکلی پیش آمده لطفا مجدادا تلاش کنید",
+    message: msg || "مشکلی پیش آمده لطفا مجدادا تلاش کنید",
     title: "خطلا",
   });
 }

@@ -4,10 +4,8 @@ export default StyleSheet.create({
   header: {
     width: "100%",
     backgroundColor: "#23356D",
-    borderBottomStartRadius: 210,
-    borderBottomEndRadius: 210,
     paddingTop: 45,
-    height: 233,
+    height: 140,
   },
   container: {
     justifyContent: "space-between",
