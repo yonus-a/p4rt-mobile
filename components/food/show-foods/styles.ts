@@ -1,8 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  wrapper: {
+  carousel: {
+    width: "100%",
+  },
+  item: {
+    flex: 1,
     alignItems: "center",
-    gap: 20,
+    gap: 30,
   },
 });

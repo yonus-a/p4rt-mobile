@@ -1,6 +1,7 @@
-import { Pressable, Image, View, Text } from "react-native";
+import { Pressable, Image, View } from "react-native";
 import styles from "./styles";
 import PostCard from "../post-card";
+import CustomText from "../../utils/text";
 
 interface Props {
   posts: any;
@@ -17,7 +18,7 @@ export default function ShowPosts({ posts }: Props) {
         </View>
       ) : (
         <View style={styles.empty}>
-          <Text>محتوایی برای نمایش وجود ندارد</Text>
+          <CustomText>محتوایی برای نمایش وجود ندارد</CustomText>
         </View>
       )}
     </View>

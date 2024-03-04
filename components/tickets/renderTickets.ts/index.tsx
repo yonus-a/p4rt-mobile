@@ -1,10 +1,11 @@
 import verticalTable from "../../../styles/verticalTable";
-import { View, Text, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
 import Pagination from "../../utils/pagination";
 import { useEffect, useState } from "react";
 import ShowStatus from "../show-status";
 import fetchData from "./fetchData";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 export default function RenderTickets({ navigation }) {
   const [curPage, setCurPage] = useState(0);
@@ -33,18 +34,20 @@ export default function RenderTickets({ navigation }) {
             key={item.id}
           >
             <View style={verticalTable.wrapper}>
-              <Text style={verticalTable.header}>شماره درخواست</Text>
-              <Text style={verticalTable.cell}>{item.id}</Text>
+              <CustomText style={verticalTable.header}>
+                شماره درخواست
+              </CustomText>
+              <CustomText style={verticalTable.cell}>{item.id}</CustomText>
             </View>
             <View style={verticalTable.wrapper}>
-              <Text style={verticalTable.header}>عنوان</Text>
-              <Text style={verticalTable.cell}>{item.title}</Text>
+              <CustomText style={verticalTable.header}>عنوان</CustomText>
+              <CustomText style={verticalTable.cell}>{item.title}</CustomText>
             </View>
             <View style={verticalTable.wrapper}>
-              <Text style={verticalTable.header}>وضعیت</Text>
-              <Text style={verticalTable.cell}>
+              <CustomText style={verticalTable.header}>وضعیت</CustomText>
+              <CustomText style={verticalTable.cell}>
                 <ShowStatus status={item.status} />
-              </Text>
+              </CustomText>
             </View>
           </Pressable>
         ))}

@@ -8,7 +8,12 @@ export default function FoodImage({ source }) {
   return (
     <View style={styles.imageFood}>
       <Image source={source} width={200} height={200} style={styles.image} />
-      <LikeBtn active={true} count={15} onPress={handleLike} style={styles.likeBtn} />
+      <LikeBtn
+        active={true}
+        count={15}
+        onPress={handleLike}
+        style={styles.likeBtn}
+      />
     </View>
   );
 }

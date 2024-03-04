@@ -1,5 +1,6 @@
-import { Image, View, Text } from "react-native";
+import { Image, View } from "react-native";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 interface Props {
   amountColor: string;
@@ -26,11 +27,11 @@ export default function ReportCard({
           height={36}
           alt=""
         />
-        <Text style={[styles.amount, { backgroundColor: amountColor }]}>
+        <CustomText style={[styles.amount, { backgroundColor: amountColor }]}>
           {amount}
-        </Text>
+        </CustomText>
       </View>
-      <Text style={styles.desc}>{desc}</Text>
+      <CustomText style={styles.desc}>{desc}</CustomText>
     </View>
   );
 }

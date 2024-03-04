@@ -1,6 +1,7 @@
-import { View, Image, Pressable, Text } from "react-native";
+import { View, Image, Pressable } from "react-native";
 import Profile from "../../profile";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 export default function BreadcrumbHeader({ navigation }) {
   return (
@@ -12,7 +13,7 @@ export default function BreadcrumbHeader({ navigation }) {
       <View style={styles.container}>
         <Profile navigation={navigation} />
         <View style={styles.flexWrapper}>
-          <Text style={styles.text}>نیروی انسانی</Text>
+          <CustomText style={styles.text}>نیروی انسانی</CustomText>
           <Pressable onPress={() => navigation.openDrawer()}>
             <Image
               source={require("../../../assets/icons/menu.png")}

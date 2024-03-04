@@ -9,8 +9,10 @@ import Divination from "./screens/divination";
 import Ticket from "./screens/tickets/ticket";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
+import drawerStyle from "./styles/drawer";
 import Signin from "./screens/singin";
 import Foods from "./screens/foods";
+import { Image } from "react-native";
 
 const Drawer = createDrawerNavigator();
 
@@ -20,6 +22,9 @@ export default function Routes() {
       screenOptions={{
         headerShown: false,
         drawerPosition: "right",
+        headerTitleStyle: { fontFamily: "IRANSans" },
+        drawerLabelStyle: { fontFamily: "IRANSans" },
+        drawerItemStyle: { paddingRight: 25 },
       }}
       drawerContent={CustomDrawerContent}
       initialRouteName="Signin"
@@ -27,7 +32,7 @@ export default function Routes() {
       <Drawer.Screen
         name="Signin"
         component={Signin}
-        options={{ title: "ورود" }}
+        options={{ drawerItemStyle: { height: 0 } }}
       />
       <Drawer.Screen
         name="verifyOTP"
@@ -37,44 +42,102 @@ export default function Routes() {
       <Drawer.Screen
         name="dashboard"
         component={Dashborad}
-        options={{ title: "داشبورد" }}
+        options={{
+          title: "داشبورد",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/home.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         name="critics"
         component={AddCritics}
-        options={{ title: "ارسال انتقاد" }}
+        options={{
+          title: "ارسال انتقاد",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/mail.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         name="foods"
         component={Foods}
-        options={{ title: "سفارش غذا" }}
+        options={{
+          title: "سفارش غذا",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/food.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         name="showCritics"
         component={ShowCritics}
-        options={{ title: "انتقاداد" }}
+        options={{
+          title: "انتقاداد",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/mail.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         name="notification"
         component={Notification}
-        options={{ title: "اعلانات" }}
+        options={{
+          title: "اعلانات",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/notif.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         name="showTickets"
         component={ShowTickets}
-        options={{ title: "درخواست های من" }}
+        options={{
+          title: "درخواست های من",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/ticket.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         name="addTicket"
         component={AddTicket}
-        options={{ title: "اضافه کردن درخواست" }}
+        options={{
+          drawerItemStyle: { height: 0 },
+        }}
       />
       <Drawer.Screen
         name="ticket"
         component={Ticket}
-        options={{ title: "در خاست" }}
+        options={{
+          drawerItemStyle: { height: 0 },
+        }}
       />
-      <Drawer.Screen name="divination" component={Divination} />
+      <Drawer.Screen
+        name="divination"
+        component={Divination}
+        options={{
+          drawerItemStyle: { height: 0 },
+        }}
+      />
     </Drawer.Navigator>
   );
 }

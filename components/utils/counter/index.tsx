@@ -1,6 +1,7 @@
-import { Pressable, View, Text } from "react-native";
+import { Pressable, View } from "react-native";
 import DeleteBtn from "../delete-btn";
 import styles from "./styles";
+import CustomText from "../text";
 
 export default function Counter({
   showDelete = false,
@@ -13,14 +14,14 @@ export default function Counter({
     <View style={styles.count}>
       {!showDelete ? (
         <Pressable style={styles.btn} onPress={onDecrement}>
-          <Text style={styles.text}>-</Text>
+          <CustomText style={styles.text}>-</CustomText>
         </Pressable>
       ) : (
         <DeleteBtn onPress={onDelete} />
       )}
-      <Text>{count}</Text>
+      <CustomText>{count}</CustomText>
       <Pressable style={styles.btn} onPress={onIncrement}>
-        <Text style={styles.text}>+</Text>
+        <CustomText style={styles.text}>+</CustomText>
       </Pressable>
     </View>
   );

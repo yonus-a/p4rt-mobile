@@ -1,5 +1,6 @@
-import { Pressable, Image, Text, View } from "react-native";
+import { Pressable, Image, View } from "react-native";
 import styles from "./styles";
+import CustomText from "../text";
 
 export default function LikeBtn({ active, count, onPress, style }) {
   const garyHart = require("../../../assets/icons/gray-hart.png");
@@ -16,7 +17,7 @@ export default function LikeBtn({ active, count, onPress, style }) {
           alt="like"
         />
       </View>
-      <Text style={styles.count}>{count}</Text>
+      <CustomText style={styles.count}>{count}</CustomText>
     </Pressable>
   );
 }

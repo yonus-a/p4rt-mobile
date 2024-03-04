@@ -28,9 +28,7 @@ export default function Foods({ navigation }) {
         setSelectedDay={setSelectedDay}
         selectedDay={selectedDay}
       />
-      <Container>
-        <ShowFoods foods={data} navigation={navigation} />
-      </Container>
+      <ShowFoods foods={data} navigation={navigation} />
     </View>
   );
 }

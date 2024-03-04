@@ -1,5 +1,6 @@
-import { Pressable, Image, View, Text } from "react-native";
+import { Pressable, Image, View } from "react-native";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 interface Props {
   post: any;
@@ -16,8 +17,8 @@ export default function PostCard({ post }: Props) {
         style={styles.image}
       />
       <View style={styles.body}>
-        <Text style={styles.title}>{post.title}</Text>
-        <Text style={styles.desc} >{post.description}</Text>
+        <CustomText style={styles.title}>{post.title}</CustomText>
+        <CustomText style={styles.desc}>{post.description}</CustomText>
       </View>
     </Pressable>
   );

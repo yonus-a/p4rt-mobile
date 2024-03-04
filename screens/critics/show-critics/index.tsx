@@ -1,5 +1,5 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
-import { View, Text, Image, Modal, Pressable } from "react-native";
+import { View, Image, Modal, Pressable } from "react-native";
 import Pagination from "../../../components/utils/pagination";
 import { SwipeListView } from "react-native-swipe-list-view";
 import Container from "../../../components/overal/container";
@@ -10,6 +10,7 @@ import Alert from "../../../components/overal/alert";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import styles from "./styles";
+import CustomText from "../../../components/utils/text";
 
 export default function ShowCritics({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -37,7 +38,7 @@ export default function ShowCritics({ navigation }) {
                   style={styles.item}
                   onPress={() => setModalVisible(true)}
                 >
-                  <Text>{name || "ناشناس"}</Text>
+                  <CustomText>{name || "ناشناس"}</CustomText>
                   {item.readed ? (
                     <Image
                       source={require("../../../assets/icons/readed.png")}
@@ -57,7 +58,7 @@ export default function ShowCritics({ navigation }) {
                 <Modal visible={modalVisible}>
                   <Container style={styles.content}>
                     <CloseBtn onPress={() => setModalVisible(false)} />
-                    <Text>{item.msg}</Text>
+                    <CustomText>{item.msg}</CustomText>
                   </Container>
                 </Modal>
               </>

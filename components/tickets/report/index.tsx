@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import AddBtn from "../../utils/add-btn";
 import fetchData from "./fetchData";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 export default function TicketReport({ navigation }) {
   const [data, setData] = useState<any>({});
@@ -13,8 +14,10 @@ export default function TicketReport({ navigation }) {
 
   return (
     <View style={styles.ticketReport}>
-      {/* <Text style={styles.text}> درخواست های پاسخ داده نشده {data.openTickets}</Text> */}
-      <Text style={styles.text}> تعداد درخواست ها: {data.tickets}</Text>
+      {/* <CustomText style={styles.text}> درخواست های پاسخ داده نشده {data.openTickets}</CustomText> */}
+      <CustomText style={styles.text}>
+        تعداد درخواست ها: {data.tickets}
+      </CustomText>
       <AddBtn onPress={() => navigation.navigate("addTicket")} />
     </View>
   );

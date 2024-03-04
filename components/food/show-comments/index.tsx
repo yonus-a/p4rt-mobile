@@ -1,5 +1,6 @@
-import { SafeAreaView, FlatList, Text, Image, View } from "react-native";
+import { SafeAreaView, FlatList, Image, View } from "react-native";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 export default function ShowComments({ data }) {
   return (
@@ -11,7 +12,7 @@ export default function ShowComments({ data }) {
         renderItem={({ item }) => {
           return (
             <View style={styles.item}>
-              <Text style={styles.text}>{item.text}</Text>
+              <CustomText style={styles.text}>{item.text}</CustomText>
               <Image
                 source={{
                   uri: `https://p4rt.ir/public/images/users/${item.user?.photo}`,

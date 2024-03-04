@@ -1,6 +1,7 @@
-import { TouchableHighlight, Text } from "react-native";
+import { TouchableHighlight } from "react-native";
 import * as DocumentPicker from "expo-document-picker";
 import styles from "./styles";
+import CustomText from "../text";
 
 export default function FilePicker({ setValue }) {
   const handlePress = async () => {
@@ -11,7 +12,7 @@ export default function FilePicker({ setValue }) {
 
   return (
     <TouchableHighlight style={styles.filePicker} onPress={handlePress}>
-      <Text>انتخاب فایل...</Text>
+      <CustomText>انتخاب فایل...</CustomText>
     </TouchableHighlight>
   );
 }

@@ -1,17 +1,18 @@
-import { Pressable, View, Text } from "react-native";
+import { Pressable, View } from "react-native";
 import styles from "./styles";
+import CustomText from "../../../components/utils/text";
 
 export default function ChatLine({ message, attachment }) {
   return (
     <View style={styles.chatLine}>
-      <Text style={styles.line}>
+      <CustomText style={styles.line}>
         {message}
         {attachment !== "" && (
           <Pressable style={styles.attachment}>
-            <Text>فایل ضمیمه</Text>
+            <CustomText>فایل ضمیمه</CustomText>
           </Pressable>
         )}
-      </Text>
+      </CustomText>
     </View>
   );
 }

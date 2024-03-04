@@ -26,12 +26,7 @@
     },
     "plugins": [
       "expo-secure-store",
-      [
-        "expo-font",
-        {
-          "fonts": ["./assets/fonts/IRANSans.ttf"]
-        }
-      ],
+      "expo-font",
       [
         "expo-document-picker",
         {

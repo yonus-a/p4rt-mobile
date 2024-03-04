@@ -1,6 +1,7 @@
 import { statusCode } from "../../../utils/tickets/status";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import styles from "./styles";
+import CustomText from "../../utils/text";
 
 const classes: any = {
   0: "redTicket",
@@ -11,9 +12,9 @@ const classes: any = {
 export default function ShowStatus({ status }) {
   return (
     <View>
-      <Text style={[styles[classes[status]], styles.ticketStatus]}>
+      <CustomText style={[styles[classes[status]], styles.ticketStatus]}>
         {statusCode[status]}
-      </Text>
+      </CustomText>
     </View>
   );
 }

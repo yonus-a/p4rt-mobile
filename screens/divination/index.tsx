@@ -3,9 +3,10 @@ import Container from "../../components/overal/container";
 import * as SecureStore from "expo-secure-store";
 import globalStyles from "../../globalStyles";
 import { useEffect, useState } from "react";
-import { Text, ScrollView } from "react-native";
+import {  ScrollView } from "react-native";
 import styles from "./styles";
 import axios from "axios";
+import CustomText from "../../components/utils/text";
 
 export default function Divination({ navigation }: any) {
   const [data, setData] = useState<any>({});
@@ -34,15 +35,15 @@ export default function Divination({ navigation }: any) {
     <ScrollView style={{ flex: 1 }}>
       <Header navigation={navigation} />
       <Container>
-        <Text style={globalStyles.h1}>
+        <CustomText style={globalStyles.h1}>
           فال امروز شما سرکار خانم/جناب آقای {name}
-        </Text>
-        <Text style={globalStyles.h2}>شعر</Text>
-        <Text style={styles.poem}>{data.divination?.poem}</Text>
-        <Text style={globalStyles.h2}>تفسیر</Text>
-        <Text style={styles.interpretation}>
+        </CustomText>
+        <CustomText style={globalStyles.h2}>شعر</CustomText>
+        <CustomText style={styles.poem}>{data.divination?.poem}</CustomText>
+        <CustomText style={globalStyles.h2}>تفسیر</CustomText>
+        <CustomText style={styles.interpretation}>
           {data.divination?.interpretation}
-        </Text>
+        </CustomText>
       </Container>
     </ScrollView>
   );
