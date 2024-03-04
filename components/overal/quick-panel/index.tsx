@@ -1,10 +1,14 @@
-import { View, Image } from "react-native";
+import { View, Image, ImageBackground } from "react-native";
 import Navigate from "../../utils/navigate";
 import styles from "./styles";
 
 export default function QuickPanel() {
   return (
-    <View style={styles.quickPanel}>
+    <ImageBackground
+      source={require("../../../assets/icons/panel.png")}
+      style={styles.quickPanel}
+      resizeMode="cover"
+    >
       <Navigate to="home">
         <Image
           source={require("../../../assets/icons/home.png")}
@@ -32,6 +36,6 @@ export default function QuickPanel() {
           alt="cart"
         />
       </Navigate>
-    </View>
+    </ImageBackground>
   );
 }
