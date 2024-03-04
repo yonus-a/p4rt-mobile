@@ -10,6 +10,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     position: "absolute",
     top: "50%",
+    zIndex: 9999,
   },
   image: {
     width: 28,
@@ -21,6 +22,6 @@ export default StyleSheet.create({
   },
   next: {
     right: -38,
-    paddingLeft: 3
+    paddingLeft: 3,
   },
 });

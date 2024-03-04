@@ -1,4 +1,4 @@
-import { Pressable, View, Image } from "react-native";
+import { Image, Pressable } from "react-native";
 import styles from "./styles";
 
 export default function CarouselNavigation({ carouselRef }) {

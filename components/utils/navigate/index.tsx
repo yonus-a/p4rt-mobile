@@ -1,13 +1,12 @@
-import { Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 
-interface Props {
-  navigation: any;
-  title: string;
-  to: string;
-}
+export default function Navigate({ to, children, style = {} }) {
+  const navigation: any = useNavigation();
 
-export default function Navigate({ navigation, to, title }: Props) {
   return (
-    <Button title={title} onPress={() => navigation.navigate(to)}></Button>
+    <Pressable style={style} onPress={() => navigation.navigate(to)}>
+      {children}
+    </Pressable>
   );
 }

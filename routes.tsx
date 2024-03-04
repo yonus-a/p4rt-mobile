@@ -7,12 +7,14 @@ import AddTicket from "./screens/tickets/add-ticket";
 import Notification from "./screens/notification";
 import Divination from "./screens/divination";
 import Ticket from "./screens/tickets/ticket";
+import ShowOrders from "./screens/show-orders";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
 import drawerStyle from "./styles/drawer";
 import Signin from "./screens/singin";
 import Foods from "./screens/foods";
 import { Image } from "react-native";
+import Cart from "./screens/cart";
 
 const Drawer = createDrawerNavigator();
 
@@ -70,6 +72,32 @@ export default function Routes() {
         component={Foods}
         options={{
           title: "سفارش غذا",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/food.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="showOrders"
+        component={ShowOrders}
+        options={{
+          title: "سفارش های من",
+          drawerIcon: () => (
+            <Image
+              source={require("./assets/icons/food.png")}
+              style={drawerStyle.icon}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="cart"
+        component={Cart}
+        options={{
+          title: "سبد خرید",
           drawerIcon: () => (
             <Image
               source={require("./assets/icons/food.png")}

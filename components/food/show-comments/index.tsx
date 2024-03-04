@@ -1,14 +1,14 @@
 import { SafeAreaView, FlatList, Image, View } from "react-native";
-import styles from "./styles";
 import CustomText from "../../utils/text";
+import styles from "./styles";
 
 export default function ShowComments({ data }) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FlatList
-        data={data}
+        data={[...data]}
+        contentContainerStyle={{ gap: 10, paddingBottom: 10 }}
         style={styles.container}
-        contentContainerStyle={{ gap: 10 }}
         renderItem={({ item }) => {
           return (
             <View style={styles.item}>

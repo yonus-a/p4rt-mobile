@@ -6,11 +6,10 @@ export default StyleSheet.create({
     gap: 16,
   },
   header: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 17,
   },
   row: {
-    elevation: 7,
+    elevation: 5,
     backgroundColor: CLR_WHITE,
     paddingHorizontal: 30,
     borderRadius: 14,
@@ -23,5 +22,8 @@ export default StyleSheet.create({
   wrapper: {
     justifyContent: "space-between",
     flexDirection: "row-reverse",
+  },
+  odd: {
+    backgroundColor: "#eee",
   },
 });
