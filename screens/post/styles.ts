@@ -1,8 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  text: {
-    fontFamily: "IRANSans",
-    fontSize: 14,
+  post: {
+    flex: 1,
   },
 });

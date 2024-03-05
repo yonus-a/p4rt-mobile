@@ -5,6 +5,7 @@ import RenderNotifs from "./renderNotif";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
+import QuickPanel from "../../components/overal/quick-panel";
 
 export default function Notification({ navigation }) {
   const [privateNotifs, setPrivateNotifs] = useState([]);
@@ -30,6 +31,7 @@ export default function Notification({ navigation }) {
         <RenderNotifs data={privateNotifs} title={"اعلان خصوصی"} />
         <RenderNotifs data={publicNotifs} title={"اعلان عمومی"} />
       </Container>
+      <QuickPanel />
     </View>
   );
 }

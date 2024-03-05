@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
+import QuickPanel from "../../components/overal/quick-panel";
 
 export default function ShowOrders({ navigation }) {
   const [reset, setReset] = useState({});
@@ -33,6 +34,7 @@ export default function ShowOrders({ navigation }) {
         <SearchInputs setSearch={setSearch} />
         <RenderOrders orders={data.orders} setReset={setReset} />
       </Container>
+      <QuickPanel />
     </View>
   );
 }

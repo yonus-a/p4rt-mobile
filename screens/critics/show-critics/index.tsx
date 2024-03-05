@@ -6,11 +6,12 @@ import Container from "../../../components/overal/container";
 import DeleteBtn from "../../../components/utils/delete-btn";
 import CloseBtn from "../../../components/utils/close-btn";
 import handleDeleteCritics from "./handleDeleteCritics";
+import CustomText from "../../../components/utils/text";
 import Alert from "../../../components/overal/alert";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import styles from "./styles";
-import CustomText from "../../../components/utils/text";
+import QuickPanel from "../../../components/overal/quick-panel";
 
 export default function ShowCritics({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -82,6 +83,7 @@ export default function ShowCritics({ navigation }) {
         />
       </Container>
       <Alert />
+      <QuickPanel />
     </View>
   );
 }

@@ -2,7 +2,7 @@ import { Pressable, Image, View } from "react-native";
 import styles from "./styles";
 import CustomText from "../text";
 
-export default function LikeBtn({ active, count, onPress, style }) {
+export default function LikeBtn({ active, count, onPress, style = {} }) {
   const garyHart = require("../../../assets/icons/gray-hart.png");
   const redHart = require("../../../assets/icons/red-hart.png");
 

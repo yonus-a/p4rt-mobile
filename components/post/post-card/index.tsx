@@ -1,6 +1,7 @@
-import { Pressable, Image, View } from "react-native";
-import styles from "./styles";
+import { Image, View } from "react-native";
+import Navigate from "../../utils/navigate";
 import CustomText from "../../utils/text";
+import styles from "./styles";
 
 interface Props {
   post: any;
@@ -8,7 +9,7 @@ interface Props {
 
 export default function PostCard({ post }: Props) {
   return (
-    <Pressable style={styles.card}>
+    <Navigate style={styles.card} to="post" params={{ id: post.id }}>
       <Image
         source={{ uri: `https://p4rt.ir/public/images/${post.image}` }}
         alt={post.title}
@@ -20,6 +21,6 @@ export default function PostCard({ post }: Props) {
         <CustomText style={styles.title}>{post.title}</CustomText>
         <CustomText style={styles.desc}>{post.description}</CustomText>
       </View>
-    </Pressable>
+    </Navigate>
   );
 }

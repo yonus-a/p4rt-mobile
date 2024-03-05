@@ -7,6 +7,7 @@ import {  ScrollView } from "react-native";
 import styles from "./styles";
 import axios from "axios";
 import CustomText from "../../components/utils/text";
+import QuickPanel from "../../components/overal/quick-panel";
 
 export default function Divination({ navigation }: any) {
   const [data, setData] = useState<any>({});
@@ -45,6 +46,7 @@ export default function Divination({ navigation }: any) {
           {data.divination?.interpretation}
         </CustomText>
       </Container>
+      <QuickPanel/>
     </ScrollView>
   );
 }

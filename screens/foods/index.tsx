@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
+import QuickPanel from "../../components/overal/quick-panel";
 
 export default function Foods({ navigation }) {
   const [data, setData] = useState([]);
@@ -29,6 +30,7 @@ export default function Foods({ navigation }) {
         selectedDay={selectedDay}
       />
       <ShowFoods foods={data} navigation={navigation} />
+      <QuickPanel />
     </View>
   );
 }

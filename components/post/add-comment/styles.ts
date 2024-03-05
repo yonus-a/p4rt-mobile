@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  text: {
-    fontFamily: "IRANSans",
-    fontSize: 14,
+  addComment: {
+    flex: 1,
+    gap: 10,
+    width: "100%",
+    marginTop: 30,
   },
 });

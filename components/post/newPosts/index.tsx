@@ -26,6 +26,9 @@ export default function NewPosts({ take, categoryId }: Props) {
       windowSize={width}
       style={styles.carousel}
       renderItem={({ item }) => <PostCard post={item} />}
+      panGestureHandlerProps={{
+        activeOffsetX: [-10, 10],
+      }}
     />
   );
 }

@@ -1,4 +1,4 @@
-import { View, Image, ImageBackground } from "react-native";
+import { Image, ImageBackground } from "react-native";
 import Navigate from "../../utils/navigate";
 import styles from "./styles";
 

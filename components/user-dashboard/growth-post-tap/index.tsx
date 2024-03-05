@@ -11,7 +11,7 @@ const renderScene = SceneMap({
   ai: () => <NewPosts take={10} categoryId={41} />,
 });
 
-export default function PostTab() {
+export default function GrowthPostTab() {
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
 
@@ -25,7 +25,9 @@ export default function PostTab() {
   return (
     <TabView
       navigationState={{ index, routes }}
-      initialLayout={{ width: layout.width }}
+      style={{ height: 360 }}
+      sceneContainerStyle={{ paddingBottom: 60 }}
+      initialLayout={layout}
       renderScene={renderScene}
       onIndexChange={setIndex}
       overScrollMode="never"

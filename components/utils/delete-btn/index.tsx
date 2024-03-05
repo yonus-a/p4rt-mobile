@@ -1,13 +1,9 @@
 import { Image, Pressable } from "react-native";
 import styles from "./styles";
 
-interface Props {
-  onPress: any;
-}
-
-export default function DeleteBtn({ onPress }: Props) {
+export default function DeleteBtn({ onPress, style = {} }) {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} style={style}>
       <Image
         source={require("../../../assets/icons/delete.png")}
         style={styles.image}

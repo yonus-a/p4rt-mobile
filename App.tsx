@@ -7,7 +7,6 @@ import Routes from "./routes";
 
 // configs
 import "./axios";
-import QuickPanel from "./components/overal/quick-panel";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +23,6 @@ export default function App() {
         <Routes />
       </CustomCartProvider>
       <StatusBar style="auto" />
-      <QuickPanel />
     </NavigationContainer>
   );
 }

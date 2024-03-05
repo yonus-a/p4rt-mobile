@@ -6,8 +6,8 @@ export default StyleSheet.create({
     borderRadius: 1000,
     backgroundColor: "rgba(224, 224, 224, .3)",
     overflow: "hidden",
-    padding: 5,
     gap: 10,
+    zIndex: 99,
   },
   image: {
     width: 45,

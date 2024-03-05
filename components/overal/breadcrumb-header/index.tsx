@@ -1,13 +1,24 @@
-import { View, Image, Pressable } from "react-native";
+import {
+  View,
+  Image,
+  Pressable,
+  ImageBackground,
+  useWindowDimensions,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import CustomText from "../../utils/text";
 import Profile from "../../profile";
 import styles from "./styles";
-import CustomText from "../../utils/text";
 
-export default function BreadcrumbHeader({ navigation }) {
+export default function BreadcrumbHeader() {
+  const { width, height } = useWindowDimensions();
+  const navigation: any = useNavigation();
+
   return (
     <View style={styles.header}>
       <Image
         source={require("../../../assets/images/overal/map2.png")}
+        resizeMode="contain"
         style={styles.bg}
       />
       <View style={styles.container}>
@@ -23,6 +34,9 @@ export default function BreadcrumbHeader({ navigation }) {
           </Pressable>
         </View>
       </View>
+      <View
+        style={[styles.circle, { width: width * 3, height: height * 3 }]}
+      ></View>
     </View>
   );
 }

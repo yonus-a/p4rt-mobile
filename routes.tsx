@@ -15,6 +15,7 @@ import Signin from "./screens/singin";
 import Foods from "./screens/foods";
 import { Image } from "react-native";
 import Cart from "./screens/cart";
+import Post from "./screens/post";
 
 const Drawer = createDrawerNavigator();
 
@@ -162,6 +163,13 @@ export default function Routes() {
       <Drawer.Screen
         name="divination"
         component={Divination}
+        options={{
+          drawerItemStyle: { height: 0 },
+        }}
+      />
+      <Drawer.Screen
+        name="post"
+        component={Post}
         options={{
           drawerItemStyle: { height: 0 },
         }}

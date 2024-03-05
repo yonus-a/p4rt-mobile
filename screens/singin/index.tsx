@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import styles from "./styles";
 import axios from "axios";
+import QuickPanel from "../../components/overal/quick-panel";
 
 export default function Signin({ navigation }: any) {
   // check for token

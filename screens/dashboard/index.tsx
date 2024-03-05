@@ -1,4 +1,5 @@
 import AdminDashboard from "../../components/admin-dashboard";
+import QuickPanel from "../../components/overal/quick-panel";
 import UserDashboard from "../../components/user-dashboard";
 import Header from "../../components/overal/header/indexx";
 import Container from "../../components/overal/container";
@@ -10,9 +11,10 @@ export default function Dashborad({ navigation }: any) {
     <View style={styles.dashborad}>
       <Header navigation={navigation} />
       <Container>
-        {/* <UserDashboard /> */}
-        <AdminDashboard />
+        <UserDashboard />
+        {/* <AdminDashboard /> */}
       </Container>
+      <QuickPanel />
     </View>
   );
 }

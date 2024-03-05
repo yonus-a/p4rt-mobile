@@ -7,7 +7,7 @@ import Logout from "./logout";
 
 export default function Profile({ navigation }: any) {
   const [expanded, setExpanded] = useState(false);
-  const width = useRef(new Animated.Value(55)).current;
+  const width = useRef(new Animated.Value(50)).current;
 
   const expand = () => {
     Animated.timing(width, {
@@ -19,7 +19,7 @@ export default function Profile({ navigation }: any) {
 
   const colaps = () => {
     Animated.timing(width, {
-      toValue: 55,
+      toValue: 50,
       duration: 500,
       useNativeDriver: false,
     }).start();

@@ -6,6 +6,7 @@ import Bill from "../../components/food/bill";
 import useCart from "../../hooks/useCart";
 import { View } from "react-native";
 import styles from "./styles";
+import QuickPanel from "../../components/overal/quick-panel";
 
 export default function Cart({ navigation }) {
   const { items } = useCart();
@@ -23,6 +24,7 @@ export default function Cart({ navigation }) {
           <CustomText style={styles.empty}>شما هیچ سفارشی ندارید !</CustomText>
         )}
       </Container>
+      <QuickPanel />
     </View>
   );
 }
