@@ -1,7 +1,7 @@
-import { Pressable, Image, View } from "react-native";
-import styles from "./styles";
-import PostCard from "../post-card";
 import CustomText from "../../utils/text";
+import { View } from "react-native";
+import PostCard from "../post-card";
+import styles from "./styles";
 
 interface Props {
   posts: any;
@@ -9,11 +9,11 @@ interface Props {
 
 export default function ShowPosts({ posts }: Props) {
   return (
-    <View style={styles.showPosts} aria-label="posts">
+    <View style={styles.showPosts}>
       {posts.length ? (
         <View style={styles.wrapper}>
           {posts?.map((post: any) => (
-            <PostCard post={post} key={post.id} />
+            <PostCard post={post} key={post.id} style={styles.card} />
           ))}
         </View>
       ) : (

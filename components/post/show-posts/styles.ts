@@ -9,7 +9,6 @@ export default StyleSheet.create({
     width: 200,
     height: 150,
   },
-  body: {},
   empty: {
     textAlign: "center",
     marginTop: 64,
@@ -17,7 +16,11 @@ export default StyleSheet.create({
   wrapper: {
     gap: 16,
     marginBottom: 32,
+    flexDirection: "row",
     flexWrap: "wrap",
   },
-  card: {},
+  card: {
+    flexBasis: "100%",
+    width: "auto",
+  },
 });

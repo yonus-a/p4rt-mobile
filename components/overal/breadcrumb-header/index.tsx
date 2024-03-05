@@ -15,7 +15,7 @@ export default function BreadcrumbHeader() {
   const navigation: any = useNavigation();
 
   return (
-    <View style={styles.header}>
+    <View style={[styles.header]}>
       <Image
         source={require("../../../assets/images/overal/map2.png")}
         resizeMode="contain"
@@ -35,7 +35,7 @@ export default function BreadcrumbHeader() {
         </View>
       </View>
       <View
-        style={[styles.circle, { width: width * 3, height: height * 3 }]}
+        style={[styles.circle, { width: width * 3, height: height * 3, top: height / 9 }]}
       ></View>
     </View>
   );

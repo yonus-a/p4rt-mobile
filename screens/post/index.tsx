@@ -1,35 +1,47 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
-import Container from "../../components/overal/container";
+import QuickPanel from "../../components/overal/quick-panel";
+import { ScrollView } from "react-native-virtualized-view";
 import RenderPost from "../../components/post/render-post";
+import Container from "../../components/overal/container";
 import { useEffect, useState } from "react";
-import { ScrollView } from "react-native";
-import fetchData from "./fetchData";
+import fetchComments from "./fetchComment";
+import fetchPost from "./fetchPost";
+import { View } from "react-native";
 import styles from "./styles";
 
 export default function Post({ route }) {
+  const [fetchNewComment, setFetchNewComment] = useState({});
   const [comments, setComments] = useState<any>([]);
   const [data, setData] = useState<any>({});
   const { id } = route.params;
 
   useEffect(() => {
-    fetchData(setData, setComments, { id });
+    fetchPost(setData, { id });
   }, []);
 
+  useEffect(() => {
+    fetchComments(setComments, { id });
+  }, [fetchNewComment]);
+
   return (
-    <ScrollView style={styles.post}>
-      <BreadcrumbHeader />
-      <Container
-        style={{
-          backgroundColor: "white",
-        }}
-      >
-        <RenderPost
-          post={data.post}
-          countAllLike={data.likes}
-          countAllSeen={data.seens}
-          comments={comments}
-        />
-      </Container>
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={styles.post}>
+        <BreadcrumbHeader />
+        <Container
+          style={{
+            paddingBottom: 110,
+          }}
+        >
+          <RenderPost
+            post={data.post}
+            countAllLike={data.likes}
+            countAllSeen={data.seens}
+            comments={comments}
+            fetchNewComment={() => setFetchNewComment({})}
+          />
+        </Container>
+      </ScrollView>
+      <QuickPanel />
+    </View>
   );
 }

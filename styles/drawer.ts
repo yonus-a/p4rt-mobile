@@ -8,4 +8,10 @@ export default StyleSheet.create({
     position: "absolute",
     right: -8,
   },
+  label: {
+    fontFamily: "IRANSans",
+  },
+  item: {
+    paddingRight: 25,
+  },
 });

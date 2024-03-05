@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  addComment: {
-    flex: 1,
-    gap: 20,
-    width: "100%",
-    marginTop: 30,
+  refahiMenu: {
+    borderTopColor: "#ccc",
+    borderTopWidth: 1,
+    marginTop: -15,
   },
 });

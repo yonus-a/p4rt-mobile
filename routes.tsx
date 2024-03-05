@@ -10,12 +10,14 @@ import Ticket from "./screens/tickets/ticket";
 import ShowOrders from "./screens/show-orders";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
+import { CLR_WHITE } from "./globalStyles";
 import drawerStyle from "./styles/drawer";
 import Signin from "./screens/singin";
 import Foods from "./screens/foods";
 import { Image } from "react-native";
 import Cart from "./screens/cart";
 import Post from "./screens/post";
+import Posts from "./screens/posts";
 
 const Drawer = createDrawerNavigator();
 
@@ -25,9 +27,9 @@ export default function Routes() {
       screenOptions={{
         headerShown: false,
         drawerPosition: "right",
-        headerTitleStyle: { fontFamily: "IRANSans" },
-        drawerLabelStyle: { fontFamily: "IRANSans" },
-        drawerItemStyle: { paddingRight: 25 },
+        sceneContainerStyle: { backgroundColor: CLR_WHITE },
+        drawerLabelStyle: drawerStyle.label,
+        drawerItemStyle: drawerStyle.item,
       }}
       drawerContent={CustomDrawerContent}
       initialRouteName="Signin"
@@ -97,17 +99,9 @@ export default function Routes() {
       <Drawer.Screen
         name="cart"
         component={Cart}
-        options={{
-          title: "سبد خرید",
-          drawerIcon: () => (
-            <Image
-              source={require("./assets/icons/food.png")}
-              style={drawerStyle.icon}
-            />
-          ),
-        }}
+        options={{ drawerItemStyle: { height: 0 } }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="showCritics"
         component={ShowCritics}
         options={{
@@ -119,7 +113,7 @@ export default function Routes() {
             />
           ),
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="notification"
         component={Notification}
@@ -170,6 +164,13 @@ export default function Routes() {
       <Drawer.Screen
         name="post"
         component={Post}
+        options={{
+          drawerItemStyle: { height: 0 },
+        }}
+      />
+      <Drawer.Screen
+        name="posts"
+        component={Posts}
         options={{
           drawerItemStyle: { height: 0 },
         }}

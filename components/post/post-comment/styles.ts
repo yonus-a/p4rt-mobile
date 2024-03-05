@@ -2,28 +2,24 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   postComment: {
-    flex: 1,
-    gap: 10,
     marginTop: 30,
+    flex: 1,
   },
   text: {
     flex: 1,
     textAlign: "right",
-    fontSize: 16,
   },
   item: {
     padding: 16,
     paddingLeft: 30,
     width: "100%",
-    backgroundColor: "#efefef",
-    flexDirection: "row",
-    borderRadius: 13,
-    alignItems: "center",
+    backgroundColor: "#fcfcfc",
     justifyContent: "flex-end",
     borderColor: "#BFBFBF",
-    shadowColor: "#999",
+    flexDirection: "row",
+    alignItems: "center",
+    borderRadius: 13,
     borderWidth: 0.5,
-    elevation: 10,
     gap: 15,
   },
   image: {
@@ -33,7 +29,17 @@ export default StyleSheet.create({
     borderRadius: 1000,
   },
   group: {
-    flex: 0.5,
+    flex: 0.4,
     alignItems: "center",
+  },
+  name: {
+    textAlign: "center",
+    overflow: "hidden",
+    width: 80,
+  },
+  hiddenItem: {
+    flex: 1,
+    justifyContent: "center",
+    paddingLeft: 20,
   },
 });

@@ -25,7 +25,7 @@ export default function ShowCritics({ navigation }) {
 
   return (
     <View style={styles.showCritics}>
-      <BreadcrumbHeader navigation={navigation} />
+      <BreadcrumbHeader />
       <Container>
         <SwipeListView
           contentContainerStyle={styles.container}

@@ -3,23 +3,20 @@ import RenderHTML from "react-native-render-html";
 import globalStyles from "../../../globalStyles";
 import CustomText from "../../utils/text";
 import PostComment from "../post-comment";
+import AddComment from "../add-comment";
 import PostLike from "../post-like";
 import styles from "./styles";
-import AddComment from "../add-comment";
 
 export default function RenderPost({
-  post,
+  fetchNewComment,
   countAllSeen,
   countAllLike,
   comments,
+  post,
 }) {
   const { width } = useWindowDimensions();
 
   if (!post) return null;
-
-  const source = {
-    html: post.content,
-  };
 
   const style: any = {
     p: {
@@ -37,14 +34,16 @@ export default function RenderPost({
         width={width}
       />
       <View style={styles.info}>
-        <CustomText>تاریخ انتشار: {post.createdAt}</CustomText>
+        <CustomText>
+          تاریخ انتشار: {new Date(post.createdAt).toLocaleString()}
+        </CustomText>
         <CustomText>تعداد بازدید: {countAllSeen}</CustomText>
       </View>
       <CustomText style={globalStyles.h1}>{post.title}</CustomText>
       <RenderHTML
+        source={{ html: post.content }}
         baseStyle={styles.content}
         contentWidth={width}
-        source={source}
         tagsStyles={style}
       />
       <PostLike
@@ -52,8 +51,8 @@ export default function RenderPost({
         likes={countAllLike}
         postId={post.id}
       />
-      <PostComment comments={comments} />
-      <AddComment />
+      <PostComment comments={comments} fetchNewComment={fetchNewComment} />
+      <AddComment postId={post.id} fetchNewComment={fetchNewComment} />
     </View>
   );
 }

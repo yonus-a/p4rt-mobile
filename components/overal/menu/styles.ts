@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { CLR_WHITE } from "../../../globalStyles";
 
 export default StyleSheet.create({
   topSection: {
@@ -11,5 +12,24 @@ export default StyleSheet.create({
   logo: {
     width: 200,
     height: 120,
+  },
+  drawer: {
+    backgroundColor: "#F4F4F4",
+  },
+  container: {
+    backgroundColor: CLR_WHITE,
+    marginHorizontal: 15,
+    marginBottom: 15,
+    elevation: 2,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
+  wrapper: {
+    alignItems: "center",
+    marginTop: 50,
+    paddingBottom: 5,
+  },
+  text: {
+    color: "#555",
   },
 });
