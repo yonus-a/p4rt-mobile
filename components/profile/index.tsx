@@ -1,25 +1,25 @@
 import { View, Pressable, Image, Animated } from "react-native";
-import ButtonIcon from "../utils/button-icon";
 import { useState, useRef } from "react";
 import AddAbsentee from "./add-absentee";
+import Navigate from "../utils/navigate";
 import styles from "./styles";
 import Logout from "./logout";
 
 export default function Profile({ navigation }: any) {
   const [expanded, setExpanded] = useState(false);
-  const width = useRef(new Animated.Value(50)).current;
+  const width = useRef(new Animated.Value(40)).current;
 
   const expand = () => {
     Animated.timing(width, {
       useNativeDriver: false,
-      toValue: 250,
+      toValue: 217,
       duration: 500,
     }).start();
   };
 
   const colaps = () => {
     Animated.timing(width, {
-      toValue: 50,
+      toValue: 40,
       duration: 500,
       useNativeDriver: false,
     }).start();
@@ -50,20 +50,18 @@ export default function Profile({ navigation }: any) {
       </Pressable>
       <View style={styles.drawer}>
         <Logout navigation={navigation} />
-        <ButtonIcon
-          source={require("../../assets/icons/divination.png")}
-          onPress={() => {}}
-          height={50}
-          width={50}
-          alt=""
-        />
-        <ButtonIcon
-          source={require("../../assets/icons/notif.png")}
-          onPress={() => {}}
-          height={50}
-          width={50}
-          alt=""
-        />
+        <Navigate to={"notification"}>
+          <Image
+            source={require("../../assets/icons/divination.png")}
+            style={{ width: 40, height: 40 }}
+          />
+        </Navigate>
+        <Navigate to={"notification"}>
+          <Image
+            source={require("../../assets/icons/notif.png")}
+            style={{ width: 40, height: 40 }}
+          />
+        </Navigate>
         <AddAbsentee />
       </View>
     </Animated.View>

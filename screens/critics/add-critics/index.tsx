@@ -35,6 +35,10 @@ export default function AddCritics({ navigation }: any) {
       const name = await SecureStore.getItemAsync("fullName");
       setFullName(name);
     })();
+
+    return () => {
+      setFullName("");
+    };
   });
 
   const items = [

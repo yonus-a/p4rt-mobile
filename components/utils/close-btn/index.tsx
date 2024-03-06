@@ -1,19 +1,13 @@
-import { Pressable, View, Image } from "react-native";
+import { Pressable, Image } from "react-native";
 import styles from "./styles";
 
-interface Props {
-  onPress: any;
-}
-
-export default function CloseBtn({ onPress }: Props) {
+export default function CloseBtn({ onPress, style = {} }) {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} style={style}>
       <Image
         source={require("../../../assets/icons/close.png")}
         style={styles.icon}
         alt="close"
-        width={30}
-        height={30}
       />
     </Pressable>
   );

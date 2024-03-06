@@ -6,7 +6,7 @@ export default StyleSheet.create({
     width: "100%",
     backgroundColor: "#23356D",
     paddingTop: 45,
-    height: 145,
+    height: 165,
   },
   container: {
     justifyContent: "space-between",
@@ -48,6 +48,7 @@ export default StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 1000,
     left: "-100%",
+    top: 110,
     borderColor: "#F2F2F2",
     borderWidth: 5,
     elevation: 300,

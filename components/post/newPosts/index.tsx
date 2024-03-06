@@ -1,21 +1,20 @@
 import Carousel from "react-native-reanimated-carousel";
-import { useWindowDimensions } from "react-native";
+import { useWindowDimensions, View } from "react-native";
 import { useEffect, useState } from "react";
 import fetchPosts from "./fetchPosts";
 import PostCard from "../post-card";
 import styles from "./styles";
 
-interface Props {
-  take: number;
-  categoryId: number;
-}
-
-export default function NewPosts({ take, categoryId }: Props) {
+export default function NewPosts({ take, categoryId }) {
   const [posts, setPosts] = useState([]);
   const width = useWindowDimensions().width;
 
   useEffect(() => {
     fetchPosts(setPosts, { take, categoryId });
+
+    return () => {
+      setPosts([]);
+    };
   }, []);
 
   return (
@@ -25,7 +24,11 @@ export default function NewPosts({ take, categoryId }: Props) {
       width={180}
       windowSize={width}
       style={styles.carousel}
-      renderItem={({ item }) => <PostCard post={item} />}
+      renderItem={({ item }) => (
+        <View style={{ flex: 1 }}>
+          <PostCard post={item} />
+        </View>
+      )}
       panGestureHandlerProps={{
         activeOffsetX: [-10, 10],
       }}

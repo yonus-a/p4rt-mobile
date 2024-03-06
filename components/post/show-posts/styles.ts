@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   showPosts: {
     margin: 16,
-    flex: 1,
   },
   image: {
     width: 200,

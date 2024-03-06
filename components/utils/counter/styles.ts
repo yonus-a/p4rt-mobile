@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   count: {
     justifyContent: "space-between",
-    backgroundColor: "#ddd",
+    backgroundColor: "#f1f1f1",
     alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 10,

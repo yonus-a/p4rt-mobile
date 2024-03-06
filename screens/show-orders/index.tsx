@@ -1,38 +1,52 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
 import SearchInputs from "../../components/utils/search-input";
 import RenderOrders from "../../components/food/renderOrders";
+import QuickPanel from "../../components/overal/quick-panel";
 import Container from "../../components/overal/container";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
-import QuickPanel from "../../components/overal/quick-panel";
 
-export default function ShowOrders({ navigation }) {
-  const [reset, setReset] = useState({});
+export default function ShowOrders() {
+  const [fetchNewData, setFetchNewData] = useState({});
   const [data, setData] = useState({
     countOrders: 0,
     orders: [],
   });
 
+  const take = 10;
   const [search, setSearch] = useState("");
   const [curPage, setPage] = useState(0);
 
   useEffect(() => {
     fetchData({
       page: curPage,
-      take: 10,
       setData,
       search,
+      take,
     });
-  }, [search]);
+
+    return () => {
+      setData({
+        countOrders: 0,
+        orders: [],
+      });
+    };
+  }, [search, fetchNewData, curPage]);
 
   return (
     <View style={styles.cart}>
-      <BreadcrumbHeader navigation={navigation} />
+      <BreadcrumbHeader />
       <Container>
         <SearchInputs setSearch={setSearch} />
-        <RenderOrders orders={data.orders} setReset={setReset} />
+        <RenderOrders
+          maxPage={Math.floor(data.countOrders / take) || 1}
+          fetchNewData={() => setFetchNewData({})}
+          orders={data.orders}
+          setPage={setPage}
+          page={curPage}
+        />
       </Container>
       <QuickPanel />
     </View>

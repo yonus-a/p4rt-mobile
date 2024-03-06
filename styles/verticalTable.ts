@@ -3,21 +3,22 @@ import { CLR_WHITE } from "../globalStyles";
 
 export default StyleSheet.create({
   table: {
-    gap: 16,
+    gap: 10,
   },
   header: {
-    fontSize: 17,
+    fontSize: 13,
   },
   row: {
     elevation: 5,
+    shadowColor: "#555",
     backgroundColor: CLR_WHITE,
     paddingHorizontal: 30,
     borderRadius: 14,
     padding: 15,
-    gap: 15,
+    gap: 8,
   },
   cell: {
-    fontSize: 16,
+    fontSize: 13,
   },
   wrapper: {
     justifyContent: "space-between",

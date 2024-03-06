@@ -21,6 +21,10 @@ export default function ShowCritics({ navigation }) {
 
   useEffect(() => {
     fetchData(setCritics, curPage, take);
+
+    return () => {
+      setCritics([]);
+    };
   }, []);
 
   return (

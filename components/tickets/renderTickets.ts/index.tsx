@@ -9,10 +9,12 @@ import CustomText from "../../utils/text";
 
 export default function RenderTickets({ navigation }) {
   const [curPage, setCurPage] = useState(0);
-  const [{ tickets, countTickets }, setData] = useState<any>({
+  const defaultValue = {
     tickets: [],
     countTickets: 0,
-  });
+  };
+
+  const [{ tickets, countTickets }, setData] = useState<any>(defaultValue);
 
   useEffect(() => {
     fetchData(
@@ -22,6 +24,8 @@ export default function RenderTickets({ navigation }) {
       },
       setData
     );
+
+    return () => setData(defaultValue);
   }, []);
 
   return (

@@ -1,21 +1,29 @@
+import Pagination from "../../utils/pagination";
+import { View, FlatList } from "react-native";
 import CustomText from "../../utils/text";
-import { View } from "react-native";
 import PostCard from "../post-card";
 import styles from "./styles";
 
-interface Props {
-  posts: any;
-}
-
-export default function ShowPosts({ posts }: Props) {
+export default function ShowPosts({ posts, maxPage, curPage, setCurPage }) {
   return (
     <View style={styles.showPosts}>
       {posts.length ? (
-        <View style={styles.wrapper}>
-          {posts?.map((post: any) => (
-            <PostCard post={post} key={post.id} style={styles.card} />
-          ))}
-        </View>
+        <FlatList
+          data={[...posts, { pagination: true }]}
+          contentContainerStyle={{ gap: 10, paddingBottom: 50 }}
+          renderItem={({ item }) => {
+            return !item.pagination ? (
+              <PostCard post={item} key={item.id} style={styles.card} />
+            ) : (
+              <Pagination
+                maxPage={maxPage}
+                setCurPage={setCurPage}
+                curPage={curPage}
+                style={{ marginTop: 30 }}
+              />
+            );
+          }}
+        />
       ) : (
         <View style={styles.empty}>
           <CustomText>محتوایی برای نمایش وجود ندارد</CustomText>

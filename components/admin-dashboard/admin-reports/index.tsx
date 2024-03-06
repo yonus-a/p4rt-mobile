@@ -5,15 +5,19 @@ import { View } from "react-native";
 import styles from "./styles";
 
 export default function AdminReports() {
-  const [data, setData] = useState({
+  const defaultValue = {
     users: 0,
     actives: 0,
     critics: 0,
     tickets: 0,
-  });
+  };
+
+  const [data, setData] = useState<any>(defaultValue);
 
   useEffect(() => {
     fetchData(setData);
+
+    return () => setData(defaultValue);
   }, []);
 
   return (

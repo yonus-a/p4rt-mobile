@@ -17,19 +17,28 @@ export default function Post({ route }) {
 
   useEffect(() => {
     fetchPost(setData, { id });
+
+    return () => {
+      setData({});
+    };
   }, []);
 
   useEffect(() => {
     fetchComments(setComments, { id });
+
+    return () => {
+      setComments([]);
+    };
   }, [fetchNewComment]);
 
   return (
     <View style={{ flex: 1 }}>
+      <BreadcrumbHeader />
       <ScrollView style={styles.post}>
-        <BreadcrumbHeader />
         <Container
           style={{
             paddingBottom: 110,
+            zIndex: 999,
           }}
         >
           <RenderPost

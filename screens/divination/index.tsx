@@ -3,7 +3,7 @@ import Container from "../../components/overal/container";
 import * as SecureStore from "expo-secure-store";
 import globalStyles from "../../globalStyles";
 import { useEffect, useState } from "react";
-import {  ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import styles from "./styles";
 import axios from "axios";
 import CustomText from "../../components/utils/text";
@@ -28,6 +28,10 @@ export default function Divination({ navigation }: any) {
 
   useEffect(() => {
     fetchData();
+
+    return () => {
+      setData({});
+    };
   }, []);
 
   const name = data.user?.firstname + " " + data.user?.lastname;
@@ -46,7 +50,7 @@ export default function Divination({ navigation }: any) {
           {data.divination?.interpretation}
         </CustomText>
       </Container>
-      <QuickPanel/>
+      <QuickPanel />
     </ScrollView>
   );
 }

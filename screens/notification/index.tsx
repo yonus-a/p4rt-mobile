@@ -1,13 +1,13 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import QuickPanel from "../../components/overal/quick-panel";
 import Container from "../../components/overal/container";
 import { useEffect, useState } from "react";
 import RenderNotifs from "./renderNotif";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
-import QuickPanel from "../../components/overal/quick-panel";
 
-export default function Notification({ navigation }) {
+export default function Notification() {
   const [privateNotifs, setPrivateNotifs] = useState([]);
   const [publicNotifs, setPublicNotifs] = useState([]);
   const [privatePage, setPrivatePage] = useState(0);
@@ -22,11 +22,16 @@ export default function Notification({ navigation }) {
       privatePage,
       publicPage,
     });
+
+    return () => {
+      setPrivateNotifs([]);
+      setPublicNotifs([]);
+    };
   }, []);
 
   return (
     <View style={styles.notification}>
-      <BreadcrumbHeader navigation={navigation} />
+      <BreadcrumbHeader />
       <Container>
         <RenderNotifs data={privateNotifs} title={"اعلان خصوصی"} />
         <RenderNotifs data={publicNotifs} title={"اعلان عمومی"} />

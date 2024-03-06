@@ -20,6 +20,7 @@
     "expo": "^50.0.8",
     "expo-document-picker": "~11.10.1",
     "expo-font": "~11.10.3",
+    "expo-linear-gradient": "~12.7.2",
     "expo-secure-store": "~12.8.1",
     "expo-status-bar": "~1.11.1",
     "javascript-time-ago": "^2.5.9",

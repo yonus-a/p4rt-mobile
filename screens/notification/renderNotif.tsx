@@ -1,7 +1,8 @@
 import MessageDialog from "../../components/utils/message-dialog";
-import { View, CustomText, FlatList } from "react-native";
-import styles from "./styles";
+import CustomText from "../../components/utils/text";
 import globalStyles from "../../globalStyles";
+import { View, FlatList } from "react-native";
+import styles from "./styles";
 
 export default function RenderNotifs({ data, title }) {
   return (
@@ -13,7 +14,11 @@ export default function RenderNotifs({ data, title }) {
           </CustomText>
           <FlatList
             data={data}
-            renderItem={({ item }) => <MessageDialog item={item} />}
+            renderItem={({ item }) => (
+              <View style={{ flex: 1, padding: 5 }}>
+                <MessageDialog item={item} />
+              </View>
+            )}
           />
         </>
       )}

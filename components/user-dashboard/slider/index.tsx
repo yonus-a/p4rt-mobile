@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "./styles";
 import axios from "axios";
 
-export default function Slider() {
+export default function Slider({ style = {} }) {
   const [data, setData] = useState([]);
   const width = useWindowDimensions().width;
 
@@ -18,13 +18,17 @@ export default function Slider() {
 
   useEffect(() => {
     fetchData();
+    
+    return () => {
+      setData([]);
+    };
   }, []);
 
   return (
     <View>
       <Carousel
         data={data}
-        style={styles.carousel}
+        style={[styles.carousel, style]}
         {...loopOptions(width)}
         renderItem={({ item }) => (
           <View>

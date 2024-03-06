@@ -2,9 +2,14 @@ import PaginationDot from "react-native-animated-pagination-dot";
 import { Pressable, View, Image } from "react-native";
 import styles from "./styles";
 
-export default function Pagination({ setCurPage, curPage, maxPage }) {
+export default function Pagination({
+  style = {},
+  setCurPage,
+  curPage,
+  maxPage,
+}) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Pressable onPress={() => setCurPage(curPage - 1)}>
         <Image
           source={require("../../../assets/icons/chevron-left.png")}

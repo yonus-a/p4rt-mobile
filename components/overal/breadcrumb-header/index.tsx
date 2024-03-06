@@ -1,10 +1,4 @@
-import {
-  View,
-  Image,
-  Pressable,
-  ImageBackground,
-  useWindowDimensions,
-} from "react-native";
+import { View, Image, Pressable, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import CustomText from "../../utils/text";
 import Profile from "../../profile";
@@ -35,7 +29,10 @@ export default function BreadcrumbHeader() {
         </View>
       </View>
       <View
-        style={[styles.circle, { width: width * 3, height: height * 3, top: height / 9 }]}
+        style={[
+          styles.circle,
+          { width: width * 3, height: height * 3, top: height / 9 },
+        ]}
       ></View>
     </View>
   );

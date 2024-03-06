@@ -6,9 +6,8 @@ export default StyleSheet.create({
     flex: 1,
   },
   modalCta: {
-    backgroundColor: CLR_WHITE,
+    backgroundColor: "#f4f4f4",
     borderRadius: 10,
-    elevation: 10,
     padding: 20,
     fontSize: 15,
   },

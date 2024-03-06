@@ -2,6 +2,12 @@ import { CLR_WHITE } from "../../../globalStyles";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  container: {
+    overflow: "hidden",
+    height: 270,
+    padding: 5,
+    width: " 100%",
+  },
   card: {
     width: 157,
     backgroundColor: CLR_WHITE,
@@ -14,7 +20,6 @@ export default StyleSheet.create({
     shadowRadius: 4.65,
     borderRadius: 10,
     elevation: 8,
-    flex: 1,
   },
   image: {
     borderRadius: 10,

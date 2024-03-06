@@ -6,12 +6,12 @@ export default StyleSheet.create({
     gap: 24,
   },
   item: {
-    justifyContent: "flex-end",
     borderRadius: 16,
-    elevation: 10,
+    justifyContent: "flex-end",
     backgroundColor: CLR_WHITE,
     flexDirection: "row",
     alignItems: "center",
+    width: "100%",
     padding: 13,
     gap: 30,
   },
@@ -28,5 +28,7 @@ export default StyleSheet.create({
     marginBottom: 24,
     fontSize: 18,
   },
-  colRight: {},
+  colRight: {
+    flex: 0.8,
+  },
 });

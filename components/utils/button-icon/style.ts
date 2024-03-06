@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   image: {
-    width: 45,
-    height: 45,
+    width: 40,
+    height: 40,
   },
 });

@@ -8,9 +8,7 @@ export default async function fetchData({ setData, page, take, search }) {
       page,
       take,
       userId,
-      searchParams: {
-        search,
-      },
+      search,
     },
   });
 

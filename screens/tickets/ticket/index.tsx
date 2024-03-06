@@ -17,6 +17,7 @@ export default function Ticket({ route, navigation }) {
 
   useEffect(() => {
     fetchData(id, setData);
+    return () => setData({});
   }, []);
 
   const { control, handleSubmit } = useForm();
@@ -34,7 +35,7 @@ export default function Ticket({ route, navigation }) {
 
   return (
     <View style={styles.ticket}>
-      <BreadcrumbHeader navigation={navigation} />
+      <BreadcrumbHeader  />
       <Container style={{ gap: 20 }}>
         <ChatLine message={data.message} attachment={""} />
         <Input control={control} multiline numberOfLines={8} name="message" />

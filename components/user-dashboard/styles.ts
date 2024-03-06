@@ -9,4 +9,7 @@ export default StyleSheet.create({
     width: "100%",
     objectFit: "scale-down",
   },
+  item: {
+    height: 200,
+  },
 });

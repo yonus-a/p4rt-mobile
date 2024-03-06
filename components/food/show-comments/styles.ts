@@ -11,7 +11,7 @@ export default StyleSheet.create({
   item: {
     padding: 16,
     paddingLeft: 30,
-    backgroundColor: "#e1e1e1",
+    backgroundColor: "#fcfcfc",
     flexDirection: "row",
     borderRadius: 13,
     alignItems: "center",

@@ -10,8 +10,8 @@ export default StyleSheet.create({
     zIndex: 99,
   },
   image: {
-    width: 45,
-    height: 45,
+    width: 40,
+    height: 40,
   },
   drawer: {
     alignItems: "center",

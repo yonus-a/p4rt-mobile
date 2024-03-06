@@ -5,11 +5,16 @@ import fetchData from "./fetchData";
 import styles from "./styles";
 
 export default function WeeklyReport() {
-  const [visits, setVisits] = useState();
-  const [views, setViews] = useState();
+  const [visits, setVisits] = useState<any>();
+  const [views, setViews] = useState<any>();
 
   useEffect(() => {
     fetchData(setVisits, setViews);
+    
+    return () => {
+      setVisits({});
+      setViews({});
+    };
   }, []);
 
   return (

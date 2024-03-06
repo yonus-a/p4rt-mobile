@@ -22,8 +22,8 @@ export default function Logout({ navigation }) {
     <ButtonIcon
       source={require("../../../assets/icons/off.png")}
       onPress={handlePress}
-      height={40}
-      width={40}
+      height={30}
+      width={30}
       alt="off"
     />
   );

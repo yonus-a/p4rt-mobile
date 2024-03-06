@@ -1,5 +1,6 @@
-import { View, ImageBackground, Image } from "react-native";
-import Button from "../../components/utils/button";
+import { View, Image, Pressable } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import CustomText from "../../components/utils/text";
 import Alert from "../../components/overal/alert";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
@@ -38,30 +39,30 @@ export default function VerifyOTP({ route, navigation }: any) {
   };
 
   return (
-    <View style={styles.signin}>
-      <ImageBackground
-        source={require("../../assets/images/overal/map.png")}
-        style={styles.bg}
-        resizeMode="cover"
-      >
+    <LinearGradient colors={["#ffffff", "#e3e3e3"]} style={{ flex: 1 }}>
+      <View style={styles.signin}>
         <View style={styles.container}>
           <Image
-            source={require("../../assets/images/overal/logo.png")}
+            source={require("../../assets/images/overal/logo1.png")}
             alt="سامانه داخلی پارت"
             style={styles.logo}
-            height={200}
-            width={200}
+            resizeMode="contain"
           />
-          <Input
-            style={styles.input}
-            placeholder="کد ورود"
-            control={control}
-            name="otp"
+          <View style={styles.form}>
+            <CustomText>کد ملی خود را وارد کنید</CustomText>
+            <Input style={styles.input} control={control} name="code" />
+            <Pressable onPress={handleSubmit(onSubmit)} style={styles.btn}>
+              <CustomText style={{ textAlign: "center" }}>ورود</CustomText>
+            </Pressable>
+          </View>
+          <Image
+            source={require("../../assets/images/overal/text-logo.png")}
+            resizeMode="contain"
+            style={styles.textIcon}
           />
-          <Button title="ورود" onPress={handleSubmit(onSubmit)} />
         </View>
-      </ImageBackground>
-      <Alert />
-    </View>
+        <Alert />
+      </View>
+    </LinearGradient>
   );
 }

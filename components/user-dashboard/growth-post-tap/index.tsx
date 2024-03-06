@@ -3,6 +3,7 @@ import { useWindowDimensions } from "react-native";
 import NewPosts from "../../post/newPosts";
 import Tabbar from "../../overal/tabbar";
 import { useState } from "react";
+import styles from "../styles";
 
 const renderScene = SceneMap({
   book: () => <NewPosts take={10} categoryId={17} />,
@@ -25,8 +26,11 @@ export default function GrowthPostTab() {
   return (
     <TabView
       navigationState={{ index, routes }}
-      style={{ height: 360 }}
-      sceneContainerStyle={{ paddingBottom: 60 }}
+      style={{ height: 390 }}
+      sceneContainerStyle={{
+        paddingHorizontal: 20,
+        paddingBottom: 70,
+      }}
       initialLayout={layout}
       renderScene={renderScene}
       onIndexChange={setIndex}

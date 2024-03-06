@@ -10,6 +10,7 @@ export default function TicketReport({ navigation }) {
 
   useEffect(() => {
     fetchData(setData);
+    return () => setData({});
   }, []);
 
   return (

@@ -17,10 +17,14 @@ import axios from "axios";
 
 export default function AddTicket({ navigation }) {
   const { control, handleSubmit, setValue } = useForm();
-  const [unitOptions, setUnitOptions] = useState();
+  const [unitOptions, setUnitOptions] = useState<any>();
 
   useEffect(() => {
     fetchData(setUnitOptions);
+
+    return () => {
+      setUnitOptions({});
+    };
   }, []);
 
   const onSubmit = async (data) => {
@@ -45,7 +49,7 @@ export default function AddTicket({ navigation }) {
 
   return (
     <View style={styles.addTicket}>
-      <BreadcrumbHeader navigation={navigation} />
+      <BreadcrumbHeader />
       <Container style={styles.wrapper}>
         <Select items={unitOptions} control={control} name="unitId" />
         <Input control={control} name="title" placeholder="موضوع" />
