@@ -33,7 +33,7 @@ export default StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 100,
     backgroundColor: "white",
-    width: 120,
+    minWidth: 120,
   },
   textIcon: {
     width: 200,

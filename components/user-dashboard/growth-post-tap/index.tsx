@@ -26,6 +26,7 @@ export default function GrowthPostTab() {
     <TabView
       navigationState={{ index, routes }}
       style={{ height: 390 }}
+      layoutDirection="rtl"
       sceneContainerStyle={{
         paddingHorizontal: 20,
         paddingBottom: 70,

@@ -34,6 +34,7 @@ export default function VerifyOTP({ route, navigation }: any) {
       );
       navigation.navigate("dashboard");
     } catch (e) {
+      console.log(e);
       await errorAlert();
     }
   };
@@ -49,8 +50,8 @@ export default function VerifyOTP({ route, navigation }: any) {
             resizeMode="contain"
           />
           <View style={styles.form}>
-            <CustomText>کد ملی خود را وارد کنید</CustomText>
-            <Input style={styles.input} control={control} name="code" />
+            <CustomText>کد ورود را وارد کنید</CustomText>
+            <Input style={styles.input} control={control} name="otp" />
             <Pressable onPress={handleSubmit(onSubmit)} style={styles.btn}>
               <CustomText style={{ textAlign: "center" }}>ورود</CustomText>
             </Pressable>

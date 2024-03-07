@@ -25,6 +25,7 @@ export default function RefahiPostTab() {
   return (
     <TabView
       navigationState={{ index, routes }}
+      layoutDirection="rtl"
       style={{ height: 390, marginBottom: 180 }}
       sceneContainerStyle={{
         paddingHorizontal: 20,

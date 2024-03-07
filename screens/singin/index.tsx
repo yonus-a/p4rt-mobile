@@ -5,13 +5,13 @@ import Alert from "../../components/overal/alert";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
 import Input from "../../components/utils/input";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
 import styles from "./styles";
 import axios from "axios";
 
 export default function Signin({ navigation }: any) {
-  // check for token
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -30,10 +30,13 @@ export default function Signin({ navigation }: any) {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
+    setDisabled(true);
+
     try {
       await axios.post("/signin/generateOTP", data);
       navigation.navigate("verifyOTP", data);
     } catch (e) {
+      console.log(e);
       await errorAlert();
     }
   };
@@ -51,8 +54,18 @@ export default function Signin({ navigation }: any) {
           <View style={styles.form}>
             <CustomText>کد ملی خود را وارد کنید</CustomText>
             <Input style={styles.input} control={control} name="code" />
-            <Pressable onPress={handleSubmit(onSubmit)} style={styles.btn}>
-              <CustomText style={{ textAlign: "center" }}>ورود</CustomText>
+            <Pressable
+              onPress={handleSubmit(onSubmit)}
+              style={styles.btn}
+              disabled={disabled}
+            >
+              {!disabled ? (
+                <CustomText style={{ textAlign: "center" }}>ورود</CustomText>
+              ) : (
+                <CustomText style={{ textAlign: "center" }}>
+                  در حال پردازش...
+                </CustomText>
+              )}
             </Pressable>
           </View>
           <Image
