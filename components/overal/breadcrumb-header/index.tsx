@@ -3,11 +3,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import CustomText from "../../utils/text";
 import Profile from "../../profile";
 import styles from "./styles";
-import { Shadow } from "react-native-shadow-2";
-import style from "../../utils/button-icon/style";
 
 export default function BreadcrumbHeader() {
-  const { width, height } = useWindowDimensions();
   const navigation: any = useNavigation();
   const route = useRoute();
   let pathnaem = "";
@@ -69,7 +66,7 @@ export default function BreadcrumbHeader() {
         </View>
       </View>
       <Image
-        source={require("../../../assets/images/overal/top4.png")}
+        source={require("../../../assets/images/overal/top3.png")}
         resizeMode="cover"
         style={{
           width: "100%",
