@@ -1,20 +1,22 @@
 import orderValidation from "../../../utils/food/orderValidation";
+import errorAlert from "../../../utils/alert/error";
 import UpdateQuantity from "../update-quantity";
 import useCart from "../../../hooks/useCart";
 import Button from "../../utils/button";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
+import Alert from "../../overal/alert";
 
 export default function AddToCart({ food, date, navigation }) {
   const defaultQuantity = food.name == "چاشت" ? 1 : 0;
   const [quantity, setQuantity] = useState(defaultQuantity);
   const { addItem, inCart } = useCart();
 
-  const handleClick = (e: any) => {
+  const handleClick = async (e: any) => {
     // validate order date
     if (!orderValidation(food, date)) {
-      // await errorAlert("از تاریخ سفارش گذشته است");
+      await errorAlert("از تاریخ سفارش گذشته است");
       return false;
     }
 

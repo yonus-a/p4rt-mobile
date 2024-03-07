@@ -12,7 +12,7 @@ export default function DayPicker({ onChange, selected }) {
         <Picker.Item label={"سه شنبه"} value={2} />
         <Picker.Item label={"چهار شنبه"} value={3} />
         <Picker.Item label={"پنج شنبه"} value={4} />
-        <Picker.Item label={"چمعه"} value={5} />
+        <Picker.Item label={"جمعه"} value={5} />
       </Picker>
     </View>
   );

@@ -60,7 +60,7 @@ export default function AddTicket({ navigation }) {
           name="message"
           multiline
         />
-        <FilePicker setValue={setValue} />
+        {/* <FilePicker setValue={setValue} /> */}
         <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
       <Alert />

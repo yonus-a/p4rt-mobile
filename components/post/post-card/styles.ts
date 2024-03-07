@@ -4,14 +4,16 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {
     overflow: "hidden",
-    height: 270,
-    padding: 5,
     width: " 100%",
+    height: 320,
+    padding: 5,
   },
   card: {
     width: 157,
+    height: 290,
     backgroundColor: CLR_WHITE,
     shadowColor: "#000",
+    overflow: "hidden",
     shadowOffset: {
       width: 0,
       height: 4,

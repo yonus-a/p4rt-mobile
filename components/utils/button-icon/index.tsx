@@ -8,6 +8,7 @@ interface Props {
   source: any;
   style?: any;
   alt: string;
+  btnStyle?: any;
 }
 
 export default function ButtonIcon({
@@ -17,9 +18,10 @@ export default function ButtonIcon({
   source,
   style,
   alt,
+  btnStyle = {},
 }: Props) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={btnStyle}>
       <Image
         style={[styles.image, style]}
         source={source}

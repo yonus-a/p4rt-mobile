@@ -18,4 +18,9 @@ export default StyleSheet.create({
     width: 20,
     height: 20,
   },
+  active: {
+    width: 20,
+    height: 30,
+    marginTop: 10,
+  },
 });

@@ -1,4 +1,5 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import QuickPanel from "../../../components/overal/quick-panel";
 import { View, Image, Modal, Pressable } from "react-native";
 import Pagination from "../../../components/utils/pagination";
 import { SwipeListView } from "react-native-swipe-list-view";
@@ -11,7 +12,6 @@ import Alert from "../../../components/overal/alert";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import styles from "./styles";
-import QuickPanel from "../../../components/overal/quick-panel";
 
 export default function ShowCritics({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);

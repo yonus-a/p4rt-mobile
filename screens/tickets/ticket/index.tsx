@@ -35,11 +35,11 @@ export default function Ticket({ route, navigation }) {
 
   return (
     <View style={styles.ticket}>
-      <BreadcrumbHeader  />
+      <BreadcrumbHeader />
       <Container style={{ gap: 20 }}>
         <ChatLine message={data.message} attachment={""} />
-        <Input control={control} multiline numberOfLines={8} name="message" />
-        <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
+        {/* <Input control={control} multiline numberOfLines={8} name="message" />
+        <Button onPress={handleSubmit(onSubmit)} title="ثبت" /> */}
       </Container>
     </View>
   );

@@ -5,7 +5,7 @@ export default StyleSheet.create({
     width: "100%",
     backgroundColor: "#23356D",
     paddingTop: 45,
-    height: 140,
+    height: 160,
   },
   container: {
     justifyContent: "space-between",
@@ -23,5 +23,19 @@ export default StyleSheet.create({
   menu: {
     width: 30,
     height: 30,
+  },
+  circle: {
+    position: "absolute",
+    backgroundColor: "white",
+    borderRadius: 1000,
+    left: "-100%",
+    top: 110,
+    borderColor: "#F2F2F2",
+    borderWidth: 5,
+    elevation: 300,
+    shadowColor: "#000",
+    shadowOpacity: 1,
+    shadowOffset: { width: 100, height: 110 },
+    shadowRadius: 100,
   },
 });

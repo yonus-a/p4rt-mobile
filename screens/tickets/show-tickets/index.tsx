@@ -8,7 +8,7 @@ import styles from "./styles";
 export default function ShowTickets({ navigation }) {
   return (
     <View style={styles.showTickets}>
-      <BreadcrumbHeader navigation={navigation} />
+      <BreadcrumbHeader />
       <Container style={styles.container}>
         <TicketReport navigation={navigation} />
         <RenderTickets navigation={navigation} />

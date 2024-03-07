@@ -1,6 +1,6 @@
+import CustomText from "../../../components/utils/text";
 import { Pressable, View } from "react-native";
 import styles from "./styles";
-import CustomText from "../../../components/utils/text";
 
 export default function ChatLine({ message, attachment }) {
   return (

@@ -1,6 +1,7 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import QuickPanel from "../../../components/overal/quick-panel";
 import Container from "../../../components/overal/container";
-import { ScrollView, View } from "react-native";
+import CustomText from "../../../components/utils/text";
 import successAlert from "../../../utils/alert/success";
 import Select from "../../../components/utils/select";
 import Button from "../../../components/utils/button";
@@ -8,13 +9,13 @@ import Alert from "../../../components/overal/alert";
 import errorAlert from "../../../utils/alert/error";
 import Input from "../../../components/utils/input";
 import * as SecureStore from "expo-secure-store";
+import { ScrollView, View } from "react-native";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./styles";
 import axios from "axios";
-import CustomText from "../../../components/utils/text";
 
-export default function AddCritics({ navigation }: any) {
+export default function AddCritics() {
   const { control, handleSubmit } = useForm();
   const [fullName, setFullName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,7 +40,7 @@ export default function AddCritics({ navigation }: any) {
     return () => {
       setFullName("");
     };
-  });
+  }, []);
 
   const items = [
     {
@@ -53,31 +54,34 @@ export default function AddCritics({ navigation }: any) {
   ];
 
   return (
-    <ScrollView style={styles.addCritics}>
-      <BreadcrumbHeader navigation={navigation} />
-      <Container>
-        <View style={styles.wrapper}>
-          <Select
-            control={control}
-            defaultValue={"0"}
-            items={items}
-            name="name"
-          />
-          <CustomText style={styles.text}>
-            درصورتی که نام خود را وارد نکنید پیام شما به صورت ناشناس ارسال خواهد
-            شد
-          </CustomText>
-          <Input
-            placeholder="پیام خود را وارد کنید..."
-            control={control}
-            numberOfLines={5}
-            name="msg"
-            multiline
-          />
-          <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
-        </View>
-      </Container>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={styles.addCritics}>
+        <BreadcrumbHeader />
+        <Container style={{ flex: 1 }}>
+          <View style={styles.wrapper}>
+            <Select
+              control={control}
+              defaultValue={"0"}
+              items={items}
+              name="name"
+            />
+            <CustomText style={styles.text}>
+              درصورتی که نام خود را وارد نکنید پیام شما به صورت ناشناس ارسال
+              خواهد شد
+            </CustomText>
+            <Input
+              placeholder="پیام خود را وارد کنید..."
+              control={control}
+              numberOfLines={5}
+              name="msg"
+              multiline
+            />
+            <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
+          </View>
+        </Container>
+      </ScrollView>
+      <QuickPanel />
       <Alert />
-    </ScrollView>
+    </View>
   );
 }

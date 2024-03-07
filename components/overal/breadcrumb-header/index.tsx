@@ -1,12 +1,52 @@
 import { View, Image, Pressable, useWindowDimensions } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import CustomText from "../../utils/text";
 import Profile from "../../profile";
 import styles from "./styles";
+import { Shadow } from "react-native-shadow-2";
+import style from "../../utils/button-icon/style";
 
 export default function BreadcrumbHeader() {
   const { width, height } = useWindowDimensions();
   const navigation: any = useNavigation();
+  const route = useRoute();
+  let pathnaem = "";
+
+  switch (route.name) {
+    case "diashboard":
+      pathnaem = "داشبورد";
+      break;
+    case "critics":
+      pathnaem = "ارسال انتقادات";
+      break;
+    case "foods":
+      pathnaem = "سفارش غذا";
+      break;
+    case "showOrders":
+      pathnaem = "سفارشات";
+      break;
+    case "cart":
+      pathnaem = "سبد خرید";
+      break;
+    case "notification":
+      pathnaem = "اعلانات";
+      break;
+    case "showTickets":
+      pathnaem = "درخواست ها";
+      break;
+    case "addTicket":
+      pathnaem = "ارسال درخواست";
+      break;
+    case "divination":
+      pathnaem = "فال حافظ";
+      break;
+    case "پست":
+      pathnaem = "فال حافظ";
+      break;
+    case "پست ها":
+      pathnaem = "فال حافظ";
+      break;
+  }
 
   return (
     <View style={[styles.header]}>
@@ -18,7 +58,7 @@ export default function BreadcrumbHeader() {
       <View style={styles.container}>
         <Profile navigation={navigation} />
         <View style={styles.flexWrapper}>
-          <CustomText style={styles.text}>نیروی انسانی</CustomText>
+          <CustomText style={styles.text}>{pathnaem}</CustomText>
           <Pressable onPress={() => navigation.openDrawer()}>
             <Image
               source={require("../../../assets/icons/menu.png")}
@@ -28,12 +68,15 @@ export default function BreadcrumbHeader() {
           </Pressable>
         </View>
       </View>
-      <View
-        style={[
-          styles.circle,
-          { width: width * 3, height: height * 3, top: height / 9 },
-        ]}
-      ></View>
+      <Image
+        source={require("../../../assets/images/overal/top4.png")}
+        resizeMode="cover"
+        style={{
+          width: "100%",
+          marginTop: -120,
+          height: 160,
+        }}
+      />
     </View>
   );
 }

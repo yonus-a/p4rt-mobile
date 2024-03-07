@@ -1,13 +1,13 @@
+import QuickPanel from "../../components/overal/quick-panel";
 import Header from "../../components/overal/header/indexx";
 import Container from "../../components/overal/container";
+import CustomText from "../../components/utils/text";
 import * as SecureStore from "expo-secure-store";
 import globalStyles from "../../globalStyles";
 import { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 import styles from "./styles";
 import axios from "axios";
-import CustomText from "../../components/utils/text";
-import QuickPanel from "../../components/overal/quick-panel";
 
 export default function Divination({ navigation }: any) {
   const [data, setData] = useState<any>({});

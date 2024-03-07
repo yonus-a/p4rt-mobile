@@ -1,4 +1,4 @@
-import { View, Image, Pressable } from "react-native";
+import { View, Image, Pressable, useWindowDimensions } from "react-native";
 import DayPicker from "../../utils/day-picker";
 import Profile from "../../profile";
 import styles from "./styles";
@@ -8,6 +8,7 @@ export default function FoodHeader({
   navigation,
   selectedDay,
 }) {
+  const { width, height } = useWindowDimensions();
   return (
     <View style={styles.header}>
       <Image
@@ -25,6 +26,12 @@ export default function FoodHeader({
           />
         </Pressable>
       </View>
+      <View
+        style={[
+          styles.circle,
+          { width: width * 3, height: height * 3, top: height / 7.6 },
+        ]}
+      ></View>
     </View>
   );
 }

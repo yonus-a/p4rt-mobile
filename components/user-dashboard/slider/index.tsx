@@ -1,11 +1,11 @@
-import { View, Image, useWindowDimensions } from "react-native";
+import { View, Image, useWindowDimensions, Animated } from "react-native";
 import loopOptions from "../../../utils/slider/loopOptions";
 import Carousel from "react-native-reanimated-carousel";
 import { useEffect, useState } from "react";
 import styles from "./styles";
 import axios from "axios";
 
-export default function Slider({ style = {} }) {
+export default function Slider({ style = {}, scrollY }) {
   const [data, setData] = useState([]);
   const width = useWindowDimensions().width;
 
@@ -18,31 +18,54 @@ export default function Slider({ style = {} }) {
 
   useEffect(() => {
     fetchData();
-    
+
     return () => {
       setData([]);
     };
   }, []);
 
   return (
-    <View>
+    <Animated.View
+      style={{
+        height: scrollY.interpolate({
+          inputRange: [0, 280],
+          outputRange: [280, 200],
+          extrapolate: "clamp",
+        }),
+      }}
+    >
       <Carousel
-        data={data}
+        data={[
+          { id: 1, source: require("../../../assets/images/slider/img1.jpg") },
+          { id: 2, source: require("../../../assets/images/slider/img2.jpg") },
+          { id: 3, source: require("../../../assets/images/slider/img3.jpg") },
+        ]}
         style={[styles.carousel, style]}
         {...loopOptions(width)}
         renderItem={({ item }) => (
-          <View>
-            <Image
-              source={{
-                uri: `https://p4rt.ir/public/images/slider/${item.image}`,
-              }}
+          <View key={item.id}>
+            <Animated.Image
+              // source={{
+              //   uri: `https://p4rt.ir/public/images/slider/${item.image}`,
+              // }}
+              source={item.source}
               width={width}
               height={width}
-              style={styles.image}
+              resizeMode={"cover"}
+              style={[
+                styles.image,
+                {
+                  height: scrollY.interpolate({
+                    inputRange: [0, 200],
+                    outputRange: [400, 200],
+                    extrapolate: "clamp",
+                  }),
+                },
+              ]}
             />
           </View>
         )}
       />
-    </View>
+    </Animated.View>
   );
 }
