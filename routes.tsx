@@ -19,6 +19,9 @@ import { Image } from "react-native";
 import Posts from "./screens/posts";
 import Cart from "./screens/cart";
 import Post from "./screens/post";
+import ShowCritics from "./screens/critics/show-critics";
+import Absentee from "./screens/absentee";
+import ShowDailyReport from "./screens/daily-report/show-dialy-reports";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -111,18 +114,18 @@ function Root() {
             options={{ drawerItemStyle: { height: 0 } }}
           />
           {/* <Drawer.Screen
-        name="showCritics"
-        component={ShowCritics}
-        options={{
-          title: "انتقاداد",
-          drawerIcon: () => (
-            <Image
-              source={require("./assets/icons/mail.png")}
-              style={drawerStyle.icon}
-            />
-          ),
-        }}
-      /> */}
+            name="showCritics"
+            component={ShowCritics}
+            options={{
+              title: "انتقاداد",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/mail.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          /> */}
           <Drawer.Screen
             name="notification"
             component={Notification}
@@ -141,6 +144,32 @@ function Root() {
             component={ShowTickets}
             options={{
               title: "درخواست های من",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/ads.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="absentee"
+            component={Absentee}
+            options={{
+              title: "حضور و غیاب",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/ads.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="showDailyReports"
+            component={ShowDailyReport}
+            options={{
+              title: "گزارش نیروی انسانی",
               drawerIcon: () => (
                 <Image
                   source={require("./assets/icons/ads.png")}
@@ -216,6 +245,8 @@ export default function Routes() {
             <Stack.Screen name="divination" component={Divination} />
             <Stack.Screen name="post" component={Post} />
             <Stack.Screen name="posts" component={Posts} />
+            <Stack.Screen name="absentee" component={Absentee} />
+            <Stack.Screen name="showDailyReports" component={ShowDailyReport} />
           </>
         )}
       </Stack.Navigator>
