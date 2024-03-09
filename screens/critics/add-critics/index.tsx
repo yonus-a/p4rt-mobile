@@ -81,7 +81,6 @@ export default function AddCritics() {
         </Container>
       </ScrollView>
       <QuickPanel />
-      <Alert />
     </View>
   );
 }

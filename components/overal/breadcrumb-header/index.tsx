@@ -1,5 +1,5 @@
-import { View, Image, Pressable, useWindowDimensions } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { View, Image, Pressable } from "react-native";
 import CustomText from "../../utils/text";
 import Profile from "../../profile";
 import styles from "./styles";
@@ -37,18 +37,18 @@ export default function BreadcrumbHeader() {
     case "divination":
       pathnaem = "فال حافظ";
       break;
-    case "پست":
-      pathnaem = "فال حافظ";
+    case "post":
+      pathnaem = "پست";
       break;
-    case "پست ها":
-      pathnaem = "فال حافظ";
+    case "posts":
+      pathnaem = "پست ها";
       break;
   }
 
   return (
     <View style={[styles.header]}>
       <Image
-        source={require("../../../assets/images/overal/map2.png")}
+        source={require("../../../assets/images/overal/header-map.png")}
         resizeMode="contain"
         style={styles.bg}
       />
@@ -70,7 +70,7 @@ export default function BreadcrumbHeader() {
         resizeMode="cover"
         style={{
           width: "100%",
-          marginTop: -120,
+          marginTop: -130,
           height: 160,
         }}
       />

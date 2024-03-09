@@ -21,7 +21,7 @@ export default function Post({ route }) {
     return () => {
       setData({});
     };
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     fetchComments(setComments, { id });

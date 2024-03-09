@@ -6,7 +6,6 @@ import Button from "../../utils/button";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
-import Alert from "../../overal/alert";
 
 export default function AddToCart({ food, date, navigation }) {
   const defaultQuantity = food.name == "چاشت" ? 1 : 0;

@@ -7,7 +7,6 @@ import Button from "../../utils/button";
 import { View } from "react-native";
 import addOrder from "./addOrder";
 import styles from "./styles";
-import Alert from "../../overal/alert";
 
 export default function Bill({ items }) {
   const { emptyCart } = useCart();
@@ -38,7 +37,6 @@ export default function Bill({ items }) {
         </View>
         <Button style={styles.btn} onPress={handleOrder} title="ثبت" />
       </View>
-      <Alert />
     </Shadow>
   );
 }

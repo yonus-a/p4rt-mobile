@@ -12,13 +12,14 @@ export default function Posts({ route }) {
     posts: [],
   });
   const [curPage, setCurPage] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState(category);
   const take = 10;
+
+  console.log(category);
 
   useEffect(() => {
     fetchData(setData, {
       page: curPage + 1,
-      category: selectedCategory,
+      category: category,
       take,
     });
 
@@ -28,7 +29,7 @@ export default function Posts({ route }) {
         posts: [],
       });
     };
-  }, [curPage]);
+  }, [curPage, category]);
 
   return (
     <View style={{ flex: 1 }}>

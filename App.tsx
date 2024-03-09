@@ -7,6 +7,7 @@ import Routes from "./routes";
 
 // configs
 import "./axios";
+import Alert from "./components/overal/alert";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,6 +24,7 @@ export default function App() {
         <Routes />
       </CustomCartProvider>
       <StatusBar style="auto" />
+      <Alert />
     </NavigationContainer>
   );
 }

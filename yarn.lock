@@ -6507,10 +6507,15 @@ react-native-android-sms-listener@^0.8.0:
 
 react-native-animated-pagination-dot@^0.4.0:
   version "0.4.0"
-  resolved "https://registry.npmjs.org/react-native-animated-pagination-dot/-/react-native-animated-pagination-dot-0.4.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-native-animated-pagination-dot/-/react-native-animated-pagination-dot-0.4.0.tgz#23a2ae7a6f87fe0a71638ddc3cd8405810c10c2b"
   integrity sha512-MiIPB6qe8lc6a+nhzvQHOi5x/bZlZ8hBH4HWiorPps3gTJZgxfX3abuYvVjN94egA8Z3HlE9pptz8OQfdL5IzQ==
   dependencies:
     react-use "^17.3.1"
+
+react-native-animated-pagination-dots@^0.1.73:
+  version "0.1.73"
+  resolved "https://registry.yarnpkg.com/react-native-animated-pagination-dots/-/react-native-animated-pagination-dots-0.1.73.tgz#b559bf2faea50b848ff9234a557561ad15298118"
+  integrity sha512-yg6RL0ph3UN+KHX5NDa1iPVxh0J6h9dIn4zoColhJeAGV9TTl8SlaucwcBWaLd7DeUoJgkPxB/O4zJMAcpI/FQ==
 
 react-native-chart-kit@^6.12.0:
   version "6.12.0"

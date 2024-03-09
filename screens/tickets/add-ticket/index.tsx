@@ -63,7 +63,6 @@ export default function AddTicket({ navigation }) {
         {/* <FilePicker setValue={setValue} /> */}
         <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
-      <Alert />
     </View>
   );
 }

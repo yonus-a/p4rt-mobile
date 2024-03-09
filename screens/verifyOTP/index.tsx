@@ -62,7 +62,6 @@ export default function VerifyOTP({ route, navigation }: any) {
             style={styles.textIcon}
           />
         </View>
-        <Alert />
       </View>
     </LinearGradient>
   );

@@ -3,7 +3,8 @@ export default function loopOptions(width: number) {
     loop: true,
     height: width / 2,
     autoPlay: true,
-    scrollAnimationDuration: 4000,
+    scrollAnimationDuration: 2000,
+    autoPlayInterval: 3000,
     width,
   };
 }

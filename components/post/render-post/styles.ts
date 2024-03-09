@@ -16,5 +16,6 @@ export default StyleSheet.create({
   },
   content: {
     marginBottom: 20,
+    width: "100%",
   },
 });

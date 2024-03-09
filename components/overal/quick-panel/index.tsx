@@ -1,5 +1,5 @@
-import { useRoute } from "@react-navigation/native";
 import { Image, ImageBackground } from "react-native";
+import { useRoute } from "@react-navigation/native";
 import Navigate from "../../utils/navigate";
 import styles from "./styles";
 
@@ -7,7 +7,7 @@ export default function QuickPanel() {
   const route = useRoute();
   const isHome = route.name === "dashboard";
   const isCritics = route.name === "critics";
-  const isCart = route.name === "cart";
+  const isCart = route.name === "foods";
 
   return (
     <ImageBackground
@@ -45,11 +45,11 @@ export default function QuickPanel() {
           />
         )}
       </Navigate>
-      <Navigate to="cart">
+      <Navigate to="foods">
         {isCart ? (
           <Image
             source={require("../../../assets/icons/active-cart.png")}
-            style={styles.active}
+            style={[styles.active, { width: 20, height: 40, marginTop: 20 }]}
             alt="cart"
           />
         ) : (

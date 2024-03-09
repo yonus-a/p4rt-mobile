@@ -74,7 +74,6 @@ export default function Signin({ navigation }: any) {
             style={styles.textIcon}
           />
         </View>
-        <Alert />
       </View>
     </LinearGradient>
   );

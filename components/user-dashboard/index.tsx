@@ -14,15 +14,6 @@ export default function UserDashboard() {
         <View style={{ paddingHorizontal: 20 }}>
           <Slider scrollY={scrollY} />
           <Image
-            source={require("../../assets/icons/3dots.png")}
-            style={{
-              alignSelf: "center",
-              height: 10,
-              marginBottom: -10,
-              marginTop: 10,
-            }}
-          />
-          <Image
             style={styles.najva}
             source={require("../../assets/images/overal/najva.png")}
           />

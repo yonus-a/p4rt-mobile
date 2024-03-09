@@ -1,6 +1,6 @@
-import { View, Image, useWindowDimensions, Animated } from "react-native";
+import { View, useWindowDimensions, Animated } from "react-native";
 import loopOptions from "../../../utils/slider/loopOptions";
-import Carousel from "react-native-reanimated-carousel";
+import CustomCarousel from "../../utils/carousel";
 import { useEffect, useState } from "react";
 import styles from "./styles";
 import axios from "axios";
@@ -9,7 +9,6 @@ export default function Slider({ style = {}, scrollY }) {
   const [data, setData] = useState([]);
 
   const width = useWindowDimensions().width;
-  console.log(width);
 
   async function fetchData() {
     try {
@@ -36,7 +35,7 @@ export default function Slider({ style = {}, scrollY }) {
         }),
       }}
     >
-      <Carousel
+      <CustomCarousel
         data={[
           { id: 1, source: require("../../../assets/images/slider/img1.jpg") },
           { id: 2, source: require("../../../assets/images/slider/img2.jpg") },

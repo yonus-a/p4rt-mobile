@@ -13,7 +13,9 @@ export default function ShowPosts({ posts, maxPage, curPage, setCurPage }) {
           contentContainerStyle={{ gap: 10, paddingBottom: 50 }}
           renderItem={({ item }) => {
             return !item.pagination ? (
-              <PostCard post={item} key={item.id} style={styles.card} />
+              <View style={{ flex: 1, padding: 5 }}>
+                <PostCard post={item} key={item.id} style={styles.card} />
+              </View>
             ) : (
               <Pagination
                 maxPage={maxPage}

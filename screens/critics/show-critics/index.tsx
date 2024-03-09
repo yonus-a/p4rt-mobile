@@ -86,7 +86,6 @@ export default function ShowCritics({ navigation }) {
           maxPage={Math.round(1)}
         />
       </Container>
-      <Alert />
       <QuickPanel />
     </View>
   );

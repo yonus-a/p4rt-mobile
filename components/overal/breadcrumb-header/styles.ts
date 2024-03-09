@@ -16,10 +16,10 @@ export default StyleSheet.create({
   },
   bg: {
     position: "absolute",
-    height: 120,
-    width: 250,
-    right: 50,
-    top: 20,
+    height: 180,
+    width: 350,
+    right: 0,
+    top: -5,
   },
   menu: {
     width: 30,

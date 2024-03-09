@@ -99,7 +99,7 @@ function Root() {
               title: "سفارش های من",
               drawerIcon: () => (
                 <Image
-                  source={require("./assets/icons/food.png")}
+                  source={require("./assets/icons/food-order.png")}
                   style={drawerStyle.icon}
                 />
               ),
@@ -143,7 +143,7 @@ function Root() {
               title: "درخواست های من",
               drawerIcon: () => (
                 <Image
-                  source={require("./assets/icons/ticket.png")}
+                  source={require("./assets/icons/ads.png")}
                   style={drawerStyle.icon}
                 />
               ),
