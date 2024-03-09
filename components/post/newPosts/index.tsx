@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import fetchPosts from "./fetchPosts";
 import PostCard from "../post-card";
 import styles from "./styles";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function NewPosts({ take, categoryId }) {
   const [posts, setPosts] = useState([]);
@@ -20,12 +21,13 @@ export default function NewPosts({ take, categoryId }) {
   return (
     <Carousel
       data={posts}
-      loop={false}
-      width={180}
+      loop={true}
+      width={width}
+      autoPlayReverse
       windowSize={width}
       style={styles.carousel}
       renderItem={({ item }) => (
-        <View style={{ flex: 1 }}>
+        <View>
           <PostCard post={item} />
         </View>
       )}

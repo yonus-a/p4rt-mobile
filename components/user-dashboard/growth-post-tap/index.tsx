@@ -7,8 +7,8 @@ import { useState } from "react";
 const renderScene = SceneMap({
   book: () => <NewPosts take={10} categoryId={17} />,
   fashon: () => <NewPosts take={10} categoryId={19} />,
-  tourism: () => <NewPosts take={10} categoryId={44} />,
   ai: () => <NewPosts take={10} categoryId={41} />,
+  tourism: () => <NewPosts take={10} categoryId={44} />,
 });
 
 export default function GrowthPostTab() {
@@ -26,7 +26,6 @@ export default function GrowthPostTab() {
     <TabView
       navigationState={{ index, routes }}
       style={{ height: 390 }}
-      layoutDirection="rtl"
       sceneContainerStyle={{
         paddingHorizontal: 20,
         paddingBottom: 70,

@@ -7,8 +7,8 @@ import axios from "axios";
 
 export default function Slider({ style = {}, scrollY }) {
   const [data, setData] = useState([]);
-  const width = useWindowDimensions().width;
 
+  const width = useWindowDimensions().width;
   console.log(width);
 
   async function fetchData() {
