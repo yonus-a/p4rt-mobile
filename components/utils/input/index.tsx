@@ -1,4 +1,5 @@
 import { useController } from "react-hook-form";
+import { Shadow } from "react-native-shadow-2";
 import { TextInput } from "react-native";
 import styles from "./styles";
 
@@ -34,13 +35,15 @@ export default function Input({
     : {};
 
   return (
-    <TextInput
-      style={[styles.input, style, editorStyle]}
-      onChangeText={field.onChange}
-      numberOfLines={numberOfLines}
-      placeholder={placeholder}
-      multiline={multiline}
-      value={field.value}
-    />
+    <Shadow style={{ width: "100%", borderRadius: 10 }} distance={5}>
+      <TextInput
+        style={[styles.input, style, editorStyle]}
+        onChangeText={field.onChange}
+        numberOfLines={numberOfLines}
+        placeholder={placeholder}
+        multiline={multiline}
+        value={field.value}
+      />
+    </Shadow>
   );
 }

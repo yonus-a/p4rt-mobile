@@ -1,6 +1,6 @@
 import { Image, View } from "react-native";
-import styles from "./styles";
 import CustomText from "../../utils/text";
+import styles from "./styles";
 
 interface Props {
   amountColor: string;

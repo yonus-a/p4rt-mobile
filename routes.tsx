@@ -19,9 +19,10 @@ import { Image } from "react-native";
 import Posts from "./screens/posts";
 import Cart from "./screens/cart";
 import Post from "./screens/post";
-import ShowCritics from "./screens/critics/show-critics";
 import Absentee from "./screens/absentee";
 import ShowDailyReport from "./screens/daily-report/show-dialy-reports";
+import SmsPanel from "./screens/sms-panel";
+import NotificationManagment from "./screens/notification-managment";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -140,6 +141,19 @@ function Root() {
             }}
           />
           <Drawer.Screen
+            name="smsPanel"
+            component={SmsPanel}
+            options={{
+              title: "پنل پیامکی",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/notifi.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
             name="showTickets"
             component={ShowTickets}
             options={{
@@ -170,6 +184,19 @@ function Root() {
             component={ShowDailyReport}
             options={{
               title: "گزارش نیروی انسانی",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/ads.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="notificationManagment"
+            component={NotificationManagment}
+            options={{
+              title: "مدریت اعلانات",
               drawerIcon: () => (
                 <Image
                   source={require("./assets/icons/ads.png")}
@@ -247,6 +274,11 @@ export default function Routes() {
             <Stack.Screen name="posts" component={Posts} />
             <Stack.Screen name="absentee" component={Absentee} />
             <Stack.Screen name="showDailyReports" component={ShowDailyReport} />
+            <Stack.Screen name="smsPanel" component={SmsPanel} />
+            <Stack.Screen
+              name="notificationManagment"
+              component={NotificationManagment}
+            />
           </>
         )}
       </Stack.Navigator>

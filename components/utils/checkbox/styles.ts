@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  reports: {
+  wrapper: {
     flexDirection: "row",
-    justifyContent: "center",
-    gap: 18,
+    alignSelf: "flex-end",
+    gap: 20,
   },
 });

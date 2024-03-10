@@ -4,7 +4,7 @@ export default StyleSheet.create({
   reportCard: {
     padding: 20,
     borderRadius: 16,
-    width: "44%",
+    width: "30%",
     elevation: 6,
   },
   wrapper: {

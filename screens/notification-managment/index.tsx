@@ -6,7 +6,8 @@ import ScreenOne from "./screen-one";
 import ScreenTow from "./screen-tow";
 import styles from "./styles";
 
-export default function SmsPanel() {
+export default function NotificationManagment() {
+  const [everyone, setEveryone] = useState(false);
   const { width } = useWindowDimensions();
   const [users, setUsers] = useState([]);
   const carouselRef = useRef();
@@ -17,13 +18,14 @@ export default function SmsPanel() {
       <Carousel
         loop={false}
         enabled={false}
-        defaultIndex={0}
         data={[ScreenOne, ScreenTow]}
         renderItem={({ item: Component }: any) => (
           <Component
             carouselRef={carouselRef}
-            users={users}
+            setEveryone={setEveryone}
+            everyone={everyone}
             setUsers={setUsers}
+            users={users}
           />
         )}
         width={width}
