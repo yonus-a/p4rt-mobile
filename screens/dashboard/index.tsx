@@ -9,8 +9,8 @@ export default function Dashborad({ navigation }: any) {
   return (
     <View style={styles.dashborad}>
       <Header navigation={navigation} />
-      {/* <UserDashboard /> */}
-      <AdminDashboard />
+      <UserDashboard />
+      {/* <AdminDashboard /> */}
       <QuickPanel />
     </View>
   );

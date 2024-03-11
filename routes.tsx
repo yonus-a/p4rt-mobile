@@ -23,6 +23,12 @@ import Absentee from "./screens/absentee";
 import ShowDailyReport from "./screens/daily-report/show-dialy-reports";
 import SmsPanel from "./screens/sms-panel";
 import NotificationManagment from "./screens/notification-managment";
+import ShowCritics from "./screens/critics/show-critics";
+import OrderManagment from "./screens/orders-managment";
+import FoodManagment from "./screens/food-managment";
+import AddFood from "./screens/add-food";
+import EditFood from "./screens/edit-food";
+import UserManagment from "./screens/user-managment";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -114,7 +120,7 @@ function Root() {
             component={Cart}
             options={{ drawerItemStyle: { height: 0 } }}
           />
-          {/* <Drawer.Screen
+          <Drawer.Screen
             name="showCritics"
             component={ShowCritics}
             options={{
@@ -126,9 +132,49 @@ function Root() {
                 />
               ),
             }}
-          /> */}
+          />
           <Drawer.Screen
             name="notification"
+            component={Notification}
+            options={{
+              title: "اعلانات",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/notifi.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="orderManagment"
+            component={OrderManagment}
+            options={{
+              title: "مدریت سفارشات",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/notifi.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
+            name="foodManagment"
+            component={FoodManagment}
+            options={{
+              title: "مدیریت غذا ها",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/notifi.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="orders-managment"
             component={Notification}
             options={{
               title: "اعلانات",
@@ -193,6 +239,19 @@ function Root() {
             }}
           />
           <Drawer.Screen
+            name="userManagment"
+            component={UserManagment}
+            options={{
+              title: "مدریت کاربران",
+              drawerIcon: () => (
+                <Image
+                  source={require("./assets/icons/ads.png")}
+                  style={drawerStyle.icon}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
             name="notificationManagment"
             component={NotificationManagment}
             options={{
@@ -227,6 +286,13 @@ function Root() {
             }}
           />
           <Drawer.Screen
+            name="editFood"
+            component={EditFood}
+            options={{
+              drawerItemStyle: { height: 0 },
+            }}
+          />
+          <Drawer.Screen
             name="post"
             component={Post}
             options={{
@@ -236,6 +302,20 @@ function Root() {
           <Drawer.Screen
             name="posts"
             component={Posts}
+            options={{
+              drawerItemStyle: { height: 0 },
+            }}
+          />
+          <Drawer.Screen
+            name="addFood"
+            component={AddFood}
+            options={{
+              drawerItemStyle: { height: 0 },
+            }}
+          />
+          <Drawer.Screen
+            name="مدریت کاربران"
+            component={AddFood}
             options={{
               drawerItemStyle: { height: 0 },
             }}
@@ -265,16 +345,19 @@ export default function Routes() {
             <Stack.Screen name="foods" component={Foods} />
             <Stack.Screen name="showOrders" component={ShowOrders} />
             <Stack.Screen name="cart" component={Cart} />
+            <Stack.Screen name="orderManagment" component={Cart} />
             <Stack.Screen name="notification" component={Notification} />
             <Stack.Screen name="showTickets" component={ShowTickets} />
             <Stack.Screen name="addTicket" component={AddTicket} />
             <Stack.Screen name="ticket" component={Ticket} />
-            <Stack.Screen name="divination" component={Divination} />
             <Stack.Screen name="post" component={Post} />
+            <Stack.Screen name="divination" component={Divination} />
+            <Stack.Screen name="foodManagment" component={FoodManagment} />
             <Stack.Screen name="posts" component={Posts} />
             <Stack.Screen name="absentee" component={Absentee} />
             <Stack.Screen name="showDailyReports" component={ShowDailyReport} />
-            <Stack.Screen name="smsPanel" component={SmsPanel} />
+            <Stack.Screen name="addFood" component={AddFood} />
+            <Stack.Screen name="editFood" component={EditFood} />
             <Stack.Screen
               name="notificationManagment"
               component={NotificationManagment}

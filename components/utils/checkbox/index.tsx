@@ -6,6 +6,7 @@ import styles from "./styles";
 
 export default function CustomCheckBox({ control, name, label }) {
   const { field } = useController({
+    defaultValue: false,
     control,
     name,
   });

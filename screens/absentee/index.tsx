@@ -23,7 +23,7 @@ export default function Absentee() {
   return (
     <View style={styles.absentee}>
       <BreadcrumbHeader />
-      <Container>
+      <Container style={{ gap: 20 }}>
         <AbsenteeFilters setDate={setDate} setSearch={setSearch} />
         <RenderAbsentee data={data} />
       </Container>

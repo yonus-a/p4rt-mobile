@@ -3,11 +3,11 @@ import * as DocumentPicker from "expo-document-picker";
 import styles from "./styles";
 import CustomText from "../text";
 
-export default function FilePicker({ setValue }) {
+export default function FilePicker({ setValue, name = "filename" }) {
   const handlePress = async () => {
     const file = await DocumentPicker.getDocumentAsync({});
-    const name = file.assets?.[0]?.name;
-    setValue("filename", name);
+    const filename = file.assets?.[0]?.name;
+    setValue(name, filename);
   };
 
   return (

@@ -29,8 +29,8 @@ export default function Select({
       <Picker
         selectedValue={field.value}
         onValueChange={field.onChange}
-        style={styles.select}
         placeholder={placeholder}
+        style={styles.select}
       >
         {items.map(({ label, value }: any) => (
           <Picker.Item key={value} label={label} value={value} />

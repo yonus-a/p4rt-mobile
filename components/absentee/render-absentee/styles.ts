@@ -7,6 +7,7 @@ export default StyleSheet.create({
     backgroundColor: "#e1e1e1",
     alignItems: "center",
     borderRadius: 10,
-    padding: 20,
+    paddingHorizontal: 20,
+    padding: 10,
   },
 });

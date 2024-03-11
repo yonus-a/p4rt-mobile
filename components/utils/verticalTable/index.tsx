@@ -6,8 +6,10 @@ export function Header({ children }) {
   return <CustomText style={verticalTableStyle.header}>{children}</CustomText>;
 }
 
-export function Cell({ children }) {
-  return <CustomText style={verticalTableStyle.cell}>{children}</CustomText>;
+export function Cell({ children, style = {} }) {
+  return (
+    <CustomText style={[verticalTableStyle.cell, style]}>{children}</CustomText>
+  );
 }
 
 export function Row({ children, style = {} }) {

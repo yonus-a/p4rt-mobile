@@ -9,6 +9,7 @@ export default function ScreenOne({
   setEveryone,
   carouselRef,
   setUsers,
+  everyone,
   users,
 }) {
   return (
@@ -27,6 +28,7 @@ export default function ScreenOne({
         <Checkbox
           style={{ alignSelf: "flex-end" }}
           onValueChange={(val) => setEveryone(val)}
+          value={everyone}
         />
       </View>
       <Button

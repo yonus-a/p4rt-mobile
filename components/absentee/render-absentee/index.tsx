@@ -8,6 +8,7 @@ export default function RenderAbsentee({ data }) {
   return (
     <FlatList
       data={data}
+      contentContainerStyle={{ gap: 10 }}
       renderItem={({ item }) => {
         const fullName = item.user.firstname + " " + item.user.lastname;
 
