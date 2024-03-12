@@ -4,14 +4,8 @@ export default StyleSheet.create({
   chart: {
     width: "100%",
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
+    shadowColor: "#111",
     borderRadius: 16,
-    elevation: 5,
+    elevation: 8,
   },
 });

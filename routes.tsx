@@ -121,6 +121,7 @@ function Root() {
             options={{ drawerItemStyle: { height: 0 } }}
           />
           <Drawer.Screen
+          <Drawer.Screen
             name="showCritics"
             component={ShowCritics}
             options={{
@@ -132,6 +133,7 @@ function Root() {
                 />
               ),
             }}
+          />
           />
           <Drawer.Screen
             name="notification"

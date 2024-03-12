@@ -2,10 +2,9 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   reportCard: {
-    padding: 20,
+    padding: 15,
+    paddingHorizontal: 20,
     borderRadius: 16,
-    width: "30%",
-    elevation: 6,
   },
   wrapper: {
     flexDirection: "row",
@@ -14,16 +13,17 @@ export default StyleSheet.create({
     gap: 20,
   },
   desc: {
-    fontSize: 18,
+    fontSize: 15,
     textAlign: "center",
     marginTop: 16,
   },
   amount: {
-    borderRadius: 16,
+    borderRadius: 8,
     marginTop: 16,
-    fontSize: 16,
-    padding: 16,
-    minWidth: 50,
+    fontSize: 15,
+    padding: 8,
+    paddingVertical: 4,
+    minWidth: 30,
     textAlign: "center",
   },
   image: {

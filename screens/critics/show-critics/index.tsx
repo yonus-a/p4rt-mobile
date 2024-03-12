@@ -1,23 +1,22 @@
+import DeleteHiddenBtn from "../../../components/utils/delete-hidden-btn";
+import RenderCriticsItem from "../../../components/critics/render-critics-item";
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
 import QuickPanel from "../../../components/overal/quick-panel";
-import { View, Image, Modal, Pressable } from "react-native";
-import Pagination from "../../../components/utils/pagination";
 import { SwipeListView } from "react-native-swipe-list-view";
-import Container from "../../../components/overal/container";
-import DeleteBtn from "../../../components/utils/delete-btn";
-import CloseBtn from "../../../components/utils/close-btn";
 import handleDeleteCritics from "./handleDeleteCritics";
-import CustomText from "../../../components/utils/text";
-import Alert from "../../../components/overal/alert";
+import Container from "../../../components/overal/container";
+import Pagination from "../../../components/utils/pagination";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
+import { View } from "react-native";
 import styles from "./styles";
 
-export default function ShowCritics({ navigation }) {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [critics, setCritics] = useState<any>({});
-  const [curPage, setCurPage] = useState(0);
+export default function ShowCritics() {
   const take = 20;
+  const [curPage, setCurPage] = useState(0);
+  const [critics, setCritics] = useState<any>({
+    data: [],
+  });
 
   useEffect(() => {
     fetchData(setCritics, curPage, take);
@@ -33,57 +32,35 @@ export default function ShowCritics({ navigation }) {
       <Container>
         <SwipeListView
           contentContainerStyle={styles.container}
-          data={critics.data}
-          renderItem={({ item }: any, rowMap) => {
-            const name = item.name;
-
+          leftOpenValue={75}
+          data={[...critics.data, { pagination: true }]}
+          renderItem={({ item }) => {
             return (
               <>
-                <Pressable
-                  style={styles.item}
-                  onPress={() => setModalVisible(true)}
-                >
-                  <CustomText>{name || "ناشناس"}</CustomText>
-                  {item.readed ? (
-                    <Image
-                      source={require("../../../assets/icons/readed.png")}
-                      width={50}
-                      height={50}
-                      style={styles.icon}
-                    />
-                  ) : (
-                    <Image
-                      source={require("../../../assets/icons/unread.png")}
-                      style={styles.icon}
-                      width={50}
-                      height={50}
-                    />
-                  )}
-                </Pressable>
-                <Modal visible={modalVisible}>
-                  <Container style={styles.content}>
-                    <CloseBtn onPress={() => setModalVisible(false)} />
-                    <CustomText>{item.msg}</CustomText>
-                  </Container>
-                </Modal>
+                {!item.pagination ? (
+                  <RenderCriticsItem item={item} />
+                ) : (
+                  <Pagination
+                    curPage={curPage}
+                    setCurPage={setCurPage}
+                    style={{ marginTop: 10 }}
+                    maxPage={10}
+                  />
+                )}
               </>
             );
           }}
-          renderHiddenItem={({ item }: any, rowMap) => (
-            <View style={styles.hiddenItem}>
-              <DeleteBtn
+          renderHiddenItem={({ item }: any) => {
+            if (item.pagination) return null;
+
+            return (
+              <DeleteHiddenBtn
                 onPress={async () =>
                   await handleDeleteCritics(item.id, setCritics, critics)
                 }
               />
-            </View>
-          )}
-          leftOpenValue={75}
-        />
-        <Pagination
-          curPage={curPage}
-          setCurPage={setCurPage}
-          maxPage={Math.round(1)}
+            );
+          }}
         />
       </Container>
       <QuickPanel />

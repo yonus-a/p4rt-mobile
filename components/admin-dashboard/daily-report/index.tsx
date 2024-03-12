@@ -1,6 +1,6 @@
+import Container from "../../overal/container";
 import DailyStats from "../../overal/cahrt";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
@@ -18,9 +18,9 @@ export default function DailyReport() {
   }, []);
 
   return (
-    <View style={styles.dailyReport}>
+    <Container style={styles.dailyReport}>
       <DailyStats data={views} label="بازدید" />
       <DailyStats data={visits} label="ورود" />
-    </View>
+    </Container>
   );
 }

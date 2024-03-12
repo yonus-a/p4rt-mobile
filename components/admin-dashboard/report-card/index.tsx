@@ -2,31 +2,18 @@ import { Image, View } from "react-native";
 import CustomText from "../../utils/text";
 import styles from "./styles";
 
-interface Props {
-  amountColor: string;
-  amount: number;
-  color: string;
-  desc: string;
-  icon: any;
-}
-
 export default function ReportCard({
+  iamgeStyle = {},
   amountColor,
   amount,
   color,
   icon,
   desc,
-}: Props) {
+}) {
   return (
     <View style={[styles.reportCard, { backgroundColor: color }]}>
       <View style={styles.wrapper}>
-        <Image
-          style={styles.image}
-          source={icon}
-          width={36}
-          height={36}
-          alt=""
-        />
+        <Image style={[[styles.image, iamgeStyle]]} source={icon} alt="" />
         <CustomText style={[styles.amount, { backgroundColor: amountColor }]}>
           {amount}
         </CustomText>
