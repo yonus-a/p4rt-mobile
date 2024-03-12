@@ -7,9 +7,9 @@ import Tabbar from "../../overal/tabbar";
 import { useState } from "react";
 
 const renderScene = SceneMap({
-  daily: DailyReport,
-  weekly: WeeklyReport,
   monthly: MonthlyReport,
+  weekly: WeeklyReport,
+  daily: DailyReport,
 });
 
 export default function ReportTabs() {
@@ -28,6 +28,7 @@ export default function ReportTabs() {
       navigationState={{ index, routes }}
       initialLayout={layout}
       renderScene={renderScene}
+      swipeEnabled={false}
       onIndexChange={setIndex}
       renderTabBar={Tabbar}
     />

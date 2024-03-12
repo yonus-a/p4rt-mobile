@@ -1,4 +1,4 @@
-import ButtonIcon from "../button-icon";
+import PrimaryButtonIcon from "../button-icon";
 import Modal from "react-native-modal";
 import { View } from "react-native";
 import { useState } from "react";
@@ -13,7 +13,7 @@ export default function OptionModal({ children }) {
 
   return (
     <View>
-      <ButtonIcon
+      <PrimaryButtonIcon
         source={require("../../../assets/icons/options.png")}
         onPress={toggleModal}
         alt="options"
@@ -21,11 +21,11 @@ export default function OptionModal({ children }) {
         width={50}
       />
       <Modal
-        isVisible={visible}
         onBackdropPress={toggleModal}
         style={styles.modal}
+        isVisible={visible}
       >
-        {children}
+        <View style={styles.wrapper}>{children}</View>
       </Modal>
     </View>
   );

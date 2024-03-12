@@ -3,7 +3,7 @@ import FilePicker from "../../../components/utils/filePicker";
 import Container from "../../../components/overal/container";
 import successAlert from "../../../utils/alert/success";
 import Select from "../../../components/utils/select";
-import Button from "../../../components/utils/button";
+import PrimaryButton from "../../../components/utils/primary-button";
 import Alert from "../../../components/overal/alert";
 import Input from "../../../components/utils/input";
 import errorAlert from "../../../utils/alert/error";
@@ -61,7 +61,7 @@ export default function AddTicket({ navigation }) {
           multiline
         />
         {/* <FilePicker setValue={setValue} /> */}
-        <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
+        PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
     </View>
   );

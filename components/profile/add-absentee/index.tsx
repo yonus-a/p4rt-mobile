@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import useUserId from "../../../hooks/useUserId";
-import errorAlert from "../../../utils/alert/error";
 import successAlert from "../../../utils/alert/success";
-import ButtonIcon from "../../utils/button-icon";
+import errorAlert from "../../../utils/alert/error";
+import useUserId from "../../../hooks/useUserId";
+import PrimaryButtonIcon from "../../utils/button-icon";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function AddAbsentee() {
-  const userId = useUserId();
   const [present, setPresent] = useState<any>(null);
+  const userId = useUserId();
 
   useEffect(() => {
     async function fetchData() {
@@ -30,6 +30,7 @@ export default function AddAbsentee() {
       await axios.post("/absentee/addAbsentee", {
         userId,
       });
+
       await successAlert({
         msg: "ورود شما با موفقیت ثبت شد",
       });
@@ -39,7 +40,7 @@ export default function AddAbsentee() {
   };
 
   return (
-    <ButtonIcon
+    <PrimaryButtonIcon
       source={require("../../../assets/icons/done.png")}
       onPress={handlePress}
       height={50}

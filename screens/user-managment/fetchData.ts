@@ -1,14 +1,17 @@
+import errorAlert from "../../utils/alert/error";
 import axios from "axios";
 
 export default async function fetchData({ setData, page, take }) {
   try {
-    const { data } = await axios("/user/filterUsers", {
+    const { data } = await axios("/user/filterUser", {
       params: {
         page,
         take,
       },
     });
 
-    console.log(data);
-  } catch (e) {}
+    setData(data);
+  } catch (e) {
+    await errorAlert();
+  }
 }

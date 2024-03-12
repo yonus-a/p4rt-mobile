@@ -5,8 +5,8 @@ export default function Tabbar(props) {
     <TabBar
       {...props}
       labelStyle={{ color: "black", transform: [{ scaleX: -1 }] }}
-      scrollEnabled
       indicatorStyle={{ backgroundColor: "#555", height: 1 }}
+      scrollEnabled
       style={{
         backgroundColor: "#fcfcfc",
         borderBottomColor: "#ccc",

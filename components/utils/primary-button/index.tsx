@@ -1,6 +1,6 @@
 import { TouchableHighlight } from "react-native";
-import styles from "./styles";
 import CustomText from "../text";
+import styles from "./styles";
 
 interface Props {
   onPress: any;
@@ -8,7 +8,7 @@ interface Props {
   style?: any;
 }
 
-export default function Button({ onPress, title, style = {} }: Props) {
+export default function PrimaryButton({ onPress, title, style = {} }: Props) {
   return (
     <TouchableHighlight onPress={onPress} style={[styles.btn, style]}>
       <CustomText style={styles.btnText}>{title}</CustomText>

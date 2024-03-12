@@ -1,12 +1,12 @@
 import SearchUsers from "../../components/utils/search-users";
 import Container from "../../components/overal/container";
-import Button from "../../components/utils/button";
+import PrimaryButton from "../../components/utils/primary-button";
 
 export default function ScreenOne({ carouselRef, setUsers, users }) {
   return (
     <Container>
       <SearchUsers setSelectedUser={setUsers} selectedUser={users} />
-      <Button
+      PrimaryButton
         onPress={() => carouselRef.current.next()}
         style={{ marginTop: 10 }}
         title="ادامه"

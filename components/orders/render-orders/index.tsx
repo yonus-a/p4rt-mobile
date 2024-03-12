@@ -11,12 +11,12 @@ import DoneBtn from "../../utils/done-btn";
 import handleReject from "./handleReject";
 import { FlatList } from "react-native";
 
-export default function RenderOrders({ orders, curPage, setCurPage, maxPage }) {
+export default function RenderOrders({ data, setPage, page, take }) {
   const userId = useUserId();
 
   return (
     <FlatList
-      data={[...orders, { pagination: true }]}
+      data={[...data.orders, { pagination: true }]}
       contentContainerStyle={verticalTable.table}
       renderItem={({ item }) => {
         const fullName = item.user?.firstname + " " + item.user?.lastname;
@@ -24,9 +24,11 @@ export default function RenderOrders({ orders, curPage, setCurPage, maxPage }) {
         if (item.pagination) {
           return (
             <Pagination
-              setCurPage={setCurPage}
-              curPage={curPage}
-              maxPage={maxPage}
+              countItems={data.countOrders}
+              style={{ marginTop: 10 }}
+              setPage={setPage}
+              take={take}
+              page={page}
             />
           );
         }

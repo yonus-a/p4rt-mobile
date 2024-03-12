@@ -1,47 +1,34 @@
+import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
 import QuickPanel from "../../components/overal/quick-panel";
-import Header from "../../components/overal/header/indexx";
 import Container from "../../components/overal/container";
 import CustomText from "../../components/utils/text";
 import * as SecureStore from "expo-secure-store";
 import globalStyles from "../../globalStyles";
 import { useEffect, useState } from "react";
-import { ScrollView } from "react-native";
+import { View } from "react-native";
+import fetchData from "./fetchData";
 import styles from "./styles";
-import axios from "axios";
 
-export default function Divination({ navigation }: any) {
+export default function Divination() {
+  const fullName = SecureStore.getItem("fullName");
   const [data, setData] = useState<any>({});
 
-  async function fetchData() {
-    const userId = await SecureStore.getItemAsync("userId");
-    const { data: date } = await axios.get("/general/getDate");
-
-    const { data } = await axios.get("/divination/getDivinationSeen", {
-      params: {
-        userId,
-        date,
-      },
-    });
-
-    setData(data);
-  }
-
   useEffect(() => {
-    fetchData();
+    fetchData(setData);
 
     return () => {
       setData({});
     };
   }, []);
 
-  const name = data.user?.firstname + " " + data.user?.lastname;
+  console.log(data);
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <Header navigation={navigation} />
+    <View style={styles.root}>
+      <BreadcrumbHeader />
       <Container>
         <CustomText style={globalStyles.h1}>
-          فال امروز شما سرکار خانم/جناب آقای {name}
+          فال امروز شما سرکار خانم/جناب آقای {fullName}
         </CustomText>
         <CustomText style={globalStyles.h2}>شعر</CustomText>
         <CustomText style={styles.poem}>{data.divination?.poem}</CustomText>
@@ -51,6 +38,6 @@ export default function Divination({ navigation }: any) {
         </CustomText>
       </Container>
       <QuickPanel />
-    </ScrollView>
+    </View>
   );
 }

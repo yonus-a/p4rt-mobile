@@ -11,14 +11,12 @@ export default function Posts({ route }) {
     totalPost: 0,
     posts: [],
   });
-  const [curPage, setCurPage] = useState(0);
+  const [page, setPage] = useState(0);
   const take = 10;
-
-  console.log(category);
 
   useEffect(() => {
     fetchData(setData, {
-      page: curPage + 1,
+      page: page + 1,
       category: category,
       take,
     });
@@ -29,18 +27,13 @@ export default function Posts({ route }) {
         posts: [],
       });
     };
-  }, [curPage, category]);
+  }, [page, category]);
 
   return (
     <View style={{ flex: 1 }}>
       <BreadcrumbHeader />
       <Container>
-        <ShowPosts
-          posts={data.posts}
-          maxPage={Math.round(data.totalPost / take)}
-          setCurPage={setCurPage}
-          curPage={curPage}
-        />
+        <ShowPosts data={data} take={take} setPage={setPage} page={page} />
       </Container>
     </View>
   );

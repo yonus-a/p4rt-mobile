@@ -4,7 +4,7 @@ import Container from "../../../components/overal/container";
 import CustomText from "../../../components/utils/text";
 import successAlert from "../../../utils/alert/success";
 import Select from "../../../components/utils/select";
-import Button from "../../../components/utils/button";
+import PrimaryButton from "../../../components/utils/primary-button";
 import Alert from "../../../components/overal/alert";
 import errorAlert from "../../../utils/alert/error";
 import Input from "../../../components/utils/input";
@@ -76,7 +76,7 @@ export default function AddCritics() {
               name="msg"
               multiline
             />
-            <Button onPress={handleSubmit(onSubmit)} title="ثبت" />
+            PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
           </View>
         </Container>
       </ScrollView>

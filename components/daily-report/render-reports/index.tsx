@@ -3,7 +3,7 @@ import verticalTable from "../../../styles/verticalTable";
 import { FlatList } from "react-native-gesture-handler";
 import Pagination from "../../utils/pagination";
 
-export default function RenderReports({ data, curPage, setCurPage, maxPage }) {
+export default function RenderReports({ data, page, setPage, take }) {
   return (
     <FlatList
       data={[...data, { pagination: true }]}
@@ -36,9 +36,10 @@ export default function RenderReports({ data, curPage, setCurPage, maxPage }) {
               </Row>
             ) : (
               <Pagination
-                setCurPage={setCurPage}
-                curPage={curPage}
-                maxPage={maxPage}
+                countItems={data.totalReports}
+                setPage={setPage}
+                page={page}
+                take={take}
               />
             )}
           </>

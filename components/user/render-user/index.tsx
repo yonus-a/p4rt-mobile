@@ -1,11 +1,13 @@
-import { Row, Header, Wrapper, Cell } from "../../utils/verticalTable";
-import { View } from "react-native";
-import styles from "./styles";
+import { Header, Wrapper, Cell } from "../../utils/verticalTable";
+import Container from "../../overal/container";
 import DeleteBtn from "../../utils/delete-btn";
+import EditLink from "../../utils/edit-link";
+import handleDelete from "./handleDelete";
+import styles from "./styles";
 
 export default function RenderUser({ item }) {
   return (
-    <Row style={styles.item}>
+    <Container style={styles.item}>
       <Wrapper>
         <Header>نام</Header>
         <Cell>{item.firstname + " " + item.lastname}</Cell>
@@ -32,10 +34,11 @@ export default function RenderUser({ item }) {
       </Wrapper>
       <Wrapper>
         <Header>عملیات ها</Header>
-        <Cell>
-          <DeleteBtn onPress={() => {}} />
+        <Cell style={styles.actions}>
+          <DeleteBtn onPress={() => handleDelete(item.id)} />
+          <EditLink to="editUser" params={{ id: item.id }} />
         </Cell>
       </Wrapper>
-    </Row>
+    </Container>
   );
 }

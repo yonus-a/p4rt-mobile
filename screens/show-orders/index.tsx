@@ -41,11 +41,11 @@ export default function ShowOrders() {
       <Container>
         <SearchInputs setSearch={setSearch} />
         <RenderOrders
-          maxPage={Math.floor(data.countOrders / take) || 1}
           fetchNewData={() => setFetchNewData({})}
-          orders={data.orders}
           setPage={setPage}
           page={curPage}
+          data={data}
+          take={take}
         />
       </Container>
       <QuickPanel />

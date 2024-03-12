@@ -1,6 +1,6 @@
 import FilterWrapper from "../../utils/filter-wrapper";
 import SearchInputs from "../../utils/search-input";
-import DatePicker from "../../../utils/datePicker";
+import DatePicker from "../../utils/datePicker";
 import OptionModal from "../../utils/options";
 
 export default function AbsenteeFilters({ setDate, setSearch }) {

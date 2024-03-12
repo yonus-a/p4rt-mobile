@@ -2,9 +2,9 @@ import { Pressable, Image } from "react-native";
 import styles from "./styles";
 import CustomText from "../text";
 
-export default function AddBtn({ onPress }) {
+export default function AddBtn({ onPress, style = {} }) {
   return (
-    <Pressable style={styles.addBtn} onPress={onPress}>
+    <Pressable style={[styles.addBtn, style]} onPress={onPress}>
       <CustomText style={styles.text}>اضافه کردن</CustomText>
       <Image
         source={require("../../../assets/icons/add.png")}

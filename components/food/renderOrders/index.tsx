@@ -11,10 +11,10 @@ import styles from "./styles";
 
 export default function RenderOrders({
   fetchNewData,
-  maxPage,
   setPage,
-  orders,
+  data,
   page,
+  take,
 }) {
   const handleReject = async (id) => {
     try {
@@ -27,8 +27,8 @@ export default function RenderOrders({
 
   return (
     <FlatList
-      data={[...orders, { pagination: true }]}
       style={styles.renderOrders}
+      data={[...data.orders, { pagination: true }]}
       contentContainerStyle={[verticalTable.table, { paddingBottom: 100 }]}
       renderItem={({ item, index }) => (
         <>
@@ -70,9 +70,10 @@ export default function RenderOrders({
           ) : (
             <Pagination
               style={{ marginTop: 30 }}
-              setCurPage={setPage}
-              maxPage={maxPage}
-              curPage={page}
+              countItems={data.countOrders}
+              setPage={setPage}
+              page={page}
+              take={take}
             />
           )}
         </>

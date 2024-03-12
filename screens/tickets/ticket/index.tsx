@@ -1,6 +1,6 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
 import Container from "../../../components/overal/container";
-import Button from "../../../components/utils/button";
+import PrimaryButton from "../../../components/utils/primary-button";
 import Input from "../../../components/utils/input";
 import errorAlert from "../../../utils/alert/error";
 import { useEffect, useState } from "react";
@@ -39,7 +39,7 @@ export default function Ticket({ route, navigation }) {
       <Container style={{ gap: 20 }}>
         <ChatLine message={data.message} attachment={""} />
         {/* <Input control={control} multiline numberOfLines={8} name="message" />
-        <Button onPress={handleSubmit(onSubmit)} title="ثبت" /> */}
+        PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" /> */}
       </Container>
     </View>
   );

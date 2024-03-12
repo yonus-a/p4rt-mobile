@@ -1,29 +1,30 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
 import RenderUser from "../../components/user/render-user";
-import Container from "../../components/overal/container";
+import AddBtn from "../../components/utils/add-btn";
+import { FlatList, View } from "react-native";
 import { useEffect, useState } from "react";
-import { FlatList } from "react-native";
-import { View } from "react-native";
 import fetchData from "./fetchData";
 
-export default function UserManagment() {
-  const [page, setPage] = useState();
-  const [user, setData] = useState([]);
+export default function UserManagment({ navigation }) {
   const take = 10;
+  const [page, setPage] = useState(0);
+  const [data, setData] = useState({
+    totoalUsers: 0,
+    users: [],
+  });
 
   useEffect(() => {
     fetchData({ setData, page, take });
-  }, [page])
+  }, [page]);
 
   return (
     <View>
       <BreadcrumbHeader />
-      <Container>
-        <FlatList
-          data={user}
-          renderItem={({ item }) => <RenderUser item={item} />}
-        />
-      </Container>
+      <AddBtn onPress={() => navigation.navigate("addUser")} />
+      <FlatList
+        data={data.users}
+        renderItem={({ item }) => <RenderUser item={item} />}
+      />
     </View>
   );
 }

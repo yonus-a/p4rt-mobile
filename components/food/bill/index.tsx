@@ -3,7 +3,7 @@ import errorAlert from "../../../utils/alert/error";
 import { Shadow } from "react-native-shadow-2";
 import useCart from "../../../hooks/useCart";
 import CustomText from "../../utils/text";
-import Button from "../../utils/button";
+import PrimaryButton from "../../utils/primary-button";
 import { View } from "react-native";
 import addOrder from "./addOrder";
 import styles from "./styles";
@@ -35,7 +35,7 @@ export default function Bill({ items }) {
           <CustomText>{totoalPrice} ریال</CustomText>
           <CustomText>مبلغ قابل پرداخت:</CustomText>
         </View>
-        <Button style={styles.btn} onPress={handleOrder} title="ثبت" />
+        PrimaryButton style={styles.btn} onPress={handleOrder} title="ثبت" />
       </View>
     </Shadow>
   );

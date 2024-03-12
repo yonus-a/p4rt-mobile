@@ -1,6 +1,6 @@
 import errorAlert from "../../../utils/alert/error";
 import { useForm } from "react-hook-form";
-import Button from "../../utils/button";
+import PrimaryButton from "../../utils/primary-button";
 import Input from "../../utils/input";
 import addComment from "./addComment";
 import { View } from "react-native";
@@ -31,7 +31,7 @@ export default function AddComment({ foodId, fetchNewData, closeDialog }) {
         name="text"
         placeholder="نظر خود را وارد کنید..."
       />
-      <Button onPress={handleSubmit(onSubmit)} title="ارسال" />
+      PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
     </View>
   );
 }

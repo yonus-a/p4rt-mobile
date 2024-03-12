@@ -3,33 +3,30 @@ import { Pressable, View, Image } from "react-native";
 import styles from "./styles";
 
 export default function Pagination({
+  countItems,
   style = {},
-  setCurPage,
-  curPage,
-  maxPage,
+  setPage,
+  page,
+  take,
 }) {
   return (
     <View style={[styles.container, style]}>
-      <Pressable onPress={() => setCurPage(curPage - 1)}>
+      <Pressable onPress={() => setPage(page - 1)}>
         <Image
           source={require("../../../assets/icons/chevron-left.png")}
           style={styles.icon}
-          width={50}
-          height={50}
           alt="prev"
         />
       </Pressable>
       <PaginationDot
         activeDotColor={"black"}
-        maxPage={maxPage}
-        curPage={curPage}
+        maxPage={Math.round(countItems / take) || 1}
+        curPage={page}
       />
-      <Pressable onPress={() => setCurPage(curPage + 1)}>
+      <Pressable onPress={() => setPage(page + 1)}>
         <Image
           source={require("../../../assets/icons/chevron-right.png")}
           style={styles.icon}
-          width={50}
-          height={50}
           alt="next"
         />
       </Pressable>

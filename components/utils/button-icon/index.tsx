@@ -11,7 +11,7 @@ interface Props {
   btnStyle?: any;
 }
 
-export default function ButtonIcon({
+export default function PrimaryButtonIcon({
   onPress,
   height,
   width,

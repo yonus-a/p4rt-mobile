@@ -1,8 +1,8 @@
 import orderValidation from "../../../utils/food/orderValidation";
+import PrimaryButton from "../../utils/primary-button";
 import errorAlert from "../../../utils/alert/error";
 import UpdateQuantity from "../update-quantity";
 import useCart from "../../../hooks/useCart";
-import Button from "../../utils/button";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
@@ -42,13 +42,13 @@ export default function AddToCart({ food, date, navigation }) {
         />
       )}
       {!inCart(food.id) ? (
-        <Button
+        <PrimaryButton
           onPress={handleClick}
           style={{ borderRadius: 100 }}
           title="سفارش"
         />
       ) : (
-        <Button
+        <PrimaryButton
           onPress={() => navigation.navigate("cart")}
           style={{ borderRadius: 100 }}
           title="مشاهده سبد"

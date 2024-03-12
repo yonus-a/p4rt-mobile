@@ -4,12 +4,12 @@ import CustomText from "../../utils/text";
 import PostCard from "../post-card";
 import styles from "./styles";
 
-export default function ShowPosts({ posts, maxPage, curPage, setCurPage }) {
+export default function ShowPosts({ data, page, setPage, take }) {
   return (
     <View style={styles.showPosts}>
-      {posts.length ? (
+      {data.posts.length ? (
         <FlatList
-          data={[...posts, { pagination: true }]}
+          data={[...data.posts, { pagination: true }]}
           contentContainerStyle={{ gap: 10, paddingBottom: 50 }}
           renderItem={({ item }) => {
             return !item.pagination ? (
@@ -18,10 +18,11 @@ export default function ShowPosts({ posts, maxPage, curPage, setCurPage }) {
               </View>
             ) : (
               <Pagination
-                maxPage={maxPage}
-                setCurPage={setCurPage}
-                curPage={curPage}
                 style={{ marginTop: 30 }}
+                countItems={data}
+                setPage={setPage}
+                page={page}
+                take={take}
               />
             );
           }}

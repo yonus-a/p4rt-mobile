@@ -29,6 +29,9 @@ import FoodManagment from "./screens/food-managment";
 import AddFood from "./screens/add-food";
 import EditFood from "./screens/edit-food";
 import UserManagment from "./screens/user-managment";
+import AddUserForm from "./components/user/user-form";
+import AddUser from "./screens/add-user";
+import EditUser from "./screens/edit-user";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -121,7 +124,6 @@ function Root() {
             options={{ drawerItemStyle: { height: 0 } }}
           />
           <Drawer.Screen
-          <Drawer.Screen
             name="showCritics"
             component={ShowCritics}
             options={{
@@ -133,7 +135,6 @@ function Root() {
                 />
               ),
             }}
-          />
           />
           <Drawer.Screen
             name="notification"
@@ -295,6 +296,13 @@ function Root() {
             }}
           />
           <Drawer.Screen
+            name="editUser"
+            component={EditUser}
+            options={{
+              drawerItemStyle: { height: 0 },
+            }}
+          />
+          <Drawer.Screen
             name="post"
             component={Post}
             options={{
@@ -304,6 +312,13 @@ function Root() {
           <Drawer.Screen
             name="posts"
             component={Posts}
+            options={{
+              drawerItemStyle: { height: 0 },
+            }}
+          />
+          <Drawer.Screen
+            name="addUser"
+            component={AddUser}
             options={{
               drawerItemStyle: { height: 0 },
             }}
@@ -360,6 +375,8 @@ export default function Routes() {
             <Stack.Screen name="showDailyReports" component={ShowDailyReport} />
             <Stack.Screen name="addFood" component={AddFood} />
             <Stack.Screen name="editFood" component={EditFood} />
+            <Stack.Screen name="addUser" component={AddUser} />
+            <Stack.Screen name="editUser" component={EditUser} />
             <Stack.Screen
               name="notificationManagment"
               component={NotificationManagment}

@@ -1,9 +1,10 @@
-import CustomText from "../../components/utils/text";
 import { Pressable } from "react-native";
 import Modal from "react-native-modal";
 import { View } from "react-native";
+import moment from "jalali-moment";
 import Calender from "../calender";
 import { useState } from "react";
+import CustomText from "../text";
 import styles from "./styles";
 
 export default function DatePicker({ onChange, style = {} }) {
@@ -14,8 +15,9 @@ export default function DatePicker({ onChange, style = {} }) {
   };
 
   const handleChange = (date) => {
+    const nextDate = moment.from(date, "fa", "YYYY/MM/DD");
+    onChange(nextDate);
     toggleModal();
-    onChange(date);
   };
 
   return (

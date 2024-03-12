@@ -32,12 +32,7 @@ export default function ShowDailyReport() {
       <BreadcrumbHeader />
       <Container>
         <DailyReportFilters setDate={setDate} setSearch={setSearch} />
-        <RenderReports
-          data={data.reports}
-          maxPage={Math.floor(data.totalReports / take) || 1}
-          setCurPage={setPage}
-          curPage={page}
-        />
+        <RenderReports data={data} take={take} setPage={setPage} page={page} />
       </Container>
     </View>
   );

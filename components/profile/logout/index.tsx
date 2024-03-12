@@ -1,8 +1,11 @@
-import ButtonIcon from "../../utils/button-icon";
+import { useNavigation } from "@react-navigation/native";
+import PrimaryButtonIcon from "../../utils/button-icon";
 import * as SecureStore from "expo-secure-store";
 import axios from "axios";
 
-export default function Logout({ navigation }) {
+export default function Logout() {
+  const navigation: any = useNavigation();
+
   const handlePress = async (e) => {
     e.stopPropagation();
 
@@ -19,7 +22,7 @@ export default function Logout({ navigation }) {
   };
 
   return (
-    <ButtonIcon
+    <PrimaryButtonIcon
       source={require("../../../assets/icons/off.png")}
       onPress={handlePress}
       height={30}
