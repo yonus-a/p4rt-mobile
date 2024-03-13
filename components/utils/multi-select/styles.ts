@@ -1,10 +1,14 @@
 import { StyleSheet } from "react-native";
-import { CLR_WHITE } from "../../../globalStyles";
 
 export default StyleSheet.create({
-  select: {
-    backgroundColor: CLR_WHITE,
+  main: {
     borderRadius: 10,
-    elevation: 3,
+  },
+  input: {
+    borderRadius: 10,
+    height: 60,
+  },
+  text: {
+    marginLeft: 20,
   },
 });

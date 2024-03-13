@@ -36,4 +36,9 @@ export default StyleSheet.create({
   text: {
     color: "#555",
   },
+  icon: {
+    width: 120,
+    height: 22,
+    marginVertical: 10,
+  },
 });

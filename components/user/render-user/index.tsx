@@ -1,5 +1,4 @@
-import { Header, Wrapper, Cell } from "../../utils/verticalTable";
-import Container from "../../overal/container";
+import { Header, Wrapper, Cell, Row } from "../../utils/verticalTable";
 import DeleteBtn from "../../utils/delete-btn";
 import EditLink from "../../utils/edit-link";
 import handleDelete from "./handleDelete";
@@ -7,7 +6,7 @@ import styles from "./styles";
 
 export default function RenderUser({ item }) {
   return (
-    <Container style={styles.item}>
+    <Row style={styles.item}>
       <Wrapper>
         <Header>نام</Header>
         <Cell>{item.firstname + " " + item.lastname}</Cell>
@@ -39,6 +38,6 @@ export default function RenderUser({ item }) {
           <EditLink to="editUser" params={{ id: item.id }} />
         </Cell>
       </Wrapper>
-    </Container>
+    </Row>
   );
 }

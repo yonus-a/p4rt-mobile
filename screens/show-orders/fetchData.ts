@@ -12,7 +12,5 @@ export default async function fetchData({ setData, page, take, search }) {
     },
   });
 
-  if (!data) return false;
-
   setData(data);
 }

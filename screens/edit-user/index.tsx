@@ -1,6 +1,6 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
-import AddUserForm from "../../components/user/user-form";
 import PrimaryButton from "../../components/utils/primary-button";
+import AddUserForm from "../../components/user/user-form";
 import handleEditUser from "./handleEditUser";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -29,7 +29,7 @@ export default function EditUser({ route }) {
           control={control}
           units={units}
         />
-        PrimaryButton
+        <PrimaryButton
           onPress={handleSubmit((data) => handleEditUser(id, data))}
           title="ثبت"
         />

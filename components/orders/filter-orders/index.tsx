@@ -13,7 +13,6 @@ export default function FitlerOrders({ setDate, setSearch, date }) {
       <OptionModal>
         <SearchInputs setSearch={setSearch} />
         <View style={styles.btns}>
-          <SecondaryButton onPress={() => {}} title="گزارش گیری" />
           <SecondaryButton
             onPress={() => handleConfirmAll(date)}
             title="تایید همه"

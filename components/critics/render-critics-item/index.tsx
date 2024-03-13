@@ -2,8 +2,8 @@ import { View, Image, Modal, Pressable } from "react-native";
 import Container from "../../overal/container";
 import CloseBtn from "../../utils/close-btn";
 import CustomText from "../../utils/text";
-import styles from "./styles";
 import { useState } from "react";
+import styles from "./styles";
 
 export default function RenderCriticsItem({ item }) {
   const [modalVisible, setModalVisible] = useState(false);

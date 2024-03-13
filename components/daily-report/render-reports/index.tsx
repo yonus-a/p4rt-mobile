@@ -6,7 +6,7 @@ import Pagination from "../../utils/pagination";
 export default function RenderReports({ data, page, setPage, take }) {
   return (
     <FlatList
-      data={[...data, { pagination: true }]}
+      data={[...data.reports, { pagination: true }]}
       contentContainerStyle={verticalTable.table}
       renderItem={({ item }) => {
         return (

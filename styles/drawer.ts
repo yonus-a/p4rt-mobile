@@ -15,4 +15,7 @@ export default StyleSheet.create({
   item: {
     paddingRight: 25,
   },
+  submenu: {
+    backgroundColor: "#eee",
+  },
 });

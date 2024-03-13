@@ -40,13 +40,15 @@ export default function ShowOrders() {
       <BreadcrumbHeader />
       <Container>
         <SearchInputs setSearch={setSearch} />
-        <RenderOrders
-          fetchNewData={() => setFetchNewData({})}
-          setPage={setPage}
-          page={curPage}
-          data={data}
-          take={take}
-        />
+        {!!data.orders.length && (
+          <RenderOrders
+            fetchNewData={() => setFetchNewData({})}
+            setPage={setPage}
+            page={curPage}
+            data={data}
+            take={take}
+          />
+        )}
       </Container>
       <QuickPanel />
     </View>

@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container: {
+  countReports: {
     flexDirection: "row",
-    justifyContent: "center",
-    gap: 35,
+    justifyContent: "flex-end",
+    marginVertical: 15,
+    gap: 20,
   },
-  icon: {
-    width: 20,
-    height: 20,
+  text: {
+    fontSize: 13,
   },
 });

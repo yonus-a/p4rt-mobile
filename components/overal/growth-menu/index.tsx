@@ -26,7 +26,7 @@ export default function GrowthMenu() {
           />
         )}
       />
-      <Collapsible collapsed={collapsed}>
+      <Collapsible collapsed={collapsed} style={drawer.submenu}>
         <DrawerItem
           label="همه مقالات"
           labelStyle={drawer.label}

@@ -22,8 +22,8 @@ export default function SmsPanel() {
         renderItem={({ item: Component }: any) => (
           <Component
             carouselRef={carouselRef}
-            users={users}
             setUsers={setUsers}
+            users={users}
           />
         )}
         width={width}

@@ -5,8 +5,8 @@ import {
 import { View, Image } from "react-native";
 import GrowthMenu from "../growth-menu";
 import RefahiMenu from "../refahi-menu";
+import AdminMenu from "../admin-menu";
 import styles from "./styles";
-import CustomText from "../../utils/text";
 import Icons from "../icons";
 
 export default function CustomDrawerContent(props) {
@@ -20,16 +20,15 @@ export default function CustomDrawerContent(props) {
       </View>
       <View style={styles.container}>
         <DrawerItemList {...props} />
+        <AdminMenu />
         <GrowthMenu />
         <RefahiMenu />
         <View style={styles.wrapper}>
           <Icons />
-          <CustomText style={[styles.text, { marginTop: 20 }]}>
-            سامانه داخلی پارت
-          </CustomText>
-          <CustomText style={[styles.text, { fontSize: 10 }]}>
-            WWWW.P4RT.IR
-          </CustomText>
+          <Image
+            source={require("../../../assets/images/overal/text-logo.png")}
+            style={styles.icon}
+          />
         </View>
       </View>
     </DrawerContentScrollView>

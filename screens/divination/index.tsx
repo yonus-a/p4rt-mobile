@@ -5,7 +5,7 @@ import CustomText from "../../components/utils/text";
 import * as SecureStore from "expo-secure-store";
 import globalStyles from "../../globalStyles";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
@@ -21,22 +21,22 @@ export default function Divination() {
     };
   }, []);
 
-  console.log(data);
-
   return (
     <View style={styles.root}>
       <BreadcrumbHeader />
-      <Container>
-        <CustomText style={globalStyles.h1}>
-          فال امروز شما سرکار خانم/جناب آقای {fullName}
-        </CustomText>
-        <CustomText style={globalStyles.h2}>شعر</CustomText>
-        <CustomText style={styles.poem}>{data.divination?.poem}</CustomText>
-        <CustomText style={globalStyles.h2}>تفسیر</CustomText>
-        <CustomText style={styles.interpretation}>
-          {data.divination?.interpretation}
-        </CustomText>
-      </Container>
+      <ScrollView style={{ marginBottom: 80 }}>
+        <Container>
+          <CustomText style={globalStyles.h1}>
+            فال امروز شما سرکار خانم/جناب آقای {fullName}
+          </CustomText>
+          <CustomText style={globalStyles.h2}>شعر</CustomText>
+          <CustomText style={styles.poem}>{data.divination?.poem}</CustomText>
+          <CustomText style={globalStyles.h2}>تفسیر</CustomText>
+          <CustomText style={styles.interpretation}>
+            {data.divination?.interpretation}
+          </CustomText>
+        </Container>
+      </ScrollView>
       <QuickPanel />
     </View>
   );

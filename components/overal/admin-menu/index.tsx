@@ -6,67 +6,55 @@ import { Image } from "react-native";
 import { View } from "react-native";
 import { useState } from "react";
 
-export default function RefahiMenu() {
+export default function AdminMenu() {
   const [collapsed, setCollapsed] = useState(true);
   const navigation = useNavigation();
   const navigate: any = navigation.navigate;
 
   return (
-    <View>
+    <View style={{ marginTop: -132 }}>
       <DrawerItem
-        label="رفاهی"
+        label="مدریت"
         onPress={() => setCollapsed(!collapsed)}
         labelStyle={drawer.label}
         style={drawer.item}
         icon={() => (
           <Image
             style={drawer.icon}
-            source={require("../../../assets/icons/happy.png")}
+            source={require("../../../assets/icons/admin.png")}
           />
         )}
       />
       <Collapsible collapsed={collapsed} style={drawer.submenu}>
         <DrawerItem
-          label="همه مقالات"
+          label="مدیریت سفارشات"
           labelStyle={drawer.label}
+          onPress={() => navigate("orderManagment")}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 28 })}
         />
         <DrawerItem
-          label="تخفیفات داغ"
+          label="مدیریت غذا ها"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 28 })}
+          onPress={() => navigate("foodManagment")}
         />
         <DrawerItem
-          label="بیوگرافی"
+          label="پنل پیامکی"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 28 })}
+          onPress={() => navigate("smsPanel")}
         />
         <DrawerItem
-          label="هنر و سرگرمی"
+          label="مدیریت کاربران"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 1 })}
+          onPress={() => navigate("userManagment")}
         />
         <DrawerItem
-          label="سلامتی و تن درستی"
+          label="مدیریت اعلانات"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 34 })}
-        />
-        <DrawerItem
-          label="گردش گری"
-          labelStyle={drawer.label}
-          style={drawer.item}
-          onPress={() => navigate("posts", { category: 44 })}
-        />
-        <DrawerItem
-          label="کارمند های نمونه"
-          labelStyle={drawer.label}
-          style={drawer.item}
-          onPress={() => navigate("posts", { category: 29 })}
+          onPress={() => navigate("notificationManagment")}
         />
       </Collapsible>
     </View>

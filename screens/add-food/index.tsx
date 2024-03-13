@@ -1,9 +1,9 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
 import CustomMultiSelect from "../../components/utils/multi-select";
+import PrimaryButton from "../../components/utils/primary-button";
 import FilePicker from "../../components/utils/filePicker";
 import Container from "../../components/overal/container";
 import { daysItems } from "../../utils/select/daysItem";
-import PrimaryButton from "../../components/utils/primary-button";
 import Input from "../../components/utils/input";
 import { useForm } from "react-hook-form";
 import { View } from "react-native";
@@ -14,6 +14,7 @@ export default function AddFood() {
   const { control, handleSubmit, setValue } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data.iamge);
     handleAdd(data);
   };
 
@@ -31,8 +32,13 @@ export default function AddFood() {
           multiline
         />
         <FilePicker setValue={setValue} name="image" />
-        <CustomMultiSelect items={daysItems} control={control} name="days" />
-        PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
+        <CustomMultiSelect
+          items={daysItems}
+          control={control}
+          name="days"
+          title="روز"
+        />
+        <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
     </View>
   );

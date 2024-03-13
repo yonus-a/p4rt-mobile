@@ -29,6 +29,7 @@ export default function ReportTabs() {
       initialLayout={layout}
       renderScene={renderScene}
       swipeEnabled={false}
+      sceneContainerStyle={{ backgroundColor: "#fff" }}
       onIndexChange={setIndex}
       renderTabBar={Tabbar}
     />
