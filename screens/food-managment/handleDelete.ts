@@ -2,7 +2,7 @@ import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
 import axios from "axios";
 
-export default async function handleDelete(foodId) {
+export default async function handleDelete(foodId, fetchNewData) {
   try {
     const userId = await SecureStore.getItemAsync("userId");
 
@@ -10,6 +10,8 @@ export default async function handleDelete(foodId) {
       userId,
       foodId,
     });
+
+    fetchNewData();
   } catch (e) {
     await errorAlert();
   }

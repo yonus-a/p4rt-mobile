@@ -1,6 +1,7 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
 import PrimaryButton from "../../components/utils/primary-button";
 import AddUserForm from "../../components/user/user-form";
+import Container from "../../components/overal/container";
 import handleEditUser from "./handleEditUser";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -23,16 +24,18 @@ export default function EditUser({ route }) {
     <View style={styles.addUser}>
       <BreadcrumbHeader />
       <ScrollView>
-        <AddUserForm
-          positions={positions}
-          setValue={setValue}
-          control={control}
-          units={units}
-        />
-        <PrimaryButton
-          onPress={handleSubmit((data) => handleEditUser(id, data))}
-          title="ثبت"
-        />
+        <Container>
+          <AddUserForm
+            positions={positions}
+            setValue={setValue}
+            control={control}
+            units={units}
+          />
+          <PrimaryButton
+            onPress={handleSubmit((data) => handleEditUser(id, data))}
+            title="ثبت"
+          />
+        </Container>
       </ScrollView>
     </View>
   );

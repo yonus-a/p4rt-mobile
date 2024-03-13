@@ -10,23 +10,22 @@ import { View } from "react-native";
 import handleAdd from "./handleAdd";
 import styles from "./styles";
 
-export default function AddFood() {
+export default function AddFood({ navigation, route }) {
   const { control, handleSubmit, setValue } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data.iamge);
-    handleAdd(data);
+    handleAdd(data, navigation);
   };
 
   return (
     <View style={styles.addFood}>
       <BreadcrumbHeader />
       <Container style={{ gap: 15 }}>
-        <Input control={control} name="name" placeholder="نام" />
-        <Input control={control} name="price" placeholder="قیمت" />
+        <Input control={control} name="food.name" placeholder="نام" />
+        <Input control={control} name="food.price" placeholder="قیمت" />
         <Input
           control={control}
-          name="description"
+          name="food.description"
           placeholder="توضیحات"
           numberOfLines={8}
           multiline
@@ -35,7 +34,7 @@ export default function AddFood() {
         <CustomMultiSelect
           items={daysItems}
           control={control}
-          name="days"
+          name="food.days"
           title="روز"
         />
         <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />

@@ -12,29 +12,33 @@ export default function AddUserForm({ positions, setValue, control, units }) {
 
   return (
     <View style={{ gap: 15 }}>
-      <Input control={control} name="firstname" placeholder="نام" />
-      <Input control={control} name="lastname" placeholder="نام خانوادگی" />
-      <ControledDatePicker control={control} name="birthday" />
-      <Input control={control} name="phone" placeholder="شماره تماس" />
-      <Input control={control} name="id" placeholder="کد ملی" />
+      <Input control={control} name="user.firstname" placeholder="نام" />
+      <Input
+        control={control}
+        name="user.lastname"
+        placeholder="نام خانوادگی"
+      />
+      <ControledDatePicker control={control} name="user.birthday" />
+      <Input control={control} name="user.phone" placeholder="شماره تماس" />
+      <Input control={control} name="user.id" placeholder="کد ملی" />
       <FilePicker setValue={setValue} name="photo" />
       <Select
         items={unitOptions}
         placeholder="واحد"
         control={control}
-        name="unitId"
+        name="user.unitId"
       />
       <Select
         items={positionOptions}
         placeholder="جایگاه"
         control={control}
-        name="positionId"
+        name="user.positionId"
       />
       <Select
         items={educationItems}
         placeholder="موقعیت"
         control={control}
-        name="education"
+        name="user.education"
       />
       <Input control={control} name="major" placeholder="تحصیلات" />
     </View>

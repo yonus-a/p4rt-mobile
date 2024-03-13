@@ -12,7 +12,7 @@ import editFood from "./editFood";
 import { useEffect } from "react";
 import styles from "./styles";
 
-export default function EditFood({ route }) {
+export default function EditFood({ route, navigation }) {
   const { control, handleSubmit, setValue } = useForm();
   const { id } = route.params;
 
@@ -21,24 +21,28 @@ export default function EditFood({ route }) {
   }, []);
 
   const onSubmit = (data) => {
-    editFood(id, data);
+    editFood(id, data, navigation);
   };
 
   return (
     <View style={styles.addFood}>
       <BreadcrumbHeader />
       <Container style={{ gap: 15 }}>
-        <Input control={control} name="name" placeholder="نام" />
-        <Input control={control} name="price" placeholder="قیمت" />
+        <Input control={control} name="food.name" placeholder="نام" />
+        <Input control={control} name="food.price" placeholder="قیمت" />
         <Input
           control={control}
-          name="description"
+          name="food.description"
           placeholder="توضیحات"
           numberOfLines={8}
           multiline
         />
         <FilePicker setValue={setValue} name="image" />
-        <CustomMultiSelect items={daysItems} control={control} name="days" />
+        <CustomMultiSelect
+          items={daysItems}
+          control={control}
+          name="food.days"
+        />
         <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
     </View>

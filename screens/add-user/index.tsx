@@ -1,6 +1,7 @@
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
 import PrimaryButton from "../../components/utils/primary-button";
 import AddUserForm from "../../components/user/user-form";
+import Container from "../../components/overal/container";
 import handleAddUser from "./handleAddUser";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -8,7 +9,6 @@ import { ScrollView } from "react-native";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
-import Container from "../../components/overal/container";
 
 export default function AddUser() {
   const { control, handleSubmit, setValue } = useForm();

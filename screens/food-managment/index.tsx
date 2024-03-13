@@ -13,11 +13,16 @@ import styles from "./styles";
 
 export default function FoodManagment() {
   const navigation: any = useNavigation();
+  const [fetchNew, setFetchNew] = useState({});
   const [data, setData] = useState();
 
   useEffect(() => {
     fetchData(setData);
-  }, []);
+  }, [fetchNew]);
+
+  const fetchNewData = () => {
+    setFetchNew({});
+  };
 
   return (
     <View style={styles.wrapper}>
@@ -34,7 +39,7 @@ export default function FoodManagment() {
           renderHiddenItem={({ item }: any) => {
             return (
               <MangmentHiddenItem
-                onPress={() => handleDelete(item.id)}
+                onPress={() => handleDelete(item.id, fetchNewData)}
                 item={item}
               />
             );

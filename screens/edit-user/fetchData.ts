@@ -14,17 +14,16 @@ export default async function fetchData({
       },
     });
 
-    setValue("positionId", user.positionId);
-    setValue("education", user.education);
-    setValue("firstname", user.firstname);
-    setValue("education", user.education);
-    setValue("birthday", user.birthday);
-    setValue("lastname", user.lastname);
-    setValue("unitId", user.unitId);
-    setValue("phone", user.phone);
+    setValue("user.positionId", user.positionId);
+    setValue("user.education", user.education);
+    setValue("user.firstname", user.firstname);
+    setValue("user.education", user.education);
+    setValue("user.birthday", user.birthday);
+    setValue("user.lastname", user.lastname);
+    setValue("user.unitId", user.unitId);
+    setValue("user.phone", user.phone);
     setValue("photo", user.photo);
-    setValue("photo", user.photo);
-    setValue("id", user.id);
+    setValue("user.id", user.id);
 
     const { data: position } = await axios("/user/getAllUserPositions");
     const { data: units } = await axios("/user/getUnits");

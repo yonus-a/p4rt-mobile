@@ -3,9 +3,9 @@ import QuickPanel from "../../components/overal/quick-panel";
 import Container from "../../components/overal/container";
 import CustomText from "../../components/utils/text";
 import * as SecureStore from "expo-secure-store";
+import { View, ScrollView } from "react-native";
 import globalStyles from "../../globalStyles";
 import { useEffect, useState } from "react";
-import { View, ScrollView } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
