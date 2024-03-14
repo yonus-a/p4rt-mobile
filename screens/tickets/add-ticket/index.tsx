@@ -17,20 +17,14 @@ export default function AddTicket() {
   const { control, handleSubmit, setValue } = useForm();
   const [unitOptions, setUnitOptions] = useState<any>();
 
-  setUnitOptions([
-    {
-      label: "توسعه و رفاه",
-      value: 8,
-    },
-  ]);
-
-  // useEffect(() => {
-  //   fetchData(setUnitOptions);
-
-  //   return () => {
-  //     setUnitOptions({});
-  //   };
-  // }, []);
+  useEffect(() => {
+    setUnitOptions([
+      {
+        label: "توسعه و رفاه",
+        value: 8,
+      },
+    ]);
+  }, []);
 
   const onSubmit = async (data) => {
     try {

@@ -7,11 +7,11 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 8,
-    padding: 14,
+    padding: 12.5,
     gap: 8,
   },
   text: {
-    fontSize: 15,
+    fontSize: 13,
   },
   icon: {
     width: 24,

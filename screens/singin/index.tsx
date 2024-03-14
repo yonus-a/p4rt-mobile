@@ -12,22 +12,7 @@ import axios from "axios";
 
 export default function Signin({ navigation }: any) {
   const [disabled, setDisabled] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const token = await SecureStore.getItemAsync("_token");
-
-      if (token) {
-        const { data } = await axios.post("/signin/vefifyToken", { token });
-
-        if (data.success) {
-          navigation.navigate("dashboard");
-        }
-      }
-    })();
-  }, []);
-
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, setValue } = useForm();
 
   const onSubmit = async (data) => {
     setDisabled(true);
@@ -35,6 +20,8 @@ export default function Signin({ navigation }: any) {
     try {
       await axios.post("/signin/generateOTP", data);
       navigation.navigate("verifyOTP", data);
+      setDisabled(false);
+      setValue("code", "");
     } catch (e) {
       console.log(e);
       await errorAlert();

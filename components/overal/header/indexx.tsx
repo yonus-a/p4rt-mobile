@@ -10,7 +10,7 @@ export default function Header({ navigation }: any) {
         style={styles.bg}
       />
       <View style={styles.container}>
-        <Profile navigation={navigation} />
+        <Profile />
         <Pressable onPress={() => navigation.openDrawer()}>
           <Image
             source={require("../../../assets/icons/menu.png")}

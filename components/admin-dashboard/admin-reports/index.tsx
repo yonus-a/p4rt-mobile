@@ -3,6 +3,7 @@ import ReportCard from "../report-card";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
+import useUserId from "../../../hooks/useUserId";
 
 export default function AdminReports() {
   const defaultValue = {
@@ -13,6 +14,9 @@ export default function AdminReports() {
   };
 
   const [data, setData] = useState<any>(defaultValue);
+  const userId = useUserId();
+  const isManager = userId === "4060588326";
+  const critics = isManager ? "showCritics" : "critics";
 
   useEffect(() => {
     fetchData(setData);
@@ -29,6 +33,7 @@ export default function AdminReports() {
           iamgeStyle={{ width: 30, height: 30 }}
           desc="تعداد کارکنان"
           amountColor="#FCE8C5"
+          to={"userManagment"}
         />
         <ReportCard
           amount={data.actives}
@@ -37,6 +42,7 @@ export default function AdminReports() {
           iamgeStyle={{ width: 35, height: 35 }}
           desc="کارمندان فعال"
           amountColor="#FFD7ED"
+          to={"userManagment"}
         />
       </View>
       <View style={styles.wrapper}>
@@ -45,16 +51,18 @@ export default function AdminReports() {
           color="#E4FFFA"
           icon={require("../../../assets/icons/critics.png")}
           iamgeStyle={{ width: 35, height: 35 }}
-          desc="انتقادات"
           amountColor="#C4F6ED"
+          desc="انتقادات"
+          to={critics}
         />
         <ReportCard
           amount={data.tickets}
           color="#FFE6E4"
           icon={require("../../../assets/icons/tickets.png")}
           iamgeStyle={{ width: 29, height: 29 }}
-          desc="درخواست ها"
           amountColor="#FDD9D6"
+          desc="درخواست ها"
+          to={"showTickets"}
         />
       </View>
     </View>

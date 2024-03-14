@@ -35,15 +35,13 @@ export default function Input({
     : {};
 
   return (
-    <Shadow style={{ width: "100%", borderRadius: 10 }} distance={5}>
-      <TextInput
-        style={[styles.input, style, editorStyle]}
-        onChangeText={field.onChange}
-        numberOfLines={numberOfLines}
-        placeholder={placeholder}
-        multiline={multiline}
-        value={field.value}
-      />
-    </Shadow>
+    <TextInput
+      style={[styles.input, style, editorStyle]}
+      onChangeText={field.onChange}
+      numberOfLines={numberOfLines}
+      placeholder={placeholder}
+      multiline={multiline}
+      value={field.value}
+    />
   );
 }

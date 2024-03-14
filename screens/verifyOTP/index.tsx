@@ -1,7 +1,6 @@
 import { View, Image, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import CustomText from "../../components/utils/text";
-import Alert from "../../components/overal/alert";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
 import Input from "../../components/utils/input";
@@ -10,7 +9,7 @@ import styles from "./styles";
 import axios from "axios";
 
 export default function VerifyOTP({ route, navigation }: any) {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, setValue } = useForm();
   const { code } = route.params;
 
   const onSubmit = async ({ otp }) => {
@@ -33,6 +32,7 @@ export default function VerifyOTP({ route, navigation }: any) {
         user.firstname + " " + user.lastname
       );
       navigation.navigate("dashboard");
+      setValue("otp", "");
     } catch (e) {
       console.log(e);
       await errorAlert();

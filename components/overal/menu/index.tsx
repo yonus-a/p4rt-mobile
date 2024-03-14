@@ -29,7 +29,7 @@ export default function CustomDrawerContent(props) {
         await errorAlert();
       }
     })();
-  });
+  }, []);
 
   return (
     <DrawerContentScrollView {...props} style={styles.drawer}>

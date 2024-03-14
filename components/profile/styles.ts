@@ -6,12 +6,13 @@ export default StyleSheet.create({
     borderRadius: 1000,
     backgroundColor: "rgba(224, 224, 224, .3)",
     overflow: "hidden",
-    gap: 10,
     zIndex: 99,
+    gap: 10,
+    padding: 3,
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 45,
+    height: 45,
   },
   drawer: {
     alignItems: "center",

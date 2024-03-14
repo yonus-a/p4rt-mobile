@@ -5,6 +5,7 @@ export default StyleSheet.create({
     padding: 15,
     paddingHorizontal: 20,
     borderRadius: 16,
+    width: 130,
   },
   wrapper: {
     flexDirection: "row",

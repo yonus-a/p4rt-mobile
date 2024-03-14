@@ -14,8 +14,7 @@ export default function Profile() {
         <Image
           source={require("../../assets/icons/avatar.png")}
           style={styles.image}
-          height={100}
-          width={100}
+          
           alt=""
         />
       </Pressable>

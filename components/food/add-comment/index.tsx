@@ -31,7 +31,7 @@ export default function AddComment({ foodId, fetchNewData, closeDialog }) {
         name="text"
         placeholder="نظر خود را وارد کنید..."
       />
-      PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
+      <PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
     </View>
   );
 }

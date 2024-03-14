@@ -40,6 +40,39 @@ export default function BreadcrumbHeader() {
     case "post":
       pathnaem = "پست";
       break;
+    case "absentee":
+      pathnaem = "حضور و غیاب";
+      break;
+    case "showDailyReports":
+      pathnaem = "گزارش نیروی انسانی";
+      break;
+    case "userManagment":
+      pathnaem = "مدیریت کاربران";
+      break;
+    case "notificationManagment":
+      pathnaem = "مدیریت اعلانات";
+      break;
+    case "editFood":
+      pathnaem = "ویرایش غذا";
+      break;
+    case "editUser":
+      pathnaem = "ویرایش کاربران";
+      break;
+    case "addFood":
+      pathnaem = "ایجاد غذا";
+      break;
+    case "addUser":
+      pathnaem = "ایجاد کاربر";
+      break;
+    case "orderManagment":
+      pathnaem = "مدیریت سفارشات";
+      break;
+    case "foodManagment":
+      pathnaem = "مدریت غذا ها";
+      break;
+    case "smsPanel":
+      pathnaem = "پنل پیامکی";
+      break;
     case "posts":
       pathnaem = "پست ها";
       break;
@@ -53,7 +86,7 @@ export default function BreadcrumbHeader() {
         style={styles.bg}
       />
       <View style={styles.container}>
-        <Profile navigation={navigation} />
+        <Profile />
         <View style={styles.flexWrapper}>
           <CustomText style={styles.text}>{pathnaem}</CustomText>
           <Pressable onPress={() => navigation.openDrawer()}>

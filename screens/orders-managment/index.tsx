@@ -11,6 +11,7 @@ export default function OrderManagment() {
   const take = 10;
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
+  const [fetchNew, setFetchNew] = useState({});
   const [date, setDate] = useState(new Date());
   const [data, setData] = useState<any>({
     orders: [],
@@ -19,15 +20,25 @@ export default function OrderManagment() {
 
   useEffect(() => {
     fetchData({ setData, page, take, search, date });
-  }, [search, date, page]);
+  }, [search, date, page, fetchNew]);
+
+  const fetchNewData = () => {
+    setFetchNew({});
+  };
 
   return (
     <View style={styles.ordersManagment}>
       <BreadcrumbHeader />
       <Container style={{ gap: 10 }}>
-        <FitlerOrders setDate={setDate} setSearch={setSearch} date={date} />
+        <FitlerOrders setDate={setDate} setSearch={setSearch} date={date} fetchNewData={fetchNewData} />
         {!!data.orders.length && (
-          <RenderOrders data={data} setPage={setPage} page={page} take={take} />
+          <RenderOrders
+            fetchNewData={fetchNewData}
+            setPage={setPage}
+            data={data}
+            page={page}
+            take={take}
+          />
         )}
       </Container>
     </View>

@@ -29,7 +29,7 @@ export default function Post({ route }) {
     return () => {
       setComments([]);
     };
-  }, [fetchNewComment]);
+  }, [fetchNewComment, id]);
 
   return (
     <View style={{ flex: 1 }}>

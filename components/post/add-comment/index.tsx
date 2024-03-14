@@ -36,7 +36,7 @@ export default function AddComment({ postId, fetchNewComment }) {
           name="msg"
         />
       </Shadow>
-      PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
+      <PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
     </View>
   );
 }

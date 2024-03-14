@@ -13,10 +13,10 @@ import "./axios";
 
 export default function App() {
   const [splash, setSplash] = useState(true);
-
-  const [fontsLoaded] = useFonts({
-    IRANSans: require("./assets/fonts/IRANSans.ttf"),
-  });
+  
+    const [fontsLoaded] = useFonts({
+      IRANSans: require("./assets/fonts/IRANSans.ttf"),
+    });
 
   if (!fontsLoaded) {
     return null;

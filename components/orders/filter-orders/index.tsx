@@ -7,14 +7,14 @@ import OptionModal from "../../utils/options";
 import { View } from "react-native";
 import styles from "./styles";
 
-export default function FitlerOrders({ setDate, setSearch, date }) {
+export default function FitlerOrders({ setDate, setSearch, date, fetchNewData }) {
   return (
     <FilterWrapper>
       <OptionModal>
         <SearchInputs setSearch={setSearch} />
         <View style={styles.btns}>
           <SecondaryButton
-            onPress={() => handleConfirmAll(date)}
+            onPress={() => handleConfirmAll(date, fetchNewData)}
             title="تایید همه"
           />
         </View>

@@ -35,7 +35,7 @@ export default function Bill({ items }) {
           <CustomText>{totoalPrice} ریال</CustomText>
           <CustomText>مبلغ قابل پرداخت:</CustomText>
         </View>
-        PrimaryButton style={styles.btn} onPress={handleOrder} title="ثبت" />
+        <PrimaryButton style={styles.btn} onPress={handleOrder} title="ثبت" />
       </View>
     </Shadow>
   );

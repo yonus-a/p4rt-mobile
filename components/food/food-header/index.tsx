@@ -16,7 +16,7 @@ export default function FoodHeader({
         style={styles.bg}
       />
       <View style={styles.container}>
-        <Profile navigation={navigation} />
+        <Profile />
         <DayPicker onChange={setSelectedDay} selected={selectedDay} />
         <Pressable onPress={() => navigation.openDrawer()}>
           <Image

@@ -11,7 +11,13 @@ import DoneBtn from "../../utils/done-btn";
 import handleReject from "./handleReject";
 import { FlatList } from "react-native";
 
-export default function RenderOrders({ data, setPage, page, take }) {
+export default function RenderOrders({
+  data,
+  setPage,
+  page,
+  take,
+  fetchNewData,
+}) {
   const userId = useUserId();
 
   return (
@@ -69,8 +75,16 @@ export default function RenderOrders({ data, setPage, page, take }) {
               <Cell style={{ gap: 20 }}>
                 {item.status !== 3 && (
                   <>
-                    <DoneBtn onPress={() => handleConfirm(item.id, userId)} />
-                    <CloseBtn onPress={() => handleReject(item.id, userId)} />
+                    <DoneBtn
+                      onPress={() =>
+                        handleConfirm(item.id, userId, fetchNewData)
+                      }
+                    />
+                    <CloseBtn
+                      onPress={() =>
+                        handleReject(item.id, userId, fetchNewData)
+                      }
+                    />
                   </>
                 )}
               </Cell>
