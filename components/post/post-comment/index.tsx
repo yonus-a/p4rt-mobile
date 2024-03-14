@@ -31,7 +31,7 @@ export default function PostComment({ comments, fetchNewComment }) {
           const fullName = user.firstname + " " + user.lastname;
 
           return (
-            <Shadow distance={5}>
+            <Shadow distance={5} key={id}>
               <View style={styles.item} key={id}>
                 <CustomText style={styles.text}>{message}</CustomText>
                 <View style={styles.group}>

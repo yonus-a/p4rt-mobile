@@ -30,7 +30,7 @@ export default function ShowComments({ data, fetchNewData }) {
       leftOpenValue={75}
       renderItem={({ item }) => {
         return (
-          <View style={styles.item}>
+          <View style={styles.item} key={item.id}>
             <CustomText style={styles.text}>{item.text}</CustomText>
             <Image
               source={{

@@ -1,11 +1,9 @@
-import { useNavigation } from "@react-navigation/native";
 import PrimaryButtonIcon from "../../utils/button-icon";
 import * as SecureStore from "expo-secure-store";
+// import { Restart } from "fiction-expo-restart";
 import axios from "axios";
 
 export default function Logout() {
-  const navigation: any = useNavigation();
-
   const handlePress = async (e) => {
     e.stopPropagation();
 
@@ -17,7 +15,7 @@ export default function Logout() {
         await axios.post("/signin/logout", { token });
       }
 
-      navigation.navigate("Signin");
+      // Restart();
     } catch (e) {}
   };
 

@@ -28,21 +28,21 @@ export default function DailyReportFilters({
     <FilterWrapper>
       <OptionModal>
         <SearchInputs setSearch={setSearch} />
-        <Shadow style={{ width: "100%", borderRadius: 10 }} distance={3}>
+        {/* <Shadow style={{ width: "100%", borderRadius: 10 }} distance={3}>
           <Picker onValueChange={setType}>
             {reportItems.map(({ label, value }: any) => (
               <Picker.Item key={value} label={label} value={value} />
             ))}
           </Picker>
-        </Shadow>
-        <Shadow style={{ width: "100%", borderRadius: 10 }} distance={3}>
+        </Shadow> */}
+        {/* <Shadow style={{ width: "100%", borderRadius: 10 }} distance={3}>
           <Picker onValueChange={setUnit}>
             {unitItems.map(({ label, value }: any) => (
               <Picker.Item key={value} label={label} value={value} />
             ))}
           </Picker>
-        </Shadow>
-        <View
+        </Shadow> */}
+        {/* <View
           style={{
             flexDirection: "row",
             justifyContent: "flex-end",
@@ -54,7 +54,7 @@ export default function DailyReportFilters({
           <CustomText>تا</CustomText>
           <DatePicker onChange={setStart} style={{ flex: 1 }} />
           <CustomText>از</CustomText>
-        </View>
+        </View> */}
       </OptionModal>
       <DatePicker onChange={setDate} style={{ flex: 1 }} />
     </FilterWrapper>

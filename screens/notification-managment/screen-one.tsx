@@ -31,7 +31,7 @@ export default function ScreenOne({
           value={everyone}
         />
       </View>
-      PrimaryButton
+      <PrimaryButton
         onPress={() => carouselRef.current.next()}
         style={{ marginTop: 10 }}
         title="ادامه"

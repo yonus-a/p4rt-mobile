@@ -10,7 +10,6 @@ export default StyleSheet.create({
   },
   label: {
     fontFamily: "IRANSans",
-    fontSize: 13,
   },
   item: {
     paddingRight: 25,

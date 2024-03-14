@@ -33,7 +33,9 @@ export default function FoodManagment() {
           style={{ alignSelf: "flex-end" }}
         />
         <SwipeListView
-          renderItem={({ item }) => <RenderFoods food={item} />}
+          renderItem={({ item }: any) => (
+            <RenderFoods food={item} key={item.id} />
+          )}
           contentContainerStyle={{ gap: 10 }}
           leftOpenValue={75}
           renderHiddenItem={({ item }: any) => {

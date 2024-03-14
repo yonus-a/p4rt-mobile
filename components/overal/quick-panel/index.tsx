@@ -1,5 +1,6 @@
 import { Image, ImageBackground } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import useUserId from "../../../hooks/useUserId";
 import Navigate from "../../utils/navigate";
 import styles from "./styles";
 
@@ -8,6 +9,10 @@ export default function QuickPanel() {
   const isHome = route.name === "dashboard";
   const isCritics = route.name === "critics";
   const isCart = route.name === "foods";
+
+  const userId = useUserId();
+  const isManager = userId === "4060588326";
+  const critics = isManager ? "showCritics" : "critics";
 
   return (
     <ImageBackground
@@ -30,7 +35,7 @@ export default function QuickPanel() {
           />
         )}
       </Navigate>
-      <Navigate to="critics">
+      <Navigate to={critics}>
         {isCritics ? (
           <Image
             source={require("../../../assets/icons/active-mail.png")}

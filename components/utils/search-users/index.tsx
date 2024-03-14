@@ -40,7 +40,7 @@ export default function SearchUsers({ selectedUser, setSelectedUser }) {
         style={{ height: "10%" }}
         contentContainerStyle={{ gap: 10 }}
         renderItem={({ item }) => (
-          <ShowUserItem item={item} onPress={() => handleAdd(item)} />
+          <ShowUserItem item={item} onPress={() => handleAdd(item)} key={item.id} />
         )}
       />
       <View style={{ height: "30%" }}>
@@ -49,9 +49,8 @@ export default function SearchUsers({ selectedUser, setSelectedUser }) {
           data={selectedUser}
           contentContainerStyle={{ gap: 10 }}
           renderItem={({ item }) => {
-            console.log(item);
             return (
-              <ShowUserItem item={item} onPress={() => handleDelete(item.id)} />
+              <ShowUserItem item={item} onPress={() => handleDelete(item.id)} key={item.id} />
             );
           }}
         />

@@ -33,7 +33,7 @@ export default function RenderOrders({
       renderItem={({ item, index }) => (
         <>
           {!item.pagination ? (
-            <View style={{ flex: 1, padding: 5 }}>
+            <View style={{ flex: 1, padding: 5 }} key={item.id}>
               <Row style={index % 2 !== 0 && verticalTable.odd}>
                 <Wrapper>
                   <Header>نام غذا</Header>

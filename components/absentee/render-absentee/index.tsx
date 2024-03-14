@@ -13,7 +13,7 @@ export default function RenderAbsentee({ data }) {
         const fullName = item.user.firstname + " " + item.user.lastname;
 
         return (
-          <View style={styles.item}>
+          <View style={styles.item} key={item.id}>
             <CustomTimeAgo date={item.date} />
             <CustomText>{fullName}</CustomText>
           </View>

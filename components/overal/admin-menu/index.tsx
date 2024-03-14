@@ -12,7 +12,7 @@ export default function AdminMenu() {
   const navigate: any = navigation.navigate;
 
   return (
-    <View style={{ marginTop: -132 }}>
+    <View style={{ marginTop: -130 }}>
       <DrawerItem
         label="مدریت"
         onPress={() => setCollapsed(!collapsed)}

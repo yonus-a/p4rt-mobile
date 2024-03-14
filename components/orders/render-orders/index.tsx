@@ -24,6 +24,7 @@ export default function RenderOrders({ data, setPage, page, take }) {
         if (item.pagination) {
           return (
             <Pagination
+              key={item.id}
               countItems={data.countOrders}
               style={{ marginTop: 10 }}
               setPage={setPage}
@@ -34,7 +35,7 @@ export default function RenderOrders({ data, setPage, page, take }) {
         }
 
         return (
-          <Row>
+          <Row key={item.id}>
             <Wrapper>
               <Header>غذا</Header>
               <Cell>{item.food?.name}</Cell>

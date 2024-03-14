@@ -38,9 +38,10 @@ export default function UserManagment({ navigation }) {
             renderItem={({ item }: any) => (
               <>
                 {!item.pagination ? (
-                  <RenderUser item={item} />
+                  <RenderUser item={item} key={item.id} />
                 ) : (
                   <Pagination
+                    key={item.id}
                     style={{ marginTop: 20 }}
                     countItems={data.totoalUsers}
                     setPage={setPage}

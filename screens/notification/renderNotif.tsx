@@ -15,7 +15,7 @@ export default function RenderNotifs({ data, title }) {
           <FlatList
             data={data}
             renderItem={({ item }) => (
-              <View style={{ flex: 1, padding: 5 }}>
+              <View style={{ flex: 1, padding: 5 }} key={item.id}>
                 <MessageDialog item={item} />
               </View>
             )}

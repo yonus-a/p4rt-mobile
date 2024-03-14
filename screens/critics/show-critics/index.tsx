@@ -41,12 +41,13 @@ export default function ShowCritics() {
               return (
                 <>
                   {!item.pagination ? (
-                    <RenderCriticsItem item={item} />
+                    <RenderCriticsItem item={item} key={item.id} />
                   ) : (
                     <Pagination
                       page={page}
                       setPage={setPage}
                       style={{ marginTop: 10 }}
+                      key={item.id}
                       countItems={10}
                       take={take}
                     />

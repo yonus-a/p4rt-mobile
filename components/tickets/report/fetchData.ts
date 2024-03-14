@@ -8,6 +8,6 @@ export default async function fetchData(setData) {
       userId,
     },
   });
-
+  console.log(data);
   setData(data);
 }

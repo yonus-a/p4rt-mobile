@@ -96,7 +96,7 @@ export default function Routes() {
               ),
             }}
           />
-          {!admin && (
+          {!isManager && (
             <Drawer.Screen
               name="critics"
               component={AddCritics}

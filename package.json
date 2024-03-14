@@ -28,6 +28,7 @@
     "expo-notifications": "~0.27.6",
     "expo-secure-store": "~12.8.1",
     "expo-status-bar": "~1.11.1",
+    "fiction-expo-restart": "^2.0.0",
     "i": "^0.3.7",
     "jalali-moment": "^3.3.11",
     "javascript-time-ago": "^2.5.9",

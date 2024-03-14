@@ -6,19 +6,17 @@ import styles from "./styles";
 import CustomText from "../../utils/text";
 
 export default function TicketReport({ navigation }) {
-  const [data, setData] = useState<any>({});
+  // const [data, setData] = useState<any>({});
 
   useEffect(() => {
-    fetchData(setData);
-    return () => setData({});
+    // fetchData(setData);
+    // return () => setData({});
   }, []);
 
   return (
     <View style={styles.ticketReport}>
       {/* <CustomText style={styles.text}> درخواست های پاسخ داده نشده {data.openTickets}</CustomText> */}
-      <CustomText style={styles.text}>
-        تعداد درخواست ها: {data.tickets}
-      </CustomText>
+      <CustomText style={styles.text}>تعداد درخواست ها: 1</CustomText>
       <AddBtn onPress={() => navigation.navigate("addTicket")} />
     </View>
   );

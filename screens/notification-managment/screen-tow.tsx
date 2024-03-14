@@ -1,7 +1,8 @@
 import { prioritiesOptions } from "../../utils/notification/priorities-options";
+import SecondaryButton from "../../components/utils/secondary-button";
+import PrimaryButton from "../../components/utils/primary-button";
 import CustomCheckBox from "../../components/utils/checkbox";
 import Container from "../../components/overal/container";
-import PrimaryButton from "../../components/utils/primary-button";
 import Select from "../../components/utils/select";
 import Input from "../../components/utils/input";
 import { useForm } from "react-hook-form";
@@ -12,7 +13,7 @@ export default function ScreenTow({ carouselRef, users, everyone }) {
 
   const onSubmit = async (data) => {
     handleSend({
-      ...data,
+      data: { ...data, everyone },
       receptors: users,
     });
   };
@@ -34,8 +35,11 @@ export default function ScreenTow({ carouselRef, users, everyone }) {
         multiline
       />
       <CustomCheckBox control={control} name="sms_send" label="ارسال پیامک" />
-      PrimaryButton onPress={() => carouselRef.current.prev()} title="بازگشت" />
-      PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
+      <PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
+      <SecondaryButton
+        onPress={() => carouselRef.current.prev()}
+        title="بازگشت"
+      />
     </Container>
   );
 }

@@ -13,12 +13,13 @@ export default function ShowPosts({ data, page, setPage, take }) {
           contentContainerStyle={{ gap: 10, paddingBottom: 50 }}
           renderItem={({ item }) => {
             return !item.pagination ? (
-              <View style={{ flex: 1, padding: 5 }}>
+              <View style={{ flex: 1, padding: 5 }} key={item.id}>
                 <PostCard post={item} key={item.id} style={styles.card} />
               </View>
             ) : (
               <Pagination
                 style={{ marginTop: 30 }}
+                key={item.id}
                 countItems={data}
                 setPage={setPage}
                 page={page}

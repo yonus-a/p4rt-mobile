@@ -12,7 +12,7 @@ export default function RenderReports({ data, page, setPage, take }) {
         return (
           <>
             {!item.pagination ? (
-              <Row>
+              <Row key={item.id}>
                 <Wrapper>
                   <Header>واحد</Header>
                   <Cell>{item.group}</Cell>
