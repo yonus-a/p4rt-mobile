@@ -9,6 +9,7 @@ export default function FoodHeader({
   selectedDay,
 }) {
   const { width, height } = useWindowDimensions();
+  
   return (
     <View style={styles.header}>
       <Image

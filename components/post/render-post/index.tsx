@@ -43,6 +43,7 @@ export default function RenderPost({
       <RenderHTML
         source={{ html: post.content }}
         baseStyle={styles.content}
+        ignoredDomTags={["video"]}
         contentWidth={width}
         tagsStyles={style}
       />

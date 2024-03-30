@@ -9,6 +9,7 @@ import styles from "./styles";
 
 export default function DatePicker({ onChange, style = {} }) {
   const [visible, setVisible] = useState(false);
+  const [date, setDate] = useState(null);
 
   const toggleModal = () => {
     setVisible(!visible);
@@ -18,12 +19,15 @@ export default function DatePicker({ onChange, style = {} }) {
     const nextDate = moment.from(date, "fa", "YYYY/MM/DD");
     onChange(nextDate);
     toggleModal();
+    setDate(date);
   };
 
   return (
     <View style={[styles.datepicker, style]}>
       <Pressable onPress={toggleModal} style={styles.dateInput}>
-        <CustomText>تاریخ</CustomText>
+        <CustomText style={{ textAlign: "right" }}>
+          {date || "تاریخ"}
+        </CustomText>
       </Pressable>
       <Modal isVisible={visible} onBackdropPress={toggleModal}>
         <Calender onChange={handleChange} />

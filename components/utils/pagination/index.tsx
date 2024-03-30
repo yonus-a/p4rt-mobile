@@ -9,9 +9,18 @@ export default function Pagination({
   page,
   take,
 }) {
+  const maxPage = Math.round(countItems / take) || 1;
+
   return (
     <View style={[styles.container, style]}>
-      <Pressable onPress={() => setPage(page - 1)}>
+      <Pressable
+        onPress={() => {
+          const prevPage = page - 1;
+          if (prevPage > 0) {
+            setPage(prevPage);
+          }
+        }}
+      >
         <Image
           source={require("../../../assets/icons/chevron-left.png")}
           style={styles.icon}
@@ -20,10 +29,17 @@ export default function Pagination({
       </Pressable>
       <PaginationDot
         activeDotColor={"black"}
-        maxPage={Math.round(countItems / take) || 1}
+        maxPage={maxPage}
         curPage={page}
       />
-      <Pressable onPress={() => setPage(page + 1)}>
+      <Pressable
+        onPress={() => {
+          const nextPage = page + 1;
+          if (nextPage < maxPage) {
+            setPage(nextPage);
+          }
+        }}
+      >
         <Image
           source={require("../../../assets/icons/chevron-right.png")}
           style={styles.icon}

@@ -1,6 +1,6 @@
+import PrimaryButton from "../../utils/primary-button";
 import errorAlert from "../../../utils/alert/error";
 import { useForm } from "react-hook-form";
-import PrimaryButton from "../../utils/primary-button";
 import Input from "../../utils/input";
 import addComment from "./addComment";
 import { View } from "react-native";

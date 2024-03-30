@@ -1,22 +1,24 @@
 import { useNavigation } from "@react-navigation/native";
 import { DrawerItem } from "@react-navigation/drawer";
+import { useSelector, useDispatch } from "react-redux";
 import Collapsible from "react-native-collapsible";
+import { setCollapsed } from "./growthMenuSlice";
 import drawer from "../../../styles/drawer";
 import { Image } from "react-native";
 import { View } from "react-native";
-import { useState } from "react";
 import styles from "./styles";
 
 export default function GrowthMenu() {
-  const [collapsed, setCollapsed] = useState(true);
+  const { collapsed } = useSelector((state: any) => state.adminMenu);
   const navigation = useNavigation();
   const navigate: any = navigation.navigate;
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.refahiMenu}>
       <DrawerItem
         label="توسعه و تعالی"
-        onPress={() => setCollapsed(!collapsed)}
+        onPress={() => dispatch(setCollapsed(!collapsed))}
         labelStyle={drawer.label}
         style={drawer.item}
         icon={() => (

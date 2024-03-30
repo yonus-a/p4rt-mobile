@@ -1,6 +1,7 @@
+import { setData } from "./admin-report-slice";
 import axios from "axios";
 
-export default async function fetchData(setData: any) {
+export default async function fetchData(dispatch) {
   const { data } = await axios("/dashboard/adminReports");
-  setData(data);
+  dispatch(setData(data));
 }

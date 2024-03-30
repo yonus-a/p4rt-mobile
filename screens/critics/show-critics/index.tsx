@@ -69,7 +69,7 @@ export default function ShowCritics() {
           />
         ) : (
           <CustomText style={globalStyles.h1}>
-            صفحه انتقادات خالی است
+            صفحه پیشنهادات خالی است
           </CustomText>
         )}
       </Container>

@@ -7,8 +7,10 @@ import Input from "../../utils/input";
 import { View } from "react-native";
 
 export default function AddUserForm({ positions, setValue, control, units }) {
-  const positionOptions = optionsGenerator(positions);
   const unitOptions = optionsGenerator(units);
+  const positionOptions = optionsGenerator(positions).filter(
+    (item) => !!item.label
+  );
 
   return (
     <View style={{ gap: 15 }}>

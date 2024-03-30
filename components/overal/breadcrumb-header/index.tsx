@@ -14,7 +14,7 @@ export default function BreadcrumbHeader() {
       pathnaem = "داشبورد";
       break;
     case "critics":
-      pathnaem = "ارسال انتقادات";
+      pathnaem = "ارسال پیشنهادات";
       break;
     case "foods":
       pathnaem = "سفارش غذا";
@@ -68,7 +68,7 @@ export default function BreadcrumbHeader() {
       pathnaem = "مدیریت سفارشات";
       break;
     case "foodManagment":
-      pathnaem = "مدریت غذا ها";
+      pathnaem = "مدیریت غذا ها";
       break;
     case "smsPanel":
       pathnaem = "پنل پیامکی";
@@ -86,7 +86,7 @@ export default function BreadcrumbHeader() {
         style={styles.bg}
       />
       <View style={styles.container}>
-        <Profile />
+        <Profile style={{ marginTop: -6 }} />
         <View style={styles.flexWrapper}>
           <CustomText style={styles.text}>{pathnaem}</CustomText>
           <Pressable onPress={() => navigation.openDrawer()}>

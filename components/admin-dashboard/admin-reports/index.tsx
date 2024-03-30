@@ -1,26 +1,20 @@
-import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import useUserId from "../../../hooks/useUserId";
 import ReportCard from "../report-card";
 import fetchData from "./fetchData";
 import { View } from "react-native";
+import { useEffect } from "react";
 import styles from "./styles";
-import useUserId from "../../../hooks/useUserId";
 
 export default function AdminReports() {
-  const defaultValue = {
-    users: 0,
-    actives: 0,
-    critics: 0,
-    tickets: 0,
-  };
-
-  const [data, setData] = useState<any>(defaultValue);
   const userId = useUserId();
   const isManager = userId === "4060588326";
   const critics = isManager ? "showCritics" : "critics";
+  const data = useSelector((state: any) => state.adminReport.data);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchData(setData);
-    return () => setData(defaultValue);
+    fetchData(dispatch);
   }, []);
 
   return (
@@ -52,7 +46,7 @@ export default function AdminReports() {
           icon={require("../../../assets/icons/critics.png")}
           iamgeStyle={{ width: 35, height: 35 }}
           amountColor="#C4F6ED"
-          desc="انتقادات"
+          desc="پیشنهادات"
           to={critics}
         />
         <ReportCard

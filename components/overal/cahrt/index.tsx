@@ -11,7 +11,7 @@ interface Props {
 export default function Chart({ data, label = "" }: Props) {
   const { width } = useWindowDimensions();
 
-  if (!data) return null;
+  if (!data.length) return null;
 
   const chartOptions = {
     labels: ["7", "6", "5", "4", "3", "2", "1"],

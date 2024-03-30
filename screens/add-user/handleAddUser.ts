@@ -18,7 +18,7 @@ export default async function handleAddUser(data) {
     });
 
     await successAlert({
-      msg: "کاربر",
+      msg: "کاربر با موفقیت ایجاد شد",
     });
   } catch (e) {
     await errorAlert();

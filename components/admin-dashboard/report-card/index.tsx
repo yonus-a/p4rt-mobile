@@ -1,7 +1,7 @@
+import Navigate from "../../utils/navigate";
 import { Image, View } from "react-native";
 import CustomText from "../../utils/text";
 import styles from "./styles";
-import Navigate from "../../utils/navigate";
 
 export default function ReportCard({
   iamgeStyle = {},

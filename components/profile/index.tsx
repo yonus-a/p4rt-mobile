@@ -5,16 +5,15 @@ import useExpanded from "./useExpaned";
 import styles from "./styles";
 import Logout from "./logout";
 
-export default function Profile() {
+export default function Profile({ style = {} }) {
   const { width, handleExpand } = useExpanded();
 
   return (
-    <Animated.View style={[styles.profile, { width: width }]}>
+    <Animated.View style={[styles.profile, { width: width }, style]}>
       <Pressable onPress={handleExpand}>
         <Image
           source={require("../../assets/icons/avatar.png")}
           style={styles.image}
-          
           alt=""
         />
       </Pressable>

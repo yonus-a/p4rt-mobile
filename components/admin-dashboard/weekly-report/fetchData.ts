@@ -1,9 +1,9 @@
+import { setViews, setVisits } from "./weeklyReportSlice";
 import axios from "axios";
 
-export default async function fetchData(setVisits, setViews) {
+export default async function fetchData(dispatch) {
   const { data: visits } = await axios("/dashboard/getWeeklyVisits");
   const { data: views } = await axios("/dashboard/getWeeklyViews");
-
-  setViews(views);
-  setVisits(visits);
+  dispatch(setVisits(visits));
+  dispatch(setViews(views));
 }

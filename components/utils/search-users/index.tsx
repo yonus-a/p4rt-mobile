@@ -30,9 +30,9 @@ export default function SearchUsers({ selectedUser, setSelectedUser }) {
   return (
     <View style={{ gap: 30 }}>
       <FilterWrapper>
-        <OptionModal>
+        {/* <OptionModal>
           <CustomText>search</CustomText>
-        </OptionModal>
+        </OptionModal> */}
         <SearchInputs setSearch={setSearch} style={{ flex: 1 }} />
       </FilterWrapper>
       <FlatList
@@ -40,7 +40,11 @@ export default function SearchUsers({ selectedUser, setSelectedUser }) {
         style={{ height: "10%" }}
         contentContainerStyle={{ gap: 10 }}
         renderItem={({ item }) => (
-          <ShowUserItem item={item} onPress={() => handleAdd(item)} key={item.id} />
+          <ShowUserItem
+            item={item}
+            onPress={() => handleAdd(item)}
+            key={item.id}
+          />
         )}
       />
       <View style={{ height: "30%" }}>
@@ -50,7 +54,11 @@ export default function SearchUsers({ selectedUser, setSelectedUser }) {
           contentContainerStyle={{ gap: 10 }}
           renderItem={({ item }) => {
             return (
-              <ShowUserItem item={item} onPress={() => handleDelete(item.id)} key={item.id} />
+              <ShowUserItem
+                item={item}
+                onPress={() => handleDelete(item.id)}
+                key={item.id}
+              />
             );
           }}
         />
