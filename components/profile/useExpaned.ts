@@ -1,9 +1,12 @@
-import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setExpanded } from "./profileSlice";
 import { Animated } from "react-native";
+import { useRef } from "react";
 
 export default function useExpanded() {
+  const { expanded } = useSelector((state: any) => state.profile);
   const width = useRef(new Animated.Value(52)).current;
-  const [expanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
 
   const expand = () => {
     Animated.timing(width, {
@@ -30,7 +33,7 @@ export default function useExpanded() {
       expand();
     }
 
-    setExpanded(!expanded);
+    dispatch(setExpanded(!expanded));
   };
 
   return {

@@ -4,8 +4,8 @@ const initialState = {
   collapsed: true,
 };
 
-export const growthMenuSlice = createSlice({
-  name: "growthMenu",
+export const refahiMenuSlice = createSlice({
+  name: "refahiMenu",
   initialState,
   reducers: {
     setCollapsed: (state, action) => {
@@ -14,5 +14,5 @@ export const growthMenuSlice = createSlice({
   },
 });
 
-export const { setCollapsed } = growthMenuSlice.actions;
-export default growthMenuSlice.reducer;
+export const { setCollapsed } = refahiMenuSlice.actions;
+export default refahiMenuSlice.reducer;

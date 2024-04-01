@@ -5,8 +5,10 @@ import dailyReportSlice from "../components/admin-dashboard/daily-report/dailyRe
 import criticsItemSlice from "../components/critics/render-critics-item/criticsItemSlice";
 import reportTabsSlice from "../components/admin-dashboard/report-taps/reportTabsSlice";
 import growthMenuSlice from "../components/overal/growth-menu/growthMenuSlice";
+import refahiMenuSlice from "../components/overal/refahi-menu/refahiMenuSlice";
 import adminMenuSlice from "../components/overal/admin-menu/adminMenuSlide";
 import addToCartSlice from "../components/food/add-to-cart/addToCartSlice";
+import profileSlice from "../components/profile/profileSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
@@ -21,6 +23,8 @@ const store = configureStore({
     reportTab: reportTabsSlice,
     addToCart: addToCartSlice,
     adminMenu: adminMenuSlice,
+    refahiMenu: refahiMenuSlice,
+    profile: profileSlice,
   },
 });
 

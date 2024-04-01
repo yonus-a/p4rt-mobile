@@ -9,7 +9,7 @@ import { View } from "react-native";
 import styles from "./styles";
 
 export default function GrowthMenu() {
-  const { collapsed } = useSelector((state: any) => state.adminMenu);
+  const { collapsed } = useSelector((state: any) => state.growthMenu);
   const navigation = useNavigation();
   const navigate: any = navigation.navigate;
   const dispatch = useDispatch();

@@ -69,7 +69,7 @@ export default function Routes() {
     >
       <Drawer.Screen
         name="dashboard"
-        component={Dashborad}
+        children={(props) => <Dashborad {...props} />}
         initialParams={{ admin }}
         options={{
           title: "داشبورد",
