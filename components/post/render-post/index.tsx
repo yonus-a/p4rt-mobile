@@ -1,12 +1,24 @@
 import { View, Image, useWindowDimensions } from "react-native";
-import RenderHTML from "react-native-render-html";
 import globalStyles from "../../../globalStyles";
 import CustomText from "../../utils/text";
-import WebView from "react-native-webview";
 import PostComment from "../post-comment";
 import AddComment from "../add-comment";
 import PostLike from "../post-like";
 import styles from "./styles";
+import RenderHtml, {
+  HTMLContentModel,
+  defaultHTMLElementModels,
+} from "react-native-render-html";
+import { Video, ResizeMode } from "expo-av";
+
+const customHTMLElementModels = {
+  img: defaultHTMLElementModels.img.extend({
+    contentModel: HTMLContentModel.block,
+  }),
+  video: defaultHTMLElementModels.video.extend({
+    contentModel: HTMLContentModel.block,
+  }),
+};
 
 export default function RenderPost({
   fetchNewComment,
@@ -28,10 +40,26 @@ export default function RenderPost({
 
   const renderers = {
     img: (props) => {
-      console.log(props);
-      // return Renderer;
+      // console.log(props);
+      return <CustomText>img</CustomText>;
     },
-    video: () => <CustomText>video</CustomText>,
+    video: (props) => {
+      return props.tnode.domNode.children.map((item) => {
+        if (item.name == "source") {
+          return (
+            <Video
+              style={styles.video}
+              source={{
+                uri: `https://p4rt.ir/${item.attribs.src}`,
+              }}
+              useNativeControls
+              resizeMode={ResizeMode.CONTAIN}
+              isLooping
+            />
+          );
+        }
+      });
+    },
   };
 
   return (
@@ -49,17 +77,14 @@ export default function RenderPost({
         <CustomText>تعداد بازدید: {countAllSeen}</CustomText>
       </View>
       <CustomText style={globalStyles.h1}>{post.title}</CustomText>
-      <RenderHTML
+      <RenderHtml
         source={{
-          html: `<img
-          width="1200" height="800"
-          style="width: 50%; height: 100px; align-self: center;"
-          src="http://placeimg.com/1200/800/animals"
-        />`,
+          html: post.content,
         }}
         baseStyle={styles.content}
+        customHTMLElementModels={customHTMLElementModels}
+        renderers={renderers}
         contentWidth={width}
-        WebView={WebView}
         tagsStyles={style}
       />
       <PostLike
