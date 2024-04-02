@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 
+const initialData = {
+  totalPost: 0,
+  posts: [],
+};
+
 export default function Posts({ route }) {
   const { category } = route.params;
-  const [data, setData] = useState({
-    totalPost: 0,
-    posts: [],
-  });
+  const [data, setData] = useState(initialData);
   const [page, setPage] = useState(0);
   const take = 10;
 
@@ -20,13 +22,6 @@ export default function Posts({ route }) {
       category: category,
       take,
     });
-
-    return () => {
-      setData({
-        totalPost: 0,
-        posts: [],
-      });
-    };
   }, [page, category]);
 
   return (

@@ -1,8 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import { View, Image, Pressable } from "react-native";
 import Profile from "../../profile";
 import styles from "./styles";
 
-export default function Header({ navigation }: any) {
+export default function Header() {
+  const navigation: any = useNavigation();
+
   return (
     <View style={styles.header}>
       <Image

@@ -9,13 +9,18 @@ import { useForm } from "react-hook-form";
 import { View } from "react-native";
 import handleAdd from "./handleAdd";
 import styles from "./styles";
+import useClear from "../../hooks/useClear";
 
-export default function AddFood({ navigation, route }) {
-  const { control, handleSubmit, setValue } = useForm();
+export default function AddFood({ navigation }) {
+  const { control, handleSubmit, setValue, reset } = useForm();
 
   const onSubmit = (data) => {
     handleAdd(data, navigation);
   };
+
+  useClear(() => {
+    reset();
+  });
 
   return (
     <View style={styles.addFood}>

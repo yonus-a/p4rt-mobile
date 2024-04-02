@@ -8,14 +8,15 @@ import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
-export default function ShowOrders() {
-  const [fetchNewData, setFetchNewData] = useState({});
-  const [data, setData] = useState({
-    countOrders: 0,
-    orders: [],
-  });
+const initialData = {
+  countOrders: 0,
+  orders: [],
+};
 
+export default function ShowOrders() {
   const take = 10;
+  const [fetchNewData, setFetchNewData] = useState({});
+  const [data, setData] = useState(initialData);
   const [search, setSearch] = useState("");
   const [curPage, setPage] = useState(0);
 
@@ -26,13 +27,6 @@ export default function ShowOrders() {
       search,
       take,
     });
-
-    return () => {
-      setData({
-        countOrders: 0,
-        orders: [],
-      });
-    };
   }, [search, fetchNewData, curPage]);
 
   return (

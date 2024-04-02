@@ -1,7 +1,6 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
 import Container from "../../../components/overal/container";
-import PrimaryButton from "../../../components/utils/primary-button";
-import Input from "../../../components/utils/input";
+import { useFocusEffect } from "@react-navigation/native";
 import errorAlert from "../../../utils/alert/error";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -11,13 +10,12 @@ import ChatLine from "../chat-line";
 import { View } from "react-native";
 import styles from "./styles";
 
-export default function Ticket({ route, navigation }) {
+export default function Ticket({ route }) {
   const [data, setData] = useState<any>({});
   const { id } = route.params;
 
   useEffect(() => {
     fetchData(id, setData);
-    return () => setData({});
   }, []);
 
   const { control, handleSubmit } = useForm();

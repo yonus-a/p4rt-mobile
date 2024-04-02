@@ -2,6 +2,7 @@ import { View, Image, useWindowDimensions } from "react-native";
 import RenderHTML from "react-native-render-html";
 import globalStyles from "../../../globalStyles";
 import CustomText from "../../utils/text";
+import WebView from "react-native-webview";
 import PostComment from "../post-comment";
 import AddComment from "../add-comment";
 import PostLike from "../post-like";
@@ -25,6 +26,14 @@ export default function RenderPost({
     },
   };
 
+  const renderers = {
+    img: (props) => {
+      console.log(props);
+      // return Renderer;
+    },
+    video: () => <CustomText>video</CustomText>,
+  };
+
   return (
     <View style={styles.renderPost}>
       <Image
@@ -41,10 +50,16 @@ export default function RenderPost({
       </View>
       <CustomText style={globalStyles.h1}>{post.title}</CustomText>
       <RenderHTML
-        source={{ html: post.content }}
+        source={{
+          html: `<img
+          width="1200" height="800"
+          style="width: 50%; height: 100px; align-self: center;"
+          src="http://placeimg.com/1200/800/animals"
+        />`,
+        }}
         baseStyle={styles.content}
-        ignoredDomTags={["video"]}
         contentWidth={width}
+        WebView={WebView}
         tagsStyles={style}
       />
       <PostLike

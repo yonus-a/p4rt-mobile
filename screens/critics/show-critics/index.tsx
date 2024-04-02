@@ -5,6 +5,7 @@ import QuickPanel from "../../../components/overal/quick-panel";
 import Pagination from "../../../components/utils/pagination";
 import Container from "../../../components/overal/container";
 import { SwipeListView } from "react-native-swipe-list-view";
+import { useFocusEffect } from "@react-navigation/native";
 import CustomText from "../../../components/utils/text";
 import handleDeleteCritics from "./handleDeleteCritics";
 import globalStyles from "../../../globalStyles";
@@ -22,10 +23,6 @@ export default function ShowCritics() {
 
   useEffect(() => {
     fetchData(setCritics, page, take);
-
-    return () => {
-      setCritics([]);
-    };
   }, []);
 
   return (

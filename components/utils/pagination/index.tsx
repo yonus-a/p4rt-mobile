@@ -15,10 +15,7 @@ export default function Pagination({
     <View style={[styles.container, style]}>
       <Pressable
         onPress={() => {
-          const prevPage = page - 1;
-          if (prevPage > 0) {
-            setPage(prevPage);
-          }
+          setPage((p) => (p - 1 < 0 ? p : p - 1));
         }}
       >
         <Image
@@ -34,10 +31,7 @@ export default function Pagination({
       />
       <Pressable
         onPress={() => {
-          const nextPage = page + 1;
-          if (nextPage < maxPage) {
-            setPage(nextPage);
-          }
+          setPage((p) => (p + 1 >= maxPage ? p : p + 1));
         }}
       >
         <Image

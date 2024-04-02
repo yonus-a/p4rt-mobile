@@ -1,16 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
 import Container from "../../overal/container";
+import { useEffect, useState } from "react";
 import Chart from "../../overal/cahrt";
 import fetchData from "./fetchData";
-import { useEffect } from "react";
 import styles from "./styles";
 
 export default function MonthlyReport() {
-  const dispatch = useDispatch();
-  const { views, visits } = useSelector((state: any) => state.monthlyReport);
+  const [views, setViews] = useState([]);
+  const [visits, setVisits] = useState([]);
 
   useEffect(() => {
-    fetchData(dispatch);
+    fetchData({
+      setViews,
+      setVisits,
+    });
   }, []);
 
   return (

@@ -1,23 +1,26 @@
 import { useNavigation } from "@react-navigation/native";
-import { useSelector, useDispatch } from "react-redux";
 import { DrawerItem } from "@react-navigation/drawer";
 import Collapsible from "react-native-collapsible";
-import { setCollapsed } from "./adminMenuSlide";
+import useClear from "../../../hooks/useClear";
 import drawer from "../../../styles/drawer";
 import { Image } from "react-native";
 import { View } from "react-native";
+import { useState } from "react";
 
 export default function AdminMenu() {
-  const { collapsed } = useSelector((state: any) => state.adminMenu);
+  const [collapsed, setCollapsed] = useState(true);
   const navigation = useNavigation();
   const navigate: any = navigation.navigate;
-  const dispatch = useDispatch();
+
+  useClear(() => {
+    setCollapsed(true);
+  });
 
   return (
     <View style={{ marginTop: -130 }}>
       <DrawerItem
         label="مدیریت"
-        onPress={() => dispatch(setCollapsed(!collapsed))}
+        onPress={() => setCollapsed(!collapsed)}
         labelStyle={drawer.label}
         style={drawer.item}
         icon={() => (

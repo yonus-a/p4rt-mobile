@@ -9,7 +9,7 @@ import AddToCart from "../add-to-cart";
 import styles from "./styles";
 import { useRef } from "react";
 
-export default function ShowFoods({ foods, navigation, fetchNewData }) {
+export default function ShowFoods({ foods, navigation }) {
   const { width } = useWindowDimensions();
   const carouselRef: any = useRef();
   const userId = useUserId();
@@ -33,7 +33,6 @@ export default function ShowFoods({ foods, navigation, fetchNewData }) {
             <Container key={item.id} style={styles.item}>
               <FoodImage
                 liked={Defaultliked}
-                fetchNewData={fetchNewData}
                 likes={item.food_like.length || 0}
                 foodId={item.id}
                 source={{
@@ -45,10 +44,7 @@ export default function ShowFoods({ foods, navigation, fetchNewData }) {
                 date={new Date()}
                 navigation={navigation}
               />
-              <ShowComments
-                data={item.food_comment}
-                fetchNewData={fetchNewData}
-              />
+              <ShowComments data={item.food_comment} />
             </Container>
           );
         }}

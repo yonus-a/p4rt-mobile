@@ -1,5 +1,6 @@
 import { TabView, SceneMap } from "react-native-tab-view";
 import { useWindowDimensions } from "react-native";
+import useClear from "../../../hooks/useClear";
 import NewPosts from "../../post/newPosts";
 import Tabbar from "../../overal/tabbar";
 import { useState } from "react";
@@ -14,6 +15,10 @@ const renderScene = SceneMap({
 export default function RefahiPostTab() {
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
+
+  useClear(() => {
+    setIndex(0);
+  });
 
   const [routes] = useState([
     { key: "health", title: "سلامتی و تندرستی" },
@@ -33,7 +38,7 @@ export default function RefahiPostTab() {
       }}
       initialLayout={layout}
       renderScene={renderScene}
-      onIndexChange={setIndex}
+      onIndexChange={(idx) => setIndex(idx)}
       overScrollMode="never"
       renderTabBar={Tabbar}
     />

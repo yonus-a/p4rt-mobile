@@ -6,7 +6,6 @@ export default async function fetchData({
   take,
   date,
   search,
-  type,
 }) {
   const { data } = await axios("/daily-report/filterReports", {
     params: {
@@ -14,7 +13,6 @@ export default async function fetchData({
       date,
       page,
       take,
-      type,
     },
   });
 

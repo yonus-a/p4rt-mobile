@@ -1,18 +1,21 @@
 import orderValidation from "../../../utils/food/orderValidation";
 import PrimaryButton from "../../utils/primary-button";
-import { useSelector, useDispatch } from "react-redux";
 import errorAlert from "../../../utils/alert/error";
 import UpdateQuantity from "../update-quantity";
-import { setQuantity } from "./addToCartSlice";
+import useClear from "../../../hooks/useClear";
 import useCart from "../../../hooks/useCart";
 import { View } from "react-native";
+import { useState } from "react";
 import styles from "./styles";
 
 export default function AddToCart({ food, date, navigation }) {
-  const dispatch = useDispatch();
-  dispatch(setQuantity(food.name == "چاشت" ? 1 : 0));
-  const { quantity } = useSelector((state: any) => state.addToCart);
+  const initialQunatity = food.name == "چاشت" ? 1 : 0;
+  const [quantity, setQuantity] = useState(initialQunatity);
   const { addItem, inCart } = useCart();
+
+  useClear(() => {
+    setQuantity(initialQunatity);
+  });
 
   const handleClick = async (e: any) => {
     // validate order date

@@ -6,9 +6,14 @@ import { Shadow } from "react-native-shadow-2";
 import { useForm } from "react-hook-form";
 import { Pressable } from "react-native";
 import handleSend from "./handleSend";
+import useClear from "../../hooks/useClear";
 
 export default function ScreenTow({ carouselRef, users }) {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, reset } = useForm();
+
+  useClear(() => {
+    reset();
+  });
 
   const onSubmit = async ({ message }) => {
     const receptor = users.map(({ phone }) => phone);

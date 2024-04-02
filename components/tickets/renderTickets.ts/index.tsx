@@ -1,11 +1,11 @@
 import verticalTable from "../../../styles/verticalTable";
+import { useEffect, useState } from "react";
 import { View, Pressable } from "react-native";
 import Pagination from "../../utils/pagination";
-import { useEffect, useState } from "react";
+import CustomText from "../../utils/text";
 import ShowStatus from "../show-status";
 import fetchData from "./fetchData";
 import styles from "./styles";
-import CustomText from "../../utils/text";
 
 export default function RenderTickets({ navigation }) {
   const [curPage, setCurPage] = useState(0);
@@ -24,8 +24,6 @@ export default function RenderTickets({ navigation }) {
       },
       setData
     );
-
-    return () => setData(defaultValue);
   }, []);
 
   return (

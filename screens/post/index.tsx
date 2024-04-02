@@ -17,18 +17,10 @@ export default function Post({ route }) {
 
   useEffect(() => {
     fetchPost(setData, { id });
-
-    return () => {
-      setData({});
-    };
   }, [id]);
 
   useEffect(() => {
     fetchComments(setComments, { id });
-
-    return () => {
-      setComments([]);
-    };
   }, [fetchNewComment, id]);
 
   return (

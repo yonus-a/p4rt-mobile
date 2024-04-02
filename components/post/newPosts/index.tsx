@@ -11,10 +11,6 @@ export default function NewPosts({ take, categoryId }) {
 
   useEffect(() => {
     fetchPosts(setPosts, { take, categoryId });
-
-    return () => {
-      setPosts([]);
-    };
   }, []);
 
   return (

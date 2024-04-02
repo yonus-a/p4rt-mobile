@@ -3,12 +3,10 @@ import CustomCartProvider from "./components/providers/custom-cart-provider";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import Alert from "./components/overal/alert";
-import { Provider } from "react-redux";
 import Splash from "./screens/splash";
 import { useFonts } from "expo-font";
 import { useState } from "react";
 import Routes from "./routes";
-import store from "./store";
 
 // configs
 import "./axios";
@@ -33,15 +31,13 @@ export default function App() {
       {splash ? (
         <Splash />
       ) : (
-        <Provider store={store}>
-          <NavigationContainer>
-            <CustomCartProvider>
-              <Routes />
-            </CustomCartProvider>
-            <StatusBar style="auto" />
-            <Alert />
-          </NavigationContainer>
-        </Provider>
+        <NavigationContainer>
+          <CustomCartProvider>
+            <Routes />
+          </CustomCartProvider>
+          <StatusBar style="auto" />
+          <Alert />
+        </NavigationContainer>
       )}
     </>
   );

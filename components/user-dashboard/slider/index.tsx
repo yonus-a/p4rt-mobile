@@ -2,26 +2,15 @@ import { View, useWindowDimensions, Animated } from "react-native";
 import loopOptions from "../../../utils/slider/loopOptions";
 import CustomCarousel from "../../utils/carousel";
 import { useEffect, useState } from "react";
+import fetchData from "./fetchData";
 import styles from "./styles";
-import axios from "axios";
 
 export default function Slider({ style = {}, scrollY }) {
   const [data, setData] = useState([]);
   const width = useWindowDimensions().width;
 
-  async function fetchData() {
-    try {
-      const { data } = await axios.get("/dashboard/getSlides");
-      setData(data);
-    } catch (e) {}
-  }
-
   useEffect(() => {
-    fetchData();
-
-    return () => {
-      setData([]);
-    };
+    fetchData(setData);
   }, []);
 
   return (

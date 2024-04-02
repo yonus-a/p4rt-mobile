@@ -1,4 +1,5 @@
 import { View, Pressable, Image, Animated } from "react-native";
+import * as SecureStore from "expo-secure-store";
 import AddAbsentee from "./add-absentee";
 import Navigate from "../utils/navigate";
 import useExpanded from "./useExpaned";
@@ -7,14 +8,22 @@ import Logout from "./logout";
 
 export default function Profile({ style = {} }) {
   const { width, handleExpand } = useExpanded();
+  const profile = SecureStore.getItem("profile");
 
   return (
     <Animated.View style={[styles.profile, { width: width }, style]}>
       <Pressable onPress={handleExpand}>
-        <Image
+        {/* <Image
           source={require("../../assets/icons/avatar.png")}
           style={styles.image}
           alt=""
+        /> */}
+        <Image
+          source={{
+            uri: `https://p4rt.ir/public/images/users/${profile}`,
+          }}
+          resizeMode="cover"
+          style={styles.image}
         />
       </Pressable>
       <View style={styles.drawer}>

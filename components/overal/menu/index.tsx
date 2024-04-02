@@ -4,6 +4,7 @@ import {
 } from "@react-navigation/drawer";
 import errorAlert from "../../../utils/alert/error";
 import useUserId from "../../../hooks/useUserId";
+import useClear from "../../../hooks/useClear";
 import { useEffect, useState } from "react";
 import { View, Image } from "react-native";
 import GrowthMenu from "../growth-menu";
@@ -16,6 +17,10 @@ import axios from "axios";
 export default function CustomDrawerContent(props) {
   const [admin, setAdmin] = useState(false);
   const userId = useUserId();
+
+  useClear(() => {
+    setAdmin(false);
+  });
 
   useEffect(() => {
     (async () => {

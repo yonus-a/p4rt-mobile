@@ -13,6 +13,7 @@ export default StyleSheet.create({
   image: {
     width: 45,
     height: 45,
+    objectFit: "cover",
   },
   drawer: {
     alignItems: "center",

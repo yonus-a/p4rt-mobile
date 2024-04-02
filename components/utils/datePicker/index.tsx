@@ -6,6 +6,7 @@ import Calender from "../calender";
 import { useState } from "react";
 import CustomText from "../text";
 import styles from "./styles";
+import useClear from "../../../hooks/useClear";
 
 export default function DatePicker({ onChange, style = {} }) {
   const [visible, setVisible] = useState(false);
@@ -14,6 +15,11 @@ export default function DatePicker({ onChange, style = {} }) {
   const toggleModal = () => {
     setVisible(!visible);
   };
+
+  useClear(() => {
+    setVisible(false);
+    setDate(null);
+  });
 
   const handleChange = (date) => {
     const nextDate = moment.from(date, "fa", "YYYY/MM/DD");

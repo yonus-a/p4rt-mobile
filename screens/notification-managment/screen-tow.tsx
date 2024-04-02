@@ -7,9 +7,10 @@ import Select from "../../components/utils/select";
 import Input from "../../components/utils/input";
 import { useForm } from "react-hook-form";
 import handleSend from "./handleSend";
+import useClear from "../../hooks/useClear";
 
 export default function ScreenTow({ carouselRef, users, everyone }) {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     handleSend({
@@ -17,6 +18,10 @@ export default function ScreenTow({ carouselRef, users, everyone }) {
       receptors: users,
     });
   };
+
+  useClear(() => {
+    reset();
+  });
 
   return (
     <Container style={{ flex: 1, gap: 15 }}>

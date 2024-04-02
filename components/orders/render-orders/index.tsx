@@ -12,11 +12,11 @@ import handleReject from "./handleReject";
 import { FlatList } from "react-native";
 
 export default function RenderOrders({
-  data,
+  fetchNewData,
   setPage,
+  data,
   page,
   take,
-  fetchNewData,
 }) {
   const userId = useUserId();
 

@@ -35,10 +35,6 @@ export default function AddCritics() {
       const name = await SecureStore.getItemAsync("fullName");
       setFullName(name);
     })();
-
-    return () => {
-      setFullName("");
-    };
   }, []);
 
   const items = [

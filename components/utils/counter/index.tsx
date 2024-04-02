@@ -1,7 +1,7 @@
 import { Pressable, View } from "react-native";
 import DeleteBtn from "../delete-btn";
-import styles from "./styles";
 import CustomText from "../text";
+import styles from "./styles";
 
 export default function Counter({
   showDelete = false,

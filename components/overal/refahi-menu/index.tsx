@@ -1,23 +1,26 @@
 import { useNavigation } from "@react-navigation/native";
 import { DrawerItem } from "@react-navigation/drawer";
-import { useDispatch, useSelector } from "react-redux";
 import Collapsible from "react-native-collapsible";
-import { setCollapsed } from "./refahiMenuSlice";
+import useClear from "../../../hooks/useClear";
 import drawer from "../../../styles/drawer";
 import { Image } from "react-native";
 import { View } from "react-native";
+import { useState } from "react";
 
 export default function RefahiMenu() {
-  const { collapsed } = useSelector((state: any) => state.refahiMenu);
+  const [collapsed, setCollapsed] = useState(true);
   const navigation = useNavigation();
   const navigate: any = navigation.navigate;
-  const dispatch = useDispatch();
+
+  useClear(() => {
+    setCollapsed(true);
+  });
 
   return (
     <View>
       <DrawerItem
         label="رفاهی"
-        onPress={() => dispatch(setCollapsed(!collapsed))}
+        onPress={() => setCollapsed(!collapsed)}
         labelStyle={drawer.label}
         style={drawer.item}
         icon={() => (

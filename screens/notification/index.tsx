@@ -22,11 +22,6 @@ export default function Notification() {
       privatePage,
       publicPage,
     });
-
-    return () => {
-      setPrivateNotifs([]);
-      setPublicNotifs([]);
-    };
   }, []);
 
   return (

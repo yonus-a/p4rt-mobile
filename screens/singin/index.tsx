@@ -1,18 +1,21 @@
 import { View, Image, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import CustomText from "../../components/utils/text";
-import Alert from "../../components/overal/alert";
 import errorAlert from "../../utils/alert/error";
-import * as SecureStore from "expo-secure-store";
 import Input from "../../components/utils/input";
-import { useEffect, useState } from "react";
+import useClear from "../../hooks/useClear";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import styles from "./styles";
 import axios from "axios";
 
 export default function Signin({ navigation }: any) {
   const [disabled, setDisabled] = useState(false);
-  const { control, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit, setValue, reset } = useForm();
+
+  useClear(() => {
+    reset();
+  });
 
   const onSubmit = async (data) => {
     setDisabled(true);

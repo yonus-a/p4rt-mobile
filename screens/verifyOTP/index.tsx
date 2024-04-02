@@ -4,13 +4,18 @@ import CustomText from "../../components/utils/text";
 import errorAlert from "../../utils/alert/error";
 import * as SecureStore from "expo-secure-store";
 import Input from "../../components/utils/input";
+import useClear from "../../hooks/useClear";
 import { useForm } from "react-hook-form";
 import styles from "./styles";
 import axios from "axios";
 
 export default function VerifyOTP({ route, navigation }: any) {
-  const { control, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit, setValue, reset } = useForm();
   const { code } = route.params;
+
+  useClear(() => {
+    reset();
+  });
 
   const onSubmit = async ({ otp }) => {
     try {
@@ -27,6 +32,7 @@ export default function VerifyOTP({ route, navigation }: any) {
 
       await SecureStore.setItemAsync("_token", data.token);
       await SecureStore.setItemAsync("userId", code);
+      await SecureStore.setItemAsync("profile", user.photo);
       await SecureStore.setItemAsync(
         "fullName",
         user.firstname + " " + user.lastname
@@ -34,7 +40,6 @@ export default function VerifyOTP({ route, navigation }: any) {
       navigation.navigate("dashboard");
       setValue("otp", "");
     } catch (e) {
-      console.log(e);
       await errorAlert();
     }
   };

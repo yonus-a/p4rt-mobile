@@ -4,9 +4,14 @@ import CloseBtn from "../close-btn";
 import { useState } from "react";
 import styles from "./styles";
 import CustomText from "../text";
+import useClear from "../../../hooks/useClear";
 
 export default function MessageDialog({ item }) {
   const [modalVisible, setModalVisible] = useState(false);
+
+  useClear(() => {
+    setModalVisible(false);
+  });
 
   return (
     <View style={styles.msgDialog}>

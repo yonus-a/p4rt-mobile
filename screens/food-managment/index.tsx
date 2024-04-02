@@ -1,9 +1,9 @@
 import MangmentHiddenItem from "../../components/utils/managment-hidden-item";
 import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import RenderFoods from "../../components/food/renderFoods";
 import { SwipeListView } from "react-native-swipe-list-view";
 import Container from "../../components/overal/container";
-import { useNavigation } from "@react-navigation/native";
 import AddBtn from "../../components/utils/add-btn";
 import { useEffect, useState } from "react";
 import handleDelete from "./handleDelete";
@@ -14,7 +14,7 @@ import styles from "./styles";
 export default function FoodManagment() {
   const navigation: any = useNavigation();
   const [fetchNew, setFetchNew] = useState({});
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetchData(setData);

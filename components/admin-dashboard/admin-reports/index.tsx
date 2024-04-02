@@ -1,20 +1,24 @@
-import { useSelector, useDispatch } from "react-redux";
 import useUserId from "../../../hooks/useUserId";
+import { useEffect, useState } from "react";
 import ReportCard from "../report-card";
 import fetchData from "./fetchData";
 import { View } from "react-native";
-import { useEffect } from "react";
 import styles from "./styles";
 
 export default function AdminReports() {
   const userId = useUserId();
   const isManager = userId === "4060588326";
   const critics = isManager ? "showCritics" : "critics";
-  const data = useSelector((state: any) => state.adminReport.data);
-  const dispatch = useDispatch();
+
+  const [data, setData] = useState<any>({
+    users: 0,
+    actives: 0,
+    critics: 0,
+    tickets: 0,
+  });
 
   useEffect(() => {
-    fetchData(dispatch);
+    fetchData(setData);
   }, []);
 
   return (

@@ -1,11 +1,16 @@
 import PaginationDot from "react-native-animated-pagination-dot";
 import Carousel from "react-native-reanimated-carousel";
+import useClear from "../../../hooks/useClear";
 import React, { useState } from "react";
 import { View } from "react-native";
 import styles from "./styles";
 
 export default function CustomCarousel(props) {
   const [index, setIndex] = useState(0);
+
+  useClear(() => {
+    setIndex(0);
+  });
 
   return (
     <View style={styles.carousel}>

@@ -6,7 +6,7 @@ import addComment from "./addComment";
 import { View } from "react-native";
 import styles from "./styles";
 
-export default function AddComment({ foodId, fetchNewData, closeDialog }) {
+export default function AddComment({ foodId, closeDialog }) {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = async ({ text }) => {
@@ -15,7 +15,6 @@ export default function AddComment({ foodId, fetchNewData, closeDialog }) {
         text,
         foodId,
       });
-      fetchNewData();
       closeDialog();
     } catch (e) {
       await errorAlert();

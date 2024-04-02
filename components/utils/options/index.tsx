@@ -3,6 +3,7 @@ import Modal from "react-native-modal";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
+import useClear from "../../../hooks/useClear";
 
 export default function OptionModal({ children }) {
   const [visible, setVisible] = useState(false);
@@ -10,6 +11,10 @@ export default function OptionModal({ children }) {
   const toggleModal = () => {
     setVisible(!visible);
   };
+
+  useClear(() => {
+    setVisible(false);
+  });
 
   return (
     <View>

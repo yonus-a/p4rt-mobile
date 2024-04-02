@@ -1,6 +1,7 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
 import PrimaryButton from "../../../components/utils/primary-button";
 import Container from "../../../components/overal/container";
+import { useFocusEffect } from "@react-navigation/native";
 import successAlert from "../../../utils/alert/success";
 import Select from "../../../components/utils/select";
 import Input from "../../../components/utils/input";
@@ -9,12 +10,11 @@ import * as SecureStore from "expo-secure-store";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { View } from "react-native";
-import fetchData from "./fetchData";
 import styles from "./styles";
 import axios from "axios";
 
 export default function AddTicket() {
-  const { control, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit, setValue, reset } = useForm();
   const [unitOptions, setUnitOptions] = useState<any>();
 
   useEffect(() => {

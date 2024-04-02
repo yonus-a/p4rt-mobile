@@ -1,17 +1,16 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 import FilterWrapper from "../filter-wrapper";
 import { useEffect, useState } from "react";
 import ShowUserItem from "./show-user-item";
 import SearchInputs from "../search-input";
 import { FlatList } from "react-native";
-import OptionModal from "../options";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import CustomText from "../text";
 
 export default function SearchUsers({ selectedUser, setSelectedUser }) {
   const [users, setUsers] = useState([]);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetchData({ setUsers, search });

@@ -1,9 +1,9 @@
 import { SceneMap, TabView } from "react-native-tab-view";
 import { useWindowDimensions } from "react-native";
+import useClear from "../../../hooks/useClear";
 import MonthlyReport from "../monthly-report";
 import WeeklyReport from "../weekly-report";
 import DailyReport from "../daily-report";
-import { useSelector } from "react-redux";
 import Tabbar from "../../overal/tabbar";
 import { useState } from "react";
 
@@ -16,18 +16,27 @@ const renderScene = SceneMap({
 export default function ReportTabs() {
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
-  const routes = useSelector((state: any) => state.reportTab.routes);
+
+  const [routes] = useState([
+    { key: "daily", title: "روزانه" },
+    { key: "weekly", title: "هفتگی" },
+    { key: "monthly", title: "ماهیانه" },
+  ]);
+
+  useClear(() => {
+    setIndex(0);
+  });
 
   return (
     <TabView
+      sceneContainerStyle={{ backgroundColor: "#fff" }}
+      onIndexChange={(idx) => setIndex(idx)}
       style={{ height: 700, marginTop: 30 }}
       navigationState={{ index, routes }}
-      initialLayout={layout}
       renderScene={renderScene}
-      swipeEnabled={false}
-      sceneContainerStyle={{ backgroundColor: "#fff" }}
-      onIndexChange={setIndex}
+      initialLayout={layout}
       renderTabBar={Tabbar}
+      swipeEnabled={false}
     />
   );
 }

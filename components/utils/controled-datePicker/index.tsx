@@ -6,6 +6,7 @@ import { useState } from "react";
 import CustomText from "../text";
 import styles from "./styles";
 import { Shadow } from "react-native-shadow-2";
+import useClear from "../../../hooks/useClear";
 
 export default function ControledDatePicker({ control, name, style = {} }) {
   const [visible, setVisible] = useState(false);
@@ -13,6 +14,10 @@ export default function ControledDatePicker({ control, name, style = {} }) {
   const toggleModal = () => {
     setVisible(!visible);
   };
+
+  useClear(() => {
+    setVisible(false);
+  });
 
   return (
     <Shadow style={{ width: "100%", borderRadius: 10 }} distance={8}>

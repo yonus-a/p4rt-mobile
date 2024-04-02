@@ -7,7 +7,7 @@ import CustomText from "../../utils/text";
 import styles from "./styles";
 import axios from "axios";
 
-export default function ShowComments({ data, fetchNewData }) {
+export default function ShowComments({ data }) {
   const userId = useUserId();
 
   const handleDelete = async (commentId) => {
@@ -16,7 +16,6 @@ export default function ShowComments({ data, fetchNewData }) {
         commentId,
         userId,
       });
-      fetchNewData();
     } catch (e) {
       await errorAlert();
     }

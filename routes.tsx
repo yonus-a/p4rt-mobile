@@ -63,13 +63,15 @@ export default function Routes() {
         sceneContainerStyle: { backgroundColor: CLR_WHITE },
         drawerLabelStyle: drawerStyle.label,
         drawerItemStyle: drawerStyle.item,
+        unmountOnBlur: true,
       }}
       drawerContent={CustomDrawerContent}
       initialRouteName="dashboard"
+      backBehavior="history"
     >
       <Drawer.Screen
         name="dashboard"
-        children={(props) => <Dashborad {...props} />}
+        component={Dashborad}
         initialParams={{ admin }}
         options={{
           title: "داشبورد",

@@ -8,7 +8,7 @@ import useCart from "../../hooks/useCart";
 import { View } from "react-native";
 import styles from "./styles";
 
-export default function Cart({ navigation }) {
+export default function Cart() {
   const { items } = useCart();
 
   return (

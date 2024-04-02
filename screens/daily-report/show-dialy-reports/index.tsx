@@ -3,29 +3,28 @@ import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
 import RenderReports from "../../../components/daily-report/render-reports";
 import CountReports from "../../../components/daily-report/count-reports";
 import Container from "../../../components/overal/container";
+import { useFocusEffect } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
+const initialData = {
+  totalReports: 0,
+  countReports: {
+    countSuspension: 0,
+    countLeave: 0,
+    countOff: 0,
+  },
+  reports: [],
+};
+
 export default function ShowDailyReport() {
   const take = 10;
+  const [data, setData] = useState(initialData);
   const [date, setDate] = useState(new Date());
   const [search, setSearch] = useState("");
-  const [type, setType] = useState(null);
-  const [unit, setUnit] = useState();
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
   const [page, setPage] = useState(0);
-  const [data, setData] = useState({
-    totalReports: 0,
-    countReports: {
-      countSuspension: 0,
-      countLeave: 0,
-      countOff: 0,
-    },
-    reports: [],
-  });
 
   useEffect(() => {
     fetchData({
@@ -34,22 +33,14 @@ export default function ShowDailyReport() {
       take,
       date,
       search,
-      type,
     });
-  }, [page, date, search, type]);
+  }, [page, date, search]);
 
   return (
     <View style={styles.dailyReport}>
       <BreadcrumbHeader />
       <Container>
-        <DailyReportFilters
-          setSearch={setSearch}
-          setStart={setStartDate}
-          setDate={setDate}
-          setType={setType}
-          setEnd={setEndDate}
-          setUnit={setUnit}
-        />
+        <DailyReportFilters setSearch={setSearch} setDate={setDate} />
         <CountReports data={data.countReports} />
         {!!data.reports.length && (
           <RenderReports

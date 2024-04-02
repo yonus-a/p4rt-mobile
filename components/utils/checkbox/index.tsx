@@ -1,4 +1,5 @@
 import { useController } from "react-hook-form";
+import useClear from "../../../hooks/useClear";
 import CheckBox from "expo-checkbox";
 import { View } from "react-native";
 import CustomText from "../text";
@@ -9,6 +10,10 @@ export default function CustomCheckBox({ control, name, label }) {
     defaultValue: false,
     control,
     name,
+  });
+
+  useClear(() => {
+    field.value = false;
   });
 
   return (

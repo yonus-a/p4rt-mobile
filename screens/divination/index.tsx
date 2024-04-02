@@ -15,10 +15,6 @@ export default function Divination() {
 
   useEffect(() => {
     fetchData(setData);
-
-    return () => {
-      setData({});
-    };
   }, []);
 
   return (

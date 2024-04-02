@@ -2,7 +2,7 @@ import AdminDashboard from "../../components/admin-dashboard";
 import QuickPanel from "../../components/overal/quick-panel";
 import UserDashboard from "../../components/user-dashboard";
 import Header from "../../components/overal/header/indexx";
-import * as SecureStore from "expo-secure-store";
+import useVefifyToken from "../../hooks/useVefiryToken";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
 import { useEffect, useState } from "react";
@@ -10,30 +10,10 @@ import { View } from "react-native";
 import styles from "./styles";
 import axios from "axios";
 
-export default function Dashborad({ navigation }: any) {
+export default function Dashborad() {
   const [admin, setAdmin] = useState(false);
-  const token = SecureStore.getItem("_token");
   const userId = useUserId();
-
-  if (!token) {
-    navigation.navigate("Signin");
-  }
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const token = await SecureStore.getItemAsync("_token");
-
-  //     if (!token) {
-  //       const { data } = await axios.post("/signin/vefifyToken", { token });
-
-  //       if (!data.success) {
-  //         navigation.navigate("signIn");
-  //       }
-  //     } else {
-  //       navigation.navigate("signIn");
-  //     }
-  //   })();
-  // }, []);
+  useVefifyToken();
 
   useEffect(() => {
     (async () => {
@@ -51,7 +31,7 @@ export default function Dashborad({ navigation }: any) {
 
   return (
     <View style={styles.dashborad}>
-      <Header navigation={navigation} />
+      <Header />
       {admin ? <AdminDashboard /> : <UserDashboard />}
       <QuickPanel />
     </View>

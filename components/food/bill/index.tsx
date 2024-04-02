@@ -1,9 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
+import PrimaryButton from "../../utils/primary-button";
 import errorAlert from "../../../utils/alert/error";
 import { Shadow } from "react-native-shadow-2";
 import useCart from "../../../hooks/useCart";
 import CustomText from "../../utils/text";
-import PrimaryButton from "../../utils/primary-button";
 import { View } from "react-native";
 import addOrder from "./addOrder";
 import styles from "./styles";

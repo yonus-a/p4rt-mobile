@@ -11,7 +11,7 @@ import { View } from "react-native";
 import styles from "./styles";
 
 export default function EditUser({ route }) {
-  const { control, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit, setValue, reset } = useForm();
   const [positions, setPositions] = useState([]);
   const [units, setUnits] = useState([]);
   const { id } = route.params;

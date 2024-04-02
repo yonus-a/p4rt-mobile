@@ -1,33 +1,26 @@
-import { setCommentVisible, setCountLikes, setIsLiked } from "./foodImageSlice";
-import { useSelector, useDispatch } from "react-redux";
 import errorAlert from "../../../utils/alert/error";
 import useUserId from "../../../hooks/useUserId";
 import { View, Image, Modal } from "react-native";
 import CommentBtn from "../../utils/comment-btn";
+import useClear from "../../../hooks/useClear";
 import CloseBtn from "../../utils/close-btn";
 import LikeBtn from "../../utils/like-btn";
 import AddComment from "../add-comment";
-import { useEffect } from "react";
+import { useState } from "react";
 import styles from "./styles";
 import axios from "axios";
 
-export default function FoodImage({
-  fetchNewData,
-  source,
-  foodId,
-  liked,
-  likes,
-}) {
-  const { commentVisible, countLikes, isLiked } = useSelector(
-    (state: any) => state.foodImage
-  );
-  const dispatch = useDispatch();
+export default function FoodImage({ source, foodId, liked, likes }) {
+  const [commentVisible, setCommentVisible] = useState(false);
+  const [countLikes, setCountLikes] = useState(likes);
+  const [isLiked, setIsLiked] = useState(liked);
   const userId = useUserId();
 
-  useEffect(() => {
-    dispatch(setCountLikes(likes));
-    dispatch(setIsLiked(liked));
-  }, []);
+  useClear(() => {
+    setCommentVisible(false);
+    setCountLikes(likes);
+    setIsLiked(liked);
+  });
 
   const handleLike = async () => {
     try {
@@ -36,8 +29,8 @@ export default function FoodImage({
         userId,
       });
 
-      dispatch(setIsLiked(!isLiked));
-      dispatch(setCountLikes(isLiked ? countLikes - 1 : countLikes + 1));
+      setIsLiked(!isLiked);
+      setCountLikes(isLiked ? countLikes - 1 : countLikes + 1);
     } catch (e) {
       await errorAlert();
     }
@@ -48,18 +41,17 @@ export default function FoodImage({
       <Modal visible={commentVisible} transparent animationType="slide">
         <View style={styles.commentModal}>
           <CloseBtn
-            onPress={() => dispatch(setCommentVisible(false))}
+            onPress={() => setCommentVisible(false)}
             style={styles.closeBtn}
           />
           <AddComment
             foodId={foodId}
-            fetchNewData={fetchNewData}
-            closeDialog={() => dispatch(setCommentVisible(false))}
+            closeDialog={() => setCommentVisible(false)}
           />
         </View>
       </Modal>
       <CommentBtn
-        onPress={() => dispatch(setCommentVisible(true))}
+        onPress={() => setCommentVisible(true)}
         style={styles.commentBtn}
       />
       <Image source={source} width={200} height={200} style={styles.image} />
