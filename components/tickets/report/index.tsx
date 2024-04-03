@@ -16,7 +16,7 @@ export default function TicketReport({ navigation }) {
   return (
     <View style={styles.ticketReport}>
       {/* <CustomText style={styles.text}> درخواست های پاسخ داده نشده {data.openTickets}</CustomText> */}
-      <CustomText style={styles.text}>تعداد درخواست ها: 1</CustomText>
+      <CustomText>تعداد درخواست ها: 1</CustomText>
       <AddBtn onPress={() => navigation.navigate("addTicket")} />
     </View>
   );

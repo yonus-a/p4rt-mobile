@@ -60,7 +60,7 @@ export default function AddCritics() {
               items={items}
               name="name"
             />
-            <CustomText style={styles.text}>
+            <CustomText>
               درصورتی که نام خود را وارد نکنید پیام شما به صورت ناشناس ارسال
               خواهد شد
             </CustomText>

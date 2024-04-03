@@ -14,14 +14,14 @@ export default StyleSheet.create({
     gap: 20,
   },
   desc: {
-    fontSize: 15,
+    fontSize: 13,
     textAlign: "center",
     marginTop: 16,
   },
   amount: {
     borderRadius: 8,
     marginTop: 16,
-    fontSize: 15,
+    fontSize: 13,
     padding: 8,
     paddingVertical: 4,
     minWidth: 30,

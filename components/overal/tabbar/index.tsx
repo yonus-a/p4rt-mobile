@@ -1,10 +1,10 @@
 import { TabBar } from "react-native-tab-view";
-
+import styles from "./styles";
 export default function Tabbar(props) {
   return (
     <TabBar
       {...props}
-      labelStyle={{ color: "black", transform: [{ scaleX: -1 }] }}
+      labelStyle={styles.label}
       indicatorStyle={{ backgroundColor: "#555", height: 1 }}
       scrollEnabled
       style={{

@@ -7,7 +7,4 @@ export default StyleSheet.create({
   wrapper: {
     gap: 20,
   },
-  text: {
-    fontSize: 15,
-  },
 });

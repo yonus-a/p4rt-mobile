@@ -40,7 +40,7 @@ export default function GrowthMenu() {
           style={drawer.item}
           onPress={() =>
             navigate("posts", {
-              categories: [2, 3, 5, 14, 15, 16, 17, 18, 21, 19, 22, 23, 40],
+              category: [2, 3, 5, 14, 15, 16, 17, 18, 21, 19, 22, 23, 40],
             })
           }
         />
@@ -48,43 +48,43 @@ export default function GrowthMenu() {
           label="پادکست ها"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 16 })}
+          onPress={() => navigate("posts", { category: 16 })}
         />
         <DrawerItem
           label="معرفی کتاب"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 17 })}
+          onPress={() => navigate("posts", { category: 17 })}
         />
         <DrawerItem
           label="توسعه"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 18 })}
+          onPress={() => navigate("posts", { category: 18 })}
         />
         <DrawerItem
           label="سبک پوشش"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 19 })}
+          onPress={() => navigate("posts", { category: 19 })}
         />
         <DrawerItem
           label="روانشناسی"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 20 })}
+          onPress={() => navigate("posts", { category: 20 })}
         />
         <DrawerItem
           label="آموزش"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 21 })}
+          onPress={() => navigate("posts", { category: 21 })}
         />
         <DrawerItem
           label="هوش مصنوعی"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { categories: 41 })}
+          onPress={() => navigate("posts", { category: 41 })}
         />
       </Collapsible>
     </View>

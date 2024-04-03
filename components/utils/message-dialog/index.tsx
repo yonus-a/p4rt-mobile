@@ -21,7 +21,7 @@ export default function MessageDialog({ item }) {
       <Modal visible={modalVisible}>
         <Container style={styles.content}>
           <CloseBtn onPress={() => setModalVisible(false)} />
-          <CustomText style={styles.text}>{item.message}</CustomText>
+          <CustomText>{item.message}</CustomText>
         </Container>
       </Modal>
     </View>

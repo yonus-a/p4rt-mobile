@@ -15,7 +15,4 @@ export default StyleSheet.create({
     alignItems: "flex-end",
     gap: 15,
   },
-  text: {
-    fontSize: 16,
-  },
 });

@@ -10,6 +10,7 @@ import RenderHtml, {
   HTMLContentModel,
   defaultHTMLElementModels,
 } from "react-native-render-html";
+import PostGallary from "../post-gallary";
 
 const customHTMLElementModels = {
   img: defaultHTMLElementModels.img.extend({
@@ -33,7 +34,6 @@ export default function RenderPost({
   const { width } = useWindowDimensions();
 
   if (!post) return null;
-
   const style: any = {
     p: {
       fontSize: 18,
@@ -106,6 +106,9 @@ export default function RenderPost({
         <CustomText>تعداد بازدید: {countAllSeen}</CustomText>
       </View>
       <CustomText style={globalStyles.h1}>{post.title}</CustomText>
+      {post.post_gallary?.length > 0 && (
+        <PostGallary images={post.post_gallary} />
+      )}
       <RenderHtml
         source={{
           html: post.content,

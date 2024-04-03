@@ -3,9 +3,8 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    overflow: "hidden",
     width: " 100%",
-    height: 320,
+    height: 330,
     padding: 5,
   },
   card: {
@@ -37,7 +36,7 @@ export default StyleSheet.create({
     marginTop: 64,
   },
   title: {
-    fontSize: 16,
+    fontSize: 15,
   },
   desc: {
     fontSize: 11,

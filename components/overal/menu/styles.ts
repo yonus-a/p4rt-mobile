@@ -7,12 +7,13 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: 170,
+    height: 130,
     paddingBottom: 20,
   },
   logo: {
-    width: 200,
-    height: 120,
+    width: 180,
+    height: 100,
+    objectFit: "scale-down",
   },
   drawer: {
     backgroundColor: "#182858",
@@ -21,12 +22,10 @@ export default StyleSheet.create({
   },
   container: {
     backgroundColor: CLR_WHITE,
-    // marginHorizontal: 15,
-    // marginBottom: 15,
-    elevation: 2,
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10,
     height: "100%",
+    elevation: 2,
   },
   wrapper: {
     alignItems: "center",

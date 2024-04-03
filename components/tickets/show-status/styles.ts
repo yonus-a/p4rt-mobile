@@ -5,7 +5,7 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
-    fontSize: 14,
+    fontSize: 12,
   },
   redTicket: {
     backgroundColor: "#ef5350",

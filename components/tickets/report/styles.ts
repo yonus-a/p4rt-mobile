@@ -12,7 +12,4 @@ export default StyleSheet.create({
     elevation: 3,
     gap: 16,
   },
-  text: {
-    fontSize: 16,
-  },
 });
