@@ -36,7 +36,7 @@ export default function Ticket({ route }) {
           data={chats}
           contentContainerStyle={{ gap: 20 }}
           renderItem={({ item }) => (
-            <ChatLine message={item.message} attachment={""} />
+            <ChatLine message={item.message} attachment={""} key={item.id} />
           )}
         />
         <Input

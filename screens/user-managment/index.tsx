@@ -4,9 +4,9 @@ import RenderUser from "../../components/user/render-user";
 import Pagination from "../../components/utils/pagination";
 import Container from "../../components/overal/container";
 import verticalTable from "../../styles/verticalTable";
+import { Fragment, useEffect, useState } from "react";
 import AddBtn from "../../components/utils/add-btn";
 import { FlatList, View } from "react-native";
-import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 
 export default function UserManagment({ navigation }) {
@@ -48,9 +48,9 @@ export default function UserManagment({ navigation }) {
             ]}
             data={[...data.users, { pagination: true }]}
             renderItem={({ item }: any) => (
-              <>
+              <Fragment key={item.id}>
                 {!item.pagination ? (
-                  <RenderUser item={item} key={item.id} />
+                  <RenderUser item={item} />
                 ) : (
                   <Pagination
                     key={item.id}
@@ -61,7 +61,7 @@ export default function UserManagment({ navigation }) {
                     page={page}
                   />
                 )}
-              </>
+              </Fragment>
             )}
           />
         )}

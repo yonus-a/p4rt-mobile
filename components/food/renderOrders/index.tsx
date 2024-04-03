@@ -8,6 +8,7 @@ import { FlatList, View } from "react-native";
 import CloseBtn from "../../utils/close-btn";
 import rejectOrder from "./rejectOrder";
 import styles from "./styles";
+import React from "react";
 
 export default function RenderOrders({
   fetchNewData,
@@ -31,9 +32,9 @@ export default function RenderOrders({
       data={[...data.orders, { pagination: true }]}
       contentContainerStyle={[verticalTable.table, { paddingBottom: 100 }]}
       renderItem={({ item, index }) => (
-        <>
+        <React.Fragment key={item.id}>
           {!item.pagination ? (
-            <View style={{ flex: 1, padding: 5 }} key={item.id}>
+            <View style={{ flex: 1, padding: 5 }}>
               <Row style={index % 2 !== 0 && verticalTable.odd}>
                 <Wrapper>
                   <Header>نام غذا</Header>
@@ -76,7 +77,7 @@ export default function RenderOrders({
               take={take}
             />
           )}
-        </>
+        </React.Fragment>
       )}
     />
   );

@@ -29,9 +29,6 @@ export default function SearchUsers({ selectedUser, setSelectedUser }) {
   return (
     <View style={{ gap: 30 }}>
       <FilterWrapper>
-        {/* <OptionModal>
-          <CustomText>search</CustomText>
-        </OptionModal> */}
         <SearchInputs setSearch={setSearch} style={{ flex: 1 }} />
       </FilterWrapper>
       <FlatList
