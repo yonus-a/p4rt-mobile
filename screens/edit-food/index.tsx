@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import styles from "./styles";
 
 export default function EditFood({ route, navigation }) {
-  const { control, handleSubmit, setValue, reset } = useForm();
+  const { control, handleSubmit, setValue } = useForm();
   const { id } = route.params;
 
   useEffect(() => {

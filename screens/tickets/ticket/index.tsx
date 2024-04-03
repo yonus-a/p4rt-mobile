@@ -1,43 +1,52 @@
 import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import PrimaryButton from "../../../components/utils/primary-button";
 import Container from "../../../components/overal/container";
-import { useFocusEffect } from "@react-navigation/native";
-import errorAlert from "../../../utils/alert/error";
+import Input from "../../../components/utils/input";
+import { FlatList, View } from "react-native";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import addChatLine from "./addChatLine";
 import fetchData from "./fetchData";
 import ChatLine from "../chat-line";
-import { View } from "react-native";
 import styles from "./styles";
 
 export default function Ticket({ route }) {
-  const [data, setData] = useState<any>({});
+  const { control, handleSubmit, reset } = useForm();
+  const [fetchNewData, setFetchNewData] = useState({});
+  const [ticket, setTicket] = useState<any>({});
   const { id } = route.params;
 
   useEffect(() => {
-    fetchData(id, setData);
-  }, []);
+    fetchData(id, setTicket);
+  }, [fetchNewData]);
 
-  const { control, handleSubmit } = useForm();
-
-  const onSubmit = async ({ message }) => {
-    try {
-      await addChatLine({
-        message,
-        chatId: data.chat[0].id,
-      });
-    } catch (e) {
-      await errorAlert();
-    }
+  const onSubmit = (data) => {
+    addChatLine({ ...data, chatId: ticket.chat[0].id });
+    setFetchNewData({});
+    reset();
   };
+
+  const chats = [ticket, ...(ticket.chat?.[0]?.chat_line || [])];
 
   return (
     <View style={styles.ticket}>
       <BreadcrumbHeader />
       <Container style={{ gap: 20 }}>
-        <ChatLine message={data.message} attachment={""} />
-        {/* <Input control={control} multiline numberOfLines={8} name="message" />
-        PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" /> */}
+        <FlatList
+          data={chats}
+          contentContainerStyle={{ gap: 20 }}
+          renderItem={({ item }) => (
+            <ChatLine message={item.message} attachment={""} />
+          )}
+        />
+        <Input
+          placeholder="متن خود را وارد کنید..."
+          control={control}
+          numberOfLines={8}
+          name="message"
+          multiline
+        />
+        <PrimaryButton title="ثبت" onPress={handleSubmit(onSubmit)} />
       </Container>
     </View>
   );

@@ -1,8 +1,8 @@
+import PrimaryButton from "../../utils/primary-button";
 import errorAlert from "../../../utils/alert/error";
 import useUserId from "../../../hooks/useUserId";
 import { Shadow } from "react-native-shadow-2";
 import { useForm } from "react-hook-form";
-import PrimaryButton from "../../utils/primary-button";
 import Input from "../../utils/input";
 import { View } from "react-native";
 import styles from "./styles";

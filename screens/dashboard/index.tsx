@@ -1,14 +1,15 @@
-import AdminDashboard from "../../components/admin-dashboard";
 import QuickPanel from "../../components/overal/quick-panel";
-import UserDashboard from "../../components/user-dashboard";
+import { Suspense, lazy, useEffect, useState } from "react";
 import Header from "../../components/overal/header/indexx";
 import useVefifyToken from "../../hooks/useVefiryToken";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
-import { useEffect, useState } from "react";
 import { View } from "react-native";
 import styles from "./styles";
 import axios from "axios";
+
+const AdminDashboard = lazy(() => import("../../components/admin-dashboard"));
+const UserDashboard = lazy(() => import("../../components/user-dashboard"));
 
 export default function Dashborad() {
   const [admin, setAdmin] = useState(false);
@@ -32,7 +33,7 @@ export default function Dashborad() {
   return (
     <View style={styles.dashborad}>
       <Header />
-      {admin ? <AdminDashboard /> : <UserDashboard />}
+      <Suspense>{admin ? <AdminDashboard /> : <UserDashboard />}</Suspense>
       <QuickPanel />
     </View>
   );

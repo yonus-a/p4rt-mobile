@@ -1,14 +1,14 @@
 import ShowFoods from "../../components/food/show-foods";
 import FoodHeader from "../../components/food/food-header";
 import QuickPanel from "../../components/overal/quick-panel";
-import { useFocusEffect } from "@react-navigation/native";
+import CustomText from "../../components/utils/text";
 import { addDays, getDay } from "date-fns-jalali";
+import { Pressable, View } from "react-native";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
-export default function Foods({ navigation }) {
+export default function Foods({ navigation, route }) {
   const [data, setData] = useState([]);
 
   // if 12pm is not passed show tommarow food else show three days later foods
@@ -20,7 +20,7 @@ export default function Foods({ navigation }) {
 
   useEffect(() => {
     fetchData(setData, selectedDay);
-  }, []);
+  }, [selectedDay, route.params?.updater]);
 
   return (
     <View style={styles.foods}>

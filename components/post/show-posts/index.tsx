@@ -20,7 +20,7 @@ export default function ShowPosts({ data, page, setPage, take }) {
               <Pagination
                 style={{ marginTop: 30 }}
                 key={item.id}
-                countItems={data}
+                countItems={data.totalPost}
                 setPage={setPage}
                 page={page}
                 take={take}

@@ -19,7 +19,7 @@ export default function Posts({ route }) {
   useEffect(() => {
     fetchData(setData, {
       page: page + 1,
-      category: category,
+      category,
       take,
     });
   }, [page, category]);

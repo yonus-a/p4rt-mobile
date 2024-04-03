@@ -10,6 +10,11 @@ export default StyleSheet.create({
     objectFit: "cover",
     borderRadius: 10,
   },
+  iamge: {
+    width: "100%",
+    objectFit: "cover",
+    borderRadius: 10,
+  },
   info: {
     marginTop: 16,
     marginBottom: 32,

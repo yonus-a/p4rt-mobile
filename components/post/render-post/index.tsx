@@ -1,5 +1,6 @@
 import { View, Image, useWindowDimensions } from "react-native";
 import globalStyles from "../../../globalStyles";
+import { Video, ResizeMode } from "expo-av";
 import CustomText from "../../utils/text";
 import PostComment from "../post-comment";
 import AddComment from "../add-comment";
@@ -9,13 +10,15 @@ import RenderHtml, {
   HTMLContentModel,
   defaultHTMLElementModels,
 } from "react-native-render-html";
-import { Video, ResizeMode } from "expo-av";
 
 const customHTMLElementModels = {
   img: defaultHTMLElementModels.img.extend({
     contentModel: HTMLContentModel.block,
   }),
   video: defaultHTMLElementModels.video.extend({
+    contentModel: HTMLContentModel.block,
+  }),
+  audio: defaultHTMLElementModels.audio.extend({
     contentModel: HTMLContentModel.block,
   }),
 };
@@ -40,15 +43,25 @@ export default function RenderPost({
 
   const renderers = {
     img: (props) => {
-      // console.log(props);
-      return <CustomText>img</CustomText>;
+      const imageSource = props.tnode.domNode.attribs.src;
+      const { width } = useWindowDimensions();
+
+      return (
+        <Image
+          source={{
+            uri: `https://p4rt.ir/${imageSource}`,
+          }}
+          style={[styles.iamge, { height: width / 2 }]}
+        />
+      );
     },
     video: (props) => {
-      return props.tnode.domNode.children.map((item) => {
+      return props.tnode.domNode.children.map((item, idx) => {
         if (item.name == "source") {
           return (
             <Video
               style={styles.video}
+              key={idx}
               source={{
                 uri: `https://p4rt.ir/${item.attribs.src}`,
               }}
@@ -59,6 +72,22 @@ export default function RenderPost({
           );
         }
       });
+    },
+    audio: (props, idx) => {
+      const audoSrc = props.tnode.domNode.src;
+
+      return (
+        <Video
+          style={styles.video}
+          key={idx}
+          source={{
+            uri: `https://p4rt.ir/${audoSrc}`,
+          }}
+          useNativeControls
+          resizeMode={ResizeMode.CONTAIN}
+          isLooping
+        />
+      );
     },
   };
 

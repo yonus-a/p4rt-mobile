@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import PrimaryButton from "../../utils/primary-button";
 import errorAlert from "../../../utils/alert/error";
 import { useForm } from "react-hook-form";
@@ -8,6 +9,7 @@ import styles from "./styles";
 
 export default function AddComment({ foodId, closeDialog }) {
   const { control, handleSubmit } = useForm();
+  const navigation: any = useNavigation();
 
   const onSubmit = async ({ text }) => {
     try {
@@ -15,7 +17,9 @@ export default function AddComment({ foodId, closeDialog }) {
         text,
         foodId,
       });
+
       closeDialog();
+      navigation.setParams({ updater: {} });
     } catch (e) {
       await errorAlert();
     }

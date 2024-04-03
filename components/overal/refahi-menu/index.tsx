@@ -1,20 +1,23 @@
+import { useDrawerStatus } from "@react-navigation/drawer";
 import { useNavigation } from "@react-navigation/native";
 import { DrawerItem } from "@react-navigation/drawer";
 import Collapsible from "react-native-collapsible";
-import useClear from "../../../hooks/useClear";
+import { useEffect, useState } from "react";
 import drawer from "../../../styles/drawer";
 import { Image } from "react-native";
 import { View } from "react-native";
-import { useState } from "react";
 
 export default function RefahiMenu() {
   const [collapsed, setCollapsed] = useState(true);
   const navigation = useNavigation();
   const navigate: any = navigation.navigate;
+  const status = useDrawerStatus();
 
-  useClear(() => {
-    setCollapsed(true);
-  });
+  useEffect(() => {
+    if (status === "closed") {
+      setCollapsed(true);
+    }
+  }, [status]);
 
   return (
     <View>
@@ -35,13 +38,17 @@ export default function RefahiMenu() {
           label="همه مقالات"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 28 })}
+          onPress={() =>
+            navigate("posts", {
+              category: [43, 1, 28, 34, 44, 29, 20, 24, 27, 36, 39, 42],
+            })
+          }
         />
         <DrawerItem
           label="تخفیفات داغ"
           labelStyle={drawer.label}
           style={drawer.item}
-          onPress={() => navigate("posts", { category: 28 })}
+          onPress={() => navigate("posts", { category: 43 })}
         />
         <DrawerItem
           label="بیوگرافی"

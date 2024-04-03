@@ -88,7 +88,7 @@ export default function Routes() {
           name="critics"
           component={AddCritics}
           options={{
-            title: "ارسال انتقاد",
+            title: "ارسال پیشنهادات",
             drawerIcon: () => (
               <Image
                 source={require("./assets/icons/mail.png")}
@@ -129,7 +129,7 @@ export default function Routes() {
           name="showCritics"
           component={ShowCritics}
           options={{
-            title: "انتقاداد",
+            title: "پیشنهادات",
             drawerIcon: () => (
               <Image
                 source={require("./assets/icons/mail.png")}

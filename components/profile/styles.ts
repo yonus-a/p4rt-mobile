@@ -11,9 +11,10 @@ export default StyleSheet.create({
     padding: 3,
   },
   image: {
-    width: 45,
-    height: 45,
+    width: 46,
+    height: 46,
     objectFit: "cover",
+    borderRadius: 1000,
   },
   drawer: {
     alignItems: "center",
