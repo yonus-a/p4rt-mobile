@@ -16,7 +16,7 @@ export default function ShowFoods({ foods, navigation }) {
 
   return (
     <>
-      <CarouselNavigation carouselRef={carouselRef} />
+      <CarouselNavigation carouselRef={carouselRef} countFoods={foods.length} />
       <Carousel
         ref={carouselRef}
         data={foods}

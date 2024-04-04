@@ -1,3 +1,4 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ShowDailyReport from "./screens/daily-report/show-dialy-reports";
 import NotificationManagment from "./screens/notification-managment";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -44,16 +45,19 @@ export default function Routes() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios("/role/isAdmin", {
-          params: { userId },
-        });
+        if (userId) {
+          const { data } = await axios("/role/isAdmin", {
+            params: { userId },
+          });
 
-        setAdmin(data.isAdmin);
+          setAdmin(data.isAdmin);
+        }
       } catch (e) {
+        console.log(e);
         await errorAlert();
       }
     })();
-  }, []);
+  }, [userId, admin]);
 
   return (
     <Drawer.Navigator
@@ -64,6 +68,7 @@ export default function Routes() {
         drawerLabelStyle: drawerStyle.label,
         drawerItemStyle: drawerStyle.item,
         unmountOnBlur: true,
+        swipeEnabled: false,
       }}
       drawerContent={CustomDrawerContent}
       initialRouteName="dashboard"

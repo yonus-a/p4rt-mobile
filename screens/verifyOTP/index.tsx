@@ -40,7 +40,6 @@ export default function VerifyOTP({ route, navigation }: any) {
       navigation.navigate("dashboard");
       setValue("otp", "");
     } catch (e) {
-      console.log(e);
       await errorAlert();
     }
   };
