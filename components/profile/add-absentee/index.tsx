@@ -9,7 +9,7 @@ import axios from "axios";
 export default function AddAbsentee() {
   const userId = useUserId();
 
-  const [present, setPresent] = useState<any>(null);
+  const [present, setPresent] = useState<any>({});
 
   useEffect(() => {
     async function fetchData() {
@@ -43,7 +43,7 @@ export default function AddAbsentee() {
 
   return (
     <View>
-      {present ? (
+      {present.userId ? (
         <PrimaryButtonIcon
           source={require("../../../assets/icons/absentee-active.png")}
           onPress={() => {}}

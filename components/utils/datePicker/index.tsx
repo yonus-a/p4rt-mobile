@@ -36,7 +36,9 @@ export default function DatePicker({ onChange, style = {} }) {
         </CustomText>
       </Pressable>
       <Modal isVisible={visible} onBackdropPress={toggleModal}>
-        <Calender onChange={handleChange} />
+        <Calender
+          onChange={handleChange}
+        />
       </Modal>
     </View>
   );
