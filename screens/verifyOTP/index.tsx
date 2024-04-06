@@ -16,7 +16,7 @@ export default function VerifyOTP({ route, navigation }: any) {
   useClear(() => {
     reset();
   });
-
+  
   const onSubmit = async ({ otp }) => {
     try {
       const { data } = await axios.post("/signin/verifyOTP", {
