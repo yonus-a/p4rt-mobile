@@ -24,20 +24,15 @@ export default function Slider({ style = {}, scrollY }) {
       }}
     >
       <CustomCarousel
-        data={[
-          { id: 1, source: require("../../../assets/images/slider/img1.jpg") },
-          { id: 2, source: require("../../../assets/images/slider/img2.jpg") },
-          { id: 3, source: require("../../../assets/images/slider/img3.jpg") },
-        ]}
+        data={data}
         style={[styles.carousel, style]}
         {...loopOptions(width)}
         renderItem={({ item }) => (
           <View key={item.id}>
             <Animated.Image
-              // source={{
-              //   uri: `https://p4rt.ir/public/images/slider/${item.image}`,
-              // }}
-              source={item.source}
+              source={{
+                uri: `https://p4rt.ir/public/images/slider/${item.image}`,
+              }}
               width={width}
               height={width}
               resizeMode={"cover"}

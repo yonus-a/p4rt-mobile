@@ -15,24 +15,28 @@ export default function Divination() {
 
   useEffect(() => {
     fetchData(setData);
-  }, []);
+  }, [data]);
 
   return (
     <View style={styles.root}>
       <BreadcrumbHeader />
-      <ScrollView style={{ marginBottom: 80 }}>
-        <Container>
-          <CustomText style={globalStyles.h1}>
-            فال امروز شما سرکار خانم/جناب آقای {fullName}
-          </CustomText>
-          <CustomText style={globalStyles.h2}>شعر</CustomText>
-          <CustomText style={styles.poem}>{data.divination?.poem}</CustomText>
-          <CustomText style={globalStyles.h2}>تفسیر</CustomText>
-          <CustomText style={styles.interpretation}>
-            {data.divination?.interpretation}
-          </CustomText>
-        </Container>
-      </ScrollView>
+      {data.divination ? (
+        <ScrollView style={{ marginBottom: 80 }}>
+          <Container>
+            <CustomText style={globalStyles.h1}>
+              فال امروز شما سرکار خانم/جناب آقای {fullName}
+            </CustomText>
+            <CustomText style={globalStyles.h2}>شعر</CustomText>
+            <CustomText style={styles.poem}>{data.divination?.poem}</CustomText>
+            <CustomText style={globalStyles.h2}>تفسیر</CustomText>
+            <CustomText style={styles.interpretation}>
+              {data.divination?.interpretation}
+            </CustomText>
+          </Container>
+        </ScrollView>
+      ) : (
+        <CustomText>در حال بارگزاری...</CustomText>
+      )}
       <QuickPanel />
     </View>
   );

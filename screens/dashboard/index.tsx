@@ -19,11 +19,13 @@ export default function Dashborad() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios("/role/isAdmin", {
-          params: { userId },
-        });
+        if (userId) {
+          const { data } = await axios("/role/isAdmin", {
+            params: { userId },
+          });
 
-        setAdmin(data.isAdmin);
+          setAdmin(data.isAdmin);
+        }
       } catch (e) {
         await errorAlert();
       }
@@ -32,9 +34,13 @@ export default function Dashborad() {
 
   return (
     <View style={styles.dashborad}>
-      <Header />
-      <Suspense>{admin ? <AdminDashboard /> : <UserDashboard />}</Suspense>
-      <QuickPanel />
+      {userId && (
+        <>
+          <Header />
+          <Suspense>{admin ? <AdminDashboard /> : <UserDashboard />}</Suspense>
+          <QuickPanel />
+        </>
+      )}
     </View>
   );
 }

@@ -25,11 +25,13 @@ export default function CustomDrawerContent(props) {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios("/role/isAdmin", {
-          params: { userId },
-        });
+        if (userId) {
+          const { data } = await axios("/role/isAdmin", {
+            params: { userId },
+          });
 
-        setAdmin(data.isAdmin);
+          setAdmin(data.isAdmin);
+        }
       } catch (e) {
         await errorAlert();
       }

@@ -19,6 +19,8 @@ export default StyleSheet.create({
     backgroundColor: "#182858",
     marginTop: 0,
     paddingTop: 0,
+    height: "100%",
+    flex: 1,
   },
   container: {
     backgroundColor: CLR_WHITE,
