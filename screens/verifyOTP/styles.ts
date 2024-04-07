@@ -19,10 +19,6 @@ export default StyleSheet.create({
     width: 250,
     height: 100,
   },
-  input: {
-    backgroundColor: "#BFC1C9",
-    borderRadius: 100,
-  },
   form: {
     width: "100%",
     alignItems: "center",
@@ -32,6 +28,7 @@ export default StyleSheet.create({
     padding: 20,
     paddingVertical: 16,
     borderRadius: 100,
+    marginTop: 10,
     backgroundColor: "white",
     width: 120,
   },

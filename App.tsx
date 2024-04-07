@@ -1,8 +1,8 @@
-import "react-native-gesture-handler";
 import CustomCartProvider from "./components/providers/custom-cart-provider";
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import Alert from "./components/overal/alert";
+import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import Splash from "./screens/splash";
 import { useFonts } from "expo-font";
 import { useState } from "react";

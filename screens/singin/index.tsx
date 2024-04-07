@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import CustomText from "../../components/utils/text";
 import errorAlert from "../../utils/alert/error";
 import Input from "../../components/utils/input";
+import { getHash } from "react-native-otp-verify";
 import useClear from "../../hooks/useClear";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -21,7 +22,9 @@ export default function Signin({ navigation }: any) {
     setDisabled(true);
 
     try {
-      await axios.post("/signin/generateOTP", data);
+      const hash = await getHash();
+      console.log(hash);
+      await axios.post("/signin/generateMobileOTP", { ...data, hash: hash[0] });
       navigation.navigate("verifyOTP", data);
       setDisabled(false);
       setValue("code", "");
@@ -43,7 +46,12 @@ export default function Signin({ navigation }: any) {
           />
           <View style={styles.form}>
             <CustomText>کد ملی خود را وارد کنید</CustomText>
-            <Input style={styles.input} control={control} name="code" />
+            <Input
+              keyboardType="number-pad"
+              style={styles.input}
+              control={control}
+              name="code"
+            />
             <Pressable
               onPress={handleSubmit(onSubmit)}
               style={styles.btn}
