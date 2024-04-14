@@ -1,15 +1,15 @@
 import { View, Image, Pressable, useWindowDimensions } from "react-native";
-import DayPicker from "../../utils/day-picker";
+import DatePicker from "../../utils/datePicker";
 import Profile from "../../profile";
 import styles from "./styles";
 
 export default function FoodHeader({
   setSelectedDay,
-  navigation,
   selectedDay,
+  navigation,
 }) {
   const { width, height } = useWindowDimensions();
-  
+
   return (
     <View style={styles.header}>
       <Image
@@ -18,7 +18,7 @@ export default function FoodHeader({
       />
       <View style={styles.container}>
         <Profile />
-        <DayPicker onChange={setSelectedDay} selected={selectedDay} />
+        <DatePicker onChange={setSelectedDay} defaultDate={selectedDay} />
         <Pressable onPress={() => navigation.openDrawer()}>
           <Image
             source={require("../../../assets/icons/menu.png")}

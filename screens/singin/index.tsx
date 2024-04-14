@@ -23,7 +23,6 @@ export default function Signin({ navigation }: any) {
 
     try {
       const hash = await getHash();
-      console.log(hash);
       await axios.post("/signin/generateMobileOTP", { ...data, hash: hash[0] });
       navigation.navigate("verifyOTP", data);
       setDisabled(false);

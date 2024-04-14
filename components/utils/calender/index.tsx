@@ -1,20 +1,14 @@
 import DatePicker from "@mohamadkh75/react-native-jalali-datepicker";
 import { View } from "react-native";
-import { useState } from "react";
 import styles from "./styles";
 
-export default function Calender({ onChange }) {
-  const [selected, setSelected] = useState("1403/01/13");
-
+export default function Calender({ onChange, defaultDate = "" }) {
   return (
     <View style={styles.container}>
       <DatePicker
-        onDateChange={(date) => {
-          onChange(date);
-          setSelected(date);
-        }}
+        onDateChange={(date) => onChange(date)}
         style={styles.calender}
-        {...(selected ? { selected } : {})}
+        selected={defaultDate}
       />
     </View>
   );
