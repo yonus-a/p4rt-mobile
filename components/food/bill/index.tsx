@@ -18,6 +18,7 @@ export default function Bill({ items }) {
       navigation.navigate("showOrders");
       emptyCart();
     } catch (e) {
+      console.log(e);
       await errorAlert();
     }
   };

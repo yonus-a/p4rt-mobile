@@ -18,7 +18,15 @@ export default function FoodHeader({
       />
       <View style={styles.container}>
         <Profile />
-        <DatePicker onChange={setSelectedDay} defaultDate={selectedDay} />
+        <DatePicker
+          onChange={setSelectedDay}
+          defaultDate={selectedDay}
+          style={{
+            paddingHorizontal: 40,
+            paddingVertical: 13,
+            borderRadius: 100,
+          }}
+        />
         <Pressable onPress={() => navigation.openDrawer()}>
           <Image
             source={require("../../../assets/icons/menu.png")}

@@ -1,4 +1,5 @@
 import CustomCartProvider from "./components/providers/custom-cart-provider";
+import BackgroundService from "react-native-background-actions";
 import { NavigationContainer } from "@react-navigation/native";
 import Alert from "./components/overal/alert";
 import { StatusBar } from "expo-status-bar";
@@ -10,6 +11,20 @@ import Routes from "./routes";
 
 // configs
 import "./axios";
+
+const options = {
+  taskName: "Example",
+  taskTitle: "ExampleTask title",
+  taskDesc: "ExampleTask description",
+  taskIcon: {
+    name: "ic_launcher",
+    type: "mipmap",
+  },
+};
+
+BackgroundService.start(async () => {
+  require("./notif");
+}, options);
 
 export default function App() {
   const [splash, setSplash] = useState(true);

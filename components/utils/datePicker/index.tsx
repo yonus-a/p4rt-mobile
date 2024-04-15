@@ -27,15 +27,15 @@ export default function DatePicker({
   });
 
   const handleChange = (date) => {
-    const nextDate = moment.from(date, "fa", "YYYY/MM/DD");
+    const nextDate = new Date(moment.from(date, "fa", "YYYY/MM/DD") as any);
     onChange(nextDate);
     toggleModal();
     setDate(date);
   };
 
   return (
-    <View style={[styles.datepicker, style]}>
-      <Pressable onPress={toggleModal} style={styles.dateInput}>
+    <View style={[styles.datepicker]}>
+      <Pressable onPress={toggleModal} style={[styles.dateInput, style]}>
         <CustomText style={{ textAlign: "right" }}>
           {date || "تاریخ"}
         </CustomText>
@@ -43,7 +43,7 @@ export default function DatePicker({
       <Modal isVisible={visible} onBackdropPress={toggleModal}>
         <Calender
           onChange={handleChange}
-          defaultDate={format(defaultDate, "yyyy-MM-dd")}
+          defaultDate={format(defaultDate, "yyyy/MM/dd")}
         />
       </Modal>
     </View>

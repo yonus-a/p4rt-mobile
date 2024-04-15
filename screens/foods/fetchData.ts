@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function fetchData(setData, selectedDay) {
   const { data } = await axios("/food/getFoods", {
     params: {
-      selectedDay,
+      selectedDay: selectedDay.getDay(),
     },
   });
 
