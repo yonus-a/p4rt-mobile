@@ -12,7 +12,7 @@
       "backgroundColor": "#ffffff"
     },
     "notification": {
-      "icon": "./assets/notif-icon.png",
+      "icon": "./assets/icons/logo.png",
       "color": "#fff"
     },
     "assetBundlePatterns": ["**/*"],
@@ -21,7 +21,7 @@
       "bundleIdentifier": "com.yonus.p4rtmobile"
     },
     "android": {
-      "icon": "./assets/notif-icon.png", 
+      "icon": "./assets/icons/logo.png",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

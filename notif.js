@@ -1,6 +1,9 @@
 import * as Notifications from "expo-notifications";
 import * as SecureStore from "expo-secure-store";
 
+import { io } from "socket.io-client";
+const socket = io.connect("http://localhost:3005");
+
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -9,11 +12,7 @@ Notifications.setNotificationHandler({
   }),
 });
 
-const socket = new WebSocket(
-  "ws://195.88.208.250:3005/UtfiK2CjPRBrA8p58ZogBwJibUyeCkP46LFI8tTtnQChHArAyD"
-);
-
-socket.addEventListener("message", ({ data }) => {
+socket.on("message", (data) => {
   const nextData = JSON.parse(data);
 
   if (nextData.private) {
@@ -38,5 +37,3 @@ const sendNotif = (title, message) => {
     });
   });
 };
-
-sendNotif("test", "tes");
