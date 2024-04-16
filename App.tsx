@@ -1,6 +1,7 @@
 import CustomCartProvider from "./components/providers/custom-cart-provider";
 import BackgroundService from "react-native-background-actions";
 import { NavigationContainer } from "@react-navigation/native";
+import { AppRegistry } from "react-native";
 import Alert from "./components/overal/alert";
 import { StatusBar } from "expo-status-bar";
 import { I18nManager } from "react-native";
@@ -11,12 +12,13 @@ import { useState } from "react";
 import Routes from "./routes";
 
 I18nManager.allowRTL(false);
+AppRegistry.registerHeadlessTask("notif", () => require("./notif"));
 
 // configs
 import "./axios";
 
 const options = {
-  taskName: "Example",
+  taskName: "notification",
   taskTitle: "ExampleTask title",
   taskDesc: "ExampleTask description",
   taskIcon: {

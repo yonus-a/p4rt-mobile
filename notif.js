@@ -38,3 +38,5 @@ const sendNotif = (title, message) => {
     });
   });
 };
+
+sendNotif("test", "tes");
