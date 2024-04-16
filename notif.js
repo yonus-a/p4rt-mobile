@@ -1,5 +1,5 @@
 import * as Notifications from "expo-notifications";
-const WebSocket = require("ws");
+import * as SecureStore from "expo-secure-store";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -9,16 +9,30 @@ Notifications.setNotificationHandler({
   }),
 });
 
-const ws = new WebSocket("ws://localhost/path", {
-  perMessageDeflate: false,
+const socket = new WebSocket(
+  "ws://195.88.208.250:3005/UtfiK2CjPRBrA8p58ZogBwJibUyeCkP46LFI8tTtnQChHArAyD"
+);
+
+socket.addEventListener("message", async ({ data }) => {
+  const nextData = JSON.parse(data);
+
+  if (nextData.private) {
+    const userId = await SecureStore.getItemAsync("userId");
+
+    if (nextData.receptors.includes(userId)) {
+      sendNotif(nextData.title, nextData.message);
+    }
+  } else {
+    sendNotif(nextData.title, nextData.message);
+  }
 });
 
-// Notifications.requestPermissionsAsync().then((res) => {
-//   Notifications.scheduleNotificationAsync({
-//     content: {
-//       title: data?.title,
-//       body: data?.body,
-//     },
-//     trigger: null,
-//   });
-// });
+const sendNotif = (title, message) => {
+  Notifications.scheduleNotificationAsync({
+    content: {
+      body: message,
+      title,
+    },
+    trigger: null,
+  });
+};

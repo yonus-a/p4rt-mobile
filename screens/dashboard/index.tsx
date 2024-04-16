@@ -1,5 +1,6 @@
 import { View, BackHandler, ToastAndroid } from "react-native";
 import QuickPanel from "../../components/overal/quick-panel";
+import { requestPermissionsAsync } from "expo-notifications";
 import { Suspense, lazy, useEffect, useState } from "react";
 import Header from "../../components/overal/header/indexx";
 import useVefifyToken from "../../hooks/useVefiryToken";
@@ -19,6 +20,8 @@ export default function Dashborad() {
   useVefifyToken();
 
   const backAction = () => {
+    requestPermissionsAsync().then(() => {});
+
     setTimeout(() => {
       setExitApp(0);
     }, 2000); // 2 seconds to tap second-time

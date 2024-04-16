@@ -3,11 +3,14 @@ import BackgroundService from "react-native-background-actions";
 import { NavigationContainer } from "@react-navigation/native";
 import Alert from "./components/overal/alert";
 import { StatusBar } from "expo-status-bar";
+import { I18nManager } from "react-native";
 import "react-native-gesture-handler";
 import Splash from "./screens/splash";
 import { useFonts } from "expo-font";
 import { useState } from "react";
 import Routes from "./routes";
+
+I18nManager.allowRTL(false);
 
 // configs
 import "./axios";
