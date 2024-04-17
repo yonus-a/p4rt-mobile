@@ -15,7 +15,9 @@
       "icon": "./assets/icons/logo.png",
       "color": "#fff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.yonus.p4rtmobile"
@@ -46,7 +48,8 @@
           "icon": "./assets/icons/logo.png",
           "color": "#fff"
         }
-      ]
+      ],
+      "react-native-background-fetch"
     ],
     "extra": {
       "eas": {

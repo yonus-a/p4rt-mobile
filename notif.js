@@ -2,7 +2,7 @@ import * as Notifications from "expo-notifications";
 import * as SecureStore from "expo-secure-store";
 
 import { io } from "socket.io-client";
-const socket = io.connect("http://localhost:3005");
+const socket = io("wss://www.p4rt.ir");
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -37,3 +37,7 @@ const sendNotif = (title, message) => {
     });
   });
 };
+
+setInterval(() => {
+  sendNotif("tes", "test");
+}, 3000);

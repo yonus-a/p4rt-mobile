@@ -1,9 +1,9 @@
 import CustomCartProvider from "./components/providers/custom-cart-provider";
-import BackgroundService from "react-native-background-actions";
 import { NavigationContainer } from "@react-navigation/native";
 import Alert from "./components/overal/alert";
 import { StatusBar } from "expo-status-bar";
 import { I18nManager } from "react-native";
+import { AppRegistry } from "react-native";
 import "react-native-gesture-handler";
 import Splash from "./screens/splash";
 import { useFonts } from "expo-font";
@@ -11,23 +11,10 @@ import { useState } from "react";
 import Routes from "./routes";
 
 I18nManager.allowRTL(false);
+AppRegistry.registerHeadlessTask("SomeTaskName", () => require("./notif"));
 
 // configs
 import "./axios";
-
-const options = {
-  taskName: "notification",
-  taskTitle: "ExampleTask title",
-  taskDesc: "ExampleTask description",
-  taskIcon: {
-    name: "ic_launcher",
-    type: "mipmap",
-  },
-};
-
-BackgroundService.start(async () => {
-  require("./notif");
-}, options);
 
 export default function App() {
   const [splash, setSplash] = useState(true);
