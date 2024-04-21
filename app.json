@@ -48,8 +48,7 @@
           "icon": "./assets/icons/logo.png",
           "color": "#fff"
         }
-      ],
-      "react-native-background-fetch"
+      ]
     ],
     "extra": {
       "eas": {
