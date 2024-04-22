@@ -49,13 +49,13 @@ export default function AddToCart({ food, date, navigation }) {
       {!inCart(food.id) ? (
         <PrimaryButton
           onPress={handleClick}
-          style={{ borderRadius: 100 }}
+          style={styles.btn}
           title="سفارش"
         />
       ) : (
         <PrimaryButton
           onPress={() => navigation.navigate("cart")}
-          style={{ borderRadius: 100 }}
+          style={styles.btn}
           title="مشاهده سبد"
         />
       )}

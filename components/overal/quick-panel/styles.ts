@@ -6,12 +6,12 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: 60,
+    gap: 40,
     height: 78,
     left: 0,
     bottom: 0,
     right: 0,
-    paddingLeft: 55,
+    paddingLeft: 45,
     paddingTop: 20,
   },
   image: {
@@ -22,5 +22,8 @@ export default StyleSheet.create({
     width: 20,
     height: 30,
     marginTop: 10,
+  },
+  btn: {
+    padding: 10
   },
 });

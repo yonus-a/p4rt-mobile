@@ -5,11 +5,11 @@ export default StyleSheet.create({
     width: "90%",
   },
   text: {
-    fontSize: 16,
+    fontSize: 13,
     maxWidth: "80%",
   },
   item: {
-    padding: 16,
+    padding: 10,
     paddingLeft: 30,
     backgroundColor: "#fcfcfc",
     flexDirection: "row",
@@ -23,8 +23,8 @@ export default StyleSheet.create({
     gap: 20,
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 35,
+    height: 35,
     objectFit: "cover",
     borderRadius: 1000,
   },

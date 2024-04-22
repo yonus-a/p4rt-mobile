@@ -16,6 +16,7 @@ try {
 } catch (e) {
   console.log(e);
 }
+
 // configs
 import "./axios";
 

@@ -1,4 +1,3 @@
-import { AppRegistry } from "react-native";
 import BackgroundFetch from "react-native-background-fetch";
 
 export async function NotificationTask() {
@@ -6,7 +5,6 @@ export async function NotificationTask() {
     require("./fetch-notifiction");
     await new Promise(() => {});
   };
-
 
   await BackgroundFetch.configure(
     {

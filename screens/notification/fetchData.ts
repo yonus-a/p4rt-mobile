@@ -18,6 +18,7 @@ export default async function fetchData({
   publicPage,
   publicTake,
 }: Props) {
+  
   const userId = await SecureStore.getItemAsync("userId");
 
   const { data: publicNotifs } = await axios(

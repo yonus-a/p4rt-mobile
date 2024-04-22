@@ -20,7 +20,7 @@ export default function QuickPanel() {
       style={styles.quickPanel}
       resizeMode="cover"
     >
-      <Navigate to="dashboard">
+      <Navigate to="dashboard" style={styles.btn}>
         {isHome ? (
           <Image
             source={require(`../../../assets/icons/active-home.png`)}
@@ -35,7 +35,7 @@ export default function QuickPanel() {
           />
         )}
       </Navigate>
-      <Navigate to={critics}>
+      <Navigate to={critics} style={styles.btn}>
         {isCritics ? (
           <Image
             source={require("../../../assets/icons/active-mail.png")}
@@ -50,7 +50,7 @@ export default function QuickPanel() {
           />
         )}
       </Navigate>
-      <Navigate to="foods">
+      <Navigate to="foods" style={styles.btn}>
         {isCart ? (
           <Image
             source={require("../../../assets/icons/active-cart.png")}
