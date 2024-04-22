@@ -1,28 +1,35 @@
 import CustomCartProvider from "./components/providers/custom-cart-provider";
 import { NavigationContainer } from "@react-navigation/native";
-import { I18nManager, NativeModules } from "react-native";
-import NotificationTask from "./notification-task";
+import BackgroundFetch from "react-native-background-fetch";
+import { NotificationTask } from "./notification-task";
 import Alert from "./components/overal/alert";
+import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import { I18nManager } from "react-native";
 import "react-native-gesture-handler";
 import Splash from "./screens/splash";
 import { useFonts } from "expo-font";
-import { useState } from "react";
 import Routes from "./routes";
-import { NativeMethods } from "react-native";
-import * as BackgroundFetch from "expo-background-fetch";
-import * as TaskManager from "expo-task-manager";
 
-I18nManager.allowRTL(false);
-NotificationTask()
-
-
+try {
+  I18nManager.allowRTL(false);
+} catch (e) {
+  console.log(e);
+}
 // configs
 import "./axios";
 
-
 export default function App() {
   const [splash, setSplash] = useState(true);
+
+  useEffect(() => {
+    NotificationTask();
+    BackgroundFetch.scheduleTask({
+      forceAlarmManager: true,
+      taskId: "trigger",
+      delay: 0,
+    });
+  }, []);
 
   const [fontsLoaded] = useFonts({
     IRANSans: require("./assets/fonts/IRANSans.ttf"),

@@ -1,28 +1,21 @@
-import BackgroundService from "react-native-background-actions";
-import registerNotificationServer from "./notif";
+import { AppRegistry } from "react-native";
+import BackgroundFetch from "react-native-background-fetch";
 
-const options = {
-  taskName: "Example",
-  taskTitle: "سامانه داخلی پارت",
-  taskDesc: "",
-  taskIcon: {
-    name: "ic_launcher",
-    type: "mipmap",
-  },
-  color: "transparent",
-  linkingURI: "yourSchemeHere://chat/jane", // See Deep Linking for more info
-  parameters: {
-    delay: 1000,
-  },
-};
+export async function NotificationTask() {
+  const onEvent = async () => {
+    require("./fetch-notifiction");
+    await new Promise(() => {});
+  };
 
-export default async function NotificationTask() {
-  await BackgroundService.start(() => {
-    registerNotificationServer();
-    return new Promise(() => {});
-  }, options);
-  //   await BackgroundService.updateNotification({
-  //     taskDesc: "New ExampleTask description",
-  //   }); // Only Android, iOS will ignore this call
-  // iOS will also run everything here in the background until .stop() is called
+
+  await BackgroundFetch.configure(
+    {
+      minimumFetchInterval: 1,
+      stopOnTerminate: false,
+      forceAlarmManager: true,
+      enableHeadless: true,
+    },
+    onEvent,
+    () => {}
+  );
 }

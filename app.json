@@ -48,12 +48,14 @@
           "icon": "./assets/icons/logo.png",
           "color": "#fff"
         }
-      ]
+      ],
+      "react-native-background-fetch"
     ],
     "extra": {
       "eas": {
-        "projectId": "aa4e3cae-2804-4a60-a317-ea37a6b96b87"
+        "projectId": "298e868d-5bd2-4a8b-927f-642a2d6e9cbe"
       }
-    }
+    },
+    "owner": "test166"
   }
 }
