@@ -1,4 +1,4 @@
-import { CLR_WHITE } from "../../../globalStyles";
+import { CLR_PRIMARY, CLR_WHITE } from "../../../globalStyles";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
@@ -7,14 +7,18 @@ export default StyleSheet.create({
   },
   item: {
     borderRadius: 16,
-    justifyContent: "flex-end",
     backgroundColor: CLR_WHITE,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: "column",
     width: "100%",
     padding: 13,
+  },
+  flexWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
     gap: 30,
   },
+
   iamge: {
     borderRadius: 10,
     width: 117,
@@ -30,5 +34,22 @@ export default StyleSheet.create({
   },
   colRight: {
     flex: 0.8,
+  },
+  shiftWrapper: {
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    gap: 10,
+  },
+  activeShift: {
+    backgroundColor: CLR_PRIMARY,
+    color: CLR_WHITE,
+  },
+  shiftBtn: {
+    borderColor: CLR_PRIMARY,
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderRadius: 10,
+    padding: 16,
   },
 });

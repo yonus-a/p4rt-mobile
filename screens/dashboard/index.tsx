@@ -6,6 +6,8 @@ import Header from "../../components/overal/header/indexx";
 import useVefifyToken from "../../hooks/useVefiryToken";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
+import { version } from "../../package.json";
+import Update from "../update";
 import styles from "./styles";
 import axios from "axios";
 
@@ -16,6 +18,7 @@ export default function Dashborad() {
   const [admin, setAdmin] = useState(false);
   const userId = useUserId();
   const [exitApp, setExitApp] = useState(0);
+  const [isUpdated, setIsUpdated] = useState(true);
 
   useVefifyToken();
 
@@ -40,6 +43,15 @@ export default function Dashborad() {
   useEffect(() => {
     (async () => {
       try {
+        // check is updated
+        const {
+          data: { version: lastVersion },
+        } = await axios("/getLastVersion");
+
+        if (version !== lastVersion) {
+          return setIsUpdated(false);
+        }
+
         if (userId) {
           const { data } = await axios("/role/isAdmin", {
             params: { userId },
@@ -59,6 +71,10 @@ export default function Dashborad() {
 
     return () => backHandler.remove();
   }, [exitApp]);
+
+  if (!isUpdated) {
+    return <Update />;
+  }
 
   return (
     <View style={styles.dashborad}>

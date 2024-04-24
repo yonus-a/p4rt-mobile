@@ -9,7 +9,7 @@ import { useState } from "react";
 import styles from "./styles";
 
 export default function AddToCart({ food, date, navigation }) {
-  const initialQunatity = food.name == "چاشت" ? 1 : 0;
+  const initialQunatity = food.typeId == 1 ? 1 : 0;
   const [quantity, setQuantity] = useState(initialQunatity);
   const { addItem, inCart } = useCart();
 
@@ -30,6 +30,7 @@ export default function AddToCart({ food, date, navigation }) {
         orderdFor: food.selectedDay,
         image: food.image,
         price: food.price,
+        typeId: food.typeId,
         name: food.name,
         id: food.id,
         quantity,
@@ -39,7 +40,7 @@ export default function AddToCart({ food, date, navigation }) {
 
   return (
     <View style={styles.addToCart}>
-      {food.name !== "چاشت" && (
+      {food.typeId !== 1 && (
         <UpdateQuantity
           setQuantity={setQuantity}
           quantity={quantity}
@@ -47,11 +48,7 @@ export default function AddToCart({ food, date, navigation }) {
         />
       )}
       {!inCart(food.id) ? (
-        <PrimaryButton
-          onPress={handleClick}
-          style={styles.btn}
-          title="سفارش"
-        />
+        <PrimaryButton onPress={handleClick} style={styles.btn} title="سفارش" />
       ) : (
         <PrimaryButton
           onPress={() => navigation.navigate("cart")}

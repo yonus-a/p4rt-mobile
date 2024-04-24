@@ -14,7 +14,12 @@ export default function Bill({ items }) {
 
   const handleOrder = async () => {
     try {
-      await addOrder(items);
+      const { data } = await addOrder(items);
+
+      if (data.result?.error) {
+        return await errorAlert(data.result?.error);
+      }
+
       navigation.navigate("showOrders");
       emptyCart();
     } catch (e) {
