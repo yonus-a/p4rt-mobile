@@ -65,9 +65,7 @@ export default function ShowCritics() {
             }}
           />
         ) : (
-          <CustomText style={globalStyles.h1}>
-            صفحه پیشنهادات خالی است
-          </CustomText>
+          <CustomText style={globalStyles.h1}>صفحه گزارشات خالی است</CustomText>
         )}
       </Container>
       <QuickPanel />

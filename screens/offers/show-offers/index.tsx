@@ -16,12 +16,12 @@ import styles from "./styles";
 export default function ShowOffers() {
   const take = 20;
   const [page, setPage] = useState(0);
-  const [offers, setoffers] = useState<any>({
+  const [offers, setOffers] = useState<any>({
     data: [],
   });
 
   useEffect(() => {
-    fetchData(setoffers, page, take);
+    fetchData(setOffers, page, take);
   }, []);
 
   return (
@@ -57,7 +57,7 @@ export default function ShowOffers() {
               return (
                 <DeleteHiddenBtn
                   onPress={async () =>
-                    await handleDeleteOffers(item.id, setoffers, offers)
+                    await handleDeleteOffers(item.id, setOffers, offers)
                   }
                 />
               );
@@ -65,7 +65,7 @@ export default function ShowOffers() {
           />
         ) : (
           <CustomText style={globalStyles.h1}>
-            صفحه پیشنهادات خالی است
+            صفحه ایده ها و گزارشات خالی است
           </CustomText>
         )}
       </Container>

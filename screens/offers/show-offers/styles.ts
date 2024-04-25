@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    gap: 10,
     paddingBottom: 122,
+    gap: 10,
   },
-  showCritics: {
+  showOffers: {
     flex: 1,
   },
 });

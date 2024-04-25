@@ -1,55 +1,39 @@
-import { View, useWindowDimensions, Animated } from "react-native";
 import loopOptions from "../../../utils/slider/loopOptions";
+import { View, useWindowDimensions } from "react-native";
 import CustomCarousel from "../../utils/carousel";
 import { useEffect, useState } from "react";
+import { Image } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
-export default function Slider({ style = {}, scrollY }) {
+export default function Slider({ style = {} }) {
   const [data, setData] = useState([]);
-  const width = useWindowDimensions().width;
+  const width = useWindowDimensions().width - 40;
 
   useEffect(() => {
     fetchData(setData);
   }, []);
 
   return (
-    <Animated.View
-      style={{
-        height: scrollY.interpolate({
-          inputRange: [0, 280],
-          outputRange: [280, 200],
-          extrapolate: "clamp",
-        }),
-      }}
-    >
+    <View style={styles.slider}>
       <CustomCarousel
         data={data}
         style={[styles.carousel, style]}
         {...loopOptions(width)}
         renderItem={({ item }) => (
           <View key={item.id}>
-            <Animated.Image
+            <Image
               source={{
                 uri: `https://p4rt.ir/public/images/slider/${item.image}`,
               }}
               width={width}
-              height={width}
+              height={width / 2}
               resizeMode={"cover"}
-              style={[
-                styles.image,
-                {
-                  height: scrollY.interpolate({
-                    inputRange: [0, 200],
-                    outputRange: [400, 200],
-                    extrapolate: "clamp",
-                  }),
-                },
-              ]}
+              style={[styles.image]}
             />
           </View>
         )}
       />
-    </Animated.View>
+    </View>
   );
 }

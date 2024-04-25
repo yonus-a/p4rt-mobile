@@ -50,7 +50,7 @@ export default function AdminReports() {
           icon={require("../../../assets/icons/critics.png")}
           iamgeStyle={{ width: 35, height: 35 }}
           amountColor="#C4F6ED"
-          desc="پیشنهادات"
+          desc="گزارشات"
           to={critics}
         />
         <ReportCard

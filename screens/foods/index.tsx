@@ -21,7 +21,7 @@ export default function Foods({ navigation, route }) {
 
   useEffect(() => {
     fetchData(setData, selectedDay);
-    console.log(selectedDay);
+    // console.log(selectedDay);
   }, [selectedDay, route.params?.updater]);
 
   const handleDateChange = (date) => {

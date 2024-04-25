@@ -1,4 +1,3 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ShowDailyReport from "./screens/daily-report/show-dialy-reports";
 import NotificationManagment from "./screens/notification-managment";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -34,6 +33,8 @@ import Foods from "./screens/foods";
 import Post from "./screens/post";
 import Cart from "./screens/cart";
 import axios from "axios";
+import AddOffers from "./screens/offers/add-offers";
+import ShowOffers from "./screens/offers/show-offers";
 
 export const Drawer = createDrawerNavigator();
 
@@ -41,6 +42,7 @@ export default function Routes() {
   const userId = useUserId();
   const [admin, setAdmin] = useState(false);
   const isManager = userId === "4060588326";
+  const officeUsers = ["6070011570", "2980283940", "4060588326"];
 
   useEffect(() => {
     (async () => {
@@ -93,10 +95,25 @@ export default function Routes() {
           name="critics"
           component={AddCritics}
           options={{
-            title: "ارسال پیشنهادات",
+            title: "ارسال گزارشات",
             drawerIcon: () => (
               <Image
                 source={require("./assets/icons/mail.png")}
+                style={drawerStyle.icon}
+              />
+            ),
+          }}
+        />
+      )}
+      {!isManager && (
+        <Drawer.Screen
+          name="offers"
+          component={AddOffers}
+          options={{
+            title: "صندوق ایده ها و پیشنهادات",
+            drawerIcon: () => (
+              <Image
+                source={require("./assets/icons/report.png")}
                 style={drawerStyle.icon}
               />
             ),
@@ -134,7 +151,22 @@ export default function Routes() {
           name="showCritics"
           component={ShowCritics}
           options={{
-            title: "پیشنهادات",
+            title: "گزارشات",
+            drawerIcon: () => (
+              <Image
+                source={require("./assets/icons/report.png")}
+                style={drawerStyle.icon}
+              />
+            ),
+          }}
+        />
+      )}
+      {officeUsers.includes(userId) && (
+        <Drawer.Screen
+          name="showOffers"
+          component={ShowOffers}
+          options={{
+            title: "ایده ها",
             drawerIcon: () => (
               <Image
                 source={require("./assets/icons/mail.png")}

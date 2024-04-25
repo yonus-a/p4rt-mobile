@@ -1,6 +1,6 @@
+import { addDays, format } from "date-fns-jalali";
 import useClear from "../../../hooks/useClear";
 import { Pressable } from "react-native";
-import { format } from "date-fns-jalali";
 import Modal from "react-native-modal";
 import { View } from "react-native";
 import moment from "jalali-moment";
@@ -28,7 +28,7 @@ export default function DatePicker({
 
   const handleChange = (date) => {
     const nextDate = new Date(moment.from(date, "fa", "YYYY/MM/DD") as any);
-    onChange(nextDate);
+    onChange(addDays(nextDate, 1));
     toggleModal();
     setDate(date);
   };

@@ -1,7 +1,11 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  addCritics: {
+  heading: {
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  addOffers: {
     flex: 1,
   },
   wrapper: {

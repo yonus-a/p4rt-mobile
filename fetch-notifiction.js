@@ -12,12 +12,11 @@ Notifications.setNotificationHandler({
   }),
 });
 
-socket.on("message", (data) => {
+socket.on("message", async (data) => {
   const nextData = JSON.parse(data);
 
   if (nextData.private) {
     const userId = SecureStore.getItem("userId");
-
     if (nextData.receptors.includes(userId)) {
       sendNotif(nextData.title, nextData.message);
     }
@@ -27,8 +26,8 @@ socket.on("message", (data) => {
 });
 
 const sendNotif = (title, message) => {
-  Notifications.requestPermissionsAsync().then(() => {
-    Notifications.scheduleNotificationAsync({
+  Notifications.requestPermissionsAsync().then(async () => {
+    await Notifications.scheduleNotificationAsync({
       content: {
         body: message,
         title,

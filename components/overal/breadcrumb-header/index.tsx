@@ -14,13 +14,22 @@ export default function BreadcrumbHeader() {
       pathnaem = "داشبورد";
       break;
     case "critics":
-      pathnaem = "ارسال پیشنهادات";
+      pathnaem = "ارسال گزارشات";
+      break;
+    case "offers":
+      pathnaem = "صندوق ایده ها";
       break;
     case "foods":
       pathnaem = "سفارش غذا";
       break;
     case "showOrders":
       pathnaem = "سفارشات";
+      break;
+    case "showCritics":
+      pathnaem = "گزارشات";
+      break;
+    case "showOffers":
+      pathnaem = "ایده ها";
       break;
     case "cart":
       pathnaem = "سبد خرید";

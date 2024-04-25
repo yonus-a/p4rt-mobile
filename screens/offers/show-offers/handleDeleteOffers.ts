@@ -7,7 +7,7 @@ export default async function handleDeleteOffers(
   offers: any
 ) {
   try {
-    await axios.post("/offers/deleteCritics", {
+    await axios.post("/offers/deleteOffers", {
       id,
     });
 

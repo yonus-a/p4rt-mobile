@@ -54,6 +54,7 @@ export default function AddCritics() {
         <BreadcrumbHeader />
         <Container style={{ flex: 1 }}>
           <View style={styles.wrapper}>
+            <CustomText style={styles.heading}>ارسال گزارشات به مدیر کل</CustomText>
             <Select
               control={control}
               defaultValue={"0"}

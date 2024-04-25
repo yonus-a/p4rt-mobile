@@ -21,7 +21,7 @@ export default function AddOffers() {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("/offers/addCritis", data);
+      await axios.post("/offers/addOffers", data);
       await successAlert({
         msg: "پیام شما با موفقیت ثبت شد",
       });
@@ -50,10 +50,13 @@ export default function AddOffers() {
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView style={styles.addCritics}>
+      <ScrollView style={styles.addOffers}>
         <BreadcrumbHeader />
         <Container style={{ flex: 1 }}>
           <View style={styles.wrapper}>
+            <CustomText style={styles.heading}>
+              ارسال ایده ها و انتقادات به دفتر
+            </CustomText>
             <Select
               control={control}
               defaultValue={"0"}
