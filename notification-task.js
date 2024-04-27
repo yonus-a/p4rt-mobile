@@ -1,8 +1,14 @@
 import BackgroundFetch from "react-native-background-fetch";
+import * as SecureStore from "expo-secure-store";
 
 export async function NotificationTask() {
   const onEvent = async () => {
-    require("./fetch-notifiction");
+    const token = SecureStore.getItemAsync("_token");
+
+    if (token) {
+      require("./fetch-notifiction");
+    }
+
     await new Promise(() => {});
   };
 

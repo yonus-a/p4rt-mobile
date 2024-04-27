@@ -50,6 +50,6 @@ export default StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 2,
     borderRadius: 10,
-    padding: 16,
+    padding: 13,
   },
 });

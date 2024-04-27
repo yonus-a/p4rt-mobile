@@ -9,6 +9,7 @@ import { useState } from "react";
 import styles from "./styles";
 
 export default function AddToCart({ food, date, navigation }) {
+  // date is safe
   const initialQunatity = food.typeId == 1 ? 1 : 0;
   const [quantity, setQuantity] = useState(initialQunatity);
   const { addItem, inCart } = useCart();

@@ -3,8 +3,8 @@ import { Shadow } from "react-native-shadow-2";
 import useCart from "../../../hooks/useCart";
 import CustomText from "../../utils/text";
 import Counter from "../../utils/counter";
-import styles from "./styles";
 import { useState } from "react";
+import styles from "./styles";
 
 export default function RenderCartItems({ items }) {
   const { updateItemQuantity, removeItem } = useCart();
@@ -71,7 +71,23 @@ export default function RenderCartItems({ items }) {
                     active === 2 ? styles.activeShift : {},
                   ]}
                 >
-                  <CustomText>شیفت عصر</CustomText>
+                  <CustomText style={active === 2 ? styles.activeShift : {}}>
+                    شیفت عصر
+                  </CustomText>
+                </Pressable>
+                <Pressable
+                  onPress={() => {
+                    items[index].shift = 3;
+                    setActive(3);
+                  }}
+                  style={[
+                    styles.shiftBtn,
+                    active === 3 ? styles.activeShift : {},
+                  ]}
+                >
+                  <CustomText style={active === 3 ? styles.activeShift : {}}>
+                    شیفت شب
+                  </CustomText>
                 </Pressable>
               </View>
             </Shadow>

@@ -1,8 +1,14 @@
 import * as Notifications from "expo-notifications";
 import * as SecureStore from "expo-secure-store";
 import { io } from "socket.io-client";
+import axios from "axios";
 
-const socket = io("wss://www.p4rt.ir");
+const userId = SecureStore.getItem("userId");
+const socket = io("wss://www.p4rt.ir", {
+  query: {
+    id: userId,
+  },
+});
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -12,27 +18,28 @@ Notifications.setNotificationHandler({
   }),
 });
 
-socket.on("message", async (data) => {
-  const nextData = JSON.parse(data);
-
-  if (nextData.private) {
-    const userId = SecureStore.getItem("userId");
-    if (nextData.receptors.includes(userId)) {
-      sendNotif(nextData.title, nextData.message);
+socket.on("message", (data) => {
+  if (data.private) {
+    if (data.receptors.includes(userId)) {
+      sendNotif(data.title, data.message, data.id);
     }
   } else {
-    sendNotif(nextData.title, nextData.message);
+    sendNotif(data.title, data.message, data.id);
   }
 });
 
-const sendNotif = (title, message) => {
-  Notifications.requestPermissionsAsync().then(async () => {
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        body: message,
-        title,
-      },
-      trigger: null,
-    });
+const sendNotif = async (title, message, id) => {
+  await Notifications.requestPermissionsAsync();
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      body: message,
+      title,
+    },
+    trigger: null,
+  });
+
+  await axios.post("/notification/addNotificationSend", {
+    notifId: id,
+    userId,
   });
 };
