@@ -2,16 +2,21 @@ import { TouchableHighlight } from "react-native";
 import CustomText from "../text";
 import styles from "./styles";
 
-interface Props {
-  onPress: any;
-  title: string;
-  style?: any;
-}
-
-export default function PrimaryButton({ onPress, title, style = {} }: Props) {
+export default function PrimaryButton({
+  disabled = false,
+  style = {},
+  onPress,
+  title,
+}) {
   return (
-    <TouchableHighlight onPress={onPress} style={[styles.btn, style]}>
-      <CustomText style={styles.btnText}>{title}</CustomText>
+    <TouchableHighlight
+      style={[styles.btn, style]}
+      disabled={disabled}
+      onPress={onPress}
+    >
+      <CustomText style={styles.btnText}>
+        {disabled ? "در حال ارسال" : title}
+      </CustomText>
     </TouchableHighlight>
   );
 }

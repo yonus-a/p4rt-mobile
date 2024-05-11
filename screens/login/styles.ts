@@ -40,15 +40,6 @@ export default StyleSheet.create({
   logoText: {
     fontSize: 11,
   },
-  inputWrapper: {
-    paddingHorizontal: 16,
-  },
-  input: {
-    backgroundColor: CLR_WHITE,
-    borderColor: "#000",
-    borderRadius: 6,
-    elevation: 6,
-  },
   text: {
     fontSize: 14,
   },

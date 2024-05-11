@@ -26,15 +26,13 @@ import drawerStyle from "./styles/drawer";
 import Absentee from "./screens/absentee";
 import AddUser from "./screens/add-user";
 import AddFood from "./screens/add-food";
-import Signin from "./screens/singin";
+import Signin from "./screens/login";
 import { Image } from "react-native";
 import Posts from "./screens/posts";
 import Foods from "./screens/foods";
 import Post from "./screens/post";
 import Cart from "./screens/cart";
 import axios from "axios";
-import AddOffers from "./screens/offers/add-offers";
-import ShowOffers from "./screens/offers/show-offers";
 
 export const Drawer = createDrawerNavigator();
 
@@ -95,7 +93,7 @@ export default function Routes() {
           name="critics"
           component={AddCritics}
           options={{
-            title: "ارسال گزارشات",
+            title: "ارسال گزارشات و ایده",
             drawerIcon: () => (
               <Image
                 source={require("./assets/icons/mail.png")}
@@ -105,7 +103,7 @@ export default function Routes() {
           }}
         />
       )}
-      {!isManager && (
+      {/* {!isManager && (
         <Drawer.Screen
           name="offers"
           component={AddOffers}
@@ -119,7 +117,7 @@ export default function Routes() {
             ),
           }}
         />
-      )}
+      )} */}
       <Drawer.Screen
         name="foods"
         component={Foods}
@@ -161,7 +159,7 @@ export default function Routes() {
           }}
         />
       )}
-      {officeUsers.includes(userId) && (
+      {/* {officeUsers.includes(userId) && (
         <Drawer.Screen
           name="showOffers"
           component={ShowOffers}
@@ -175,7 +173,7 @@ export default function Routes() {
             ),
           }}
         />
-      )}
+      )} */}
       <Drawer.Screen
         name="notification"
         component={Notification}

@@ -6,8 +6,8 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 8,
     width: "100%",
-    minHeight: 60,
-    elevation: 6,
+    minHeight: 55,
+    elevation: 5,
     fontSize: 15,
   },
 });

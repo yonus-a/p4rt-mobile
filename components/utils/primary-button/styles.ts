@@ -6,7 +6,7 @@ export default StyleSheet.create({
     backgroundColor: CLR_PRIMARY,
     borderRadius: 10,
     width: "100%",
-    padding: 20,
+    padding: 15,
   },
   btnText: {
     color: CLR_WHITE,

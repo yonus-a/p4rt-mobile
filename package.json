@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mohamadkh75/react-native-jalali-datepicker": "^1.1.1",
+    "@preact/signals": "^1.2.3",
     "@react-native-picker/picker": "2.6.1",
     "@react-navigation/drawer": "^6.6.7",
     "@react-navigation/native": "^6.1.10",
@@ -67,6 +68,7 @@
     "react-native-use-websocket": "^0.2.6",
     "react-native-virtualized-view": "^1.0.0",
     "react-redux": "^9.1.0",
+    "react-timer-hook": "^3.0.7",
     "rn-fetch-blob": "^0.12.0",
     "socket.io-client": "^4.7.5",
     "typescript": "^5.3.0"
