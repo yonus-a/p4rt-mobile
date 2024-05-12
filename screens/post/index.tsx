@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import QuickPanel from "../../components/overal/quick-panel";
 import { ScrollView } from "react-native-virtualized-view";
 import RenderPost from "../../components/post/render-post";

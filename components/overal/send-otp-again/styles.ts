@@ -7,6 +7,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   timer: {
-    fontSize: 18,
+    fontSize: 17,
+    fontFamily: "Aria",
   },
 });

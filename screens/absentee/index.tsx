@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import AbsenteeFilters from "../../components/absentee/filter-absentee";
 import RenderAbsentee from "../../components/absentee/render-absentee";
 import Container from "../../components/overal/container";

@@ -2,8 +2,8 @@ import { View, BackHandler, ToastAndroid } from "react-native";
 import QuickPanel from "../../components/overal/quick-panel";
 import { requestPermissionsAsync } from "expo-notifications";
 import { Suspense, lazy, useEffect, useState } from "react";
-import Header from "../../components/overal/header/indexx";
 import useVefifyToken from "../../hooks/useVefiryToken";
+import Header from "../../components/overal/header";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
 import { version } from "../../package.json";
@@ -16,9 +16,9 @@ const UserDashboard = lazy(() => import("../../components/user-dashboard"));
 
 export default function Dashborad() {
   const [admin, setAdmin] = useState(false);
-  const userId = useUserId();
-  const [exitApp, setExitApp] = useState(0);
   const [isUpdated, setIsUpdated] = useState(true);
+  const [exitApp, setExitApp] = useState(0);
+  const userId = useUserId();
 
   useVefifyToken();
 
@@ -81,7 +81,7 @@ export default function Dashborad() {
       {userId && (
         <>
           <Header />
-          <Suspense>{admin ? <AdminDashboard /> : <UserDashboard />}</Suspense>
+          <Suspense>{false ? <AdminDashboard /> : <UserDashboard />}</Suspense>
           <QuickPanel />
         </>
       )}

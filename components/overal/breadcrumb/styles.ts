@@ -1,10 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  slider: {
-    flex: 1,
-  },
-  image: {
-    borderRadius: 10,
+  text: {
+    color: "#555",
+    fontSize: 18,
   },
 });

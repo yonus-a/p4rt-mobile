@@ -3,27 +3,11 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   header: {
     width: "100%",
-    backgroundColor: "#23356D",
-    borderBottomStartRadius: 210,
-    borderBottomEndRadius: 210,
-    paddingTop: 45,
-    height: 233,
-  },
-  container: {
+    paddingTop: 20,
+    marginBottom: 20,
     justifyContent: "space-between",
-    marginHorizontal: 30,
-    alignItems: "center",
     flexDirection: "row",
-  },
-  bg: {
-    position: "absolute",
-    height: 150,
-    width: 250,
-    right: 0,
-    top: -10,
-  },
-  menu: {
-    width: 30,
-    height: 30,
+    alignItems: "center",
+    paddingHorizontal: 25,
   },
 });

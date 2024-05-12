@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import QuickPanel from "../../components/overal/quick-panel";
 import Container from "../../components/overal/container";
 import { useEffect, useState } from "react";

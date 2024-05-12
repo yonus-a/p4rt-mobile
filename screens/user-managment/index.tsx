@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import SearchInputs from "../../components/utils/search-input";
 import RenderUser from "../../components/user/render-user";
 import Pagination from "../../components/utils/pagination";

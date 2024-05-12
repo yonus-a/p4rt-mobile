@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import PrimaryButton from "../../../components/utils/primary-button";
 import QuickPanel from "../../../components/overal/quick-panel";
 import Container from "../../../components/overal/container";
@@ -54,7 +54,9 @@ export default function AddCritics() {
         <BreadcrumbHeader />
         <Container style={{ flex: 1 }}>
           <View style={styles.wrapper}>
-            <CustomText style={styles.heading}>ارسال گزارشات به مدیر کل</CustomText>
+            <CustomText style={styles.heading}>
+              ارسال گزارشات به مدیر کل
+            </CustomText>
             <Select
               control={control}
               defaultValue={"0"}

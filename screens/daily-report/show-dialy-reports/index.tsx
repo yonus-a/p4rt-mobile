@@ -1,5 +1,5 @@
 import DailyReportFilters from "../../../components/daily-report/daily-reports-filters";
-import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import RenderReports from "../../../components/daily-report/render-reports";
 import CountReports from "../../../components/daily-report/count-reports";
 import Container from "../../../components/overal/container";

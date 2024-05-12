@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import { View, useWindowDimensions } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import useClear from "../../hooks/useClear";
@@ -13,8 +13,8 @@ export default function SmsPanel() {
   const carouselRef = useRef();
 
   useClear(() => {
-    setUsers([])
-  })
+    setUsers([]);
+  });
 
   return (
     <View style={styles.smsPanel}>

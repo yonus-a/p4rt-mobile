@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import SearchInputs from "../../components/utils/search-input";
 import RenderOrders from "../../components/food/renderOrders";
 import QuickPanel from "../../components/overal/quick-panel";

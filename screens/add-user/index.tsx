@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import PrimaryButton from "../../components/utils/primary-button";
 import AddUserForm from "../../components/user/user-form";
 import Container from "../../components/overal/container";

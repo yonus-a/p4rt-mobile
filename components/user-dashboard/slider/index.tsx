@@ -6,9 +6,9 @@ import { Image } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
-export default function Slider({ style = {} }) {
+export default function Slider() {
   const [data, setData] = useState([]);
-  const width = useWindowDimensions().width - 40;
+  const width = useWindowDimensions().width - 50;
 
   useEffect(() => {
     fetchData(setData);
@@ -18,7 +18,6 @@ export default function Slider({ style = {} }) {
     <View style={styles.slider}>
       <CustomCarousel
         data={data}
-        style={[styles.carousel, style]}
         {...loopOptions(width)}
         renderItem={({ item }) => (
           <View key={item.id}>
@@ -29,7 +28,7 @@ export default function Slider({ style = {} }) {
               width={width}
               height={width / 2}
               resizeMode={"cover"}
-              style={[styles.image]}
+              style={styles.image}
             />
           </View>
         )}

@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import CustomMultiSelect from "../../components/utils/multi-select";
 import PrimaryButton from "../../components/utils/primary-button";
 import FilePicker from "../../components/utils/filePicker";

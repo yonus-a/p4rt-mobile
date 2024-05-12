@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import Container from "../../components/overal/container";
 import ShowPosts from "../../components/post/show-posts";
 import { useEffect, useState } from "react";

@@ -40,7 +40,7 @@ export default function VerifyOTP({ route, navigation }: any) {
           tintColor={CLR_PRIMARY}
           ref={otpInput}
         />
-        <SendOTPAgain />
+        <SendOTPAgain code={code} />
       </View>
       <View style={styles.logoWrapper}>
         <CustomText style={styles.logoText}>سامانه داخلی ستاد پارت</CustomText>

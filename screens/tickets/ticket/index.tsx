@@ -1,4 +1,4 @@
-import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import PrimaryButton from "../../../components/utils/primary-button";
 import Container from "../../../components/overal/container";
 import Input from "../../../components/utils/input";

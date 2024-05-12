@@ -1,5 +1,5 @@
 import RenderOffersItem from "../../../components/offers/render-offers-item";
-import BreadcrumbHeader from "../../../components/overal/breadcrumb-header";
+import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import DeleteHiddenBtn from "../../../components/utils/delete-hidden-btn";
 import QuickPanel from "../../../components/overal/quick-panel";
 import Pagination from "../../../components/utils/pagination";
