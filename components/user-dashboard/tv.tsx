@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from "react";
 import { View, Text, Animated, StyleSheet } from "react-native";
+import React, { useRef, useEffect } from "react";
 
-const 
- = ({ text }) => {
+const TVSubtitle = ({ text }) => {
   const translateX = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

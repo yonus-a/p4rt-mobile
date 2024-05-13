@@ -1,9 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  najva: {
-    width: "100%",
-    objectFit: "scale-down",
-    height: 150,
+  navigate: {
+    alignItems: "center",
+    gap: 3,
   },
 });

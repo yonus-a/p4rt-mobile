@@ -20,6 +20,7 @@ try {
 
 // configs
 import "./axios";
+import Menu from "./components/overal/quick-panel";
 
 export default function App() {
   const [splash, setSplash] = useState(true);
@@ -53,6 +54,7 @@ export default function App() {
         <NavigationContainer>
           <CustomCartProvider>
             <Routes />
+            <Menu />
           </CustomCartProvider>
           <StatusBar style="auto" />
           <Alert />

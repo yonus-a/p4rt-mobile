@@ -1,5 +1,4 @@
 import { View, BackHandler, ToastAndroid } from "react-native";
-import QuickPanel from "../../components/overal/quick-panel";
 import { requestPermissionsAsync } from "expo-notifications";
 import { Suspense, lazy, useEffect, useState } from "react";
 import useVefifyToken from "../../hooks/useVefiryToken";
@@ -82,7 +81,6 @@ export default function Dashborad() {
         <>
           <Header />
           <Suspense>{false ? <AdminDashboard /> : <UserDashboard />}</Suspense>
-          <QuickPanel />
         </>
       )}
     </View>

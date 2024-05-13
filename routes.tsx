@@ -1,7 +1,7 @@
 import ShowDailyReport from "./screens/daily-report/show-dialy-reports";
 import NotificationManagment from "./screens/notification-managment";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import CustomDrawerContent from "./components/overal/menu";
+import CustomDrawerContent from "./components/overal/main-menu";
 import ShowTickets from "./screens/tickets/show-tickets";
 import ShowCritics from "./screens/critics/show-critics";
 import OrderManagment from "./screens/orders-managment";
