@@ -64,7 +64,7 @@ export default function Routes() {
       screenOptions={{
         headerShown: false,
         drawerPosition: "right",
-        sceneContainerStyle: { backgroundColor: CLR_WHITE },
+        sceneContainerStyle: { backgroundColor: "#F2F3F7" },
         drawerLabelStyle: drawerStyle.label,
         drawerItemStyle: drawerStyle.item,
         unmountOnBlur: true,

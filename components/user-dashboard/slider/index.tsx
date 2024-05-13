@@ -15,24 +15,22 @@ export default function Slider() {
   }, []);
 
   return (
-    <View style={styles.slider}>
-      <CustomCarousel
-        data={data}
-        {...loopOptions(width)}
-        renderItem={({ item }) => (
-          <View key={item.id}>
-            <Image
-              source={{
-                uri: `https://p4rt.ir/public/images/slider/${item.image}`,
-              }}
-              width={width}
-              height={width / 2}
-              resizeMode={"cover"}
-              style={styles.image}
-            />
-          </View>
-        )}
-      />
-    </View>
+    <CustomCarousel
+      data={data}
+      {...loopOptions(width)}
+      renderItem={({ item }) => (
+        <View key={item.id}>
+          <Image
+            source={{
+              uri: `https://p4rt.ir/public/images/slider/${item.image}`,
+            }}
+            width={width}
+            height={width / 2}
+            resizeMode={"cover"}
+            style={styles.image}
+          />
+        </View>
+      )}
+    />
   );
 }

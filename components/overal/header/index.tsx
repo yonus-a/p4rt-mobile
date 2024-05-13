@@ -7,9 +7,9 @@ import Search from "../search";
 export default function Header() {
   return (
     <View style={styles.header}>
-      <Profile />
-      <Breadcrumb />
       <Search />
+      <Breadcrumb />
+      <Profile />
     </View>
   );
 }

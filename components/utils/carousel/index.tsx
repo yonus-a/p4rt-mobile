@@ -1,10 +1,9 @@
 import PaginationDot from "react-native-animated-pagination-dot";
 import Carousel from "react-native-reanimated-carousel";
+import { CLR_PRIMARY } from "../../../globalStyles";
 import useClear from "../../../hooks/useClear";
 import React, { useState } from "react";
 import { View } from "react-native";
-import styles from "./styles";
-import { CLR_PRIMARY } from "../../../globalStyles";
 
 export default function CustomCarousel(props) {
   const [index, setIndex] = useState(0);
@@ -14,7 +13,7 @@ export default function CustomCarousel(props) {
   });
 
   return (
-    <View style={styles.carousel}>
+    <View>
       <Carousel
         {...props}
         onProgressChange={(_, absoluteProgress) => {

@@ -12,7 +12,8 @@ import { useFonts } from "expo-font";
 import Routes from "./routes";
 
 try {
-  I18nManager.allowRTL(false);
+  I18nManager.allowRTL(true);
+  I18nManager.forceRTL(true);
 } catch (e) {
   console.log(e);
 }
