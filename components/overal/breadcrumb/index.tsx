@@ -6,8 +6,6 @@ import styles from "./styles";
 export default function Breadcrumb() {
   const route = useRoute();
 
-  console.log(RouteDictionary[route.name]);
-
   return (
     <CustomText style={styles.text}>{RouteDictionary[route.name]}</CustomText>
   );

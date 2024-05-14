@@ -1,5 +1,6 @@
 import { Picker } from "@react-native-picker/picker";
 import { useController } from "react-hook-form";
+import { View } from "react-native";
 import styles from "./styles";
 
 interface Props {
@@ -24,15 +25,17 @@ export default function Select({
   });
 
   return (
-    <Picker
-      selectedValue={field.value}
-      onValueChange={field.onChange}
-      placeholder={placeholder}
-      style={styles.select}
-    >
-      {items.map(({ label, value }: any) => (
-        <Picker.Item key={value} label={label} value={value} />
-      ))}
-    </Picker>
+    <View style={styles.wrapper}>
+      <Picker
+        onValueChange={field.onChange}
+        selectedValue={field.value}
+        placeholder={placeholder}
+        style={styles.select}
+      >
+        {items.map(({ label, value }: any) => (
+          <Picker.Item key={value} label={label} value={value} />
+        ))}
+      </Picker>
+    </View>
   );
 }

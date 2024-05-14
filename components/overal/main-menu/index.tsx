@@ -46,8 +46,8 @@ export default function MainMenu() {
               srouce={require("../../../assets/icons/report.png")}
               iconStyle={styles.icon}
               caption="ارسال گزارش"
-              to="sendReport"
-              alt="report"
+              to="critics"
+              alt="critics"
             />
           </View>
           <View style={styles.row}>

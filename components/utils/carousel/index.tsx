@@ -4,6 +4,7 @@ import { CLR_PRIMARY } from "../../../globalStyles";
 import useClear from "../../../hooks/useClear";
 import React, { useState } from "react";
 import { View } from "react-native";
+import styles from "./styles";
 
 export default function CustomCarousel(props) {
   const [index, setIndex] = useState(0);
@@ -20,7 +21,7 @@ export default function CustomCarousel(props) {
           setIndex(Math.round(absoluteProgress));
         }}
       />
-      <View style={{ alignItems: "center", marginVertical: 7 }}>
+      <View style={styles.dotWrapper}>
         <PaginationDot
           maxPage={props.data.length}
           activeDotColor={CLR_PRIMARY}

@@ -56,7 +56,11 @@ export default function Routes() {
   }, [userId, admin]);
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen
         name="dashboard"
         component={Dashborad}

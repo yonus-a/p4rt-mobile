@@ -1,5 +1,6 @@
 export const RouteDictionary = {
   dashboard: "داشبورد",
+  quran: "قرآن",
   critics: "ارسال گزارشات و ایده",
   foods: "سفارش غذا",
   showOrders: "سفارشات",

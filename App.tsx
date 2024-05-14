@@ -20,6 +20,7 @@ try {
 // configs
 import "./axios";
 import Menu from "./components/overal/quick-panel";
+import Header from "./components/overal/header";
 
 export default function App() {
   const [splash, setSplash] = useState(true);
@@ -50,12 +51,14 @@ export default function App() {
       {splash ? (
         <Splash />
       ) : (
-        <NavigationContainer>
-          <Routes />
-          <Menu />
-          <StatusBar style="auto" />
-          <Alert />
-        </NavigationContainer>
+        <>
+          <NavigationContainer>
+            <Routes />
+            <Menu />
+            <StatusBar style="auto" />
+            <Alert />
+          </NavigationContainer>
+        </>
       )}
     </>
   );
