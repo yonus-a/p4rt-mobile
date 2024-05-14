@@ -1,13 +1,11 @@
 import { View, Image, FlatList, Pressable } from "react-native";
 import { Shadow } from "react-native-shadow-2";
-import useCart from "../../../hooks/useCart";
 import CustomText from "../../utils/text";
 import Counter from "../../utils/counter";
 import { useState } from "react";
 import styles from "./styles";
 
 export default function RenderCartItems({ items }) {
-  const { updateItemQuantity, removeItem } = useCart();
   const [active, setActive] = useState(0);
 
   return (
@@ -22,17 +20,7 @@ export default function RenderCartItems({ items }) {
                   <CustomText style={styles.title}>{item.name}</CustomText>
                   {item.typeId !== 1 && (
                     <View style={styles.price}>
-                      <Counter
-                        onIncrement={() =>
-                          updateItemQuantity(item.id, item.quantity + 1)
-                        }
-                        onDecrement={() =>
-                          updateItemQuantity(item.id, item.quantity - 1)
-                        }
-                        onDelete={() => removeItem(item.id)}
-                        showDelete={item.quantity <= 1}
-                        count={item.quantity}
-                      />
+                     
                       <CustomText>{item.price} ریال</CustomText>
                     </View>
                   )}

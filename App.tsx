@@ -1,4 +1,3 @@
-import CustomCartProvider from "./components/providers/custom-cart-provider";
 import { NavigationContainer } from "@react-navigation/native";
 import BackgroundFetch from "react-native-background-fetch";
 import { NotificationTask } from "./notification-task";
@@ -52,10 +51,8 @@ export default function App() {
         <Splash />
       ) : (
         <NavigationContainer>
-          <CustomCartProvider>
-            <Routes />
-            <Menu />
-          </CustomCartProvider>
+          <Routes />
+          <Menu />
           <StatusBar style="auto" />
           <Alert />
         </NavigationContainer>

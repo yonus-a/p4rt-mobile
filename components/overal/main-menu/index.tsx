@@ -31,9 +31,9 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/active-home.png")}
               iconStyle={styles.icon}
+              alt="dashboard"
+              to="dashboard"
               caption="خانه"
-              alt="home"
-              to="home"
             />
             <NavigateIcon
               srouce={require("../../../assets/icons/active-book.png")}

@@ -71,7 +71,8 @@
     "react-timer-hook": "^3.0.7",
     "rn-fetch-blob": "^0.12.0",
     "socket.io-client": "^4.7.5",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "react-native-webview": "13.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

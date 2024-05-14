@@ -1,27 +1,41 @@
+import { Animated, useWindowDimensions, View } from "react-native";
+import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
 import QuickAccess from "../quick-access";
 import MainMenu from "../main-menu";
-import { View } from "react-native";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./styles";
 
 export default function Menu() {
   const [visible, setVisible] = useState(false);
+  const { height } = useWindowDimensions();
+  const marginTop = useRef(new Animated.Value(0)).current;
+
+  const handlePress = () => {
+    setVisible(!visible);
+  };
+
+  useEffect(() => {
+    Animated.timing(marginTop, {
+      toValue: visible ? -100 : 1,
+      useNativeDriver: false,
+      duration: 500,
+    }).start();
+  }, [visible]);
 
   return (
-    <View style={{ position: "relative" }}>
-      <View
-        style={[
-          styles.quickPanel,
-          {
-            position: "relative",
-            zIndex: 1000,
-            bottom: 0,
-            right: 0,
-            left: 0,
-          },
-        ]}
-      >
+    <View
+      style={
+        visible
+          ? {
+              height,
+              ...styles.backDrop,
+            }
+          : {}
+      }
+    >
+      <QuickAccess visible={visible} handlePress={handlePress} />
+      <View style={styles.quickPanel}>
         <MainMenu />
         <NavigateIcon
           srouce={require("../../../assets/icons/food.png")}
@@ -29,7 +43,14 @@ export default function Menu() {
           alt="order foods"
           to="foods"
         />
-        <QuickAccess visible={visible} setVisible={setVisible} />
+        <Animated.View style={{ marginTop }}>
+          <PressableIcon
+            srouce={require("../../../assets/images/overal/logo.png")}
+            iconStyle={styles.logo}
+            onPress={handlePress}
+            alt="menu"
+          />
+        </Animated.View>
         <NavigateIcon
           srouce={require("../../../assets/icons/send.png")}
           iconStyle={styles.icon}
@@ -39,8 +60,8 @@ export default function Menu() {
         <NavigateIcon
           srouce={require("../../../assets/icons/home.png")}
           iconStyle={styles.icon}
+          to="dashboard"
           alt="home"
-          to="home"
         />
       </View>
     </View>
