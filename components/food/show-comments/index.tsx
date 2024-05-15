@@ -1,8 +1,7 @@
-import { SwipeListView } from "react-native-swipe-list-view";
 import DeleteHiddenBtn from "../../utils/delete-hidden-btn";
+import { FlatList, Image, View } from "react-native";
 import errorAlert from "../../../utils/alert/error";
 import useUserId from "../../../hooks/useUserId";
-import { Image, View } from "react-native";
 import CustomText from "../../utils/text";
 import styles from "./styles";
 import axios from "axios";
@@ -22,27 +21,30 @@ export default function ShowComments({ data }) {
   };
 
   return (
-    <SwipeListView
+    <FlatList
       data={[...data]}
-      contentContainerStyle={{ gap: 10, paddingBottom: 250 }}
-      style={styles.container}
-      leftOpenValue={75}
+      contentContainerStyle={{ gap: 10, paddingBottom: 20 }}
+      style={styles.listWrapper}
       renderItem={({ item }) => {
+        const fullName = item.user?.firstname + " " + item.user?.lastname;
+
         return (
           <View style={styles.item} key={item.id}>
+            <View style={styles.profile}>
+              <Image
+                source={{
+                  uri: `https://p4rt.ir/public/images/users/${item.user?.photo}`,
+                }}
+                style={styles.image}
+              />
+              <CustomText style={styles.name}>{fullName}</CustomText>
+            </View>
             <CustomText style={styles.text}>{item.text}</CustomText>
-            <Image
-              source={{
-                uri: `https://p4rt.ir/public/images/users/${item.user?.photo}`,
-              }}
-              style={styles.image}
-            />
+            {item.user?.id === userId && (
+              <DeleteHiddenBtn onPress={() => handleDelete(item.id)} />
+            )}
           </View>
         );
-      }}
-      renderHiddenItem={({ item }) => {
-        if (item.user?.id !== userId) return null;
-        return <DeleteHiddenBtn onPress={() => handleDelete(item.id)} />;
       }}
     />
   );

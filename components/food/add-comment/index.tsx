@@ -7,7 +7,7 @@ import addComment from "./addComment";
 import { View } from "react-native";
 import styles from "./styles";
 
-export default function AddComment({ foodId, closeDialog }) {
+export default function AddComment({ foodId, onSubmited }) {
   const { control, handleSubmit } = useForm();
   const navigation: any = useNavigation();
 
@@ -18,7 +18,7 @@ export default function AddComment({ foodId, closeDialog }) {
         foodId,
       });
 
-      closeDialog();
+      onSubmited();
       navigation.setParams({ updater: {} });
     } catch (e) {
       await errorAlert();

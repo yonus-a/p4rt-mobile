@@ -16,26 +16,6 @@ export default function FoodImage({ source, foodId, liked, likes }) {
   const [isLiked, setIsLiked] = useState(liked);
   const userId = useUserId();
 
-  useClear(() => {
-    setCommentVisible(false);
-    setCountLikes(likes);
-    setIsLiked(liked);
-  });
-
-  const handleLike = async () => {
-    try {
-      await axios.post("/food/addFoodLike", {
-        foodId,
-        userId,
-      });
-
-      setIsLiked(!isLiked);
-      setCountLikes(isLiked ? countLikes - 1 : countLikes + 1);
-    } catch (e) {
-      await errorAlert();
-    }
-  };
-
   return (
     <View style={styles.imageFood}>
       <Modal visible={commentVisible} transparent animationType="slide">
@@ -44,10 +24,10 @@ export default function FoodImage({ source, foodId, liked, likes }) {
             onPress={() => setCommentVisible(false)}
             style={styles.closeBtn}
           />
-          <AddComment
+          {/* <AddComment
             foodId={foodId}
             closeDialog={() => setCommentVisible(false)}
-          />
+          /> */}
         </View>
       </Modal>
       <CommentBtn
@@ -55,12 +35,6 @@ export default function FoodImage({ source, foodId, liked, likes }) {
         style={styles.commentBtn}
       />
       <Image source={source} width={200} height={200} style={styles.image} />
-      <LikeBtn
-        active={isLiked}
-        count={countLikes}
-        onPress={handleLike}
-        style={styles.likeBtn}
-      />
     </View>
   );
 }

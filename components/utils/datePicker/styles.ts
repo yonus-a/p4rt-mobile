@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  datepicker: {},
   dateInput: {
     padding: 10,
     backgroundColor: "#eee",

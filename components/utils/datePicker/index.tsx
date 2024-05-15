@@ -39,9 +39,9 @@ export default function DatePicker({
   };
 
   return (
-    <View style={[styles.datepicker]}>
+    <View>
       <Pressable onPress={toggleModal} style={[styles.dateInput, style]}>
-        <CustomText style={{ textAlign: "right" }}>
+        <CustomText style={{ textAlign: "start" }}>
           {date || "تاریخ"}
         </CustomText>
       </Pressable>
