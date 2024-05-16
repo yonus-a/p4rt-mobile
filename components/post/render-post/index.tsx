@@ -1,5 +1,5 @@
 import { View, Image, useWindowDimensions } from "react-native";
-import globalStyles from "../../../globalStyles";
+import globalStyles from "../../../styles/globalStyles";
 import { Video, ResizeMode } from "expo-av";
 import CustomText from "../../utils/text";
 import PostComment from "../post-comment";

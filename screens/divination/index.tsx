@@ -4,7 +4,7 @@ import Container from "../../components/overal/container";
 import CustomText from "../../components/utils/text";
 import * as SecureStore from "expo-secure-store";
 import { View, ScrollView } from "react-native";
-import globalStyles from "../../globalStyles";
+import globalStyles from "../../styles/globalStyles";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import styles from "./styles";

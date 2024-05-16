@@ -1,6 +1,6 @@
 import PaginationDot from "react-native-animated-pagination-dot";
 import Carousel from "react-native-reanimated-carousel";
-import { CLR_PRIMARY } from "../../../globalStyles";
+import { CLR_PRIMARY } from "../../../styles/globalStyles";
 import useClear from "../../../hooks/useClear";
 import React, { useState } from "react";
 import { View } from "react-native";

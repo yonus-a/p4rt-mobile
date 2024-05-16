@@ -1,5 +1,5 @@
 import PressableIcon from "../../utils/pressable-icon";
-import { CLR_BACKDROP } from "../../../globalStyles";
+import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import { useEffect, useRef } from "react";
 import { Animated, Easing } from "react-native";
 import Modal from "react-native-modal";

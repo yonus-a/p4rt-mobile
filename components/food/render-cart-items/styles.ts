@@ -1,4 +1,4 @@
-import { CLR_PRIMARY, CLR_WHITE } from "../../../globalStyles";
+import { CLR_PRIMARY, CLR_WHITE } from "../../../styles/globalStyles";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({

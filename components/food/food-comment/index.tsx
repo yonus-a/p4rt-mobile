@@ -1,5 +1,6 @@
 import PressableIcon from "../../utils/pressable-icon";
 import Container from "../../overal/container";
+import CloseBtn from "../../utils/close-btn";
 import ShowComments from "../show-comments";
 import AddComment from "../add-comment";
 import Modal from "react-native-modal";
@@ -27,6 +28,7 @@ export default function FoodComment({ comments, foodId }) {
         onBackdropPress={handlePress}
       >
         <Container>
+          <CloseBtn onPress={handlePress} style={styles.close}/>
           <ShowComments data={comments} />
           <AddComment foodId={foodId} onSubmited={handlePress} />
         </Container>

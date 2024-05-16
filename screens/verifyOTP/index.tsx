@@ -1,5 +1,5 @@
 import SendOTPAgain from "../../components/overal/send-otp-again";
-import { CLR_PRIMARY, CLR_WHITE } from "../../globalStyles";
+import { CLR_PRIMARY, CLR_WHITE } from "../../styles/globalStyles";
 import { startOtpListener } from "react-native-otp-verify";
 import CustomText from "../../components/utils/text";
 import OTPTextView from "react-native-otp-textinput";

@@ -24,7 +24,6 @@ export default function ShowComments({ data }) {
     <FlatList
       data={[...data]}
       contentContainerStyle={{ gap: 10, paddingBottom: 20 }}
-      style={styles.listWrapper}
       renderItem={({ item }) => {
         const fullName = item.user?.firstname + " " + item.user?.lastname;
 
@@ -38,11 +37,11 @@ export default function ShowComments({ data }) {
                 style={styles.image}
               />
               <CustomText style={styles.name}>{fullName}</CustomText>
+              {item.user?.id === userId && (
+                <DeleteHiddenBtn onPress={() => handleDelete(item.id)} />
+              )}
             </View>
-            <CustomText style={styles.text}>{item.text}</CustomText>
-            {item.user?.id === userId && (
-              <DeleteHiddenBtn onPress={() => handleDelete(item.id)} />
-            )}
+            <CustomText style={styles.text}>{item.text.trim()}</CustomText>
           </View>
         );
       }}

@@ -31,8 +31,8 @@ export default function AddComment({ foodId, onSubmited }) {
         multiline
         numberOfLines={5}
         control={control}
-        name="text"
         placeholder="نظر خود را وارد کنید..."
+        name="text"
       />
       <PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
     </View>

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { CLR_WHITE } from "../globalStyles";
+import { CLR_WHITE } from "./globalStyles";
 
 export default StyleSheet.create({
   table: {

@@ -5,6 +5,7 @@ import ShowTickets from "./screens/tickets/show-tickets";
 import ShowCritics from "./screens/critics/show-critics";
 import OrderManagment from "./screens/orders-managment";
 import AddCritics from "./screens/critics/add-critics";
+import { CLR_BACKGROUND } from "./styles/globalStyles";
 import FoodManagment from "./screens/food-managment";
 import AddTicket from "./screens/tickets/add-ticket";
 import UserManagment from "./screens/user-managment";
@@ -24,12 +25,12 @@ import Absentee from "./screens/absentee";
 import AddUser from "./screens/add-user";
 import AddFood from "./screens/add-food";
 import Signin from "./screens/login";
-import Posts from "./screens/posts";
+import Posts from "./screens/_posts";
 import Foods from "./screens/foods";
+import Quran from "./screens/quran";
 import Post from "./screens/post";
 import Cart from "./screens/cart";
 import axios from "axios";
-import Quran from "./screens/quran";
 
 export const Stack = createNativeStackNavigator();
 
@@ -59,6 +60,7 @@ export default function Routes() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        contentStyle: {backgroundColor: CLR_BACKGROUND}
       }}
     >
       <Stack.Screen

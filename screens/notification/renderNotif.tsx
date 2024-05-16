@@ -1,6 +1,6 @@
 import MessageDialog from "../../components/utils/message-dialog";
 import CustomText from "../../components/utils/text";
-import globalStyles from "../../globalStyles";
+import globalStyles from "../../styles/globalStyles";
 import { View, FlatList } from "react-native";
 import styles from "./styles";
 

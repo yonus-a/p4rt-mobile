@@ -8,7 +8,7 @@ import { SwipeListView } from "react-native-swipe-list-view";
 import { useFocusEffect } from "@react-navigation/native";
 import CustomText from "../../../components/utils/text";
 import handleDeleteCritics from "./handleDeleteCritics";
-import globalStyles from "../../../globalStyles";
+import globalStyles from "../../../styles/globalStyles";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import { View } from "react-native";
