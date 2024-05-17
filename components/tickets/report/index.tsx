@@ -1,22 +1,22 @@
+import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import CustomText from "../../utils/text";
 import AddBtn from "../../utils/add-btn";
+import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
-import CustomText from "../../utils/text";
 
-export default function TicketReport({ navigation }) {
-  // const [data, setData] = useState<any>({});
+export default function TicketReport() {
+  const [data, setData] = useState<any>(0);
+  const navigation: any = useNavigation();
 
   useEffect(() => {
-    // fetchData(setData);
-    // return () => setData({});
+    fetchData(setData);
   }, []);
 
   return (
     <View style={styles.ticketReport}>
-      {/* <CustomText style={styles.text}> درخواست های پاسخ داده نشده {data.openTickets}</CustomText> */}
-      <CustomText>تعداد درخواست ها: 1</CustomText>
+      <CustomText>تعداد درخواست ها: {data}</CustomText>
       <AddBtn onPress={() => navigation.navigate("addTicket")} />
     </View>
   );

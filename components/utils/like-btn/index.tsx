@@ -1,4 +1,4 @@
-import { Pressable, Image, View } from "react-native";
+import { Pressable, Image } from "react-native";
 import styles from "./styles";
 import CustomText from "../text";
 
@@ -8,6 +8,7 @@ export default function LikeBtn({ active, count, onPress, style = {} }) {
 
   return (
     <Pressable style={[styles.likeBtn, style]} onPress={onPress}>
+      <CustomText>{count}</CustomText>
       <Image
         source={active ? redHart : garyHart}
         style={styles.image}
@@ -15,7 +16,6 @@ export default function LikeBtn({ active, count, onPress, style = {} }) {
         height={24}
         alt="like"
       />
-      <CustomText style={styles.count}>{count}</CustomText>
     </Pressable>
   );
 }

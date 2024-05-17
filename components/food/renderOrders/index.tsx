@@ -31,11 +31,12 @@ export default function RenderOrders({
       style={styles.renderOrders}
       data={[...data.orders, { pagination: true }]}
       contentContainerStyle={[verticalTable.table, { paddingBottom: 100 }]}
-      renderItem={({ item, index }) => (
+      showsVerticalScrollIndicator={false}
+      renderItem={({ item }) => (
         <React.Fragment key={item.id}>
           {!item.pagination ? (
-            <View style={{ flex: 1, padding: 5 }}>
-              <Row style={index % 2 !== 0 && verticalTable.odd}>
+            <View style={{ flex: 1 }}>
+              <Row>
                 <Wrapper>
                   <Header>نام غذا</Header>
                   <Cell>{item.food?.name}</Cell>

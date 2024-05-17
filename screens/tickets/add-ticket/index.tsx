@@ -1,8 +1,8 @@
-import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import PrimaryButton from "../../../components/utils/primary-button";
 import FilePicker from "../../../components/utils/filePicker";
 import Container from "../../../components/overal/container";
 import Select from "../../../components/utils/select";
+import Header from "../../../components/overal/header";
 import Input from "../../../components/utils/input";
 import { useForm } from "react-hook-form";
 import { View } from "react-native";
@@ -21,7 +21,7 @@ export default function AddTicket() {
 
   return (
     <View style={styles.addTicket}>
-      <BreadcrumbHeader />
+      <Header />
       <Container style={styles.wrapper}>
         <Select
           items={unitOptions}

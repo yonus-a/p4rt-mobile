@@ -1,4 +1,4 @@
-import {  CLR_WHITE } from "../../../styles/globalStyles";
+import { CLR_WHITE } from "../../../styles/globalStyles";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     width: "100%",
     minHeight: 55,
-    elevation: 1,
+    elevation: 3,
     fontSize: 15,
   },
 });

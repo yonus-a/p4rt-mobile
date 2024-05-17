@@ -4,9 +4,9 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   topPosts: {
     backgroundColor: CLR_WHITE,
+    paddingBottom: 10,
     borderRadius: 10,
     width: "100%",
-    paddingBottom: 10,
   },
   flexWrapper: {
     flexDirection: "row",

@@ -6,6 +6,7 @@ import RenderNotifs from "./renderNotif";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
+import Header from "../../components/overal/header";
 
 export default function Notification() {
   const [privateNotifs, setPrivateNotifs] = useState([]);
@@ -26,7 +27,7 @@ export default function Notification() {
 
   return (
     <View style={styles.notification}>
-      <BreadcrumbHeader />
+      <Header />
       <Container>
         <RenderNotifs data={privateNotifs} title={"اعلان خصوصی"} />
         <RenderNotifs data={publicNotifs} title={"اعلان عمومی"} />

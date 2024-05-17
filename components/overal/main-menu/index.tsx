@@ -1,5 +1,6 @@
 import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
+import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import menuStyles from "../quick-panel/styles";
 import Modal from "react-native-modal";
 import { View } from "react-native";
@@ -23,6 +24,7 @@ export default function MainMenu() {
       />
       <Modal
         onBackdropPress={handlePress}
+        backdropColor={CLR_BACKDROP}
         style={styles.modal}
         isVisible={visible}
       >
@@ -55,7 +57,7 @@ export default function MainMenu() {
               srouce={require("../../../assets/icons/posts.png")}
               iconStyle={styles.icon}
               caption="پست ها"
-              to="activePosts"
+              to="posts"
               alt="report"
             />
             <NavigateIcon
@@ -69,7 +71,7 @@ export default function MainMenu() {
               srouce={require("../../../assets/icons/active-send.png")}
               iconStyle={styles.icon}
               caption="درخواست ها"
-              to="sendReport"
+              to="showTickets"
               alt="report"
             />
           </View>

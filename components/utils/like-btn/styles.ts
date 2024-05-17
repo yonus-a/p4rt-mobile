@@ -2,12 +2,10 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   likeBtn: {
-    gap: 3,
+    flexDirection: "row",
     alignItems: "center",
-    flexDirection: "row-reverse",
+    gap: 3,
   },
-
-  count: {},
   image: {
     width: 30,
     height: 30,

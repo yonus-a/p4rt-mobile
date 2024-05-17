@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   renderPost: {
-    alignItems: "flex-end",
     flex: 1,
   },
   mainImage: {
@@ -17,7 +16,7 @@ export default StyleSheet.create({
   },
   info: {
     marginTop: 16,
-    marginBottom: 32,
+    marginBottom: 15,
   },
   content: {
     marginBottom: 20,

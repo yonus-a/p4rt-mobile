@@ -15,22 +15,6 @@ export default function Pagination({
     <View style={[styles.container, style]}>
       <Pressable
         onPress={() => {
-          setPage((p) => (p - 1 < 0 ? p : p - 1));
-        }}
-      >
-        <Image
-          source={require("../../../assets/icons/chevron-left.png")}
-          style={styles.icon}
-          alt="prev"
-        />
-      </Pressable>
-      <PaginationDot
-        activeDotColor={"black"}
-        maxPage={maxPage}
-        curPage={page}
-      />
-      <Pressable
-        onPress={() => {
           setPage((p) => (p + 1 >= maxPage ? p : p + 1));
         }}
       >
@@ -38,6 +22,24 @@ export default function Pagination({
           source={require("../../../assets/icons/chevron-right.png")}
           style={styles.icon}
           alt="next"
+        />
+      </Pressable>
+      <View style={{ transform: [{ rotate: "180deg" }] }}>
+        <PaginationDot
+          activeDotColor={"black"}
+          maxPage={maxPage}
+          curPage={page}
+        />
+      </View>
+      <Pressable
+        onPress={() => {
+          setPage((p) => (p - 1 < 0 ? p : p - 1));
+        }}
+      >
+        <Image
+          source={require("../../../assets/icons/chevron-left.png")}
+          style={styles.icon}
+          alt="prev"
         />
       </Pressable>
     </View>

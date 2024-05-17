@@ -10,6 +10,7 @@ import FoodManagment from "./screens/food-managment";
 import AddTicket from "./screens/tickets/add-ticket";
 import UserManagment from "./screens/user-managment";
 import Notification from "./screens/notification";
+import RenderPosts from "./screens/render-posts";
 import ShowOrders from "./screens/show-orders";
 import errorAlert from "./utils/alert/error";
 import Divination from "./screens/divination";
@@ -25,7 +26,7 @@ import Absentee from "./screens/absentee";
 import AddUser from "./screens/add-user";
 import AddFood from "./screens/add-food";
 import Signin from "./screens/login";
-import Posts from "./screens/_posts";
+import Posts from "./screens/posts";
 import Foods from "./screens/foods";
 import Quran from "./screens/quran";
 import Post from "./screens/post";
@@ -60,7 +61,7 @@ export default function Routes() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        contentStyle: {backgroundColor: CLR_BACKGROUND}
+        contentStyle: { backgroundColor: CLR_BACKGROUND },
       }}
     >
       <Stack.Screen
@@ -73,6 +74,7 @@ export default function Routes() {
       <Stack.Screen name="foods" component={Foods} />
       <Stack.Screen name="quran" component={Quran} />
       <Stack.Screen name="showOrders" component={ShowOrders} />
+      <Stack.Screen name="renderPosts" component={RenderPosts} />
       {isManager && <Stack.Screen name="showCritics" component={ShowCritics} />}
 
       <Stack.Screen name="notification" component={Notification} />

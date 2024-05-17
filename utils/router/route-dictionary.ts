@@ -22,4 +22,5 @@ export const RouteDictionary = {
   foodManagment: "مدیریت غذا ها",
   smsPanel: "پنل پیامکی",
   posts: "پست ها",
+  ticket: "درخواست",
 };

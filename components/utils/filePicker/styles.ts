@@ -5,7 +5,7 @@ export default StyleSheet.create({
   filePicker: {
     backgroundColor: CLR_WHITE,
     borderRadius: 8,
-    elevation: 6,
-    padding: 20,
+    elevation: 3,
+    padding: 15,
   },
 });

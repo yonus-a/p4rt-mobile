@@ -1,6 +1,6 @@
 import { Pressable, Image } from "react-native";
-import styles from "./styles";
 import CustomText from "../text";
+import styles from "./styles";
 
 export default function AddBtn({ onPress, style = {} }) {
   return (

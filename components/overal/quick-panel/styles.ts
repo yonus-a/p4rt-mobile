@@ -10,6 +10,7 @@ export default StyleSheet.create({
     justifyContent: "space-evenly",
     paddingHorizontal: 30,
     position: "absolute",
+    elevation: 10,
     bottom: 0,
     right: 0,
     zIndex: 999,

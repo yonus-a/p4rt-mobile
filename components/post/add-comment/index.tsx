@@ -23,19 +23,14 @@ export default function AddComment({ postId, fetchNewComment }) {
 
   return (
     <View style={styles.addComment}>
-      <Shadow
-        distance={10}
-        style={{ borderRadius: 10, width: "100%" }}
-        startColor="#00000015"
-      >
-        <Input
-          multiline
-          placeholder="نظر خود را وارد کنید"
-          numberOfLines={8}
-          control={control}
-          name="msg"
-        />
-      </Shadow>
+      <Input
+        multiline
+        placeholder="نظر خود را وارد کنید"
+        numberOfLines={8}
+        control={control}
+        name="msg"
+        style={{ elevation: 3 }}
+      />
       <PrimaryButton onPress={handleSubmit(onSubmit)} title="ارسال" />
     </View>
   );

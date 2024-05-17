@@ -8,6 +8,7 @@ import fetchComments from "./fetchComment";
 import fetchPost from "./fetchPost";
 import { View } from "react-native";
 import styles from "./styles";
+import Header from "../../components/overal/header";
 
 export default function Post({ route }) {
   const [fetchNewComment, setFetchNewComment] = useState({});
@@ -25,14 +26,9 @@ export default function Post({ route }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <BreadcrumbHeader />
+      <Header />
       <ScrollView style={styles.post}>
-        <Container
-          style={{
-            paddingBottom: 110,
-            zIndex: 999,
-          }}
-        >
+        <Container style={styles.wrapper}>
           <RenderPost
             post={data.post}
             countAllLike={data.likes}
@@ -42,7 +38,6 @@ export default function Post({ route }) {
           />
         </Container>
       </ScrollView>
-      <QuickPanel />
     </View>
   );
 }

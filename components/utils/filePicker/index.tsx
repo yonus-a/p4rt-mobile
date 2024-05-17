@@ -14,7 +14,7 @@ export default function FilePicker({ setValue, name = "filename" }) {
 
   return (
     <TouchableHighlight style={styles.filePicker} onPress={handlePress}>
-      <CustomText>انتخاب فایل...</CustomText>
+      <CustomText style={{ color: "#bbb" }}>انتخاب فایل...</CustomText>
     </TouchableHighlight>
   );
 }

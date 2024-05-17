@@ -22,4 +22,8 @@ export default StyleSheet.create({
     flexBasis: "100%",
     width: "auto",
   },
+  contentContainer: {
+    gap: 10,
+    paddingBottom: 90,
+  },
 });

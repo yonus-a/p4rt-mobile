@@ -10,7 +10,8 @@ export default function ShowPosts({ data, page, setPage, take }) {
       {data.posts.length ? (
         <FlatList
           data={[...data.posts, { pagination: true }]}
-          contentContainerStyle={{ gap: 10, paddingBottom: 50 }}
+          contentContainerStyle={styles.contentContainer}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => {
             return !item.pagination ? (
               <View style={{ flex: 1, padding: 5 }} key={item.id}>

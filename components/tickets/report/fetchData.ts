@@ -3,11 +3,11 @@ import axios from "axios";
 
 export default async function fetchData(setData) {
   const userId = await SecureStore.getItemAsync("userId");
-  const { data } = await axios("/ticket/report", {
+  const { data } = await axios("/ticket/countUserTicket", {
     params: {
       userId,
     },
   });
-  console.log(data);
+
   setData(data);
 }

@@ -5,6 +5,5 @@ export default StyleSheet.create({
     flex: 1,
     gap: 20,
     width: "100%",
-    marginTop: 30,
   },
 });

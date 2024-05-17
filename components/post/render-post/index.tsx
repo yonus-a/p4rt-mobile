@@ -3,6 +3,7 @@ import globalStyles from "../../../styles/globalStyles";
 import { Video, ResizeMode } from "expo-av";
 import CustomText from "../../utils/text";
 import PostComment from "../post-comment";
+import PostGallary from "../post-gallary";
 import AddComment from "../add-comment";
 import PostLike from "../post-like";
 import styles from "./styles";
@@ -10,7 +11,6 @@ import RenderHtml, {
   HTMLContentModel,
   defaultHTMLElementModels,
 } from "react-native-render-html";
-import PostGallary from "../post-gallary";
 
 const customHTMLElementModels = {
   img: defaultHTMLElementModels.img.extend({
@@ -34,9 +34,10 @@ export default function RenderPost({
   const { width } = useWindowDimensions();
 
   if (!post) return null;
+
   const style: any = {
     p: {
-      fontSize: 18,
+      fontSize: 15,
       display: "flex",
     },
   };

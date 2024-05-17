@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { CLR_WHITE } from "../../../styles/globalStyles";
 
 export default StyleSheet.create({
   chatLine: {
@@ -6,8 +7,8 @@ export default StyleSheet.create({
   },
   attachment: {},
   line: {
-    backgroundColor: "#ddd",
-    borderRadius: 14,
+    backgroundColor: CLR_WHITE,
+    borderRadius: 10,
     borderBottomRightRadius: 0,
     elevation: 3,
     padding: 16,

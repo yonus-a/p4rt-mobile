@@ -1,6 +1,6 @@
-import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import PrimaryButton from "../../../components/utils/primary-button";
 import Container from "../../../components/overal/container";
+import Header from "../../../components/overal/header";
 import Input from "../../../components/utils/input";
 import { FlatList, View } from "react-native";
 import { useEffect, useState } from "react";
@@ -30,7 +30,7 @@ export default function Ticket({ route }) {
 
   return (
     <View style={styles.ticket}>
-      <BreadcrumbHeader />
+      <Header />
       <Container style={{ gap: 20 }}>
         <FlatList
           data={chats}
@@ -42,7 +42,7 @@ export default function Ticket({ route }) {
         <Input
           placeholder="متن خود را وارد کنید..."
           control={control}
-          numberOfLines={8}
+          numberOfLines={7}
           name="message"
           multiline
         />

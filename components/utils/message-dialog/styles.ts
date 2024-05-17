@@ -6,13 +6,15 @@ export default StyleSheet.create({
     flex: 1,
   },
   modalCta: {
-    backgroundColor: "#f4f4f4",
+    backgroundColor: CLR_WHITE,
+    alignItems: "flex-start",
     borderRadius: 10,
-    padding: 20,
     fontSize: 15,
+    padding: 16,
   },
   content: {
-    alignItems: "flex-end",
+    alignItems: "flex-start",
     gap: 15,
+    paddingTop: 20,
   },
 });

@@ -1,8 +1,8 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import SearchInputs from "../../components/utils/search-input";
 import RenderOrders from "../../components/food/renderOrders";
 import QuickPanel from "../../components/overal/quick-panel";
 import Container from "../../components/overal/container";
+import Header from "../../components/overal/header";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
@@ -31,7 +31,7 @@ export default function ShowOrders() {
 
   return (
     <View style={styles.cart}>
-      <BreadcrumbHeader />
+      <Header />
       <Container>
         <SearchInputs setSearch={setSearch} />
         {!!data.orders.length && (
