@@ -1,69 +1,69 @@
-import { DrawerItem, useDrawerStatus } from "@react-navigation/drawer";
-import { useNavigation } from "@react-navigation/native";
-import Collapsible from "react-native-collapsible";
-import drawer from "../../../styles/drawer";
-import { useEffect, useState } from "react";
-import { Image } from "react-native";
+import { CLR_BACKDROP } from "../../../styles/globalStyles";
+import PressableIcon from "../../utils/pressable-icon";
+import NavigateIcon from "../../utils/navigate-icon";
+import menuStyle from "../main-menu/styles";
+import Modal from "react-native-modal";
 import { View } from "react-native";
+import { useState } from "react";
+import styles from "./styles";
 
 export default function AdminMenu() {
-  const [collapsed, setCollapsed] = useState(true);
-  const navigation = useNavigation();
-  const navigate: any = navigation.navigate;
-  const status = useDrawerStatus();
+  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    if (status === "closed") {
-      setCollapsed(true);
-    }
-  }, [status]);
+  const handlePress = () => {
+    setVisible(!visible);
+  };
 
   return (
-    <View style={{ marginTop: -130 }}>
-      <DrawerItem
-        label="مدیریت"
-        onPress={() => setCollapsed(!collapsed)}
-        labelStyle={drawer.label}
-        style={drawer.item}
-        icon={() => (
-          <Image
-            style={drawer.icon}
-            source={require("../../../assets/icons/admin.png")}
-          />
-        )}
+    <View>
+      <PressableIcon
+        srouce={require("../../../assets/icons/active-admin.png")}
+        iconStyle={menuStyle.icon}
+        onPress={handlePress}
+        caption="مدیریت"
+        alt="admin"
       />
-      <Collapsible collapsed={collapsed} style={drawer.submenu}>
-        <DrawerItem
-          label="مدیریت سفارشات"
-          labelStyle={drawer.label}
-          onPress={() => navigate("orderManagment")}
-          style={drawer.item}
-        />
-        <DrawerItem
-          label="مدیریت غذا ها"
-          labelStyle={drawer.label}
-          style={drawer.item}
-          onPress={() => navigate("foodManagment")}
-        />
-        <DrawerItem
-          label="پنل پیامکی"
-          labelStyle={drawer.label}
-          style={drawer.item}
-          onPress={() => navigate("smsPanel")}
-        />
-        <DrawerItem
-          label="مدیریت کاربران"
-          labelStyle={drawer.label}
-          style={drawer.item}
-          onPress={() => navigate("userManagment")}
-        />
-        <DrawerItem
-          label="مدیریت اعلانات"
-          labelStyle={drawer.label}
-          style={drawer.item}
-          onPress={() => navigate("notificationManagment")}
-        />
-      </Collapsible>
+      <Modal
+        onBackdropPress={handlePress}
+        backdropColor={CLR_BACKDROP}
+        style={styles.modal}
+        isVisible={visible}
+      >
+        <View style={styles.content}>
+          <View style={styles.row}>
+            <NavigateIcon
+              srouce={require("../../../assets/icons/food-managment.png")}
+              caption="مدیریت سفارشات"
+              iconStyle={styles.icon}
+              alt="order managment"
+              to="orderManagment"
+            />
+            <NavigateIcon
+              srouce={require("../../../assets/icons/order-managment.png")}
+              caption="مدیریت غذا ها"
+              iconStyle={styles.icon}
+              alt="food managment"
+              to="foodManagment"
+            />
+            <NavigateIcon
+              srouce={require("../../../assets/icons/smspanel.png")}
+              caption="پنل پیامکی"
+              iconStyle={styles.icon}
+              alt="order managment"
+              to="smsPanel"
+            />
+          </View>
+          <View style={styles.row}>
+            <NavigateIcon
+              srouce={require("../../../assets/icons/food-managment.png")}
+              to="notificationManagment"
+              iconStyle={styles.icon}
+              caption="مدیریت اعلانات"
+              alt=""
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }

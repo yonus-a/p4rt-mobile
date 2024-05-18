@@ -1,15 +1,15 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import FitlerOrders from "../../components/orders/filter-orders";
 import RenderOrders from "../../components/orders/render-orders";
 import Container from "../../components/overal/container";
+import Header from "../../components/overal/header";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
 
 const initialData = {
-  orders: [],
   countOrders: 0,
+  orders: [],
 };
 
 export default function OrderManagment() {
@@ -30,13 +30,13 @@ export default function OrderManagment() {
 
   return (
     <View style={styles.ordersManagment}>
-      <BreadcrumbHeader />
-      <Container style={{ gap: 10 }}>
+      <Header />
+      <Container style={styles.wrapper}>
         <FitlerOrders
-          setDate={setDate}
-          setSearch={setSearch}
-          date={date}
           fetchNewData={fetchNewData}
+          setSearch={setSearch}
+          setDate={setDate}
+          date={date}
         />
         {!!data.orders.length && (
           <RenderOrders

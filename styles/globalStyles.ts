@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
-export const CLR_PRIMARY = "#0093FF";
-export const CLR_WHITE = "#ffffff";
 export const CLR_BACKDROP = "rgba(0, 0, 0, 0.23)";
 export const CLR_BACKGROUND = "#F2F3F7";
+export const CLR_PRIMARY = "#0093FF";
+export const CLR_WHITE = "#ffffff";
 export const CLR_GARY = "#eeeeee";
 
 export default StyleSheet.create({

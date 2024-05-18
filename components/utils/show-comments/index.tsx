@@ -1,7 +1,7 @@
-import DeleteHiddenBtn from "../../utils/delete-hidden-btn";
 import useUserId from "../../../hooks/useUserId";
 import { Image, View } from "react-native";
 import CustomText from "../../utils/text";
+import DeleteBtn from "../delete-btn";
 import styles from "./styles";
 
 export default function ShowComments({ comments, handleDelete }) {
@@ -24,7 +24,7 @@ export default function ShowComments({ comments, handleDelete }) {
               />
               <CustomText style={styles.name}>{fullName}</CustomText>
               {item.user?.id === userId && (
-                <DeleteHiddenBtn onPress={() => handleDelete(item.id)} />
+                <DeleteBtn onPress={() => handleDelete(item.id)} style={styles.deleteBtn} />
               )}
             </View>
             <CustomText style={styles.text}>{item.message.trim()}</CustomText>

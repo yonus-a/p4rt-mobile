@@ -10,6 +10,7 @@ import styles from "./styles";
 export default function FitlerOrders({ setDate, setSearch, date, fetchNewData }) {
   return (
     <FilterWrapper>
+      <DatePicker onChange={setDate} />
       <OptionModal>
         <SearchInputs setSearch={setSearch} />
         <View style={styles.btns}>
@@ -19,7 +20,6 @@ export default function FitlerOrders({ setDate, setSearch, date, fetchNewData })
           />
         </View>
       </OptionModal>
-      <DatePicker onChange={setDate} style={{ flex: 1 }} />
     </FilterWrapper>
   );
 }

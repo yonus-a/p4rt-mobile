@@ -1,4 +1,3 @@
-import { useFocusEffect } from "@react-navigation/native";
 import FilterWrapper from "../filter-wrapper";
 import { useEffect, useState } from "react";
 import ShowUserItem from "./show-user-item";

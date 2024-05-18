@@ -34,4 +34,7 @@ export default StyleSheet.create({
   name: {
     fontSize: 12,
   },
+  deleteBtn: {
+    alignSelf:"flex-start"
+  }
 });

@@ -1,7 +1,6 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import { View, useWindowDimensions } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
-import useClear from "../../hooks/useClear";
+import Header from "../../components/overal/header";
 import { useRef, useState } from "react";
 import ScreenOne from "./screen-one";
 import ScreenTow from "./screen-tow";
@@ -12,13 +11,9 @@ export default function SmsPanel() {
   const [users, setUsers] = useState([]);
   const carouselRef = useRef();
 
-  useClear(() => {
-    setUsers([]);
-  });
-
   return (
     <View style={styles.smsPanel}>
-      <BreadcrumbHeader />
+      <Header />
       <Carousel
         loop={false}
         enabled={false}

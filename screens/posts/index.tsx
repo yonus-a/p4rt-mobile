@@ -19,7 +19,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#FEBC04" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#00D6BA" }]}
               >
                 <Image
                   source={require("../../assets/icons/AI.png")}
@@ -35,7 +35,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#FE612C" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#FEBC04" }]}
               >
                 <Image
                   source={require("../../assets/icons/book.png")}
@@ -51,7 +51,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#46B5FD" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#FE612C" }]}
               >
                 <Image
                   source={require("../../assets/icons/podcast.png")}
@@ -67,7 +67,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#7E84FF" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#46B5FD" }]}
               >
                 <Image
                   source={require("../../assets/icons/dress.png")}
@@ -83,7 +83,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#36D16C" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#7E84FF" }]}
               >
                 <Image
                   source={require("../../assets/icons/psychology.png")}
@@ -99,7 +99,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#556EFE" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#36D16C" }]}
               >
                 <Image
                   source={require("../../assets/icons/education.png")}
@@ -117,7 +117,7 @@ export default function Posts() {
               style={styles.navigate}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#47B6FE" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#556EFE" }]}
               >
                 <Image
                   source={require("../../assets/icons/white-left-chevron.png")}

@@ -5,7 +5,7 @@ import orderStatus from "../../../utils/food/orderStatus";
 import CustomTimeAgo from "../../utils/time-ago";
 import useUserId from "../../../hooks/useUserId";
 import Pagination from "../../utils/pagination";
-import CloseBtn from "../../utils/close-btn";
+import ExistBtn from "../../utils/exit-btn";
 import handleConfirm from "./handleConfirm";
 import DoneBtn from "../../utils/done-btn";
 import handleReject from "./handleReject";
@@ -24,6 +24,7 @@ export default function RenderOrders({
     <FlatList
       data={[...data.orders, { pagination: true }]}
       contentContainerStyle={verticalTable.table}
+      showsVerticalScrollIndicator={false} 
       renderItem={({ item }) => {
         const fullName = item.user?.firstname + " " + item.user?.lastname;
 
@@ -80,7 +81,7 @@ export default function RenderOrders({
                         handleConfirm(item.id, userId, fetchNewData)
                       }
                     />
-                    <CloseBtn
+                    <ExistBtn
                       onPress={() =>
                         handleReject(item.id, userId, fetchNewData)
                       }

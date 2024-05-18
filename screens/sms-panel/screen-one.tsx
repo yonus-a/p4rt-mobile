@@ -4,7 +4,7 @@ import Container from "../../components/overal/container";
 
 export default function ScreenOne({ carouselRef, setUsers, users }) {
   return (
-    <Container>
+    <Container >
       <SearchUsers setSelectedUser={setUsers} selectedUser={users} />
       <PrimaryButton
         onPress={() => carouselRef.current.next()}

@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import PrimaryButtonIcon from "../../utils/button-icon";
+import PressableIcon from "../../utils/pressable-icon";
+import quickAccessStyle from "../quick-access/styles";
 import * as SecureStore from "expo-secure-store";
 import axios from "axios";
 
@@ -7,8 +8,6 @@ export default function Logout() {
   const navigation: any = useNavigation();
 
   const handlePress = async (e) => {
-    e.stopPropagation();
-
     try {
       const token = await SecureStore.getItemAsync("_token");
       await SecureStore.deleteItemAsync("_token");
@@ -21,12 +20,11 @@ export default function Logout() {
   };
 
   return (
-    <PrimaryButtonIcon
-      source={require("../../../assets/icons/off.png")}
+    <PressableIcon
+      srouce={require("../../../assets/icons/circle-off.png")}
+      iconStyle={quickAccessStyle.icon}
       onPress={handlePress}
-      height={30}
-      width={30}
-      alt="off"
+      alt="logout"
     />
   );
 }

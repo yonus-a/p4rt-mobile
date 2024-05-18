@@ -1,9 +1,10 @@
+import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import PrimaryButtonIcon from "../button-icon";
+import Container from "../../overal/container";
 import Modal from "react-native-modal";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
-import useClear from "../../../hooks/useClear";
 
 export default function OptionModal({ children }) {
   const [visible, setVisible] = useState(false);
@@ -11,10 +12,6 @@ export default function OptionModal({ children }) {
   const toggleModal = () => {
     setVisible(!visible);
   };
-
-  useClear(() => {
-    setVisible(false);
-  });
 
   return (
     <View>
@@ -27,10 +24,11 @@ export default function OptionModal({ children }) {
       />
       <Modal
         onBackdropPress={toggleModal}
+        backdropColor={CLR_BACKDROP}
         style={styles.modal}
         isVisible={visible}
       >
-        <View style={styles.wrapper}>{children}</View>
+        <Container style={styles.wrapper}>{children}</Container>
       </Modal>
     </View>
   );

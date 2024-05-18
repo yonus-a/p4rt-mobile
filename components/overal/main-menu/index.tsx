@@ -6,6 +6,7 @@ import Modal from "react-native-modal";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
+import AdminMenu from "../admin-menu";
 
 export default function MainMenu() {
   const [visible, setVisible] = useState(false);
@@ -76,13 +77,7 @@ export default function MainMenu() {
             />
           </View>
           <View style={styles.row}>
-            <NavigateIcon
-              srouce={require("../../../assets/icons/active-admin.png")}
-              iconStyle={styles.icon}
-              caption="مدیریت"
-              to="admin"
-              alt="admin"
-            />
+            <AdminMenu/>
             <NavigateIcon
               srouce={require("../../../assets/icons/active-notification.png")}
               iconStyle={styles.icon}

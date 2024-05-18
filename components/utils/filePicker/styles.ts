@@ -6,6 +6,6 @@ export default StyleSheet.create({
     backgroundColor: CLR_WHITE,
     borderRadius: 8,
     elevation: 3,
-    padding: 15,
+    padding: 18,
   },
 });

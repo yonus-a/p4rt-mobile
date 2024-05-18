@@ -11,6 +11,7 @@ import { View } from "react-native";
 import editFood from "./editFood";
 import { useEffect } from "react";
 import styles from "./styles";
+import Header from "../../components/overal/header";
 
 export default function EditFood({ route, navigation }) {
   const { control, handleSubmit, setValue } = useForm();
@@ -26,7 +27,7 @@ export default function EditFood({ route, navigation }) {
 
   return (
     <View style={styles.addFood}>
-      <BreadcrumbHeader />
+      <Header />
       <Container style={{ gap: 15 }}>
         <Input control={control} name="food.name" placeholder="نام" />
         <Input control={control} name="food.price" placeholder="قیمت" />

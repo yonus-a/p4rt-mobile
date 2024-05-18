@@ -1,10 +1,12 @@
-import PressableIcon from "../../utils/pressable-icon";
 import { CLR_BACKDROP } from "../../../styles/globalStyles";
+import PressableIcon from "../../utils/pressable-icon";
+import NavigateIcon from "../../utils/navigate-icon";
 import { useEffect, useRef } from "react";
-import { Animated, Easing } from "react-native";
+import { Animated } from "react-native";
 import Modal from "react-native-modal";
 import { View } from "react-native";
 import styles from "./styles";
+import Logout from "../logout";
 
 export default function QuickAccess({ visible, handlePress }) {
   const spinValue = useRef(new Animated.Value(0)).current;
@@ -12,7 +14,7 @@ export default function QuickAccess({ visible, handlePress }) {
   useEffect(() => {
     Animated.timing(spinValue, {
       toValue: visible ? 1 : 0,
-      useNativeDriver: true, // To make use of native driver for performance
+      useNativeDriver: true,
       duration: 1000,
     }).start();
   }, [visible]);
@@ -36,12 +38,7 @@ export default function QuickAccess({ visible, handlePress }) {
       <Animated.View
         style={[styles.content, { transform: [{ rotate: spin }] }]}
       >
-        <PressableIcon
-          srouce={require("../../../assets/icons/circle-off.png")}
-          iconStyle={styles.icon}
-          onPress={() => {}}
-          alt="logout"
-        />
+        <Logout />
         <View style={[styles.flexWrapper, { width: "63%" }]}>
           <PressableIcon
             srouce={require("../../../assets/icons/circle-done.png")}

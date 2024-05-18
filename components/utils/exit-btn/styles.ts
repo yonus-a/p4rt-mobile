@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  refahiMenu: {
-    borderTopColor: "#ccc",
-    borderTopWidth: 1,
+  icon: {
+    width: 35,
+    height: 35,
   },
 });
