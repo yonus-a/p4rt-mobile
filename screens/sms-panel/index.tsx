@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import ScreenOne from "./screen-one";
 import ScreenTow from "./screen-tow";
 import styles from "./styles";
+import Menu from "../../components/overal/quick-panel";
 
 export default function SmsPanel() {
   const { width } = useWindowDimensions();
@@ -29,6 +30,7 @@ export default function SmsPanel() {
         width={width}
         ref={carouselRef}
       />
+      <Menu />
     </View>
   );
 }

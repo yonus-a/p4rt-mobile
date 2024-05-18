@@ -17,7 +17,7 @@ export default function DailyReport() {
 
   return (
     <Container style={styles.dailyReport}>
-      <DailyStats data={views} label="" />
+      <DailyStats data={views} label="بازدید" />
       <DailyStats data={visits} label="ورود" />
     </Container>
   );

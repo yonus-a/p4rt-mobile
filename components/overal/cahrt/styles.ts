@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
+import { CLR_WHITE } from "../../../styles/globalStyles";
 
 export default StyleSheet.create({
   chart: {
-    width: "100%",
+    backgroundColor: CLR_WHITE,
     alignItems: "center",
-    shadowColor: "#111",
     borderRadius: 16,
-    elevation: 8,
+    width: "100%",
   },
 });

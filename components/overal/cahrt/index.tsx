@@ -18,7 +18,7 @@ export default function Chart({ data, label = "" }: Props) {
     datasets: [
       {
         data,
-        color: (opacity = 1) => `rgba(32, 50, 112, ${opacity})`,
+        color: (opacity = 1) => `rgba(85, 110, 254, ${opacity})`,
       },
     ],
     legend: [label],
@@ -31,6 +31,7 @@ export default function Chart({ data, label = "" }: Props) {
       width={width - 48}
       style={styles.chart}
       chartConfig={chartConfig}
+      withShadow
       bezier
     />
   );

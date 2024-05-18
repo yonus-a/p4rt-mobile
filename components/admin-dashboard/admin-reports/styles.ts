@@ -6,7 +6,8 @@ export default StyleSheet.create({
   },
   wrapper: {
     flexDirection: "row",
-    justifyContent: "center",
+    flexWrap: "wrap",
+    // justifyContent: "center",
     gap: 20,
   },
 });

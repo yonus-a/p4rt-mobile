@@ -1,17 +1,17 @@
+import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
-import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import menuStyles from "../quick-panel/styles";
 import Modal from "react-native-modal";
+import AdminMenu from "../admin-menu";
 import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
-import AdminMenu from "../admin-menu";
 
 export default function MainMenu() {
   const [visible, setVisible] = useState(false);
 
-  const handlePress = () => {
+  const toggleMainMenu = () => {
     setVisible(!visible);
   };
 
@@ -20,11 +20,11 @@ export default function MainMenu() {
       <PressableIcon
         srouce={require("../../../assets/icons/menu.png")}
         iconStyle={menuStyles.icon}
-        onPress={handlePress}
+        onPress={toggleMainMenu}
         alt="menu"
       />
       <Modal
-        onBackdropPress={handlePress}
+        onBackdropPress={toggleMainMenu}
         backdropColor={CLR_BACKDROP}
         style={styles.modal}
         isVisible={visible}
@@ -34,6 +34,7 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/active-home.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               alt="dashboard"
               to="dashboard"
               caption="خانه"
@@ -41,6 +42,7 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/active-book.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="قرآن"
               alt="quran"
               to="quran"
@@ -48,6 +50,7 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/report.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="ارسال گزارش"
               to="critics"
               alt="critics"
@@ -57,6 +60,7 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/posts.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="پست ها"
               to="posts"
               alt="report"
@@ -64,6 +68,7 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/active-food.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="غذا"
               alt="foods"
               to="foods"
@@ -71,16 +76,18 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/active-send.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="درخواست ها"
               to="showTickets"
               alt="report"
             />
           </View>
           <View style={styles.row}>
-            <AdminMenu/>
+            <AdminMenu toggleMainMenu={toggleMainMenu} />
             <NavigateIcon
               srouce={require("../../../assets/icons/active-notification.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="اعلانات"
               to="notification"
               alt="notification"
@@ -88,6 +95,7 @@ export default function MainMenu() {
             <NavigateIcon
               srouce={require("../../../assets/icons/active-orders.png")}
               iconStyle={styles.icon}
+              onPress={toggleMainMenu}
               caption="سفارشات من"
               to="showOrders"
               alt="orders"

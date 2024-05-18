@@ -1,12 +1,12 @@
 import { CLR_BACKDROP } from "../../../styles/globalStyles";
-import PressableIcon from "../../utils/pressable-icon";
+import AddAbsentee from "../../absentee/add-absentee";
 import NavigateIcon from "../../utils/navigate-icon";
 import { useEffect, useRef } from "react";
 import { Animated } from "react-native";
 import Modal from "react-native-modal";
 import { View } from "react-native";
-import styles from "./styles";
 import Logout from "../logout";
+import styles from "./styles";
 
 export default function QuickAccess({ visible, handlePress }) {
   const spinValue = useRef(new Animated.Value(0)).current;
@@ -38,33 +38,31 @@ export default function QuickAccess({ visible, handlePress }) {
       <Animated.View
         style={[styles.content, { transform: [{ rotate: spin }] }]}
       >
-        <Logout />
+        <AddAbsentee onPress={handlePress} />
         <View style={[styles.flexWrapper, { width: "63%" }]}>
-          <PressableIcon
-            srouce={require("../../../assets/icons/circle-done.png")}
-            iconStyle={styles.icon}
-            onPress={() => {}}
-            alt="done"
-          />
-          <PressableIcon
+          <Logout onPress={handlePress} />
+          <NavigateIcon
             srouce={require("../../../assets/icons/circle-notif.png")}
             iconStyle={styles.icon}
-            onPress={() => {}}
+            onPress={handlePress}
             alt="notification"
+            to="notification"
           />
         </View>
         <View style={[styles.flexWrapper, { width: "93%" }]}>
-          <PressableIcon
+          <NavigateIcon
             srouce={require("../../../assets/icons/circle-search.png")}
             iconStyle={styles.icon}
-            onPress={() => {}}
+            onPress={handlePress}
             alt="search"
+            to="posts"
           />
-          <PressableIcon
+          <NavigateIcon
             srouce={require("../../../assets/icons/circle-question.png")}
             iconStyle={styles.icon}
-            onPress={() => {}}
+            onPress={handlePress}
             alt="divination"
+            to="divination"
           />
         </View>
       </Animated.View>

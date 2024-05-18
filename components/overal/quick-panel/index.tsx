@@ -1,15 +1,15 @@
 import { Animated, useWindowDimensions, View } from "react-native";
 import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
+import { useEffect, useRef, useState } from "react";
 import QuickAccess from "../quick-access";
 import MainMenu from "../main-menu";
-import { useEffect, useRef, useState } from "react";
 import styles from "./styles";
 
 export default function Menu() {
+  const marginTop = useRef(new Animated.Value(0)).current;
   const [visible, setVisible] = useState(false);
   const { height } = useWindowDimensions();
-  const marginTop = useRef(new Animated.Value(0)).current;
 
   const handlePress = () => {
     setVisible(!visible);

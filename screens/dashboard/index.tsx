@@ -3,6 +3,7 @@ import { requestPermissionsAsync } from "expo-notifications";
 import { Suspense, lazy, useEffect, useState } from "react";
 import useVefifyToken from "../../hooks/useVefiryToken";
 import Header from "../../components/overal/header";
+import Menu from "../../components/overal/quick-panel";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
 import { version } from "../../package.json";
@@ -80,7 +81,8 @@ export default function Dashborad() {
       {userId && (
         <>
           <Header />
-          <Suspense>{false ? <AdminDashboard /> : <UserDashboard />}</Suspense>
+          <Suspense>{true ? <AdminDashboard /> : <UserDashboard />}</Suspense>
+          <Menu />
         </>
       )}
     </View>

@@ -1,9 +1,11 @@
+import { CLR_WHITE } from "../../styles/globalStyles";
+
 export const chartConfig = {
-  backgroundColor: "#eee",
-  backgroundGradientFrom: "#f1f1f1",
-  backgroundGradientTo: "#ffffff",
+  backgroundColor: CLR_WHITE,
+  backgroundGradientFrom: CLR_WHITE,
+  backgroundGradientTo: CLR_WHITE,
   color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
   barPercentage: 0.5,
-  strokeWidth: 2,
   decimalPlaces: 0,
+  strokeWidth: 2,
 };

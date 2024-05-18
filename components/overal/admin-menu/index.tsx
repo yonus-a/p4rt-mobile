@@ -7,11 +7,16 @@ import { View } from "react-native";
 import { useState } from "react";
 import styles from "./styles";
 
-export default function AdminMenu() {
+export default function AdminMenu({ toggleMainMenu }) {
   const [visible, setVisible] = useState(false);
 
-  const handlePress = () => {
+  const toggleAdminMenu = () => {
     setVisible(!visible);
+  };
+
+  const toggleBoth = () => {
+    toggleAdminMenu();
+    toggleMainMenu();
   };
 
   return (
@@ -19,12 +24,12 @@ export default function AdminMenu() {
       <PressableIcon
         srouce={require("../../../assets/icons/active-admin.png")}
         iconStyle={menuStyle.icon}
-        onPress={handlePress}
+        onPress={toggleAdminMenu}
         caption="مدیریت"
         alt="admin"
       />
       <Modal
-        onBackdropPress={handlePress}
+        onBackdropPress={toggleAdminMenu}
         backdropColor={CLR_BACKDROP}
         style={styles.modal}
         isVisible={visible}
@@ -37,11 +42,13 @@ export default function AdminMenu() {
               iconStyle={styles.icon}
               alt="order managment"
               to="orderManagment"
+              onPress={toggleBoth}
             />
             <NavigateIcon
               srouce={require("../../../assets/icons/order-managment.png")}
               caption="مدیریت غذا ها"
               iconStyle={styles.icon}
+              onPress={toggleBoth}
               alt="food managment"
               to="foodManagment"
             />
@@ -49,17 +56,35 @@ export default function AdminMenu() {
               srouce={require("../../../assets/icons/smspanel.png")}
               caption="پنل پیامکی"
               iconStyle={styles.icon}
-              alt="order managment"
+              onPress={toggleBoth}
+              alt="sms panel"
               to="smsPanel"
             />
           </View>
           <View style={styles.row}>
             <NavigateIcon
               srouce={require("../../../assets/icons/food-managment.png")}
+              alt="notification managment"
               to="notificationManagment"
-              iconStyle={styles.icon}
               caption="مدیریت اعلانات"
-              alt=""
+              iconStyle={styles.icon}
+              onPress={toggleBoth}
+            />
+            <NavigateIcon
+              srouce={require("../../../assets/icons/ciritics-manager.png")}
+              caption="مدیریت گزارشات"
+              alt="ciritics managment"
+              iconStyle={styles.icon}
+              onPress={toggleBoth}
+              to="showCritics"
+            />
+            <NavigateIcon
+              srouce={require("../../../assets/icons/user-managment.png")}
+              caption="مدیریت کاربران"
+              iconStyle={styles.icon}
+              onPress={toggleBoth}
+              alt="user managment"
+              to="userManagment"
             />
           </View>
         </View>

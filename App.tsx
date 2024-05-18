@@ -53,7 +53,6 @@ export default function App() {
         <>
           <NavigationContainer>
             <Routes />
-            <Menu />
             <StatusBar style="auto" />
             <Alert />
           </NavigationContainer>

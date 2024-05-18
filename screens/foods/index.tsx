@@ -1,15 +1,14 @@
 import QuickPanel from "../../components/overal/quick-panel";
-import ShowFoods from "../../components/food/food-card";
 import DatePicker from "../../components/utils/datePicker";
 import Container from "../../components/overal/container";
+import FoodCard from "../../components/food/food-card";
 import Header from "../../components/overal/header";
+import { ScrollView, View } from "react-native";
 import fetchDate from "../../fetch/fetchDate";
 import { useEffect, useState } from "react";
 import { addDays } from "date-fns-jalali";
 import fetchData from "./fetchData";
-import { ScrollView, View } from "react-native";
 import styles from "./styles";
-import FoodCard from "../../components/food/food-card";
 
 export default function Foods({ navigation, route }) {
   const [data, setData] = useState([]);
@@ -41,7 +40,7 @@ export default function Foods({ navigation, route }) {
         />
         <ScrollView>
           {data.map((item) => (
-            <FoodCard food={item} />
+            <FoodCard key={item.id} food={item} orderFor={selectedDay} />
           ))}
         </ScrollView>
       </Container>

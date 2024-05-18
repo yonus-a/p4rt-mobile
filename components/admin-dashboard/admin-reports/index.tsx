@@ -26,39 +26,27 @@ export default function AdminReports() {
       <View style={styles.wrapper}>
         <ReportCard
           amount={data.users}
-          color="#FFF5E3"
-          icon={require("../../../assets/icons/employee.png")}
-          iamgeStyle={{ width: 30, height: 30 }}
+          color="#00D6BA"
           desc="تعداد کارکنان"
-          amountColor="#FCE8C5"
           to={"userManagment"}
         />
         <ReportCard
           amount={data.actives}
-          color="#FFEBF6"
-          icon={require("../../../assets/icons/active.png")}
-          iamgeStyle={{ width: 35, height: 35 }}
+          color="#FEBC04"
           desc="کارمندان فعال"
-          amountColor="#FFD7ED"
           to={"userManagment"}
         />
       </View>
       <View style={styles.wrapper}>
         <ReportCard
           amount={data.critics}
-          color="#E4FFFA"
-          icon={require("../../../assets/icons/critics.png")}
-          iamgeStyle={{ width: 35, height: 35 }}
-          amountColor="#C4F6ED"
+          color="#FE612C"
           desc="گزارشات"
           to={critics}
         />
         <ReportCard
           amount={data.tickets}
-          color="#FFE6E4"
-          icon={require("../../../assets/icons/tickets.png")}
-          iamgeStyle={{ width: 29, height: 29 }}
-          amountColor="#FDD9D6"
+          color="#46B5FD"
           desc="درخواست ها"
           to={"showTickets"}
         />

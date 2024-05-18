@@ -1,4 +1,5 @@
 import PrimaryButton from "../../utils/primary-button";
+import { useNavigation } from "@react-navigation/native";
 import useUserId from "../../../hooks/useUserId";
 import { View, Image } from "react-native";
 import FoodComment from "../food-comment";
@@ -6,17 +7,35 @@ import Counter from "../../utils/counter";
 import CustomText from "../../utils/text";
 import Shifts from "../../overal/shifts";
 import FoodLike from "../food-like";
+import addOrder from "./addOrder";
 import { useState } from "react";
 import styles from "./styles";
 
-export default function FoodCard({ food }) {
+export default function FoodCard({ food, orderFor }) {
   const [shift, setShift] = useState(null);
+  const navigation: any = useNavigation();
   const [quantity, setQuantity] = useState(0);
   const userId = useUserId();
 
   const Defaultliked = !!food.food_like.find(
     (item: any) => item.userId === userId
   );
+
+  const handlePress = () => {
+    addOrder(
+      {
+        image: food.image,
+        price: food.price,
+        typeId: food.typeId,
+        orderdFor: orderFor,
+        name: food.name,
+        id: food.id,
+        quantity,
+        shift,
+      },
+      navigation
+    );
+  };
 
   return (
     <View style={styles.foodCard}>
@@ -46,7 +65,11 @@ export default function FoodCard({ food }) {
           setCount={setQuantity}
           count={quantity}
         />
-        <PrimaryButton title={"ثبت"} onPress={() => {}} style={styles.submit} />
+        <PrimaryButton
+          title={"ثبت"}
+          onPress={handlePress}
+          style={styles.submit}
+        />
       </View>
     </View>
   );

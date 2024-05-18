@@ -4,11 +4,12 @@ import quickAccessStyle from "../quick-access/styles";
 import * as SecureStore from "expo-secure-store";
 import axios from "axios";
 
-export default function Logout() {
+export default function Logout({ onPress }) {
   const navigation: any = useNavigation();
 
   const handlePress = async (e) => {
     try {
+      onPress();
       const token = await SecureStore.getItemAsync("_token");
       await SecureStore.deleteItemAsync("_token");
       await SecureStore.deleteItemAsync("userId");

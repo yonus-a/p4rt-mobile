@@ -1,6 +1,5 @@
 import { SceneMap, TabView } from "react-native-tab-view";
 import { useWindowDimensions } from "react-native";
-import useClear from "../../../hooks/useClear";
 import MonthlyReport from "../monthly-report";
 import WeeklyReport from "../weekly-report";
 import DailyReport from "../daily-report";
@@ -23,20 +22,14 @@ export default function ReportTabs() {
     { key: "monthly", title: "ماهیانه" },
   ]);
 
-  useClear(() => {
-    setIndex(0);
-  });
-
   return (
     <TabView
-      sceneContainerStyle={{ backgroundColor: "#fff" }}
       onIndexChange={(idx) => setIndex(idx)}
-      style={{ height: 700, marginTop: 30 }}
       navigationState={{ index, routes }}
       renderScene={renderScene}
       initialLayout={layout}
+      style={{ height: 670 }}
       renderTabBar={Tabbar}
-      swipeEnabled={false}
     />
   );
 }

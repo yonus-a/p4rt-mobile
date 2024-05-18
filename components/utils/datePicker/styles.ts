@@ -10,19 +10,19 @@ export default StyleSheet.create({
     borderRadius: 8,
     color: "#555",
     gap: 10,
-    flex: 1
+    flex: 1,
   },
   calendar: {
     width: 30,
-    height: 30
+    height: 30,
   },
   icon: {
     width: 25,
-    height: 25
+    height: 25,
   },
   flexWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10
-  }
+    gap: 10,
+  },
 });

@@ -1,11 +1,12 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import { View, useWindowDimensions } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
-import { useRef, useState } from "react";
-import ScreenOne from "./screen-one";
-import ScreenTow from "./screen-tow";
-import styles from "./styles";
+import Menu from "../../components/overal/quick-panel";
+import Header from "../../components/overal/header";
 import useClear from "../../hooks/useClear";
+import { useRef, useState } from "react";
+import ScreenTow from "./screen-tow";
+import ScreenOne from "./screen-one";
+import styles from "./styles";
 
 export default function NotificationManagment() {
   const [everyone, setEveryone] = useState(false);
@@ -20,7 +21,7 @@ export default function NotificationManagment() {
 
   return (
     <View style={styles.smsPanel}>
-      <BreadcrumbHeader />
+      <Header />
       <Carousel
         loop={false}
         enabled={false}
@@ -37,6 +38,7 @@ export default function NotificationManagment() {
         width={width}
         ref={carouselRef}
       />
+      <Menu />
     </View>
   );
 }

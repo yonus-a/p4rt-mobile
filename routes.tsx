@@ -30,7 +30,6 @@ import Posts from "./screens/posts";
 import Foods from "./screens/foods";
 import Quran from "./screens/quran";
 import Post from "./screens/post";
-import Cart from "./screens/cart";
 import axios from "axios";
 
 export const Stack = createNativeStackNavigator();
@@ -70,13 +69,11 @@ export default function Routes() {
         initialParams={{ admin }}
       />
       {!isManager && <Stack.Screen name="critics" component={AddCritics} />}
-
       <Stack.Screen name="foods" component={Foods} />
       <Stack.Screen name="quran" component={Quran} />
       <Stack.Screen name="showOrders" component={ShowOrders} />
       <Stack.Screen name="renderPosts" component={RenderPosts} />
       {isManager && <Stack.Screen name="showCritics" component={ShowCritics} />}
-
       <Stack.Screen name="notification" component={Notification} />
       <Stack.Screen name="showTickets" component={ShowTickets} />
       {admin && <Stack.Screen name="absentee" component={Absentee} />}
@@ -98,7 +95,6 @@ export default function Routes() {
       <Stack.Screen name="post" component={Post} />
       <Stack.Screen name="posts" component={Posts} />
       {admin && <Stack.Screen name="addUser" component={AddUser} />}
-      <Stack.Screen name="cart" component={Cart} />
       {admin && <Stack.Screen name="addFood" component={AddFood} />}
       {admin && (
         <Stack.Screen name="orderManagment" component={OrderManagment} />

@@ -40,13 +40,13 @@ export default function DatePicker({
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <View style={styles.flexWrapper}>
         <PressableIcon
           iconStyle={styles.icon}
           srouce={require("../../../assets/icons/chevron-right.png")}
           onPress={() => {}}
-          alt={""}
+          alt={"prev day"}
         />
         <Pressable onPress={toggleModal} style={[styles.dateInput, style]}>
           <Image
@@ -62,10 +62,9 @@ export default function DatePicker({
           iconStyle={styles.icon}
           srouce={require("../../../assets/icons/chevron-left.png")}
           onPress={() => {}}
-          alt={""}
+          alt={"next day"}
         />
       </View>
-
       <Modal isVisible={visible} onBackdropPress={toggleModal}>
         <Calender
           onChange={handleChange}

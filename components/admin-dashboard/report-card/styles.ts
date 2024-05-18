@@ -1,33 +1,29 @@
 import { StyleSheet } from "react-native";
+import { CLR_WHITE } from "../../../styles/globalStyles";
 
 export default StyleSheet.create({
   reportCard: {
+    backgroundColor: CLR_WHITE,
+    borderRadius: 10,
+    width: "47%",
     padding: 15,
-    paddingHorizontal: 20,
-    borderRadius: 16,
-    width: 130,
+    paddingVertical: 20,
   },
   wrapper: {
     flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
     gap: 20,
   },
   desc: {
     fontSize: 13,
-    textAlign: "center",
     marginTop: 16,
+    textAlign: "center",
+    color: CLR_WHITE,
   },
   amount: {
-    borderRadius: 8,
-    marginTop: 16,
-    fontSize: 13,
-    padding: 8,
-    paddingVertical: 4,
-    minWidth: 30,
+    fontFamily: "Aria",
+    fontWeight: "bold",
     textAlign: "center",
-  },
-  image: {
-    objectFit: "cover",
+    color: CLR_WHITE,
+    fontSize: 24,
   },
 });
