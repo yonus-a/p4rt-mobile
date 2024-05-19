@@ -1,61 +1,61 @@
 {
-  "expo": {
-    "name": "p4rt-mobile",
-    "slug": "p4rt-mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "notification": {
-      "icon": "./assets/icons/logo.png",
-      "color": "#fff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.yonus.p4rtmobile"
-    },
-    "android": {
-      "icon": "./assets/icons/logo.png",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+    "expo": {
+      "name": "p4rt-mobile",
+      "slug": "p4rt-mobile",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/icon.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.yonus.p4rtmobile"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-secure-store",
-      "expo-font",
-      [
-        "expo-document-picker",
-        {
-          "iCloudContainerEnvironment": "Production"
-        }
+      "notification": {
+        "icon": "./assets/icons/logo.png",
+        "color": "#fff"
+      },
+      "assetBundlePatterns": [
+        "**/*"
       ],
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/icons/logo.png",
-          "color": "#fff"
-        }
+      "ios": {
+        "supportsTablet": true,
+        "bundleIdentifier": "com.yonus.p4rtmobile"
+      },
+      "android": {
+        "icon": "./assets/icons/logo.png",
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#ffffff"
+        },
+        "package": "com.yonus.p4rtmobile"
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
+      },
+      "plugins": [
+        "expo-secure-store",
+        "expo-font",
+        [
+          "expo-document-picker",
+          {
+            "iCloudContainerEnvironment": "Production"
+          }
+        ],
+        [
+          "expo-notifications",
+          {
+            "icon": "./assets/icons/logo.png",
+            "color": "#fff"
+          }
+        ],
+        "react-native-background-fetch"
       ],
-      "react-native-background-fetch"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "298e868d-5bd2-4a8b-927f-642a2d6e9cbe"
-      }
-    },
-    "owner": "test166"
+      "extra": {
+        "eas": {
+          "projectId": "298e868d-5bd2-4a8b-927f-642a2d6e9cbe"
+        }
+      },
+      "owner": "test166"
+    }
   }
-}

@@ -61,12 +61,14 @@ export default function RenderOrders({
                   <Header>وضعیت</Header>
                   <Cell>{orderStatus[item.status]}</Cell>
                 </Wrapper>
-                <Wrapper>
-                  <Header>عملیات ها</Header>
-                  <Cell>
-                    <CloseBtn onPress={() => handleReject(item.id)} />
-                  </Cell>
-                </Wrapper>
+                {item.status == 1 && (
+                  <Wrapper>
+                    <Header>عملیات ها</Header>
+                    <Cell>
+                      <CloseBtn onPress={() => handleReject(item.id)} />
+                    </Cell>
+                  </Wrapper>
+                )}
               </Row>
             </View>
           ) : (

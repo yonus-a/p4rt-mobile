@@ -1,4 +1,4 @@
-import DatePicker from "@mohamadkh75/react-native-jalali-datepicker";
+import DatePicker from "../custom-calender/src";
 import { View } from "react-native";
 import styles from "./styles";
 

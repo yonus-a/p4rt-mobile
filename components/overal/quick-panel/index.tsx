@@ -55,7 +55,7 @@ export default function Menu() {
           srouce={require("../../../assets/icons/send.png")}
           iconStyle={styles.icon}
           alt="send ciritics"
-          to="ciritics"
+          to="critics"
         />
         <NavigateIcon
           srouce={require("../../../assets/icons/home.png")}

@@ -4,6 +4,9 @@ export default StyleSheet.create({
   root: {
     flex: 1,
   },
+  wrapper: {
+    marginBottom: 100
+  },
   poem: {
     fontSize: 17,
   },

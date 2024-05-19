@@ -22,7 +22,7 @@ export default StyleSheet.create({
   },
   wrapper: {
     justifyContent: "space-between",
-    flexDirection: "row-reverse",
+    flexDirection: "row",
   },
   odd: {
     backgroundColor: "#eee",

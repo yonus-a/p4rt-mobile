@@ -23,6 +23,8 @@ export default StyleSheet.create({
   profile: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
     gap: 10,
   },
   image: {
@@ -35,6 +37,6 @@ export default StyleSheet.create({
     fontSize: 12,
   },
   deleteBtn: {
-    alignSelf:"flex-start"
+    alignSelf:"center",
   }
 });

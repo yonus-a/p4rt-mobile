@@ -1,14 +1,13 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
-import QuickPanel from "../../components/overal/quick-panel";
 import { ScrollView } from "react-native-virtualized-view";
 import RenderPost from "../../components/post/render-post";
 import Container from "../../components/overal/container";
+import Menu from "../../components/overal/quick-panel";
+import Header from "../../components/overal/header";
 import { useEffect, useState } from "react";
 import fetchComments from "./fetchComment";
 import fetchPost from "./fetchPost";
 import { View } from "react-native";
 import styles from "./styles";
-import Header from "../../components/overal/header";
 
 export default function Post({ route }) {
   const [fetchNewComment, setFetchNewComment] = useState({});
@@ -38,6 +37,7 @@ export default function Post({ route }) {
           />
         </Container>
       </ScrollView>
+      <Menu />
     </View>
   );
 }

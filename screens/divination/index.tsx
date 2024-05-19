@@ -1,10 +1,10 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import QuickPanel from "../../components/overal/quick-panel";
 import Container from "../../components/overal/container";
+import globalStyles from "../../styles/globalStyles";
 import CustomText from "../../components/utils/text";
+import Header from "../../components/overal/header";
 import * as SecureStore from "expo-secure-store";
 import { View, ScrollView } from "react-native";
-import globalStyles from "../../styles/globalStyles";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import styles from "./styles";
@@ -19,9 +19,9 @@ export default function Divination() {
 
   return (
     <View style={styles.root}>
-      <BreadcrumbHeader />
+      <Header />
       {data.divination ? (
-        <ScrollView style={{ marginBottom: 80 }}>
+        <ScrollView style={styles.wrapper}>
           <Container>
             <CustomText style={globalStyles.h1}>
               فال امروز شما سرکار خانم/جناب آقای {fullName}

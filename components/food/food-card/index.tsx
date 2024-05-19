@@ -60,11 +60,13 @@ export default function FoodCard({ food, orderFor }) {
           likes={food.food_like.length || 0}
         />
         <FoodComment comments={food.food_comment} foodId={food.id} />
-        <Counter
-          style={styles.counter}
-          setCount={setQuantity}
-          count={quantity}
-        />
+        {food.typeId === 2 && (
+          <Counter
+            style={styles.counter}
+            setCount={setQuantity}
+            count={quantity}
+          />
+        )}
         <PrimaryButton
           title={"ثبت"}
           onPress={handlePress}

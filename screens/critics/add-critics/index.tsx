@@ -1,5 +1,6 @@
 import PrimaryButton from "../../../components/utils/primary-button";
 import Container from "../../../components/overal/container";
+import Menu from "../../../components/overal/quick-panel";
 import CustomText from "../../../components/utils/text";
 import successAlert from "../../../utils/alert/success";
 import Header from "../../../components/overal/header";
@@ -47,30 +48,33 @@ export default function AddCritics() {
   ];
 
   return (
-    <ScrollView style={styles.addCritics}>
+    <View style={{ flex: 1 }}>
       <Header />
-      <Container style={{ flex: 1 }}>
-        <View style={styles.wrapper}>
-          <Select
-            control={control}
-            defaultValue={"0"}
-            items={items}
-            name="name"
-          />
-          <CustomText>
-            درصورتی که نام خود را وارد نکنید پیام شما به صورت ناشناس ارسال خواهد
-            شد
-          </CustomText>
-          <Input
-            placeholder="پیام خود را وارد کنید..."
-            control={control}
-            numberOfLines={5}
-            name="msg"
-            multiline
-          />
-          <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
-        </View>
-      </Container>
-    </ScrollView>
+      <ScrollView style={styles.addCritics}>
+        <Container>
+          <View style={styles.wrapper}>
+            <Select
+              control={control}
+              defaultValue={"0"}
+              items={items}
+              name="name"
+            />
+            <CustomText>
+              درصورتی که نام خود را وارد نکنید پیام شما به صورت ناشناس ارسال
+              خواهد شد
+            </CustomText>
+            <Input
+              placeholder="پیام خود را وارد کنید..."
+              control={control}
+              numberOfLines={5}
+              name="msg"
+              multiline
+            />
+            <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
+          </View>
+        </Container>
+      </ScrollView>
+      <Menu />
+    </View>
   );
 }

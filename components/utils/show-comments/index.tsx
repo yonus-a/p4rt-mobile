@@ -11,20 +11,28 @@ export default function ShowComments({ comments, handleDelete }) {
     <View style={styles.showComments}>
       {comments.map((item) => {
         const fullName = item.user?.firstname + " " + item.user?.lastname;
-        if(!item.message) return null;
+        if (!item.message) return null;
 
         return (
           <View style={styles.item} key={item.id}>
             <View style={styles.profile}>
-              <Image
-                source={{
-                  uri: `https://p4rt.ir/public/images/users/${item.user?.photo}`,
-                }}
-                style={styles.image}
-              />
-              <CustomText style={styles.name}>{fullName}</CustomText>
+              <View
+                style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
+              >
+                <Image
+                  source={{
+                    uri: `https://p4rt.ir/public/images/users/${item.user?.photo}`,
+                  }}
+                  style={styles.image}
+                />
+                <CustomText style={styles.name}>{fullName}</CustomText>
+              </View>
+
               {item.user?.id === userId && (
-                <DeleteBtn onPress={() => handleDelete(item.id)} style={styles.deleteBtn} />
+                <DeleteBtn
+                  onPress={() => handleDelete(item.id)}
+                  style={styles.deleteBtn}
+                />
               )}
             </View>
             <CustomText style={styles.text}>{item.message.trim()}</CustomText>

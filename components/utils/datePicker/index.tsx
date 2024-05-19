@@ -55,7 +55,7 @@ export default function DatePicker({
             style={styles.calendar}
           />
           <CustomText style={{ textAlign: "center" }}>
-            {date || "تاریخ"}
+            {date || format(defaultDate, "yyyy/MM/dd")}
           </CustomText>
         </Pressable>
         <PressableIcon

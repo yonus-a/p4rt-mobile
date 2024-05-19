@@ -10,9 +10,9 @@ export default StyleSheet.create({
     height: "80%",
     alignSelf: "center",
     backgroundColor: "#fff",
-    borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 10,
+    borderWidth: 1,
     elevation: 4,
   },
 });

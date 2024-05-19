@@ -17,6 +17,6 @@ export default StyleSheet.create({
     left: 0,
   },
   close: {
-    paddingBottom: 20,
+    paddingBottom: 10,
   }
 });
