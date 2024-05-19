@@ -1,6 +1,7 @@
 import Container from "../../components/overal/container";
 import ShowPosts from "../../components/post/show-posts";
 import Header from "../../components/overal/header";
+import Menu from "../../components/overal/quick-panel";
 import { useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import { View } from "react-native";
@@ -30,6 +31,7 @@ export default function RenderPosts({ route }) {
       <Container>
         <ShowPosts data={data} take={take} setPage={setPage} page={page} />
       </Container>
+      <Menu />
     </View>
   );
 }

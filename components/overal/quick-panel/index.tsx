@@ -2,6 +2,7 @@ import { Animated, useWindowDimensions, View } from "react-native";
 import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
 import { useEffect, useRef, useState } from "react";
+import useManager from "../../../hooks/useManager";
 import QuickAccess from "../quick-access";
 import MainMenu from "../main-menu";
 import styles from "./styles";
@@ -10,6 +11,7 @@ export default function Menu() {
   const marginTop = useRef(new Animated.Value(0)).current;
   const [visible, setVisible] = useState(false);
   const { height } = useWindowDimensions();
+  const isManager = useManager();
 
   const handlePress = () => {
     setVisible(!visible);
@@ -53,9 +55,9 @@ export default function Menu() {
         </Animated.View>
         <NavigateIcon
           srouce={require("../../../assets/icons/send.png")}
+          to={isManager ? "showCritics" : "critics"}
           iconStyle={styles.icon}
           alt="send ciritics"
-          to="critics"
         />
         <NavigateIcon
           srouce={require("../../../assets/icons/home.png")}

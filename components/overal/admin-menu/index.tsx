@@ -1,6 +1,7 @@
 import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
+import useManager from "../../../hooks/useManager";
 import menuStyle from "../main-menu/styles";
 import Modal from "react-native-modal";
 import { View } from "react-native";
@@ -9,6 +10,7 @@ import styles from "./styles";
 
 export default function AdminMenu({ toggleMainMenu }) {
   const [visible, setVisible] = useState(false);
+  const isManager = useManager();
 
   const toggleAdminMenu = () => {
     setVisible(!visible);
@@ -70,14 +72,16 @@ export default function AdminMenu({ toggleMainMenu }) {
               iconStyle={styles.icon}
               onPress={toggleBoth}
             />
-            <NavigateIcon
-              srouce={require("../../../assets/icons/ciritics-manager.png")}
-              caption="مدیریت گزارشات"
-              alt="ciritics managment"
-              iconStyle={styles.icon}
-              onPress={toggleBoth}
-              to="showCritics"
-            />
+            {isManager && (
+              <NavigateIcon
+                srouce={require("../../../assets/icons/ciritics-manager.png")}
+                caption="مدیریت گزارشات"
+                alt="ciritics managment"
+                iconStyle={styles.icon}
+                onPress={toggleBoth}
+                to="showCritics"
+              />
+            )}
             <NavigateIcon
               srouce={require("../../../assets/icons/user-managment.png")}
               caption="مدیریت کاربران"

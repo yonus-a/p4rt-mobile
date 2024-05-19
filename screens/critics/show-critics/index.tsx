@@ -1,15 +1,14 @@
 import RenderCriticsItem from "../../../components/critics/render-critics-item";
-import BreadcrumbHeader from "../../../components/overal/breadcrumb";
 import DeleteHiddenBtn from "../../../components/utils/delete-hidden-btn";
-import QuickPanel from "../../../components/overal/quick-panel";
 import Pagination from "../../../components/utils/pagination";
 import Container from "../../../components/overal/container";
 import { SwipeListView } from "react-native-swipe-list-view";
-import { useFocusEffect } from "@react-navigation/native";
 import CustomText from "../../../components/utils/text";
 import handleDeleteCritics from "./handleDeleteCritics";
 import globalStyles from "../../../styles/globalStyles";
-import { useEffect, useState } from "react";
+import Menu from "../../../components/overal/quick-panel";
+import Header from "../../../components/overal/header";
+import { Fragment, useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
@@ -18,6 +17,7 @@ export default function ShowCritics() {
   const take = 20;
   const [page, setPage] = useState(0);
   const [critics, setCritics] = useState<any>({
+    count: 0,
     data: [],
   });
 
@@ -27,29 +27,29 @@ export default function ShowCritics() {
 
   return (
     <View style={styles.showCritics}>
-      <BreadcrumbHeader />
+      <Header />
       <Container>
         {!!critics.data.length ? (
           <SwipeListView
             leftOpenValue={75}
+            style={styles.wrapper}
             contentContainerStyle={styles.container}
             data={[...critics.data, { pagination: true }]}
             renderItem={({ item }) => {
               return (
-                <>
+                <Fragment key={item.id}>
                   {!item.pagination ? (
-                    <RenderCriticsItem item={item} key={item.id} />
+                    <RenderCriticsItem item={item} />
                   ) : (
                     <Pagination
-                      page={page}
+                      countItems={critics.count}
+                      style={{ marginTop: 20 }}
                       setPage={setPage}
-                      style={{ marginTop: 10 }}
-                      key={item.id}
-                      countItems={10}
+                      page={page}
                       take={take}
                     />
                   )}
-                </>
+                </Fragment>
               );
             }}
             renderHiddenItem={({ item }: any) => {
@@ -57,6 +57,7 @@ export default function ShowCritics() {
 
               return (
                 <DeleteHiddenBtn
+                  key={item.id}
                   onPress={async () =>
                     await handleDeleteCritics(item.id, setCritics, critics)
                   }
@@ -68,7 +69,7 @@ export default function ShowCritics() {
           <CustomText style={globalStyles.h1}>صفحه گزارشات خالی است</CustomText>
         )}
       </Container>
-      <QuickPanel />
+      <Menu />
     </View>
   );
 }

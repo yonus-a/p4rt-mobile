@@ -1,6 +1,6 @@
+import { add, format, getDate, setDate } from "date-fns-jalali";
 import { Pressable, Image } from "react-native";
 import useClear from "../../../hooks/useClear";
-import { add, format } from "date-fns-jalali";
 import PressableIcon from "../pressable-icon";
 import Modal from "react-native-modal";
 import { View } from "react-native";
@@ -11,12 +11,14 @@ import CustomText from "../text";
 import styles from "./styles";
 
 export default function DatePicker({
+  setSelectedDay = (date) => {},
   defaultDate = new Date(),
+  containerStyle = {},
   style = {},
   onChange,
 }) {
   const [visible, setVisible] = useState(false);
-  const [date, setDate] = useState(null);
+  const [date, setTDate] = useState(null);
 
   const toggleModal = () => {
     setVisible(!visible);
@@ -24,7 +26,7 @@ export default function DatePicker({
 
   useClear(() => {
     setVisible(false);
-    setDate(null);
+    setTDate(null);
   });
 
   const handleChange = (date) => {
@@ -36,16 +38,24 @@ export default function DatePicker({
 
     onChange(addHoursToDate);
     toggleModal();
-    setDate(date);
+    setTDate(date);
+  };
+
+  const handlePrevDay = () => {
+    setSelectedDay(setDate(defaultDate, getDate(defaultDate) - 1));
+  };
+
+  const handleNextDay = () => {
+    setSelectedDay(setDate(defaultDate, getDate(defaultDate) + 1));
   };
 
   return (
-    <View>
+    <View style={containerStyle}>
       <View style={styles.flexWrapper}>
         <PressableIcon
           iconStyle={styles.icon}
           srouce={require("../../../assets/icons/chevron-right.png")}
-          onPress={() => {}}
+          onPress={handleNextDay}
           alt={"prev day"}
         />
         <Pressable onPress={toggleModal} style={[styles.dateInput, style]}>
@@ -61,7 +71,7 @@ export default function DatePicker({
         <PressableIcon
           iconStyle={styles.icon}
           srouce={require("../../../assets/icons/chevron-left.png")}
-          onPress={() => {}}
+          onPress={handlePrevDay}
           alt={"next day"}
         />
       </View>

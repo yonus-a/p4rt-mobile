@@ -6,7 +6,7 @@ import styles from "./styles";
 
 export default function AdminDashboard() {
   return (
-    <ScrollView  showsVerticalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <Container style={styles.wrapper}>
         <AdminReports />
         <ReportTabs />

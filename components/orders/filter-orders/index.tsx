@@ -7,10 +7,15 @@ import OptionModal from "../../utils/options";
 import { View } from "react-native";
 import styles from "./styles";
 
-export default function FitlerOrders({ setDate, setSearch, date, fetchNewData }) {
+export default function FitlerOrders({
+  setDate,
+  setSearch,
+  date,
+  fetchNewData,
+}) {
   return (
     <FilterWrapper>
-      <DatePicker onChange={setDate} />
+      <DatePicker onChange={setDate} containerStyle={{ flex: 1 }} />
       <OptionModal>
         <SearchInputs setSearch={setSearch} />
         <View style={styles.btns}>

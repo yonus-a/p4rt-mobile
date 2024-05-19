@@ -18,7 +18,7 @@ export default function TopPosts() {
     <View style={styles.topPosts}>
       <View style={styles.flexWrapper}>
         <CustomText>پست ها برتر</CustomText>
-        <Navigate to={"#"} style={styles.more}>
+        <Navigate to={"posts"} style={styles.more}>
           <CustomText>همه</CustomText>
           <Image
             source={require("../../../assets/icons/chevron-left.png")}
@@ -35,14 +35,14 @@ export default function TopPosts() {
         height={130}
         style={styles.carousel}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <Navigate style={styles.card} to="post" params={{ id: item.id }}>
             <CustomText style={styles.title}>{item.title}</CustomText>
             <Image
               source={{ uri: `https://p4rt.ir/public/images/${item.image}` }}
               style={styles.image}
               resizeMode="cover"
             />
-          </View>
+          </Navigate>
         )}
         panGestureHandlerProps={{
           activeOffsetX: [-10, 10],

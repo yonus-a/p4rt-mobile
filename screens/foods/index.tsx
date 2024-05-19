@@ -35,6 +35,7 @@ export default function Foods({ navigation, route }) {
       <Container>
         <DatePicker
           onChange={handleDateChange}
+          setSelectedDay={setSelectedDay}
           defaultDate={selectedDay}
           style={styles.datePicker}
         />

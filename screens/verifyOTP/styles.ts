@@ -42,6 +42,7 @@ export default StyleSheet.create({
   },
   inputWrapper: {
     paddingHorizontal: 16,
+    flexDirection: "row-reverse",
   },
   input: {
     backgroundColor: CLR_WHITE,

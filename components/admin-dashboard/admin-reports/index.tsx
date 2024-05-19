@@ -1,4 +1,4 @@
-import useUserId from "../../../hooks/useUserId";
+import useManager from "../../../hooks/useManager";
 import { useEffect, useState } from "react";
 import ReportCard from "../report-card";
 import fetchData from "./fetchData";
@@ -6,9 +6,7 @@ import { View } from "react-native";
 import styles from "./styles";
 
 export default function AdminReports() {
-  const userId = useUserId();
-  const isManager = userId === "4060588326";
-  const critics = isManager ? "showCritics" : "critics";
+  const isManager = useManager();
 
   const [data, setData] = useState<any>({
     users: 0,
@@ -39,10 +37,10 @@ export default function AdminReports() {
       </View>
       <View style={styles.wrapper}>
         <ReportCard
+          to={isManager ? "showCritics" : "critics"}
           amount={data.critics}
           color="#FE612C"
           desc="گزارشات"
-          to={critics}
         />
         <ReportCard
           amount={data.tickets}

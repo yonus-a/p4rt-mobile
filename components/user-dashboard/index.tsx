@@ -15,7 +15,9 @@ export default function UserDashboard() {
         <Ticker />
         <Image
           style={styles.najva}
-          source={require("../../assets/images/overal/najva.png")}
+          source={{
+            uri: "https://p4rt.ir/public/images/najva-app.png",
+          }}
         />
       </Container>
     </ScrollView>

@@ -20,12 +20,13 @@ export default function Ticker() {
       <TextTicker
         style={styles.tickerText}
         easing={Easing.linear}
+        marqueeDelay={1500}
         repeatSpacer={10}
         duration={25000}
-        marqueeDelay={1000}
         bounce
         loop
       >
+        {" "}
         {date.date?.weekday?.name} {date.date?.day?.name}{" "}
         {date.date?.month?.name} {date.date?.year?.number?.fa}
         {" - "}

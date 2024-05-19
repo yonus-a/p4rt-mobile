@@ -11,6 +11,7 @@ import { ScrollView } from "react-native";
 import fetchData from "./fetchData";
 import { View } from "react-native";
 import styles from "./styles";
+import Menu from "../../components/overal/quick-panel";
 
 export default function FoodManagment() {
   const navigation: any = useNavigation();
@@ -28,28 +29,27 @@ export default function FoodManagment() {
   return (
     <View style={styles.wrapper}>
       <Header />
-      <ScrollView>
-        <Container style={{ gap: 20 }}>
-          <SwipeListView
-            renderItem={({ item }: any) => (
-              <RenderFoods food={item} key={item.id} />
-            )}
-            contentContainerStyle={{ gap: 10 }}
-            showsVerticalScrollIndicator={false}
-            leftOpenValue={75}
-            renderHiddenItem={({ item }: any) => {
-              return (
-                <MangmentHiddenItem
-                  onPress={() => handleDelete(item.id, fetchNewData)}
-                  item={item}
-                />
-              );
-            }}
-            data={data}
-          />
-          <AddBtn onPress={() => navigation.navigate("addFood")} />
-        </Container>
-      </ScrollView>
+      <Container style={{ gap: 20, marginBottom: 90 }}>
+        <SwipeListView
+          renderItem={({ item }: any) => (
+            <RenderFoods food={item} key={item.id} />
+          )}
+          contentContainerStyle={{ gap: 10 }}
+          showsVerticalScrollIndicator={false}
+          leftOpenValue={75}
+          renderHiddenItem={({ item }: any) => {
+            return (
+              <MangmentHiddenItem
+                onPress={() => handleDelete(item.id, fetchNewData)}
+                item={item}
+              />
+            );
+          }}
+          data={data}
+        />
+        <AddBtn onPress={() => navigation.navigate("addFood")} />
+      </Container>
+      <Menu />
     </View>
   );
 }

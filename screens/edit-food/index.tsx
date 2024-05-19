@@ -12,6 +12,7 @@ import editFood from "./editFood";
 import { useEffect } from "react";
 import styles from "./styles";
 import Header from "../../components/overal/header";
+import Menu from "../../components/overal/quick-panel";
 
 export default function EditFood({ route, navigation }) {
   const { control, handleSubmit, setValue } = useForm();
@@ -46,6 +47,7 @@ export default function EditFood({ route, navigation }) {
         />
         <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
+      <Menu />
     </View>
   );
 }

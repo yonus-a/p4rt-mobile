@@ -7,7 +7,9 @@ import Header from "../../../components/overal/header";
 import Select from "../../../components/utils/select";
 import errorAlert from "../../../utils/alert/error";
 import Input from "../../../components/utils/input";
+import ShowCiriticsAnswers from "../../../components/critics/show-ciritics-answers";
 import * as SecureStore from "expo-secure-store";
+import useUserId from "../../../hooks/useUserId";
 import { ScrollView, View } from "react-native";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -17,10 +19,11 @@ import axios from "axios";
 export default function AddCritics() {
   const { control, handleSubmit } = useForm();
   const [fullName, setFullName] = useState("");
+  const userId = useUserId();
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("/critics/addCritis", data);
+      await axios.post("/critics/addCritis", { ...data, userId });
       await successAlert({
         msg: "پیام شما با موفقیت ثبت شد",
       });
@@ -72,6 +75,7 @@ export default function AddCritics() {
             />
             <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
           </View>
+          <ShowCiriticsAnswers />
         </Container>
       </ScrollView>
       <Menu />

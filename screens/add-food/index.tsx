@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { View } from "react-native";
 import handleAdd from "./handleAdd";
 import styles from "./styles";
+import Menu from "../../components/overal/quick-panel";
 
 export default function AddFood({ navigation }) {
   const { control, handleSubmit, setValue } = useForm();
@@ -39,6 +40,7 @@ export default function AddFood({ navigation }) {
         />
         <PrimaryButton onPress={handleSubmit(onSubmit)} title="ثبت" />
       </Container>
+      <Menu />
     </View>
   );
 }

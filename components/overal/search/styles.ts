@@ -1,4 +1,4 @@
-import { CLR_WHITE } from "../../../styles/globalStyles";
+import { CLR_BACKGROUND, CLR_WHITE } from "../../../styles/globalStyles";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     height: 45,
   },
   modal: {
-    backgroundColor: CLR_WHITE,
+    backgroundColor: CLR_BACKGROUND,
     justifyContent: "flex-start",
     margin: 0,
   },

@@ -7,6 +7,7 @@ import Menu from "../../components/overal/quick-panel";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
 import { version } from "../../package.json";
+import useAdmin from "../../hooks/useAdmin";
 import Update from "../update";
 import styles from "./styles";
 import axios from "axios";
@@ -15,10 +16,10 @@ const AdminDashboard = lazy(() => import("../../components/admin-dashboard"));
 const UserDashboard = lazy(() => import("../../components/user-dashboard"));
 
 export default function Dashborad() {
-  const [admin, setAdmin] = useState(false);
   const [isUpdated, setIsUpdated] = useState(true);
   const [exitApp, setExitApp] = useState(0);
   const userId = useUserId();
+  const admin = useAdmin();
 
   useVefifyToken();
 
@@ -51,14 +52,6 @@ export default function Dashborad() {
         if (version !== lastVersion) {
           return setIsUpdated(false);
         }
-
-        if (userId) {
-          const { data } = await axios("/role/isAdmin", {
-            params: { userId },
-          });
-
-          setAdmin(data.isAdmin);
-        }
       } catch (e) {
         await errorAlert();
       }
@@ -81,7 +74,7 @@ export default function Dashborad() {
       {userId && (
         <>
           <Header />
-          <Suspense>{true ? <AdminDashboard /> : <UserDashboard />}</Suspense>
+          <Suspense>{admin ? <AdminDashboard /> : <UserDashboard />}</Suspense>
           <Menu />
         </>
       )}

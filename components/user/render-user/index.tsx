@@ -2,12 +2,12 @@ import { Header, Wrapper, Cell, Row } from "../../utils/verticalTable";
 import DeleteBtn from "../../utils/delete-btn";
 import EditLink from "../../utils/edit-link";
 import handleDelete from "./handleDelete";
-import styles from "./styles";
 import { View } from "react-native";
+import styles from "./styles";
 
 export default function RenderUser({ item }) {
   return (
-    <View style={{ padding: 10 }}>
+    <View>
       <Row style={styles.item}>
         <Wrapper>
           <Header>نام</Header>

@@ -1,8 +1,8 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import PrimaryButton from "../../components/utils/primary-button";
 import AddUserForm from "../../components/user/user-form";
 import Container from "../../components/overal/container";
-import { useFocusEffect } from "@react-navigation/native";
+import Header from "../../components/overal/header";
+import Menu from "../../components/overal/quick-panel";
 import { useEffect, useState } from "react";
 import handleAddUser from "./handleAddUser";
 import { useForm } from "react-hook-form";
@@ -12,7 +12,7 @@ import { View } from "react-native";
 import styles from "./styles";
 
 export default function AddUser() {
-  const { control, handleSubmit, setValue, reset } = useForm();
+  const { control, handleSubmit, setValue } = useForm();
   const [positions, setPositions] = useState([]);
   const [units, setUnits] = useState([]);
 
@@ -22,8 +22,8 @@ export default function AddUser() {
 
   return (
     <View style={styles.addUser}>
-      <BreadcrumbHeader />
-      <ScrollView>
+      <Header />
+      <ScrollView style={styles.wrapper}>
         <Container>
           <AddUserForm
             positions={positions}
@@ -31,9 +31,14 @@ export default function AddUser() {
             control={control}
             units={units}
           />
-          <PrimaryButton onPress={handleSubmit(handleAddUser)} title="ثبت" />
+          <PrimaryButton
+            style={styles.submit}
+            onPress={handleSubmit(handleAddUser)}
+            title="ثبت"
+          />
         </Container>
       </ScrollView>
+      <Menu />
     </View>
   );
 }

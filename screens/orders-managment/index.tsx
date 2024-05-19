@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import fetchData from "./fetchData";
 import styles from "./styles";
+import Menu from "../../components/overal/quick-panel";
 
 const initialData = {
   countOrders: 0,
@@ -48,6 +49,7 @@ export default function OrderManagment() {
           />
         )}
       </Container>
+      <Menu />
     </View>
   );
 }

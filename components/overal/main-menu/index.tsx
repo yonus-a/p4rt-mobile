@@ -2,6 +2,7 @@ import { CLR_BACKDROP } from "../../../styles/globalStyles";
 import PressableIcon from "../../utils/pressable-icon";
 import NavigateIcon from "../../utils/navigate-icon";
 import menuStyles from "../quick-panel/styles";
+import useAdmin from "../../../hooks/useAdmin";
 import Modal from "react-native-modal";
 import AdminMenu from "../admin-menu";
 import { View } from "react-native";
@@ -10,6 +11,7 @@ import styles from "./styles";
 
 export default function MainMenu() {
   const [visible, setVisible] = useState(false);
+  const admin = useAdmin();
 
   const toggleMainMenu = () => {
     setVisible(!visible);
@@ -83,7 +85,7 @@ export default function MainMenu() {
             />
           </View>
           <View style={styles.row}>
-            <AdminMenu toggleMainMenu={toggleMainMenu} />
+            {admin && <AdminMenu toggleMainMenu={toggleMainMenu} />}
             <NavigateIcon
               srouce={require("../../../assets/icons/active-notification.png")}
               iconStyle={styles.icon}

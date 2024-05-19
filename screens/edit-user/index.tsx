@@ -1,7 +1,8 @@
-import BreadcrumbHeader from "../../components/overal/breadcrumb";
 import PrimaryButton from "../../components/utils/primary-button";
 import AddUserForm from "../../components/user/user-form";
 import Container from "../../components/overal/container";
+import Header from "../../components/overal/header";
+import Menu from "../../components/overal/quick-panel";
 import handleEditUser from "./handleEditUser";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -11,7 +12,7 @@ import { View } from "react-native";
 import styles from "./styles";
 
 export default function EditUser({ route }) {
-  const { control, handleSubmit, setValue, reset } = useForm();
+  const { control, handleSubmit, setValue } = useForm();
   const [positions, setPositions] = useState([]);
   const [units, setUnits] = useState([]);
   const { id } = route.params;
@@ -22,8 +23,8 @@ export default function EditUser({ route }) {
 
   return (
     <View style={styles.addUser}>
-      <BreadcrumbHeader />
-      <ScrollView>
+      <Header />
+      <ScrollView style={styles.wrapper}>
         <Container>
           <AddUserForm
             positions={positions}
@@ -33,10 +34,12 @@ export default function EditUser({ route }) {
           />
           <PrimaryButton
             onPress={handleSubmit((data) => handleEditUser(id, data))}
+            style={styles.submit}
             title="ثبت"
           />
         </Container>
       </ScrollView>
+      <Menu />
     </View>
   );
 }

@@ -12,49 +12,29 @@ import UserManagment from "./screens/user-managment";
 import Notification from "./screens/notification";
 import RenderPosts from "./screens/render-posts";
 import ShowOrders from "./screens/show-orders";
-import errorAlert from "./utils/alert/error";
 import Divination from "./screens/divination";
 import Ticket from "./screens/tickets/ticket";
+import useManager from "./hooks/useManager";
 import VerifyOTP from "./screens/verifyOTP";
 import Dashborad from "./screens/dashboard";
-import { useEffect, useState } from "react";
 import EditFood from "./screens/edit-food";
 import SmsPanel from "./screens/sms-panel";
 import EditUser from "./screens/edit-user";
-import useUserId from "./hooks/useUserId";
 import Absentee from "./screens/absentee";
 import AddUser from "./screens/add-user";
 import AddFood from "./screens/add-food";
+import useAdmin from "./hooks/useAdmin";
 import Signin from "./screens/login";
 import Posts from "./screens/posts";
 import Foods from "./screens/foods";
 import Quran from "./screens/quran";
 import Post from "./screens/post";
-import axios from "axios";
 
 export const Stack = createNativeStackNavigator();
 
 export default function Routes() {
-  const userId = useUserId();
-  const [admin, setAdmin] = useState(false);
-  const isManager = userId === "4060588326";
-
-  useEffect(() => {
-    (async () => {
-      try {
-        if (userId) {
-          const { data } = await axios("/role/isAdmin", {
-            params: { userId },
-          });
-
-          setAdmin(data.isAdmin);
-        }
-      } catch (e) {
-        console.log(e);
-        await errorAlert();
-      }
-    })();
-  }, [userId, admin]);
+  const isManager = useManager;
+  const admin = useAdmin();
 
   return (
     <Stack.Navigator
@@ -63,12 +43,8 @@ export default function Routes() {
         contentStyle: { backgroundColor: CLR_BACKGROUND },
       }}
     >
-      <Stack.Screen
-        name="dashboard"
-        component={Dashborad}
-        initialParams={{ admin }}
-      />
-      {!isManager && <Stack.Screen name="critics" component={AddCritics} />}
+      <Stack.Screen name="dashboard" component={Dashborad} />
+      <Stack.Screen name="critics" component={AddCritics} />
       <Stack.Screen name="foods" component={Foods} />
       <Stack.Screen name="quran" component={Quran} />
       <Stack.Screen name="showOrders" component={ShowOrders} />

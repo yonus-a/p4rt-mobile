@@ -19,7 +19,6 @@ try {
 
 // configs
 import "./axios";
-import Menu from "./components/overal/quick-panel";
 
 export default function App() {
   const [splash, setSplash] = useState(true);

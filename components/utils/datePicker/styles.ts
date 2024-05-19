@@ -1,9 +1,10 @@
+import { CLR_WHITE } from "../../../styles/globalStyles";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   dateInput: {
     padding: 8,
-    backgroundColor: "#eee",
+    backgroundColor: CLR_WHITE,
     justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",

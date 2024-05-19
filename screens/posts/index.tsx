@@ -4,6 +4,7 @@ import Navigate from "../../components/utils/navigate";
 import CustomText from "../../components/utils/text";
 import Header from "../../components/overal/header";
 import styles from "./styles";
+import Menu from "../../components/overal/quick-panel";
 
 export default function Posts() {
   return (
@@ -248,6 +249,7 @@ export default function Posts() {
           </View>
         </Container>
       </ScrollView>
+      <Menu />
     </View>
   );
 }
