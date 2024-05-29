@@ -2,8 +2,8 @@ import { View, BackHandler, ToastAndroid } from "react-native";
 import { requestPermissionsAsync } from "expo-notifications";
 import { Suspense, lazy, useEffect, useState } from "react";
 import useVefifyToken from "../../hooks/useVefiryToken";
-import Header from "../../components/overal/header";
 import Menu from "../../components/overal/quick-panel";
+import Header from "../../components/overal/header";
 import errorAlert from "../../utils/alert/error";
 import useUserId from "../../hooks/useUserId";
 import { version } from "../../package.json";
@@ -71,7 +71,7 @@ export default function Dashborad() {
 
   return (
     <View style={styles.dashborad}>
-      {userId && (
+      {false && (
         <>
           <Header />
           <Suspense>{admin ? <AdminDashboard /> : <UserDashboard />}</Suspense>

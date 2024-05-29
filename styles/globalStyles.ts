@@ -23,4 +23,9 @@ export default StyleSheet.create({
     marginVertical: 10,
     fontFamily: "IRANSans",
   },
+  hr: {
+    backgroundColor: "#ddd",
+    width: "100%",
+    height: 1,
+  }
 });

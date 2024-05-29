@@ -34,6 +34,7 @@ export default function App() {
 
   const [fontsLoaded] = useFonts({
     IRANSans: require("./assets/fonts/IRANSans.ttf"),
+    Nastaliq: require("./assets/fonts/IranNastaliq.ttf"),
   });
 
   if (!fontsLoaded) {
